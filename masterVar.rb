@@ -17,7 +17,8 @@ require 'yaml'
 
 #mv_file_loc = "masterVar_file_locs.txt"
 mv_file_loc = ARGV[0]
-break "File name with locations of masterVar files expected\n" unless File.file?(mv_file_loc) and File.exists?(mv_file_loc)
+exit "File name with locations of masterVar files expected\n" unless File.file?(mv_file_loc) and File.exists?(mv_file_loc)
+
 
 mv_files = File.open(mv_file_loc, 'r').readlines
 
@@ -56,7 +57,10 @@ mv_files.each do |mv_file|
     if (varType =~ /snp/)
       snp = "#{chrom}-#{locstart}"
       all_snvs[snp] = nil
-      snvs[snp] = 1
+# This is the correct line, if the snp exists set to 1
+#      snvs[snp] = 1
+# This is the TEST LIIN
+       snvs[snp] = rand(2)
     end
 
     samples[sample_name] = snvs
@@ -65,7 +69,7 @@ end
 
 mdrFile = File.open("mdr_data.txt", 'w')
 
-mdrFile.write "\t#{all_snvs.keys.join('\t')}\tClass\n"
+mdrFile.write "Class\t" + all_snvs.keys.join("\t") + "\n"
 
 all_snvs.each_key do |snv|
   samples.each_key do |smpl|
@@ -74,11 +78,13 @@ all_snvs.each_key do |snv|
 end
 
 samples.each_pair do |smpl, snv_list|
-  line = "#{smpl}\t"
+  # None of the MDR algorithms can deal with a column that just names
+  #line = "#{smpl}\t"
+  line = "#{rand(2)}\t"
   all_snvs.each_key do |snv|
     line = line + "#{snv_list[snv]}\t"
   end
-  mdrFile.write "#{line}#{rand(2)}\n"
+  mdrFile.write "#{line}\n"
 end
 
 
