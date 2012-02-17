@@ -54,10 +54,13 @@ mv_files.each do |mv_file|
       next
     end
 
-    (locus, chrom, locstart, locend, varType, seqA, seqB, geneA, geneB) = data.values_at(0, 2, 3, 4, 6, 8, 9, 25, 26)
-
+    (locus, chrom, locstart, locend, vartype, reference, seqA, seqB, vafA, vafB, geneA, geneB) = data.values_at(0, 2, 3, 4, 6, 7, 8, 9, 10, 11, 25, 26)
     # only interested in snps
-    if (varType =~ /snp/)
+    if (vartype =~ /snp/)
+      next if seqA.include?"?" or seqB.include?"?"
+
+      print "#{chrom} #{locstart} #{vartype} #{reference} #{seqA}:#{vafA} #{seqB}:#{vafB}\n"
+
       snp = "#{chrom}-#{locstart}"
       all_snvs[snp] = nil
 # This is the correct line, if the snp exists set to 1
