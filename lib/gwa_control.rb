@@ -46,7 +46,6 @@ class GWAControl
   def total_snps(chr)
     chr = chr.sub("chr", "")
     snps = @disease_loci[chr][1] - @disease_loci[chr][0]
-
   end
 
   def chromosomes

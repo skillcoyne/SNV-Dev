@@ -2,10 +2,10 @@ require 'rubygems'
 require 'yaml'
 require_relative 'lib/gwa_control'
 
-file_type = "moore" # moore or R
+file_type = "R" # moore or R
 
 gwasim_results_dir = ARGV[0]
-file_type = ARGV[1]
+#file_type = ARGV[1]
 
 #gwasim_results_dir = "/home/skillcoyne/tools/GWAsimulator/test2"
 unless gwasim_results_dir && File.exists?(gwasim_results_dir) && File.directory?(gwasim_results_dir)
@@ -34,6 +34,7 @@ Dir.foreach(gwasim_results_dir) do |entry|
   chr = File.basename(dat_file, ".dat")
 
   columns = control.total_snps(chr)
+  puts "Total snps in #{dat_file}: #{columns}\n"
 
   puts dat_file if File.exists?"#{gwasim_results_dir}/#{dat_file}"
 
@@ -45,13 +46,14 @@ Dir.foreach(gwasim_results_dir) do |entry|
   (1..columns+1).each do |c|
     snp_cols.push("#{chr}_SNP#{c}")
   end
+  puts "#{snp_cols.length} vs #{columns}"
 
   snp_cols.push("Class") if file_type.eql?"moore"
   mdr_file.write(snp_cols.join("\s") + "\n")
 
   # output the file for mdr
   case_ctrl = 0
-  puts "Cases: " + control.total_cases.to_s
+  #puts "Cases: " + control.total_cases.to_s
   File.open("#{gwasim_results_dir}/#{dat_file}", 'r').each_line do |line|
     # this is slow, but it ensures that no unecessary columns are added
     lines = line.chomp.split("\s")
@@ -64,6 +66,15 @@ Dir.foreach(gwasim_results_dir) do |entry|
 
     (case_ctrl == 0)? (case_ctrl = 1): (case_ctrl = 0)
   end
+  mdr_file.close
 
+  n = 0
+  File.open(mdr_file, "r").each_line do |l|
+    puts "Reading: " + l.split("\s").length.to_s
+    puts l
+    n += 1
+    break if n > 3
+  end
 
+  break
 end
