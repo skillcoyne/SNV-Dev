@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'fileutils'
 require 'yaml'
 
 $script = "mdrAnalysis.R"
@@ -71,7 +72,7 @@ finalm<-nameModels(fit$'final model')
 fit$'final model'<-finalm
 
 out<-capture.output(summary(fit))
-cat(out,file="#{output_dir}/#{base}.summary.txt", sep="\n", append=F)
+cat(out,file="#{output_dir}/summary.txt", sep="\n", append=TRUE)
   R
   return r_script
 end
@@ -86,6 +87,15 @@ output_dir = ARGV[1]
 
 unless File.directory?(input_dir) and File.exists?(input_dir)
   raise IOError, "#{input_dir} does not exist or is not a directory."
+end
+
+if File.exists?(output_dir)
+  begin # doesn't matter if it fails to remove, it probably wasn't there in the first place
+    eval FileUtils.remove_entry_secure("#{output_dir}")
+    rescue Errno, "#{output_dir} doesn't exist, not removing."
+  end
+
+  FileUtils.mkdir(output_dir)
 end
 
 Dir.mkdir(output_dir) unless File.exists?(output_dir)
