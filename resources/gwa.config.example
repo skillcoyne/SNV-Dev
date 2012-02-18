@@ -7,4 +7,4 @@ chr.output: /<path to chr files>/
 mdr.type: R
 mdr.K: 2
 mdr.max: 50
-mdr.r.dir: /<ouptut path for R files>/
+mdr.analysis.dir: /<ouptut path for R files>/
