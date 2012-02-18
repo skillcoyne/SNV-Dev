@@ -3,13 +3,8 @@ require 'fileutils'
 require 'yaml'
 
 $script = "mdrAnalysis.R"
-
 $config = "resources/gwa.config"
 
-$config = ARGV[0] if ARGV.length > 0
-puts "Using #{$config} config file"
-
-cfg = YAML.load_file($config)
 
 
 # Expected options:
@@ -83,13 +78,17 @@ cat(out,file="#{opts[:output_path]}/summary.txt", sep="\n", append=TRUE)
 end
 
 # Start main
-if ARGV.length < 2
-  raise ArgumentError, "Missing arguments.  Usage: script.rb [input_file_path] [output_file_path] [k] [max]"
-end
+
+$config = ARGV[0] if ARGV.length > 0
+puts "Using #{$config} config file"
+
+cfg = YAML.load_file($config)
+
+
 
 
 input_dir = cfg['chr.output']
-output_dir = cfg['mdr.r.dir']
+output_dir = cfg['mdr.analysis.dir']
 kval = cfg['mdr.K']
 maxSNP = cfg['mdr.max']
 
@@ -106,7 +105,7 @@ if File.exists?(output_dir)
 #  FileUtils.mkdir(output_dir)
 end
 
-Dir.mkdir(output_dir) unless File.exists?(output_dir)
+FileUtils.mkdir_p(output_dir) unless File.exists?(output_dir)
 
 write_scripts(:input_path => input_dir, :output_path => output_dir, :k => kval, :max => maxSNP)
 run_scripts(output_dir)
