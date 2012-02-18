@@ -100,8 +100,7 @@ end
 Dir.mkdir(output_dir) unless File.exists?(output_dir)
 
 write_scripts(:input_path => input_dir, :output_path => output_dir, :k => kval, :max => maxSNP)
-#write_scripts(input_dir, output_dir, kval, maxSNP)
-#run_scripts(output_dir)
+run_scripts(output_dir)
 
 puts "Finished..."
 
