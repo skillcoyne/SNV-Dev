@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'yaml'
-require_relative 'lib/mdr_script'
 
 $script = "mdrAnalysis.R"
 
@@ -26,25 +25,53 @@ def run_scripts(script_path)
     puts "Running #{script_path}/#{entry}"
     cmd = "r --vanilla #{script_path}/#{entry}"
     system(cmd)
-    break
   end
 end
 
 def script_string(input, output_dir)
   base = File.basename(input, ".mdr")
+  # this can be an option at some point but currently larger K takes many times longer to run
+  k=2
+  # more data takes longer to run
+  max=50
   r_script =<<-R
 library(MDR)
 
-file="#{input}"
+nameModels<-function(model)
+  {
+  for(k in 1:length(model))
+    {
+    i=1
+    for(snpI in model[[k]])
+      {
+      model[[k]][i]<-cols[[as.numeric(snpI)]]
+      i<-i+1
+      }
+    }
+  return(model)
+  }
 
-mdr_data<-read.table(file, header=TRUE)
+mdr_data<-read.table("#{input}", header=TRUE)
 
-fit<-mdr.cv(mdr_data[1:15], K=2, cv=5, genotype=c(0,1,2))
+#note if you don't slice the array you need to be aware of
+# an off by 1 error in the nameModels function
+cols<-colnames(mdr_data[2:#{max}])
+fit<-mdr.cv(mdr_data[1:#{max}], K=#{k}, cv=5, genotype=c(0,1,2))
+
+# plotting needs to occur before transforming the model
+# names for the summary data
+plot(fit,data=mdr_data)
+
+# transform models for snp names instead of just numbers
+# this may only matter when not using synthesized data
+topm<-nameModels(fit$'top models')
+fit$'top models'<-topm
+
+finalm<-nameModels(fit$'final model')
+fit$'final model'<-finalm
 
 out<-capture.output(summary(fit))
-cat(out,file="#{output_dir}/#{base}.summary.txt", sep="\\n", append=TRUE)
-
-plot(fit,data=mdr_data)
+cat(out,file="#{output_dir}/#{base}.summary.txt", sep="\n", append=F)
   R
   return r_script
 end
