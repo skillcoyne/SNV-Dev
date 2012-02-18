@@ -9,7 +9,7 @@ class Utils
     day = time.day
     day < 10? (day = "0#{day}"): day
 
-    return "#{time.year}/#{month}/#{day}"
+    return "#{time.year}#{month}#{day}"
   end
 
   def Utils.check_config(gwa_file)
