@@ -12,7 +12,6 @@ file_type = ARGV[1] # moore or R
 file_type = "R" if file_type.nil?
 
 
-#gwasim_results_dir = "/home/skillcoyne/tools/GWAsimulator/test2"
 unless gwasim_results_dir && File.exists?(gwasim_results_dir) && File.directory?(gwasim_results_dir)
   puts "Directory with GWASimulator results required\n"
   exit
