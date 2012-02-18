@@ -2,10 +2,15 @@ require 'rubygems'
 require 'yaml'
 require_relative 'lib/gwa_control'
 
-file_type = "R" # moore or R
+if ARGV.length < 1
+  raise ArgumentError, "Missing arguments.  Usage: script.rb [gwasim_file_path] [file_type (default R)]"
+end
 
 gwasim_results_dir = ARGV[0]
-#file_type = ARGV[1]
+file_type = ARGV[1] # moore or R
+
+file_type = "R" if file_type.nil?
+
 
 #gwasim_results_dir = "/home/skillcoyne/tools/GWAsimulator/test2"
 unless gwasim_results_dir && File.exists?(gwasim_results_dir) && File.directory?(gwasim_results_dir)
@@ -68,6 +73,7 @@ Dir.foreach(gwasim_results_dir) do |entry|
   end
   mdr_file.close
 
+
   n = 0
   File.open(mdr_file, "r").each_line do |l|
     puts "Reading: " + l.split("\s").length.to_s
@@ -76,5 +82,7 @@ Dir.foreach(gwasim_results_dir) do |entry|
     break if n > 3
   end
 
-  break
+
 end
+
+
