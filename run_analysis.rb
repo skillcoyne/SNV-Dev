@@ -23,6 +23,9 @@ def write_scripts(opts = {})
 end
 
 def write_oar_file(opts = {})
+
+  filename = File.basename(opts[:input_file], ".mdr")
+
   oar_script =<<OAR
 #!/bin/bash
 
@@ -37,7 +40,7 @@ cat $OAR_NODEFILE
 kash -M ${OAR_NODEFILE} -- ${PROGNAME} \$TAKTUK_COUNT \$TAKTUK_RANK
 OAR
 
-  File.open("#{opts[:oar]}/oar_launcher.#{opts[:input_file]}.sh", 'w') { |f| f.write(oar_script) }
+  File.open("#{opts[:oar]}/oar_launcher.#{filename}.sh", 'w') { |f| f.write(oar_script) }
 end
 
 def run_scripts(script_path)
