@@ -18,5 +18,13 @@ depending on the configuration) summary files
 example: "ruby run_analysis.rb gwa.config"
 
 example output:
+  Level    Best Models                 Classification Accuracy
+* "1"   "chr1_SNP4"                 "55.73"                   
+  "2"   "chr1_SNP19"   "chr1_SNP31" "61.8"                    
+     Prediction Accuracy    Cross-Validation Consistency
+* "49.91"                "2"                            
+  "38.51"                "1"                            
+ 
+'*' indicates overall best model
 
 4.
