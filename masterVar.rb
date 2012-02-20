@@ -1,9 +1,7 @@
 require 'rubygems'
 require 'yaml'
 
-
-mv_file = "data/masterVarBeta-examples.tsv"
-
+# masterVar file header
 #   0     1       2           3     4   5         6       7         8           9           10                  11
 # >locus	ploidy	chromosome	begin	end	zygosity	varType	reference	allele1Seq	allele2Seq	allele1VarScoreVAF	allele2VarScoreVAF
 #   12                  13                  14                15                16              17              18          19
@@ -17,31 +15,72 @@ mv_file = "data/masterVarBeta-examples.tsv"
 #   42                          43                44                      45              46          47            48
 #   referenceAlleleReadCount-N1	totalReadCount-N1	locusDiffClassification	somaticCategory	somaticRank	somaticScore	somaticQuality
 
-columns = Array.new
-File.open(mv_file, "r").each_line do |line|
+#mv_file_loc = "masterVar_file_locs.txt"
+mv_file_loc = ARGV[0]
+break "File name with locations of masterVar files expected\n" unless File.file?(mv_file_loc) and File.exists?(mv_file_loc)
 
-  line = line.chomp
+mv_files = File.open(mv_file_loc, 'r').readlines
 
-  next if line =~ /^#/
-  data = line.split(/\t/)
-  next if data.size < 12
+samples = Hash.new
+mv_files.each do |f|
+  samples[File.basename(f, File.extname(f))] = Hash.new
+end
 
-  if line =~/^>/
-    columns = data
-    next
+all_snvs = Hash.new
+
+mv_files.each do |mv_file|
+  mv_file = mv_file.chomp
+  puts "Reading #{mv_file}\n"
+
+  sample_name = File.basename(mv_file, File.extname(mv_file))
+
+  columns = Array.new
+  snvs = Hash.new
+  File.open(mv_file, "r").each_line do |line|
+    line = line.chomp
+
+    # skip the header information and make sure you aren't dealing with that one empty line with tabs in it
+    next if line =~ /^#/
+    data = line.split(/\t/)
+    next if data.size < 12
+
+    # column line starts with >
+    if line =~/^>/
+      columns = data
+      next
+    end
+
+    (locus, chrom, locstart, locend, varType, seqA, seqB, geneA, geneB) = data.values_at(0, 2, 3, 4, 6, 8, 9, 25, 26)
+
+    # only interested in snps
+    if (varType =~ /snp/)
+      snp = "#{chrom}-#{locstart}"
+      all_snvs[snp] = nil
+      snvs[snp] = 1
+    end
+
+    samples[sample_name] = snvs
   end
+end
 
-  (locus, chrom, locstart, locend, varType, seqA, seqB, geneA, geneB) = data.values_at(0, 2, 3, 4, 6, 8, 9, 25, 26)
+mdrFile = File.open("mdr_data.txt", 'w')
 
-  if (varType =~ /snp/)
-    puts "#{locus}, #{chrom}, #{locstart}, #{locend}, #{varType}, #{seqA}, #{seqB}, #{geneA}\n"
+mdrFile.write "\t#{all_snvs.keys.join('\t')}\tClass\n"
 
+all_snvs.each_key do |snv|
+  samples.each_key do |smpl|
+    samples[smpl][snv] = 0 unless samples[smpl].has_key?(snv)
   end
+end
 
-
-
+samples.each_pair do |smpl, snv_list|
+  line = "#{smpl}\t"
+  all_snvs.each_key do |snv|
+    line = line + "#{snv_list[snv]}\t"
+  end
+  mdrFile.write "#{line}#{rand(2)}\n"
 end
 
 
 
-
+#puts YAML::dump(samples)
