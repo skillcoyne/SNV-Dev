@@ -17,7 +17,10 @@ require 'yaml'
 
 #mv_file_loc = "masterVar_file_locs.txt"
 mv_file_loc = ARGV[0]
-exit "File name with locations of masterVar files expected\n" unless File.file?(mv_file_loc) and File.exists?(mv_file_loc)
+unless File.file?(mv_file_loc) and File.exists?(mv_file_loc)
+  puts "File name with locations of masterVar files expected\n"
+  exit
+end
 
 
 mv_files = File.open(mv_file_loc, 'r').readlines
@@ -68,8 +71,9 @@ mv_files.each do |mv_file|
 end
 
 mdrFile = File.open("mdr_data.txt", 'w')
-
+mooreFile = File.open("moore_data.txt", 'w')
 mdrFile.write "Class\t" + all_snvs.keys.join("\t") + "\n"
+mooreFile.write all_snvs.keys.join("\t") + "\tClass\n"
 
 all_snvs.each_key do |snv|
   samples.each_key do |smpl|
@@ -77,16 +81,22 @@ all_snvs.each_key do |snv|
   end
 end
 
+classVar = 0
 samples.each_pair do |smpl, snv_list|
   # None of the MDR algorithms can deal with a column that just names
   #line = "#{smpl}\t"
-  line = "#{rand(2)}\t"
+  mooreLine = ""
+  line = "#{classVar}\t"
   all_snvs.each_key do |snv|
     line = line + "#{snv_list[snv]}\t"
+    mooreLine = mooreLine + "#{snv_list[snv]}\t"
   end
   mdrFile.write "#{line}\n"
+  mooreFile.write "#{mooreLine}#{classVar}\n"
+  classVar == 0? (classVar = 1): (classVar = 0)
 end
 
 
 
 #puts YAML::dump(samples)
+
