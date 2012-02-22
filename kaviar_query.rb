@@ -28,9 +28,5 @@ ids = json['identifiers']
 json['sites'].each do |s|
   puts "#{s['rsids'].join(',')}: #{s['position']}: #{s['variants'].keys.join(',')}\n"
 
-  # s['variants'].each_key do |v|
-  #  frequency = s['variants'][v].size
-  #  puts "\t#{v}: #{frequency}\n"
-  # end
 end
 
