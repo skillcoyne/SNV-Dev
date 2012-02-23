@@ -71,8 +71,13 @@ mv_files.each do |mv_file|
 end
 
 mdrFile = File.open("mdr_data.txt", 'w')
+mdrFile.write "\"Class\"\t"
+all_snvs.keys.each do |k|
+  mdrFile.write "\"#{k}\"\t"
+end
+mdrFile.write "\n"
+
 mooreFile = File.open("moore_data.txt", 'w')
-mdrFile.write "Class\t" + all_snvs.keys.join("\t") + "\n"
 mooreFile.write all_snvs.keys.join("\t") + "\tClass\n"
 
 all_snvs.each_key do |snv|
