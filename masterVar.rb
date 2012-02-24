@@ -65,7 +65,7 @@ mv_files.each do |mv_file|
       all_snvs[snp] = nil
 # This is the correct line, if the snp exists set to 1
 #      snvs[snp] = 1
-# This is the TEST LINE
+# This is the TEST LIIN
        snvs[snp] = rand(3)
     end
 
@@ -74,9 +74,9 @@ mv_files.each do |mv_file|
 end
 
 mdrFile = File.open("mdr_data.txt", 'w')
-mdrFile.write "\"Class\"\t"
+mdrFile.write "\"Class\"\s"
 all_snvs.keys.each do |k|
-  mdrFile.write "\"#{k}\"\t"
+  mdrFile.write "\"#{k}\"\s"
 end
 mdrFile.write "\n"
 
@@ -94,9 +94,9 @@ samples.each_pair do |smpl, snv_list|
   # None of the MDR algorithms can deal with a column that just names
   #line = "#{smpl}\t"
   mooreLine = ""
-  line = "#{classVar}\t"
+  line = "#{classVar}\s"
   all_snvs.each_key do |snv|
-    line = line + "#{snv_list[snv]}\t"
+    line = line + "#{snv_list[snv]}\s"
     mooreLine = mooreLine + "#{snv_list[snv]}\t"
   end
   mdrFile.write "#{line}\n"
