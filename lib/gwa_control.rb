@@ -1,5 +1,4 @@
-require 'yaml'
-
+# For parsing the GWASimulator control file
 class GWAControl
   :female
   :male

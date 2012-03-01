@@ -2,6 +2,9 @@ require 'rubygems'
 require 'faraday'
 require 'json'
 require 'yaml'
+require_relative 'Annotation/bio_entity'
+require_relative 'Annotation/gene'
+require_relative 'Annotation/pathway'
 
 class PathwayCommons
   class << self;
@@ -16,7 +19,7 @@ class PathwayCommons
 
     @conn = Faraday.new(:url => @baseURL) do |builder|
       builder.request :url_encoded
-      builder.response :logger
+      #builder.response :logger
       builder.adapter :net_http
     end
   end
@@ -25,38 +28,32 @@ class PathwayCommons
   # Returns:
   #  { GeneSymbol => [ { :id => PathwayCommonsIdentifier, :name => PathwayName } ] }
   def get_pathways_by_genes(geneList = [])
-    geneList.each do |geneSymbol|
-
-      puts "req URL: #{@requestURL}, gene symbol #{geneSymbol}"
-
+    geneToPathways = Hash.new
+    geneList.each do |gene|
       response = @conn.get do |req|
         req.url @requestURL,
                 req.params = {'version' => @version,
                               'cmd' => 'get_pathways',
-                              'q' => "#{geneSymbol}",
-                              'input_id_type' => 'GENE_SYMBOL'}
+                              'q' => gene.id,
+                              'input_id_type' => gene.type.upcase.sub("\s", "_")}
       end
 
       if response
+        pathways = response.body.split(/\n/)
 
-        geneToPathways = Hash.new
-
-        puts YAML::dump response
-        #pathways = response.body.split(/\n/)
-
-        #pathways.each do |pathway|
-        #  pathway = pathway.chomp
-        #  unless pathway =~ /^Database:ID/ || pathway =~ /.*(PHYSICAL_ENTITY_ID_NOT_FOUND|NO_PATHWAY_DATA)/ # no pathway data
-        #    gene, pathName, pathType, pcId = pathway.split(/\s+/)
-        #
-        #    unless geneToPathways.has_key?geneSymbol
-        #      geneToPathways[geneSymbol] = []
-        #    end
-        #    if pcId
-        #      geneToPathways[geneSymbol].push(:id => pcId, :name => pathName)
-        #    end
-        #  end
-        #end
+        pathways.each do |pathway|
+          pathway = pathway.chomp
+          if pathway =~ /^Database:ID/ || pathway =~ /.*(PHYSICAL_ENTITY_ID_NOT_FOUND|NO_PATHWAY_DATA)/ # no pathway data
+            geneToPathways[gene] = Array.new
+          else
+            (entitySymbol, pathName, pathDB, pcId) = pathway.split(/\t/)
+            geneToPathways[gene] = Array.new unless geneToPathways.has_key?(gene)
+            if pcId
+              p = Pathway.new(:id => pcId, :type => "PathwayCommons", :name => pathName, :database => pathDB)
+              geneToPathways[gene].push(p)
+            end
+          end
+        end
       end
     end
     return geneToPathways
@@ -82,9 +79,6 @@ class PathwayCommons
       req.url @requestURL,
               req.params = params
     end
-
-    print YAML::dump response
-
     return response
   end
 
