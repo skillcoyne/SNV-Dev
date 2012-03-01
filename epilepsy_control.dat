@@ -1,0 +1,107 @@
+Illumina300KCEU/chr	_Illu300k.phased
+120	90
+1	genotype
+5
+100	100	100	100
+5	1
+0.05
+2   101507  1   1.0 1.5 101500  102000
+1	8850	1	1.0	1.0	8800	9300
+5	2885	1	1.5	M	2800	3300
+4	9067	1	1.5	M	9000	9500
+12	7607	0	1.5	1.5	7600	8100
+Interactions
+Pair	DL1	DL2	1/1	1/2	2/1	2/2
+Inter2	1	5	1.0	2.0	5.0	5.0
+Inter2	2	3	1.0	2.0	5.0	5.0
+
+
+------------------ KEYS ---------------------------------------------------
+## THIS IS BASED ON CHROMOSOMES KNOWN TO HAVE GENES INVOLVED IN EPILEPSY OR PARKINSONS ##
+## The locations match only to the location within the phase input files, need to look these up ##
+
+PhasedDataPathPrefix  PhasedDataPathAffix   [input filename pre- and affix]
+NUMCHROM  NUMCHROM_X		[#phased autosomes/X]
+NEEDOUTPUT	OUTFORMAT	[1: output data to files, 0: no output]
+WINDOW_SIZE			[simulation window size, default 5]
+Ncasef	Ncasem	Ncontf	Ncontm	[#female, male cases, #female, male controls]
+NumDL	Region			[#disease loci, region/genome (see below)]
+PREV				[disease model prevalence]
+DL1chr	DL1pos	DL1DV	DL1grr	DL1grr2	Start1	End1  [DL1 info (see below)]
+[DiseaseLocus1Chrom]	[Position]	[RelativeRisk1Copy]	[RelativeRisk2Copies OR M=multiplicative effect D=dominance effect]	[Start]	[End]	
+
+DL2chr	DL2pos	DL2DV	DL2grr	DL2grr2	Start2	End2  [DL2 info (see below)]
+DL3chr	DL3pos	DL3DV	DL3grr	DL3grr2	Start3	End3  [DL3 info (see below)]
+(etc.)
+Inter2	DL1	DL2	1/1	1/2	2/1	2/2	[(see below)]
+(etc.)
+
+Notes:
+(1) The input files will be accessed through
+        PhasedDataPathPrefix#PhasedDataPathAffix
+    The # is a single digit for chr 1-9 and two digits for chr 10-23.
+
+(2) If the simulated data are not output to files, the program should
+    be incorporate into an analysis program so that the simulation to
+    analysis is on the fly.
+
+    If the data are output to files, options are:
+    (2a) linkage:  each row is a person, with pedid, indid, fid, mid,
+    sex (1=male, 2=female), status (0=unknown, 1=unaffected, 2=affected),
+    followed by SNP alleles ("1"=allele 0, "2"=allele 1, two alleles
+    per SNP)
+    (2b) genotype:  each row is a person and each column is a SNP, with
+    genotype 0, 1, 2 (#copies of allele 1)
+    (2c) phased:  a person has two rows, each being a chromosome
+
+(3) WINDOW_SIZE is the size of moving window in data generation.  The
+    haplotype at WINDOW_SIZE-1 SNPs is used to simulate the next SNP allele.
+
+(4) If NUMDL=0, then population samples are simulated, with Ncontf
+    females and Ncontm males.
+
+(5) Region and start and end positions:
+
+    If NUMDL>0 and Region=1, then start and end position information
+    is required for all disease locus.
+
+    If NUMDL>0 and Region=0, then start and end position information
+    is not required and is ignored if present.
+
+    If NUMDL=0 (i.e., population sampling), then the region option is
+    not required and is ignored if present.  [To do regional
+    simulations under population sampling, one can create a disease
+    model with all GRRs=1.]
+
+(6) Disease locus position is the position in the phased input file,
+    not the physical position on a chromosome.  For example,
+    DL1pos=2885 means the 2885th SNP of the input file is diseaes
+    locus 1.
+
+    The current version of the program allows one disease variant per
+    chromosome.
+
+    DV is the disease variant (risk allele).
+
+    GRR is the genotypic relative risk of the genotype with one copy
+    of the risk allele versus that with zero copy of the risk allele.
+
+    GRR2 is the genotypic relative risk of the genotype with two copies
+    of the risk allele versus that with zero copy of the risk allele.
+    If the valus is "M" (without quotes), then multiplicative effect
+    is assumed and GRR2 is calculated as GRR*GRR.
+    If the valus is "D" (without quotes), then dominance effect is
+    assumed and GRR2 is calculated as GRR.
+    For recessive effect, specify 1.0 for GRR and a value >1 for GRR2.
+
+    Start and end positions are required for regional case-control
+    simulations.  They are not required and will be ignored for
+    genomic case-control simulations and population sampling.  The
+    start and end positions are positions in the phased input file,
+    not the physical position on a chromosome.
+
+(7) The program continues to read until a blank line.  Each line
+    starting with "Inter2" will be treated as information on
+    interaction effects, with two numbers for disease loci and four
+    numbers for departure from product multiplicative relative risks.
+    See the manual for details.
