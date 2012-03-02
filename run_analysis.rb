@@ -4,6 +4,14 @@ require 'yaml'
 
 $script = "mdrAnalysis.R"
 
+$config = "resources/gwa.config"
+
+$config = ARGV[0] if ARGV.length > 0
+puts "Using #{$config} config file"
+
+cfg = YAML.load_file($config)
+
+
 # Expected options:
 # :input_path, :output_path, :k, :max
 def write_scripts(opts = {})
@@ -79,10 +87,11 @@ if ARGV.length < 2
   raise ArgumentError, "Missing arguments.  Usage: script.rb [input_file_path] [output_file_path] [k] [max]"
 end
 
-input_dir = ARGV[0]
-output_dir = ARGV[1]
-kval = ARGV[2] or 2
-maxSNP = ARGV[3] or 50
+
+input_dir = cfg['chr.output']
+output_dir = cfg['mdr.r.dir']
+kval = cfg['mdr.K']
+maxSNP = cfg['mdr.max']
 
 unless File.directory?(input_dir) and File.exists?(input_dir)
   raise IOError, "#{input_dir} does not exist or is not a directory."
@@ -91,7 +100,7 @@ end
 if File.exists?(output_dir)
   puts "Removing old #{output_dir}"
 #  begin # doesn't matter if it fails to remove, it probably wasn't there in the first place
-#    FileUtils.remove_entry_secure("#{output_dir}")
+    FileUtils.remove_entry_secure("#{output_dir}")
 #  end
 
 #  FileUtils.mkdir(output_dir)
