@@ -5,8 +5,10 @@ class GWAControl
   :female_ctrl
   :male_ctrl
 
+  attr_accessor :filename
 
   def initialize(control_file)
+    @filename = control_file
     @control_lines = File.open(control_file, 'r').readlines
     self.parse
   end

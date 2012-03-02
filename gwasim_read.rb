@@ -2,46 +2,38 @@ require 'rubygems'
 require 'yaml'
 require_relative 'lib/gwa_control'
 
-if ARGV.length < 1
-  raise ArgumentError, "Missing arguments.  Usage: script.rb [gwasim_file_path] [file_type (default R)]"
-end
+$config = "resources/gwa.config"
 
-gwasim_results_dir = ARGV[0]
-file_type = ARGV[1] # moore or R
+$config = ARGV[0] if ARGV.length > 0
+puts "Using #{$config} config file"
 
-file_type = "R" if file_type.nil?
+cfg = YAML.load_file($config)
 
+gwasim_results_dir = cfg['chr.output']
+file_type = cfg['mdr.type']
+# Case and snp numbers from control file
+control = GWAControl.new(cfg['gwa.control'])
 
 unless gwasim_results_dir && File.exists?(gwasim_results_dir) && File.directory?(gwasim_results_dir)
-  puts "Directory with GWASimulator results required\n"
-  exit
+  raise IOError "#{gwasim_results_dir} doesn't exist or is not a directory."
 end
 
-# Case and snp numbers from control file
-control = GWAControl.new("#{gwasim_results_dir}/control.dat")
-
-
-diseasemodel = File.new("#{gwasim_results_dir}/diseasemodel.txt")
-unless File.exists?diseasemodel
-  puts "#{diseasemodel} does not exist."
-  exit
-end
 
 # read snp files, add case column for MDR
 Dir.foreach(gwasim_results_dir) do |entry|
+  # unzip chr files
   next unless File.extname("#{gwasim_results_dir}/#{entry}").eql?".gz" or
       File.extname("#{gwasim_results_dir}/#{entry}").eql?".dat"
   system("gunzip #{gwasim_results_dir}/#{entry}")  if File.extname("#{gwasim_results_dir}/#{entry}").eql?".gz"
-  next if entry.eql?"control.dat"
+  next if "#{gwasim_results_dir}/#{entry}".eql?control.filename
 
   dat_file = entry.sub(".gz", "")
   chr = File.basename(dat_file, ".dat")
 
+  # READ chr files/WRITE mdr files
   columns = control.total_snps(chr)
   puts "Total snps in #{dat_file}: #{columns}\n"
-
   puts dat_file if File.exists?"#{gwasim_results_dir}/#{dat_file}"
-
   mdr_file = File.open("#{gwasim_results_dir}/#{chr}.mdr", "w")
 
   # set up the columns for the mdr file
@@ -72,14 +64,13 @@ Dir.foreach(gwasim_results_dir) do |entry|
   end
   mdr_file.close
 
-
-  n = 0
-  File.open(mdr_file, "r").each_line do |l|
-    puts "Reading: " + l.split("\s").length.to_s
-    puts l
-    n += 1
-    break if n > 3
-  end
+  #n = 0
+  #File.open(mdr_file, "r").each_line do |l|
+  #  puts "Reading: " + l.split("\s").length.to_s
+  #  puts l
+  #  n += 1
+  #  break if n > 3
+  #end
 
 
 end
