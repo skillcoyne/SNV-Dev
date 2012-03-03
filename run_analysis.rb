@@ -109,14 +109,15 @@ unless File.directory?(cfg['chr.output']) and File.exists?(cfg['chr.output'])
 end
 
 
-["#{cfg['mdr.analysis.dir']}/#{Utils.date}",
- "#{cfg['oar.dir']}/#{Utils.date}"].each do |d|
+output_dir = "#{cfg['mdr.analysis.dir']}/#{Utils.date}"
+oar_dir = "#{cfg['oar.dir']}/#{Utils.date}"
+
+[output_dir, oar_dir].each do |d|
   if File.exists?(d) and File.directory?(d)
     puts "Removing old directory #{d}"
     FileUtils.remove_entry_secure("#{d}")
-    else
-   FileUtils.mkdir_p(dir)
   end
+   FileUtils.mkdir_p(d)
 end
 
 write_scripts(:input_path => cfg['chr.output'],
@@ -125,7 +126,7 @@ write_scripts(:input_path => cfg['chr.output'],
               :max => cfg['mdr.max'],
               :oar => oar_dir)
 
-run_scripts(cfg['mdr.analysis.dir'])
+#run_scripts(cfg['mdr.analysis.dir'])
 
 puts "Finished..."
 
