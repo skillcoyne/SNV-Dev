@@ -8,3 +8,6 @@ mdr.type: R
 mdr.K: 2
 mdr.max: 50
 mdr.analysis.dir: /<ouptut path for R files>/
+
+# OAR Cluster
+oar.dir: /<output directory for oar.sh files>/

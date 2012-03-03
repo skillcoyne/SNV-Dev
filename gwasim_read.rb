@@ -1,13 +1,14 @@
 require 'rubygems'
 require 'yaml'
+require_relative 'lib/gwa_config'
 require_relative 'lib/gwa_control'
 
 $config = "resources/gwa.config"
 
 $config = ARGV[0] if ARGV.length > 0
-puts "Using #{$config} config file"
+cfg = GWAConfig.check($config)
 
-cfg = YAML.load_file($config)
+
 
 gwasim_results_dir = cfg['chr.output']
 file_type = cfg['mdr.type']

@@ -1,32 +1,54 @@
 require 'rubygems'
 require 'fileutils'
 require 'yaml'
+require_relative 'lib/gwa_config'
 
 $script = "mdrAnalysis.R"
 $config = "resources/gwa.config"
-
-
 
 # Expected options:
 # :input_path, :output_path, :k, :max
 def write_scripts(opts = {})
   Dir.foreach(opts[:input_path]) do |entry|
     opts[:input_file] = "#{opts[:input_path]}/#{entry}"
-    next unless File.extname(opts[:input_file]).eql?".mdr"
+    next unless File.extname(opts[:input_file]).eql? ".mdr"
 
     r_script = script_string(opts)
     filename = File.basename(opts[:input_file], ".mdr")
 
-    File.open("#{opts[:output_path]}/#{filename}_#{$script}", 'w') {|f| f.write(r_script)}
+    File.open("#{opts[:output_path]}/#{filename}_#{$script}", 'w') { |f| f.write(r_script) }
+    opts[:r_script] = "#{opts[:output_path]}/#{filename}_#{$script}"
+    write_oar_file(opts)
   end
+end
+
+def write_oar_file(opts = {})
+  oar_script =<<OAR
+#!/bin/bash
+
+TAKTUK_CONNECTOR='oarsh'
+
+PROGNAME=#{opts[:r_script]}
+NB_COMPUTING_RESOURCES=`wc -l $OAR_NODEFILE | cut -d " " -f 1`
+
+echo "Resources used for execution of ${PROGNAME}"
+cat $OAR_NODEFILE
+
+kash -M ${OAR_NODEFILE} -- ${PROGNAME} \$TAKTUK_COUNT \$TAKTUK_RANK
+OAR
+
+  File.open("#{opts[:oar]}/oar_launcher.#{opts[:input_file]}.sh", 'w') { |f| f.write(oar_script) }
 end
 
 def run_scripts(script_path)
   Dir.foreach(script_path) do |entry|
-    next unless File.extname(entry).eql?".R"
-    puts "Running #{script_path}/#{entry}"
-    cmd = "r --vanilla #{script_path}/#{entry}"
-    system(cmd)
+    next unless File.extname(entry).eql? ".sh"
+    puts "Start #{script_path}/#{entry}"
+    system("sh #{script_path}/#{entry}")
+    #next unless File.extname(entry).eql?".R"
+    #puts "Running #{script_path}/#{entry}"
+    #cmd = "r --vanilla #{script_path}/#{entry}"
+    #system(cmd)
   end
 end
 
@@ -78,37 +100,26 @@ cat(out,file="#{opts[:output_path]}/summary.txt", sep="\n", append=TRUE)
 end
 
 # Start main
-
 $config = ARGV[0] if ARGV.length > 0
-puts "Using #{$config} config file"
+cfg = GWAConfig.check($config)
 
-cfg = YAML.load_file($config)
-
-
-
-
-input_dir = cfg['chr.output']
-output_dir = cfg['mdr.analysis.dir']
-kval = cfg['mdr.K']
-maxSNP = cfg['mdr.max']
-
-unless File.directory?(input_dir) and File.exists?(input_dir)
-  raise IOError, "#{input_dir} does not exist or is not a directory."
+unless File.directory?(cfg['chr.output']) and File.exists?(cfg['chr.output'])
+  raise IOError, "#{cfg['chr.output']} does not exist or is not a directory."
 end
 
-if File.exists?(output_dir)
-  puts "Removing old #{output_dir}"
-#  begin # doesn't matter if it fails to remove, it probably wasn't there in the first place
-    FileUtils.remove_entry_secure("#{output_dir}")
-#  end
-
-#  FileUtils.mkdir(output_dir)
+if File.exists?(cfg['mdr.analysis.dir'])
+  puts "Removing old #{cfg['mdr.analysis.dir']}"
+  FileUtils.remove_entry_secure("#{cfg['mdr.analysis.dir']}")
 end
+FileUtils.mkdir_p(cfg['mdr.analysis.dir']) unless File.exists?(cfg['mdr.analysis.dir'])
 
-FileUtils.mkdir_p(output_dir) unless File.exists?(output_dir)
+write_scripts(:input_path => cfg['chr.output'],
+              :output_path => cfg['mdr.analysis.dir'],
+              :k => cfg['mdr.K'],
+              :max => cfg['mdr.max'],
+              :oar => cfg['oar.dir'])
 
-write_scripts(:input_path => input_dir, :output_path => output_dir, :k => kval, :max => maxSNP)
-run_scripts(output_dir)
+run_scripts(cfg['mdr.analysis.dir'])
 
 puts "Finished..."
 
