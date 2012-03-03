@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'fileutils'
 require 'yaml'
-require_relative 'lib/gwa_config'
+require_relative 'lib/utils'
 
 $script = "mdrAnalysis.R"
 $config = "resources/gwa.config"
@@ -50,6 +50,17 @@ def run_scripts(script_path)
     #cmd = "r --vanilla #{script_path}/#{entry}"
     #system(cmd)
   end
+end
+
+def check_dir(dir)
+  unless File.directory?(dir) and File.exists?(dir)
+    raise IOError, "#{dir} does not exist or is not a directory."
+  end
+  if File.exists?(dir)
+    puts "Removing old #{dir}"
+    FileUtils.remove_entry_secure("#{dir}")
+  end
+  FileUtils.mkdir_p(dir) unless File.exists?(dir)
 end
 
 # Expected options:
@@ -101,23 +112,20 @@ end
 
 # Start main
 $config = ARGV[0] if ARGV.length > 0
-cfg = GWAConfig.check($config)
+cfg = Utils.check_config($config)
 
-unless File.directory?(cfg['chr.output']) and File.exists?(cfg['chr.output'])
-  raise IOError, "#{cfg['chr.output']} does not exist or is not a directory."
-end
 
-if File.exists?(cfg['mdr.analysis.dir'])
-  puts "Removing old #{cfg['mdr.analysis.dir']}"
-  FileUtils.remove_entry_secure("#{cfg['mdr.analysis.dir']}")
-end
-FileUtils.mkdir_p(cfg['mdr.analysis.dir']) unless File.exists?(cfg['mdr.analysis.dir'])
+output_dir = "#{cfg['mdr.analysis.dir']}/#{Utils.date}"
+check_dir(output_dir)
+
+oar_dir = "#{cfg['oar.dir']}/#{Utils.date}"
+check_dir(oar_dir)
 
 write_scripts(:input_path => cfg['chr.output'],
-              :output_path => cfg['mdr.analysis.dir'],
+              :output_path => output_dir,
               :k => cfg['mdr.K'],
               :max => cfg['mdr.max'],
-              :oar => cfg['oar.dir'])
+              :oar => oar_dir)
 
 run_scripts(cfg['mdr.analysis.dir'])
 

@@ -1,23 +1,33 @@
 require 'yaml'
 
-class GWAConfig
+class Utils
 
-  def GWAConfig.check(gwa_file)
+  def Utils.date
+    time = Time.new
+    month = time.month
+    month < 10? (month = "0#{month}"): month
+    day = time.day
+    day < 10? (day = "0#{day}"): day
+
+    return "#{time.year}/#{month}/#{day}"
+  end
+
+  def Utils.check_config(gwa_file)
     puts "Using #{gwa_file} config file"
 
     cfg = YAML.load_file(gwa_file)
 
-    if cfg.keys.eql?$defaults.keys
+    if cfg.keys.eql?$cfg_defaults.keys
       return cfg
     else
       puts "Incorrect config file, expected keys:\n"
-      puts YAML::dump $defaults
+      puts YAML::dump $cfg_defaults
       exit(1)
     end
   end
 
 
-  $defaults = {
+  $cfg_defaults = {
       #GWA
       'gwa.control' => '/<path to>/ control.dat',
       'gwa.seed' => 'some number',
