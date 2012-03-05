@@ -18,6 +18,7 @@ id_list = ["BTS",
            "CLCN2"]
 
 
+
 pc = PathwayCommons.new
 
 pathways = pc.get_pathways_by_genes([Gene.new(:id => "BRCA1", :type => "Gene Symbol"),
