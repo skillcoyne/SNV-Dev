@@ -41,6 +41,7 @@ kash -M ${OAR_NODEFILE} -- ${PROGNAME} \$TAKTUK_COUNT \$TAKTUK_RANK
 OAR
 
   File.open("#{opts[:oar]}/oar_launcher.#{filename}.sh", 'w') { |f| f.write(oar_script) }
+  FileUtils.chmod 0776, "#{opts[:oar]}/oar_launcher.#{filename}.sh"
 end
 
 def run_scripts(script_path)
@@ -120,7 +121,7 @@ oar_dir = "#{cfg['oar.dir']}/#{Utils.date}"
     puts "Removing old directory #{d}"
     FileUtils.remove_entry_secure("#{d}")
   end
-   FileUtils.mkdir_p(d)
+   FileUtils.mkdir_p(d, :mode => 0776)
 end
 
 write_scripts(:input_path => cfg['chr.output'],
