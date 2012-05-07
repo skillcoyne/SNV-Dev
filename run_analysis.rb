@@ -47,11 +47,15 @@ OAR
   FileUtils.chmod(0776, "#{opts[:oar]}/oar_launcher.#{filename}.sh")
 end
 
-def run_scripts(script_path)
+def run_scripts(opts = {})
+  script_path = opts['mdr.analysis.dir']
+  cmd = "oarsub --notify \"#{opts['oar.notify']}\" core=#{opts['oar.core']},walltime=#{opts['oar.walltime']}"
   Dir.foreach(script_path) do |entry|
     next unless File.extname(entry).eql? ".sh"
-    puts "Start #{script_path}/#{entry}"
-    system("sh #{script_path}/#{entry}")
+    chr = File.basename(entry).sub(".sh", '')
+    cmd = "#{cmd} -n MDR_#{chr} --stdout=MDR_#{chr}.out --stderr=MDR_#{chr}.err #{script_path}/#{entry}"
+    puts "Starting #{cmd}"
+#    system("sh #{script_path}/#{entry}")
   end
 end
 
@@ -129,7 +133,7 @@ write_scripts(:input_path => cfg['chr.output'],
               :max => cfg['mdr.max'],
               :oar => oar_dir)
 
-#run_scripts(cfg['mdr.analysis.dir'])
+run_scripts(cfg)
 
 puts "Finished..."
 
