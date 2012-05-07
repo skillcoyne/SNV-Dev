@@ -20,8 +20,7 @@ def write_scripts(opts = {})
     FileUtils.chmod(0776, "#{opts[:output_path]}/#{filename}_#{$script}")
 
     opts[:r_script] = "#{opts[:output_path]}/#{filename}_#{$script}"
-    FileUtils.touch("#{opts[:output_path]}/summary.txt")
-    FileUtils.chmod(0776, "#{opts[:output_path]}/summary.txt")
+
     write_oar_file(opts)
   end
 end
@@ -61,7 +60,6 @@ end
 # :input_file, :output_path, :k, :max
 def script_string(opts = {})
   base = File.basename(opts[:input_file]).sub(".mdr", '')
-  # this can be an option at some point but currently larger K takes many times longer to run
   r_script =<<-R
 #!/usr/bin/env
 library(MDR)
@@ -100,7 +98,7 @@ finalm<-nameModels(fit$'final model')
 fit$'final model'<-finalm
 
 out<-capture.output(summary(fit))
-cat(out,file="#{opts[:output_path]}/summary.txt", sep="\n", append=TRUE)
+cat(out,file="#{opts[:output_path]}/summary_#{base}.txt", sep="\n", append=TRUE)
   R
   return r_script
 end
