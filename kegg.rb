@@ -1,30 +1,14 @@
 require 'rubygems'
 require 'yaml'
 require 'bio'
-require 'savon'
 
 
 
 
-# create a client for your SOAP service
+serv = Bio::KEGG::API.new("http://soap.genome.jp/KEGG.wsdl")
+results = serv.get_pathways_by_genes(["hsa:3569"])
 
-client = Savon::Client.new("http://soap.genome.jp/v3.0/KEGG.wsdl")
-
-client.wsdl.soap_actions
-# => [:create_user, :get_user, :get_all_users]
-
-# execute a SOAP request to call the "getUser" action
-response = client.request(:get_pathways_by_genes,
-  {'genes_id_list' => ["hsa:3653"]})
-
-
-
-# Think Bio::KEGG may be dead
-#serv = Bio::KEGG::API.new("http://soap.genome.jp/v3.0/KEGG.wsdl")
-
-#results = serv.get_pathways_by_genes(["hsa:3653"])
-#
-#puts YAML::dump results
+puts YAML::dump results
 
 #results = serv.get_best_neighbors_by_gene("eco:b0002", "bsu")
 

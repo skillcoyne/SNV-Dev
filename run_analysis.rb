@@ -17,6 +17,8 @@ def write_scripts(opts = {})
     filename = File.basename(opts[:input_file], ".mdr")
 
     File.open("#{opts[:output_path]}/#{filename}_#{$script}", 'w') { |f| f.write(r_script) }
+    FileUtils.chmod(0755, "#{opts[:output_path]}/#{filename}_#{$script}")
+
     opts[:r_script] = "#{opts[:output_path]}/#{filename}_#{$script}"
     write_oar_file(opts)
   end
@@ -31,7 +33,7 @@ def write_oar_file(opts = {})
 
 TAKTUK_CONNECTOR='oarsh'
 
-PROGNAME=#{opts[:r_script]}
+PROGNAME=Rscript #{opts[:r_script]}
 NB_COMPUTING_RESOURCES=`wc -l $OAR_NODEFILE | cut -d " " -f 1`
 
 echo "Resources used for execution of ${PROGNAME}"
@@ -41,7 +43,7 @@ kash -M ${OAR_NODEFILE} -- ${PROGNAME} \$TAKTUK_COUNT \$TAKTUK_RANK
 OAR
 
   File.open("#{opts[:oar]}/oar_launcher.#{filename}.sh", 'w') { |f| f.write(oar_script) }
-  FileUtils.chmod 0776, "#{opts[:oar]}/oar_launcher.#{filename}.sh"
+  FileUtils.chmod(0755, "#{opts[:oar]}/oar_launcher.#{filename}.sh")
 end
 
 def run_scripts(script_path)
@@ -49,10 +51,6 @@ def run_scripts(script_path)
     next unless File.extname(entry).eql? ".sh"
     puts "Start #{script_path}/#{entry}"
     system("sh #{script_path}/#{entry}")
-    #next unless File.extname(entry).eql?".R"
-    #puts "Running #{script_path}/#{entry}"
-    #cmd = "r --vanilla #{script_path}/#{entry}"
-    #system(cmd)
   end
 end
 
@@ -121,7 +119,7 @@ oar_dir = "#{cfg['oar.dir']}/#{Utils.date}"
     puts "Removing old directory #{d}"
     FileUtils.remove_entry_secure("#{d}")
   end
-   FileUtils.mkdir_p(d, :mode => 0776)
+   FileUtils.mkdir_p(d)
 end
 
 write_scripts(:input_path => cfg['chr.output'],

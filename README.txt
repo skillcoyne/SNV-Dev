@@ -27,4 +27,13 @@ example output:
  
 '*' indicates overall best model
 
-4.
+-----> TODO:
+4. Read through MDR summary and extract SNP sets.
+
+5. Pathway & Functional annotation of sets using:
+    - NCBI ftp files?
+    - DAVID
+    - GRAIL? http://www.broadinstitute.org/mpg/grail/
+    - Pathway Commons?
+    - KEGG?
+    - others...?
