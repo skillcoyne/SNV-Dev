@@ -60,7 +60,7 @@ end
 # Expected options:
 # :input_file, :output_path, :k, :max
 def script_string(opts = {})
-  base = File.basename(opts[:input_file], ".mdr")
+  base = File.basename(opts[:input_file]).sub(".mdr", '')
   # this can be an option at some point but currently larger K takes many times longer to run
   r_script =<<-R
 #!/usr/bin/env
