@@ -96,12 +96,11 @@ end
 
 def run_scripts(opts = {})
   script_path = opts[:oar_dir]
-
-  cmd = "oarsub --notify \"#{opts[:email]}\" core=#{opts[:cores]},walltime=#{opts[:walltime]}"
   Dir.foreach(script_path) do |entry|
     next unless File.extname(entry).eql? ".sh"
-    chr = File.basename(entry).sub(".sh", '')
+    cmd = "oarsub --notify \"#{opts[:email]}\" core=#{opts[:cores]},walltime=#{opts[:walltime]}"
     cmd = "#{cmd} -n MDR_#{chr} --stdout=MDR_#{chr}.out --stderr=MDR_#{chr}.err #{script_path}/#{entry}"
+    chr = File.basename(entry).sub(".sh", '')
     puts "Starting #{cmd}"
 #    system("sh #{script_path}/#{entry}")
   end
@@ -133,7 +132,7 @@ write_scripts(:input_path => cfg['chr.output'],
               :max => cfg['mdr.max'],
               :oar => oar_dir)
 
-run_scripts(:oar_dir => cfg['oar.dir'],
+run_scripts(:oar_dir => "#{cfg['oar.dir']}/#{Utils.date}",
             :cores => cfg['oar.core'],
             :walltime => cfg['oar.walltime'],
             :email => cfg['oar.notify'])
