@@ -47,19 +47,6 @@ OAR
   FileUtils.chmod(0776, "#{opts[:oar]}/oar_launcher.#{filename}.sh")
 end
 
-def run_scripts(opts = {})
-  script_path = opts['mdr.analysis.dir']
-  cmd = "oarsub --notify \"#{opts['oar.notify']}\" core=#{opts['oar.core']},walltime=#{opts['oar.walltime']}"
-  Dir.foreach(script_path) do |entry|
-    next unless File.extname(entry).eql? ".sh"
-    chr = File.basename(entry).sub(".sh", '')
-    cmd = "#{cmd} -n MDR_#{chr} --stdout=MDR_#{chr}.out --stderr=MDR_#{chr}.err #{script_path}/#{entry}"
-    puts "Starting #{cmd}"
-#    system("sh #{script_path}/#{entry}")
-  end
-end
-
-
 # Expected options:
 # :input_file, :output_path, :k, :max
 def script_string(opts = {})
@@ -107,7 +94,20 @@ cat(out,file="#{opts[:output_path]}/summary_#{base}.txt", sep="\n", append=TRUE)
   return r_script
 end
 
-# Start main
+def run_scripts(opts = {})
+  script_path = opts[:oar_dir]
+
+  cmd = "oarsub --notify \"#{opts[:email]}\" core=#{opts[:cores]},walltime=#{opts[:walltime]}"
+  Dir.foreach(script_path) do |entry|
+    next unless File.extname(entry).eql? ".sh"
+    chr = File.basename(entry).sub(".sh", '')
+    cmd = "#{cmd} -n MDR_#{chr} --stdout=MDR_#{chr}.out --stderr=MDR_#{chr}.err #{script_path}/#{entry}"
+    puts "Starting #{cmd}"
+#    system("sh #{script_path}/#{entry}")
+  end
+end
+
+### -------- Start main -------- ###
 $config = ARGV[0] if ARGV.length > 0
 cfg = Utils.check_config($config)
 
@@ -133,7 +133,10 @@ write_scripts(:input_path => cfg['chr.output'],
               :max => cfg['mdr.max'],
               :oar => oar_dir)
 
-run_scripts(cfg)
+run_scripts(:oar_dir => cfg['oar.dir'],
+            :cores => cfg['oar.core'],
+            :walltime => cfg['oar.walltime'],
+            :email => cfg['oar.notify'])
 
 puts "Finished..."
 
