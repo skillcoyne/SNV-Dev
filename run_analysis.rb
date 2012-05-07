@@ -17,7 +17,7 @@ def write_scripts(opts = {})
     filename = File.basename(opts[:input_file], ".mdr")
 
     File.open("#{opts[:output_path]}/#{filename}_#{$script}", 'w') { |f| f.write(r_script) }
-    FileUtils.chmod(0755, "#{opts[:output_path]}/#{filename}_#{$script}")
+    FileUtils.chmod(0776, "#{opts[:output_path]}/#{filename}_#{$script}")
 
     opts[:r_script] = "#{opts[:output_path]}/#{filename}_#{$script}"
     write_oar_file(opts)
@@ -43,7 +43,7 @@ kash -M ${OAR_NODEFILE} -- ${PROGNAME} \$TAKTUK_COUNT \$TAKTUK_RANK
 OAR
 
   File.open("#{opts[:oar]}/oar_launcher.#{filename}.sh", 'w') { |f| f.write(oar_script) }
-  FileUtils.chmod(0755, "#{opts[:oar]}/oar_launcher.#{filename}.sh")
+  FileUtils.chmod(0776, "#{opts[:oar]}/oar_launcher.#{filename}.sh")
 end
 
 def run_scripts(script_path)
