@@ -100,7 +100,7 @@ def run_scripts(opts = {})
   Dir.foreach(script_path) do |entry|
     puts entry
     next unless File.extname(entry).eql? ".sh"
-
+    chr = File.basename(entry).sub(".sh", '')
     cmd = "oarsub --notify \"#{opts[:email]}\" core=#{opts[:cores]},walltime=#{opts[:walltime]}"
     cmd = "#{cmd} -n MDR_#{chr} --stdout=MDR_#{chr}.out --stderr=MDR_#{chr}.err #{script_path}/#{entry}"
     chr = File.basename(entry).sub(".sh", '')
