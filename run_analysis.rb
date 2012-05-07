@@ -16,10 +16,11 @@ def write_scripts(opts = {})
     r_script = script_string(opts)
     filename = File.basename(opts[:input_file], ".mdr")
 
-    File.open("#{opts[:output_path]}/#{filename}_#{$script}", 'w') { |f| f.write(r_script) }
-    FileUtils.chmod(0776, "#{opts[:output_path]}/#{filename}_#{$script}")
+    File.open("#{opts[:output_path]}/#{filename}_#{$script}", 'w', 0776) { |f| f.write(r_script) }
+    #FileUtils.chmod(0776, "#{opts[:output_path]}/#{filename}_#{$script}")
 
     opts[:r_script] = "#{opts[:output_path]}/#{filename}_#{$script}"
+    File.new("#{opts[:output_path]}/summary.txt", 'w', 0776)
     write_oar_file(opts)
   end
 end

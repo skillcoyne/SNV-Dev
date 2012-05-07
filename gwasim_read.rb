@@ -1,3 +1,4 @@
+# TODO merge this with the run_analysis script
 require 'rubygems'
 require 'yaml'
 require_relative 'lib/utils'
