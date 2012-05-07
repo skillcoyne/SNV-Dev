@@ -53,8 +53,6 @@ class GWAControl
     @disease_loci.keys
   end
 
-
-
   def parse
     (@window, case_line, dl) = @control_lines.values_at(3, 4, 5)
 

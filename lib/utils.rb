@@ -40,7 +40,10 @@ class Utils
       'mdr.analysis.dir' => '/<ouptut path for R files>/',
 
       # OAR Cluster
-      'oar.dir' => '/<output directory for oar.sh files>/'
+      'oar.dir' => '/<output directory for oar.sh files>/',
+      'oar.core' => 1,
+      'oar.walltime' => 1,
+      'oar.notify' => 'mail:skillcoyne\@gmail.com'
   }
 
 
