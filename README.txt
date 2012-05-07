@@ -1,4 +1,4 @@
-Current steps in SNP epistasis identification:
+Current steps in SNP epistasis identification/annotation:
 
 1. Create simulated genotype SNP chip data for case-control data.  Currently using provided phase data from Illumina.
 Run GWASimulator with epilepsy control file and random number.  Example control file found in /resources directory
@@ -29,6 +29,10 @@ example output:
 
 -----> TODO:
 4. Read through MDR summary and extract SNP sets.
+
+5. Map SNPs back to genes. Using UCSC? See snp_gene.rb.
+Other services possible, or use NCBI ftp data files (not best idea as these need to be parsed and many groups have likely
+done this).
 
 5. Pathway & Functional annotation of sets using:
     - NCBI ftp files?
