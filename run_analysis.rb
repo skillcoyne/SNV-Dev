@@ -32,7 +32,7 @@ def write_oar_file(opts = {})
   oar_script =<<OAR
 #!/bin/bash
 
-TAKTUK_CONNECTOR='oarsh'
+export TAKTUK_CONNECTOR='oarsh'
 
 PROGNAME=Rscript #{opts[:r_script]}
 NB_COMPUTING_RESOURCES=`wc -l $OAR_NODEFILE | cut -d " " -f 1`
@@ -141,5 +141,3 @@ write_scripts(:input_path => cfg['chr.output'],
 #            :email => cfg['oar.notify'])
 
 puts "Finished..."
-
-
