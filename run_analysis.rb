@@ -13,7 +13,7 @@ def write_scripts(opts = {})
     opts[:input_file] = "#{opts[:input_path]}/#{entry}"
     next unless File.extname(opts[:input_file]).eql? ".mdr"
 
-    r_script = script_string(opts)
+    r_script = R_script_string(opts)
     filename = File.basename(opts[:input_file], ".mdr")
 
     File.open("#{opts[:output_path]}/#{filename}_#{$script}", 'w') { |f| f.write(r_script) }
@@ -49,7 +49,7 @@ end
 
 # Expected options:
 # :input_file, :output_path, :k, :max
-def script_string(opts = {})
+def R_script_string(opts = {})
   base = File.basename(opts[:input_file]).sub(".mdr", '')
   r_script =<<-R
 #!/usr/bin/env
@@ -78,6 +78,7 @@ fit<-mdr.cv(mdr_data[1:#{opts[:max]}], K=#{opts[:k]}, cv=5, genotype=c(0,1,2))
 
 # plotting needs to occur before transforming the model
 # names for the summary data
+pdf("#{base}_plot.pdf")
 plot(fit,data=mdr_data)
 
 # transform models for snp names instead of just numbers
@@ -100,12 +101,11 @@ def run_scripts(opts = {})
   Dir.foreach(script_path) do |entry|
     puts entry
     next unless File.extname(entry).eql? ".sh"
-    chr = File.basename(entry).sub(".sh", '')
-    cmd = "oarsub --notify \"#{opts[:email]}\" core=#{opts[:cores]},walltime=#{opts[:walltime]}"
+    chr = File.basename(entry).sub("oar_launcher.", '').sub(".sh", '')
+    cmd = "oarsub --notify \"#{opts[:email]}\" -l core=#{opts[:cores]},walltime=#{opts[:walltime]}"
     cmd = "#{cmd} -n MDR_#{chr} --stdout=MDR_#{chr}.out --stderr=MDR_#{chr}.err #{script_path}/#{entry}"
-    chr = File.basename(entry).sub(".sh", '')
-    puts "Starting #{cmd}"
-#    system("sh #{script_path}/#{entry}")
+    puts "Starting #{entry}"
+    system("#{cmd}")
   end
 end
 
@@ -135,13 +135,11 @@ write_scripts(:input_path => cfg['chr.output'],
               :max => cfg['mdr.max'],
               :oar => oar_dir)
 
-run_scripts(:oar_dir => "#{cfg['oar.dir']}/#{Utils.date}",
-            :cores => cfg['oar.core'],
-            :walltime => cfg['oar.walltime'],
-            :email => cfg['oar.notify'])
+#run_scripts(:oar_dir => "#{cfg['oar.dir']}/#{Utils.date}",
+#            :cores => cfg['oar.core'],
+#            :walltime => cfg['oar.walltime'],
+#            :email => cfg['oar.notify'])
 
 puts "Finished..."
-
-
 
 
