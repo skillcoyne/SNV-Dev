@@ -81,8 +81,8 @@ def run_scripts(opts = {})
     next unless File.extname(entry).eql? ".R"
     chr = entry.sub("_mdrAnalysis.R", '')
     cmd = "oarsub -l core=#{opts[:cores]},walltime=#{opts[:walltime]}"
-    cmd = "#{cmd} -n MDR_#{chr} --stdout=#{script_path}/summary_#{chr}.out --stderr=#{script_path}_#{chr}.err  #{script_path}/#{entry}"
-    puts "Starting #{entry}"
+    cmd = "#{cmd} -n MDR_#{chr} --stdout=#{script_path}/output/summary_#{chr}.out --stderr=#{script_path}_#{chr}/error.err  #{script_path}/#{entry}"
+    puts "Starting #{cmd}"
     system("#{cmd}")
   end
 end
