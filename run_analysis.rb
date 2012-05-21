@@ -79,7 +79,7 @@ def run_scripts(opts = {})
   Dir.foreach(script_path) do |entry|
     puts entry
     next unless File.extname(entry).eql? ".R"
-    chr = File.basename(opts[:input_file]).sub("_mdrAnalysis.R", '')
+    chr = entry.sub("_mdrAnalysis.R", '')
     cmd = "oarsub -l core=#{opts[:cores]},walltime=#{opts[:walltime]}"
     cmd = "#{cmd} -n MDR_#{chr} --stdout=#{script_path}/summary_#{chr}.out --stderr=#{script_path}_#{chr}.err  #{script_path}/#{entry}"
     puts "Starting #{entry}"
