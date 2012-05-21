@@ -102,13 +102,14 @@ if File.exists?(output_dir) and File.directory?(output_dir)
   puts "Removing old directory #{output_dir}"
   FileUtils.remove_entry_secure("#{output_dir}")
 end
-FileUtils.mkdir_p(output_dir)
+FileUtils.mkdir_p("#{output_dir}/output")
+FileUtils.mkdir_p("#{output_dir}/error")
+
 
 write_scripts(:input_path => cfg['chr.output'],
               :output_path => output_dir,
               :k => cfg['mdr.K'],
-              :max => cfg['mdr.max'],
-              :oar => oar_dir)
+              :max => cfg['mdr.max'])
 
 run_scripts(:output_path => output_dir,
             :cores => cfg['oar.core'],
