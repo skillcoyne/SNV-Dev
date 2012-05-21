@@ -20,32 +20,8 @@ def write_scripts(opts = {})
     FileUtils.chmod(0776, "#{opts[:output_path]}/#{filename}_#{$script}")
 
     opts[:r_script] = "#{opts[:output_path]}/#{filename}_#{$script}"
-
-    #write_oar_file(opts)
   end
 end
-
-#def write_oar_file(opts = {})
-#
-#  filename = File.basename(opts[:input_file], ".mdr")
-#
-#  oar_script =<<OAR
-##!/bin/bash
-#
-#export TAKTUK_CONNECTOR='oarsh'
-#
-#PROGNAME=Rscript #{opts[:r_script]}
-#NB_COMPUTING_RESOURCES=`wc -l $OAR_NODEFILE | cut -d " " -f 1`
-#
-#echo "Resources used for execution of ${PROGNAME}"
-#cat $OAR_NODEFILE
-#
-#kash -M ${OAR_NODEFILE} -- ${PROGNAME} \$TAKTUK_COUNT \$TAKTUK_RANK
-#OAR
-#
-#  File.open("#{opts[:oar]}/oar_launcher.#{filename}.sh", 'w') { |f| f.write(oar_script) }
-#  FileUtils.chmod(0776, "#{opts[:oar]}/oar_launcher.#{filename}.sh")
-#end
 
 # Expected options:
 # :input_file, :output_path, :k, :max
@@ -78,7 +54,7 @@ fit<-mdr.cv(mdr_data[1:#{opts[:max]}], K=#{opts[:k]}, cv=5, genotype=c(0,1,2))
 
 # plotting needs to occur before transforming the model
 # names for the summary data
-pdf("#{base}_plot.pdf")
+pdf("#{opts[:output_path]}/#{base}_plot.pdf")
 plot(fit,data=mdr_data)
 
 # transform models for snp names instead of just numbers
@@ -105,7 +81,7 @@ def run_scripts(opts = {})
     next unless File.extname(entry).eql? ".r"
     chr = File.basename(opts[:input_file]).sub("_mdrAnalysis.R", '')
     cmd = "oarsub -l core=#{opts[:cores]},walltime=#{opts[:walltime]}"
-    cmd = "#{cmd} -n MDR_#{chr} --stdout=summary_#{chr}.out  #{script_path}/#{entry}"
+    cmd = "#{cmd} -n MDR_#{chr} --stdout=#{script_path}/summary_#{chr}.out --stderr=#{script_path}_#{chr}.err  #{script_path}/#{entry}"
     puts "Starting #{entry}"
     system("#{cmd}")
   end
@@ -121,15 +97,12 @@ end
 
 
 output_dir = "#{cfg['mdr.analysis.dir']}/#{Utils.date}"
-oar_dir = "#{cfg['oar.dir']}/#{Utils.date}"
 
-[output_dir, oar_dir].each do |d|
-  if File.exists?(d) and File.directory?(d)
-    puts "Removing old directory #{d}"
-    FileUtils.remove_entry_secure("#{d}")
-  end
-   FileUtils.mkdir_p(d)
+if File.exists?(output_dir) and File.directory?(output_dir)
+  puts "Removing old directory #{output_dir}"
+  FileUtils.remove_entry_secure("#{output_dir}")
 end
+FileUtils.mkdir_p(output_dir)
 
 write_scripts(:input_path => cfg['chr.output'],
               :output_path => output_dir,
