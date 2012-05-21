@@ -121,7 +121,7 @@ end
 
 
 output_dir = "#{cfg['mdr.analysis.dir']}/#{Utils.date}"
-#oar_dir = "#{cfg['oar.dir']}/#{Utils.date}"
+oar_dir = "#{cfg['oar.dir']}/#{Utils.date}"
 
 [output_dir, oar_dir].each do |d|
   if File.exists?(d) and File.directory?(d)
