@@ -21,38 +21,38 @@ def write_scripts(opts = {})
 
     opts[:r_script] = "#{opts[:output_path]}/#{filename}_#{$script}"
 
-    write_oar_file(opts)
+    #write_oar_file(opts)
   end
 end
 
-def write_oar_file(opts = {})
-
-  filename = File.basename(opts[:input_file], ".mdr")
-
-  oar_script =<<OAR
-#!/bin/bash
-
-export TAKTUK_CONNECTOR='oarsh'
-
-PROGNAME=Rscript #{opts[:r_script]}
-NB_COMPUTING_RESOURCES=`wc -l $OAR_NODEFILE | cut -d " " -f 1`
-
-echo "Resources used for execution of ${PROGNAME}"
-cat $OAR_NODEFILE
-
-kash -M ${OAR_NODEFILE} -- ${PROGNAME} \$TAKTUK_COUNT \$TAKTUK_RANK
-OAR
-
-  File.open("#{opts[:oar]}/oar_launcher.#{filename}.sh", 'w') { |f| f.write(oar_script) }
-  FileUtils.chmod(0776, "#{opts[:oar]}/oar_launcher.#{filename}.sh")
-end
+#def write_oar_file(opts = {})
+#
+#  filename = File.basename(opts[:input_file], ".mdr")
+#
+#  oar_script =<<OAR
+##!/bin/bash
+#
+#export TAKTUK_CONNECTOR='oarsh'
+#
+#PROGNAME=Rscript #{opts[:r_script]}
+#NB_COMPUTING_RESOURCES=`wc -l $OAR_NODEFILE | cut -d " " -f 1`
+#
+#echo "Resources used for execution of ${PROGNAME}"
+#cat $OAR_NODEFILE
+#
+#kash -M ${OAR_NODEFILE} -- ${PROGNAME} \$TAKTUK_COUNT \$TAKTUK_RANK
+#OAR
+#
+#  File.open("#{opts[:oar]}/oar_launcher.#{filename}.sh", 'w') { |f| f.write(oar_script) }
+#  FileUtils.chmod(0776, "#{opts[:oar]}/oar_launcher.#{filename}.sh")
+#end
 
 # Expected options:
 # :input_file, :output_path, :k, :max
 def R_script_string(opts = {})
   base = File.basename(opts[:input_file]).sub(".mdr", '')
   r_script =<<-R
-#!/usr/bin/env
+#!/usr/bin/env Rscript
 library(MDR)
 
 nameModels<-function(model)
@@ -89,21 +89,23 @@ fit$'top models'<-topm
 finalm<-nameModels(fit$'final model')
 fit$'final model'<-finalm
 
-out<-capture.output(summary(fit))
-cat(out,file="#{opts[:output_path]}/summary_#{base}.txt", sep="\n", append=TRUE)
+summary(fit)
+
+#out<-capture.output(summary(fit))
+#cat(out,file="#{opts[:output_path]}/summary_#{base}.txt", sep="\n", append=TRUE)
   R
   return r_script
 end
 
 def run_scripts(opts = {})
-  script_path = opts[:oar_dir]
+  script_path = opts[:output_path]
   puts script_path
   Dir.foreach(script_path) do |entry|
     puts entry
-    next unless File.extname(entry).eql? ".sh"
-    chr = File.basename(entry).sub("oar_launcher.", '').sub(".sh", '')
-    cmd = "oarsub --notify \"#{opts[:email]}\" -l core=#{opts[:cores]},walltime=#{opts[:walltime]}"
-    cmd = "#{cmd} -n MDR_#{chr} --stdout=MDR_#{chr}.out --stderr=MDR_#{chr}.err #{script_path}/#{entry}"
+    next unless File.extname(entry).eql? ".r"
+    chr = File.basename(opts[:input_file]).sub("_mdrAnalysis.R", '')
+    cmd = "oarsub -l core=#{opts[:cores]},walltime=#{opts[:walltime]}"
+    cmd = "#{cmd} -n MDR_#{chr} --stdout=summary_#{chr}.out  #{script_path}/#{entry}"
     puts "Starting #{entry}"
     system("#{cmd}")
   end
@@ -119,7 +121,7 @@ end
 
 
 output_dir = "#{cfg['mdr.analysis.dir']}/#{Utils.date}"
-oar_dir = "#{cfg['oar.dir']}/#{Utils.date}"
+#oar_dir = "#{cfg['oar.dir']}/#{Utils.date}"
 
 [output_dir, oar_dir].each do |d|
   if File.exists?(d) and File.directory?(d)
@@ -135,9 +137,9 @@ write_scripts(:input_path => cfg['chr.output'],
               :max => cfg['mdr.max'],
               :oar => oar_dir)
 
-#run_scripts(:oar_dir => "#{cfg['oar.dir']}/#{Utils.date}",
-#            :cores => cfg['oar.core'],
-#            :walltime => cfg['oar.walltime'],
-#            :email => cfg['oar.notify'])
+run_scripts(:output_path => output_dir,
+            :cores => cfg['oar.core'],
+            :walltime => cfg['oar.walltime'],
+            :email => cfg['oar.notify'])
 
 puts "Finished..."
