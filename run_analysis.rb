@@ -65,10 +65,8 @@ fit$'top models'<-topm
 finalm<-nameModels(fit$'final model')
 fit$'final model'<-finalm
 
-summary(fit)
+print(summary(fit))
 
-#out<-capture.output(summary(fit))
-#cat(out,file="#{opts[:output_path]}/summary_#{base}.txt", sep="\n", append=TRUE)
   R
   return r_script
 end
@@ -91,12 +89,14 @@ end
 $config = ARGV[0] if ARGV.length > 0
 cfg = Utils.check_config($config)
 
+puts YAML::dump cfg
+
 unless File.directory?(cfg['chr.output']) and File.exists?(cfg['chr.output'])
   raise IOError, "#{cfg['chr.output']} does not exist or is not a directory."
 end
 
 
-output_dir = "#{cfg['mdr.analysis.dir']}/#{Utils.date}"
+output_dir = "#{cfg['mdr.analysis.dir']}/#{Utils.date}-k#{cfg['mdr.K']}-n#{cfg['mdr.max']}"
 
 if File.exists?(output_dir) and File.directory?(output_dir)
   puts "Removing old directory #{output_dir}"
