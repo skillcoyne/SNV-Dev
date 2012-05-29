@@ -64,13 +64,6 @@ Dir.foreach(gwasim_results_dir) do |entry|
   end
   mdr_file.close
 
-  #n = 0
-  #File.open(mdr_file, "r").each_line do |l|
-  #  puts "Reading: " + l.split("\s").length.to_s
-  #  puts l
-  #  n += 1
-  #  break if n > 3
-  #end
 
 
 end
