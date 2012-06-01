@@ -38,13 +38,15 @@ class GeneInfo
     return get_all_by_tax_id("#{sp}.")
   end
 
-  def get_gene_list_by_symbols
-    list = []
+
+
+  def geneID_by_symbols
+    list = Hash.new
     if (@gi_file =~ /gene_info/)
       File.open(@gi_file, "r").each_line do |line|
         line = line.chomp
         tax_id, entrezId, officialSymbol, locusTag, synonyms, dbX, chr, loc, desc, type, s, n, o, date = line.split(/\t/)
-        list.push(officialSymbol)
+        list[officialSymbol] = entrezId
       end
     else
       raise ArgumentError.new("Method 'get_by_gene' is only useful on the NCBI gene_info file")
