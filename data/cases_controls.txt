@@ -1,0 +1,3095 @@
+chr4	EP_10057580_48_SD3_17	yes	no	coding_synon
+chr4	EP_30504_119_SD3_17	yes	no	coding_synon
+chr4	EP_10057605_208_SD3_17	yes	no	missense_mutation
+chr4	EP_30489_140_SD3_17	yes	no	missense_mutation
+chr4	EP_30494_185_SD3_17	yes	no	missense_mutation
+chr4	EP_30495_398_SD3_17	yes	no	missense_mutation
+chr4	EP_30497_485_SD3_17	yes	no	missense_mutation
+chr4	EP_30502_428_SD3_17	yes	no	missense_mutation
+chr4	EP_30502_444_SD3_17	yes	no	missense_mutation
+chr4	EP_30511_225_SD3_17	yes	no	missense_mutation
+chr4	EP_30514_131_SD3_17	yes	no	3' UTR
+chr4	EP_30489_58_SD3_17	yes	no	intron
+chr4	EP_30468_123_SD3_17	yes	no	intron
+chr4	EP_30464_239_SD3_17	yes	no	intron
+chr1	EP_30518_74_SD3_17	yes	no	coding_synon
+chr1	EP_30519_249_SD3_17	yes	no	coding_synon
+chr1	EP_30517_189_SD3_17	yes	no	missense_mutation
+chr1	EP_30516_65_SD3_17	yes	no	5' UTR
+chr1	EP_30517_250_SD3_17	yes	no	intron
+chr3	EP_31556_118_SD3_17	yes	no	promoter
+chr3	EP_31556_142_SD3_17	yes	no	promoter
+chr3	EP_31556_252_SD3_17	yes	no	promoter
+chr3	EP_31556_66_SD3_17	yes	no	promoter
+chr19	EP_10058652_87_SD3_17	yes	no	coding_synon
+chr19	EP_30528_175_SD3_17	yes	no	coding_synon
+chr19	EP_30552_186_SD3_17	yes	no	coding_synon
+chr19	EP_30568_211_SD3_17	yes	no	coding_synon
+chr19	EP_30569_190_SD3_17	yes	no	coding_synon
+chr19	EP_10058304_122_SD3_17	yes	no	missense_mutation
+chr19	EP_10058653_177_SD3_17	yes	no	missense_mutation
+chr19	EP_30543_310_SD3_17	yes	no	missense_mutation
+chr19	EP_30529_212_SD3_17	yes	no	intron
+chr19	EP_10058752_178_SD3_17	yes	no	nonsense_mutation
+chr9	EP_30591_89_SD3_17	yes	no	coding_synon
+chr9	EP_30606_173_SD3_17	yes	no	coding_synon
+chr9	EP_30623_224_SD3_17	yes	no	coding_synon
+chr9	EP_30591_127_SD3_17	yes	no	missense_mutation
+chr9	EP_30611_118_SD3_17	yes	no	missense_mutation
+chr9	EP_30624_147_SD3_17	yes	no	missense_mutation
+chr9	EP_30624_294_SD3_17	yes	no	missense_mutation
+chr12	EP_30634_211_SD3_17	yes	no	coding_synon
+chr12	EP_30645_159_SD3_17	yes	no	coding_synon
+chr12	EP_30647_179_SD3_17	yes	no	coding_synon
+chr12	EP_30664_149_SD3_17	yes	no	coding_synon
+chr12	EP_30667_101_SD3_17	yes	no	coding_synon
+chr12	EP_30670_263_SD3_17	yes	no	coding_synon
+chr12	EP_30670_68_SD3_17	yes	no	coding_synon
+chr12	EP_30671_96_SD3_17	yes	no	coding_synon
+chr12	EP_30655_44_SD3_17	yes	no	intron
+chr12	EP_30631_112_SD3_17	yes	no	intron
+chr3	EP_10060250_151_SD3_17	yes	no	coding_synon
+chr3	EP_30682_259_SD3_17	yes	no	coding_synon
+chr3	EP_30701_183_SD3_17	yes	no	coding_synon
+chr3	EP_30707_174_SD3_17	yes	no	coding_synon
+chr3	EP_30693_146_SD3_17	yes	no	missense_mutation
+chr3	EP_30712_84_SD3_17	yes	no	missense_mutation
+chr3	EP_30723_349_SD3_17	yes	no	missense_mutation
+chr3	EP_30722_22_SD3_17	yes	no	intron
+chr3	EP_30696_228_SD3_17	yes	no	intron
+chr3	EP_10059851_190_SD3_17	yes	no	nonsense_mutation
+chr3	EP_30684_203_SD3_17	yes	no	splice_site
+chr1	EP_30755_87_SD3_17	yes	no	coding_synon
+chr1	EP_30764_116_SD3_17	yes	no	coding_synon
+chr1	EP_30752_333_SD3_17	yes	no	missense_mutation
+chr1	EP_30753_106_SD3_17	yes	no	missense_mutation
+chr1	EP_30770_162_SD3_17	yes	no	missense_mutation
+chr1	EP_30778_215_SD3_17	yes	no	missense_mutation
+chr1	EP_30779_133_SD3_17	yes	no	missense_mutation
+chr1	EP_30754_72_SD3_17	yes	no	intron
+chr1	EP_30735_49_SD3_17	yes	no	intron
+chr1	EP_30745_44_SD3_17	yes	no	intron
+chr1	EP_30764_185_SD3_17	yes	no	intron
+chrX	EP_30784_215_SD3_17	yes	no	coding_synon
+chrX	EP_30795_118_SD3_17	yes	no	coding_synon
+chrX	EP_30784_297_SD3_17	yes	no	missense_mutation
+chrX	EP_30784_298_SD3_17	yes	no	missense_mutation
+chrX	EP_30825_138_SD3_17	yes	no	missense_mutation
+chrX	EP_30830_216_SD3_17	yes	no	missense_mutation
+chrX	EP_30786_24_SD3_17	yes	no	intron
+chrX	EP_30811_21_SD3_17	yes	no	intron
+chr17	EP_30833_221_SD3_17	yes	no	coding_synon
+chr17	EP_30836_120_SD3_17	yes	no	coding_synon
+chr17	EP_30838_245_SD3_17	yes	no	coding_synon
+chr17	EP_30840_386_SD3_17	yes	no	coding_synon
+chr17	EP_30841_294_SD3_17	yes	no	coding_synon
+chr17	EP_30841_441_SD3_17	yes	no	coding_synon
+chr17	EP_30854_172_SD3_17	yes	no	coding_synon
+chr17	EP_30862_99_SD3_17	yes	no	coding_synon
+chr17	EP_30871_200_SD3_17	yes	no	coding_synon
+chr17	EP_148289_135_SD3_17	yes	no	missense_mutation
+chr17	EP_30833_140_SD3_17	yes	no	missense_mutation
+chr17	EP_30840_267_SD3_17	yes	no	missense_mutation
+chr17	EP_30841_80_SD3_17	yes	no	missense_mutation
+chr17	EP_30860_130_SD3_17	yes	no	missense_mutation
+chr17	EP_30870_133_SD3_17	yes	no	missense_mutation
+chr17	EP_30876_70_SD3_17	yes	no	missense_mutation
+chr17	EP_30878_219_SD3_17	yes	no	missense_mutation
+chr17	EP_30874_65_SD3_17	yes	no	promoter
+chr17	EP_30874_180_SD3_17	yes	no	promoter
+chr17	EP_30844_256_SD3_17	yes	no	splice_site
+chr16	EP_30883_157_SD3_17	yes	no	coding_synon
+chr16	EP_30884_185_SD3_17	yes	no	coding_synon
+chr16	EP_30887_86_SD3_17	yes	no	coding_synon
+chr16	EP_30891_267_SD3_17	yes	no	coding_synon
+chr16	EP_30892_161_SD3_17	yes	no	coding_synon
+chr16	EP_30894_114_SD3_17	yes	no	coding_synon
+chr16	EP_30897_97_SD3_17	yes	no	coding_synon
+chr16	EP_30903_163_SD3_17	yes	no	coding_synon
+chr16	EP_30906_189_SD3_17	yes	no	coding_synon
+chr16	EP_30913_152_SD3_17	yes	no	coding_synon
+chr16	EP_30914_144_SD3_17	yes	no	coding_synon
+chr16	EP_30916_229_SD3_17	yes	no	coding_synon
+chr16	EP_30884_140_SD3_17	yes	no	missense_mutation
+chr16	EP_30890_114_SD3_17	yes	no	missense_mutation
+chr16	EP_30891_176_SD3_17	yes	no	missense_mutation
+chr16	EP_30891_227_SD3_17	yes	no	missense_mutation
+chr16	EP_30891_338_SD3_17	yes	no	missense_mutation
+chr16	EP_30894_113_SD3_17	yes	no	missense_mutation
+chr16	EP_30906_175_SD3_17	yes	no	missense_mutation
+chr16	EP_30914_326_SD3_17	yes	no	missense_mutation
+chr16	EP_30893_54_SD3_17	yes	no	intron
+chr16	EP_30892_255_SD3_17	yes	no	intron
+chr16	EP_30888_241_SD3_17	yes	no	intron
+chr22	EP_30926_220_SD3_17	yes	no	missense_mutation
+chr22	EP_30929_113_SD3_17	yes	no	intron
+chr1	EP_30962_118_SD3_17	yes	no	coding_synon
+chr1	EP_30970_215_SD3_17	yes	no	coding_synon
+chr1	EP_30973_121_SD3_17	yes	no	coding_synon
+chr1	EP_30994_110_SD3_17	yes	no	coding_synon
+chr1	EP_30964_74_SD3_17	yes	no	missense_mutation
+chr1	EP_30972_110_SD3_17	yes	no	missense_mutation
+chr1	EP_30972_212_SD3_17	yes	no	missense_mutation
+chr1	EP_30972_220_SD3_17	yes	no	missense_mutation
+chr1	EP_30999_181_SD3_17	yes	no	missense_mutation
+chr1	EP_31003_107_SD3_17	yes	no	missense_mutation
+chr1	EP_31004_170_SD3_17	yes	no	missense_mutation
+chr1	EP_30960_293_SD3_17	yes	no	promoter
+chr7	EP_31017_177_SD3_17	yes	no	coding_synon
+chr7	EP_31046_253_SD3_17	yes	no	3' UTR
+chr7	EP_31013_23_SD3_17	yes	no	intron
+chr7	EP_31014_124_SD3_17	yes	no	intron
+chr7	EP_31016_48_SD3_17	yes	no	intron
+chr7	EP_31023_237_SD3_17	yes	no	intron
+chr3	EP_31106_78_SD3_17	yes	no	coding_synon
+chr3	EP_31106_84_SD3_17	yes	no	coding_synon
+chr3	EP_31117_145_SD3_17	yes	no	coding_synon
+chr3	EP_31121_114_SD3_17	yes	no	coding_synon
+chr3	EP_31129_156_SD3_17	yes	no	3' UTR
+chr3	EP_31121_170_SD3_17	yes	no	intron
+chr12	EP_31152_77_SD3_17	yes	no	coding_synon
+chr12	EP_31154_124_SD3_17	yes	no	coding_synon
+chr12	EP_31159_96_SD3_17	yes	no	coding_synon
+chr12	EP_31142_101_SD3_17	yes	no	missense_mutation
+chr12	EP_31153_120_SD3_17	yes	no	missense_mutation
+chr12	EP_31153_128_SD3_17	yes	no	missense_mutation
+chr12	EP_31153_150_SD3_17	yes	no	missense_mutation
+chr12	EP_31157_124_SD3_17	yes	no	missense_mutation
+chr12	EP_31169_121_SD3_17	yes	no	3' UTR
+chr12	EP_31169_154_SD3_17	yes	no	3' UTR
+chr12	EP_31162_153_SD3_17	yes	no	intron
+chr12	EP_31160_172_SD3_17	yes	no	intron
+chr12	EP_31151_131_SD3_17	yes	no	splice_site
+chr17	EP_31188_411_SD3_17	yes	no	coding_synon
+chr17	EP_31190_463_SD3_17	yes	no	3' UTR
+chr17	EP_31192_222_SD3_17	yes	no	3' UTR
+chr17	EP_31187_40_SD3_17	yes	no	intron
+chr10	EP_31207_119_SD3_17	yes	no	coding_synon
+chr10	EP_31209_114_SD3_17	yes	no	coding_synon
+chr10	EP_31211_134_SD3_17	yes	no	coding_synon
+chr10	EP_31211_326_SD3_17	yes	no	coding_synon
+chr10	EP_31208_214_SD3_17	yes	no	missense_mutation
+chr10	EP_31211_85_SD3_17	yes	no	missense_mutation
+chr10	EP_31212_296_SD3_17	yes	no	missense_mutation
+chr10	EP_31218_159_SD3_17	yes	no	missense_mutation
+chr10	EP_31204_171_SD3_17	yes	no	intron
+chr10	EP_31204_33_SD3_17	yes	no	intron
+chr10	EP_31208_392_SD3_17	yes	no	intron
+chr10	EP_31208_248_SD3_17	yes	no	splice_region
+chr12	EP_31234_80_SD3_17	yes	no	coding_synon
+chr12	EP_31238_108_SD3_17	yes	no	coding_synon
+chr12	EP_31229_174_SD3_17	yes	no	missense_mutation
+chr12	EP_31229_72_SD3_17	yes	no	missense_mutation
+chr12	EP_31231_165_SD3_17	yes	no	missense_mutation
+chr12	EP_31242_322_SD3_17	yes	no	3' UTR
+chr2	EP_31258_397_SD3_17	yes	no	intron
+chr2	EP_31245_213_SD3_17	yes	no	promoter
+chr17	EP_31261_223_SD3_17	yes	no	missense_mutation
+chr17	EP_31265_112_SD3_17	yes	no	3' UTR
+chr17	EP_31266_81_SD3_17	yes	no	3' UTR
+chr17	EP_31265_75_SD3_17	yes	no	3' UTR
+chr22	EP_31272_304_SD3_17	yes	no	missense_mutation
+chr22	EP_31267_332_SD3_17	yes	no	5' UTR
+chr17	EP_31287_122_SD3_17	yes	no	coding_synon
+chr17	EP_31288_388_SD3_17	yes	no	missense_mutation
+chr17	EP_31290_483_SD3_17	yes	no	3' UTR
+chr17	EP_31291_87_SD3_17	yes	no	3' UTR
+chr17	EP_31300_109_SD3_17	yes	no	promoter
+chr19	EP_31304_181_SD3_17	yes	no	coding_synon
+chr19	EP_31304_31_SD3_17	yes	no	intron
+chr19	EP_31306_29_SD3_17	yes	no	intron
+chr19	EP_31306_97_SD3_17	yes	no	intron
+chr19	EP_31301_62_SD3_17	yes	no	promoter
+chr19	EP_31313_193_SD3_17	yes	no	coding_synon
+chr2	EP_31329_186_SD3_17	yes	no	coding_synon
+chr2	EP_31324_103_SD3_17	yes	no	missense_mutation
+chr2	EP_31331_28_SD3_17	yes	no	intron
+chr11	EP_31337_195_SD3_17	yes	no	missense_mutation
+chr11	EP_31340_543_SD3_17	yes	no	intron
+chr11	EP_31337_235_SD3_17	yes	no	intron
+chr8	EP_10100702_78_SD3_17	yes	no	coding_synon
+chr8	EP_31349_74_SD3_17	yes	no	coding_synon
+chr8	EP_31351_203_SD3_17	yes	no	coding_synon
+chr8	EP_31346_217_SD3_17	yes	no	missense_mutation
+chr15	EP_31361_145_SD3_17	yes	no	coding_synon
+chr15	EP_31361_208_SD3_17	yes	no	coding_synon
+chr15	EP_31363_261_SD3_17	yes	no	coding_synon
+chr15	EP_31362_57_SD3_17	yes	no	missense_mutation
+chr15	EP_31363_118_SD3_17	yes	no	missense_mutation
+chr15	EP_31363_215_SD3_17	yes	no	missense_mutation
+chr15	EP_31363_77_SD3_17	yes	no	missense_mutation
+chr20	EP_31370_102_SD3_17	yes	no	coding_synon
+chr20	EP_31370_41_SD3_17	yes	no	intron
+chr15	EP_31387_221_SD3_17	yes	no	coding_synon
+chr15	EP_31387_124_SD3_17	yes	no	missense_mutation
+chr15	EP_31388_153_SD3_17	yes	no	missense_mutation
+chr15	EP_31390_288_SD3_17	yes	no	3' UTR
+chr15	EP_31381_159_SD3_17	yes	no	5' UTR
+chr15	EP_31381_69_SD3_17	yes	no	promoter
+chr8	EP_31397_441_SD3_17	yes	no	coding_synon
+chr8	EP_31396_471_SD3_17	yes	no	missense_mutation
+chr15	EP_31407_236_SD3_17	yes	no	missense_mutation
+chr15	EP_31407_247_SD3_17	yes	no	intron
+chr15	EP_31408_302_SD3_17	yes	no	intron
+chr4	EP_31417_119_SD3_17	yes	no	coding_synon
+chr4	EP_31419_141_SD3_17	yes	no	coding_synon
+chr4	EP_31419_270_SD3_17	yes	no	coding_synon
+chr4	EP_31419_318_SD3_17	yes	no	coding_synon
+chr17	EP_31433_263_SD3_17	yes	no	intron
+chr17	EP_31432_64_SD3_17	yes	no	splice_region
+chr17	EP_31433_57_SD3_17	yes	no	splice_region
+chr1	EP_10102551_234_SD3_17	yes	no	coding_synon
+chr1	EP_31440_88_SD3_17	yes	no	coding_synon
+chr1	EP_10102551_184_SD3_17	yes	no	missense_mutation
+chr1	EP_31440_115_SD3_17	yes	no	missense_mutation
+chr8	EP_31453_364_SD3_17	yes	no	missense_mutation
+chr8	EP_31453_529_SD3_17	yes	no	missense_mutation
+chr8	EP_31455_247_SD3_17	yes	no	missense_mutation
+chr8	EP_31456_443_SD3_17	yes	no	3' UTR
+chr8	EP_31455_68_SD3_17	yes	no	intron
+chr8	EP_31456_549_SD3_17	yes	no	promoter
+chr8	EP_31452_90_SD3_17	yes	no	splice_site
+chr15	EP_31463_198_SD3_17	yes	no	coding_synon
+chr15	EP_31463_516_SD3_17	yes	no	coding_synon
+chr15	EP_31462_489_SD3_17	yes	no	missense_mutation
+chr15	EP_31464_161_SD3_17	yes	no	missense_mutation
+chr2	EP_31478_54_SD3_17	yes	no	splice_region
+chr17	EP_31486_292_SD3_17	yes	no	coding_synon
+chr17	EP_31485_47_SD3_17	yes	no	intron
+chr2	EP_31502_121_SD3_17	yes	no	coding_synon
+chr2	EP_31504_93_SD3_17	yes	no	coding_synon
+chr2	EP_31507_233_SD3_17	yes	no	coding_synon
+chr2	EP_31497_122_SD3_17	yes	no	missense_mutation
+chr2	EP_31507_184_SD3_17	yes	no	missense_mutation
+chr2	EP_31507_63_SD3_17	yes	no	missense_mutation
+chr7	EP_31524_81_SD3_17	yes	no	coding_synon
+chr7	EP_31525_282_SD3_17	yes	no	coding_synon
+chr7	EP_31526_134_SD3_17	yes	no	coding_synon
+chr7	EP_31509_148_SD3_17	yes	no	missense_mutation
+chr7	EP_31512_136_SD3_17	yes	no	missense_mutation
+chr7	EP_31512_96_SD3_17	yes	no	missense_mutation
+chr7	EP_31516_108_SD3_17	yes	no	missense_mutation
+chr7	EP_31520_138_SD3_17	yes	no	missense_mutation
+chr7	EP_31530_111_SD3_17	yes	no	missense_mutation
+chr7	EP_31531_252_SD3_17	yes	no	missense_mutation
+chr7	EP_31531_267_SD3_17	yes	no	missense_mutation
+chr7	EP_31531_400_SD3_17	yes	no	missense_mutation
+chr7	EP_31531_393_SD3_17	yes	no	nonsense_mutation
+chr7	EP_31515_146_SD3_17	yes	no	splice_site
+chr3	EP_31549_113_SD3_17	yes	no	coding_synon
+chr3	EP_31534_153_SD3_17	yes	no	missense_mutation
+chr3	EP_31534_65_SD3_17	yes	no	missense_mutation
+chr3	EP_31535_169_SD3_17	yes	no	missense_mutation
+chr3	EP_31551_107_SD3_17	yes	no	missense_mutation
+chr3	EP_31553_104_SD3_17	yes	no	missense_mutation
+chr3	EP_31553_98_SD3_17	yes	no	missense_mutation
+chr3	EP_31536_51_SD3_17	yes	no	intron
+chr3	EP_31547_75_SD3_17	yes	no	nonsense_mutation
+chr3	EP_31552_59_SD3_17	yes	no	splice_region
+chr4	EP_31572_26_SD3_17	yes	no	coding_synon
+chr4	EP_31576_309_SD3_17	yes	no	coding_synon
+chr4	EP_31565_282_SD3_17	yes	no	intron
+chr4	EP_31565_79_SD3_17	yes	no	intron
+chrX	EP_31593_224_SD3_17	yes	no	coding_synon
+chrX	EP_31593_248_SD3_17	yes	no	coding_synon
+chrX	EP_31594_349_SD3_17	yes	no	coding_synon
+chrX	EP_31595_175_SD3_17	yes	no	coding_synon
+chrX	EP_31606_95_SD3_17	yes	no	missense_mutation
+chrX	EP_31609_146_SD3_17	yes	no	missense_mutation
+chrX	EP_31613_227_SD3_17	yes	no	missense_mutation
+chrX	EP_31605_57_SD3_17	yes	no	splice_region
+chr1	EP_31621_83_SD3_17	yes	no	coding_synon
+chr1	EP_31625_110_SD3_17	yes	no	coding_synon
+chr1	EP_31651_138_SD3_17	yes	no	coding_synon
+chr1	EP_31625_79_SD3_17	yes	no	missense_mutation
+chr1	EP_31632_98_SD3_17	yes	no	missense_mutation
+chr1	EP_31634_116_SD3_17	yes	no	missense_mutation
+chr1	EP_31643_281_SD3_17	yes	no	3' UTR
+chr1	EP_31641_167_SD3_17	yes	no	3' UTR
+chr1	EP_31641_219_SD3_17	yes	no	3' UTR
+chr1	EP_31645_490_SD3_17	yes	no	3' UTR
+chr1	EP_31643_144_SD3_17	yes	no	3' UTR
+chr1	EP_31625_152_SD3_17	yes	no	intron
+chr1	EP_31627_42_SD3_17	yes	no	intron
+chr1	EP_31627_220_SD3_17	yes	no	intron
+chr16	EP_31663_123_SD3_17	yes	no	coding_synon
+chr16	EP_31665_90_SD3_17	yes	no	coding_synon
+chr16	EP_31655_169_SD3_17	yes	no	missense_mutation
+chr16	EP_31662_119_SD3_17	yes	no	missense_mutation
+chr16	EP_31677_79_SD3_17	yes	no	missense_mutation
+chr16	EP_31657_58_SD3_17	yes	no	intron
+chr16	EP_31675_93_SD3_17	yes	no	intron
+chr1	EP_31691_99_SD3_17	yes	no	coding_synon
+chr1	EP_31695_142_SD3_17	yes	no	coding_synon
+chr1	EP_31695_166_SD3_17	yes	no	coding_synon
+chr1	EP_31695_274_SD3_17	yes	no	coding_synon
+chr1	EP_31699_131_SD3_17	yes	no	coding_synon
+chr1	EP_31682_107_SD3_17	yes	no	missense_mutation
+chr1	EP_31689_104_SD3_17	yes	no	missense_mutation
+chr1	EP_31698_100_SD3_17	yes	no	missense_mutation
+chr1	EP_31701_50_SD3_17	yes	no	missense_mutation
+chr1	EP_31701_192_SD3_17	yes	no	3' UTR
+chr1	EP_31701_399_SD3_17	yes	no	3' UTR
+chr1	EP_31701_103_SD3_17	yes	no	3' UTR
+chr1	EP_31701_463_SD3_17	yes	no	promoter
+chr1	EP_31709_128_SD3_17	yes	no	coding_synon
+chr1	EP_31708_72_SD3_17	yes	no	missense_mutation
+chr1	EP_31711_141_SD3_17	yes	no	missense_mutation
+chr1	EP_31712_88_SD3_17	yes	no	missense_mutation
+chr1	EP_31712_94_SD3_17	yes	no	missense_mutation
+chr1	EP_31717_224_SD3_17	yes	no	missense_mutation
+chr1	EP_31717_228_SD3_17	yes	no	missense_mutation
+chr1	EP_31717_90_SD3_17	yes	no	missense_mutation
+chr1	EP_31717_95_SD3_17	yes	no	missense_mutation
+chr1	EP_31718_143_SD3_17	yes	no	missense_mutation
+chr1	EP_31720_94_SD3_17	yes	no	missense_mutation
+chr5	EP_31726_306_SD3_17	yes	no	coding_synon
+chr5	EP_31729_285_SD3_17	yes	no	3' UTR
+chr5	EP_31725_83_SD3_17	yes	no	5' UTR
+chr11	EP_31738_122_SD3_17	yes	no	missense_mutation
+chr11	EP_31739_177_SD3_17	yes	no	missense_mutation
+chr11	EP_31741_293_SD3_17	yes	no	3' UTR
+chr3	EP_31745_282_SD3_17	yes	no	coding_synon
+chr3	EP_31753_66_SD3_17	yes	no	coding_synon
+chr3	EP_31755_88_SD3_17	yes	no	coding_synon
+chr3	EP_31747_141_SD3_17	yes	no	missense_mutation
+chr3	EP_31743_27_SD3_17	yes	no	intron
+chr17	EP_31426_191_SD3_17	yes	no	promoter
+chr6	EP_31778_109_SD3_17	yes	no	coding_synon
+chr6	EP_31782_304_SD3_17	yes	no	coding_synon
+chr6	EP_31805_55_SD3_17	yes	no	coding_synon
+chr6	EP_30267_104_SD3_17	yes	no	missense_mutation
+chr6	EP_31793_70_SD3_17	yes	no	missense_mutation
+chr6	EP_31802_389_SD3_17	yes	no	3' UTR
+chr6	EP_31808_192_SD3_17	yes	no	3' UTR
+chr9	EP_32129_192_SD3_17	yes	no	coding_synon
+chr9	EP_32137_119_SD3_17	yes	no	coding_synon
+chr9	EP_32137_140_SD3_17	yes	no	coding_synon
+chr9	EP_32138_138_SD3_17	yes	no	coding_synon
+chr9	EP_32141_129_SD3_17	yes	no	coding_synon
+chr9	EP_32142_240_SD3_17	yes	no	coding_synon
+chr9	EP_32149_290_SD3_17	yes	no	3' UTR
+chr9	EP_32152_526_SD3_17	yes	no	3' UTR
+chr9	EP_32144_27_SD3_17	yes	no	intron
+chr9	EP_32142_309_SD3_17	yes	no	intron
+chr9	EP_32136_24_SD3_17	yes	no	intron
+chr5	EP_31819_231_SD3_17	yes	no	coding_synon
+chr5	EP_31813_137_SD3_17	yes	no	missense_mutation
+chr4	EP_31831_292_SD3_17	yes	no	coding_synon
+chr4	EP_31829_154_SD3_17	yes	no	intron
+chr4	EP_31831_55_SD3_17	yes	no	intron
+chrX	EP_31845_167_SD3_17	yes	no	coding_synon
+chr4	EP_31853_94_SD3_17	yes	no	missense_mutation
+chr4	EP_31860_98_SD3_17	yes	no	missense_mutation
+chr4	EP_31870_404_SD3_17	yes	no	3' UTR
+chr4	EP_31867_292_SD3_17	yes	no	3' UTR
+chr15	EP_31887_67_SD3_17	yes	no	coding_synon
+chr15	EP_31890_164_SD3_17	yes	no	coding_synon
+chr15	EP_31887_92_SD3_17	yes	no	missense_mutation
+chr15	EP_31888_176_SD3_17	yes	no	missense_mutation
+chr15	EP_31890_177_SD3_17	yes	no	missense_mutation
+chr15	EP_31891_37_SD3_17	yes	no	missense_mutation
+chr15	EP_31892_196_SD3_17	yes	no	3' UTR
+chr5	EP_31899_186_SD3_17	yes	no	coding_synon
+chr5	EP_31900_195_SD3_17	yes	no	missense_mutation
+chr5	EP_31895_78_SD3_17	yes	no	splice_site
+chr4	EP_31913_329_SD3_17	yes	no	coding_synon
+chr4	EP_31913_263_SD3_17	yes	no	missense_mutation
+chr4	EP_31914_336_SD3_17	yes	no	3' UTR
+chr5	EP_31920_306_SD3_17	yes	no	coding_synon
+chr5	EP_31924_273_SD3_17	yes	no	missense_mutation
+chr5	EP_31924_90_SD3_17	yes	no	missense_mutation
+chr5	EP_31922_272_SD3_17	yes	no	intron
+chr1	EP_31949_45_SD3_17	yes	no	intron
+chr1	EP_31946_172_SD3_17	yes	no	intron
+chrX	EP_31961_135_SD3_17	yes	no	missense_mutation
+chrX	EP_31961_171_SD3_17	yes	no	missense_mutation
+chrX	EP_31961_232_SD3_17	yes	no	missense_mutation
+chrX	EP_31963_229_SD3_17	yes	no	3' UTR
+chrX	EP_31970_279_SD3_17	yes	no	3' UTR
+chrX	EP_31978_226_SD3_17	yes	no	intron
+chrX	EP_31953_135_SD3_17	yes	no	intron
+chr4	EP_31982_119_SD3_17	yes	no	missense_mutation
+chr4	EP_31990_264_SD3_17	yes	no	missense_mutation
+chr4	EP_31982_36_SD3_17	yes	no	intron
+chr15	EP_32023_67_SD3_17	yes	no	coding_synon
+chr15	EP_32016_104_SD3_17	yes	no	missense_mutation
+chr5	EP_32031_77_SD3_17	yes	no	coding_synon
+chr5	EP_32032_119_SD3_17	yes	no	missense_mutation
+chr5	EP_32032_120_SD3_17	yes	no	missense_mutation
+chr5	EP_32034_104_SD3_17	yes	no	missense_mutation
+chr5	EP_32034_107_SD3_17	yes	no	missense_mutation
+chr5	EP_32035_150_SD3_17	yes	no	missense_mutation
+chr5	EP_32035_269_SD3_17	yes	no	missense_mutation
+chrX	EP_32048_130_SD3_17	yes	no	coding_synon
+chr6	EP_32055_127_SD3_17	yes	no	coding_synon
+chr6	EP_32057_167_SD3_17	yes	no	coding_synon
+chr6	EP_32063_233_SD3_17	yes	no	3' UTR
+chr6	EP_32061_293_SD3_17	yes	no	intron
+chr6	EP_32054_127_SD3_17	yes	no	intron
+chr6	EP_32054_21_SD3_17	yes	no	intron
+chr6	EP_32054_118_SD3_17	yes	no	splice_region
+chr6	EP_32067_148_SD3_17	yes	no	coding_synon
+chr6	EP_32072_124_SD3_17	yes	no	missense_mutation
+chr6	EP_32072_144_SD3_17	yes	no	missense_mutation
+chr15	EP_32505_245_SD3_17	yes	no	missense_mutation
+chr15	EP_32504_148_SD3_17	yes	no	intron
+chr5	EP_32078_130_SD3_17	yes	no	coding_synon
+chrX	EP_32088_85_SD3_17	yes	no	5' UTR
+chrX	EP_32088_177_SD3_17	yes	no	5' UTR
+chr4	EP_32108_134_SD3_17	yes	no	coding_synon
+chr4	EP_32105_201_SD3_17	yes	no	missense_mutation
+chr4	EP_32113_73_SD3_17	yes	no	3' UTR
+chr4	EP_32123_106_SD3_17	yes	no	coding_synon
+chr4	EP_32126_515_SD3_17	yes	no	3' UTR
+chr4	EP_32125_222_SD3_17	yes	no	3' UTR
+chr4	EP_32121_145_SD3_17	yes	no	intron
+chr4	EP_32117_319_SD3_17	yes	no	intron
+chr4	EP_32117_263_SD3_17	yes	no	intron
+chr5	EP_32159_117_SD3_17	yes	no	missense_mutation
+chr5	EP_32163_96_SD3_17	yes	no	missense_mutation
+chr5	EP_32166_348_SD3_17	yes	no	intron
+chr4	EP_32174_331_SD3_17	yes	no	coding_synon
+chr4	EP_32178_71_SD3_17	yes	no	coding_synon
+chrX	EP_32193_236_SD3_17	yes	no	missense_mutation
+chrX	EP_32207_370_SD3_17	yes	no	promoter
+chrX	EP_32201_157_SD3_17	yes	no	splice_region
+chr11	EP_32214_320_SD3_17	yes	no	coding_synon
+chr11	EP_32226_187_SD3_17	yes	no	coding_synon
+chr11	EP_32217_53_SD3_17	yes	no	intron
+chr10	EP_32229_114_SD3_17	yes	no	coding_synon
+chr10	EP_32234_209_SD3_17	yes	no	missense_mutation
+chr10	EP_32238_192_SD3_17	yes	no	missense_mutation
+chr10	EP_32242_269_SD3_17	yes	no	3' UTR
+chr10	EP_32242_230_SD3_17	yes	no	3' UTR
+chr10	EP_32244_83_SD3_17	yes	no	3' UTR
+chr10	EP_32233_31_SD3_17	yes	no	intron
+chr4	EP_34641_326_SD3_17	yes	no	coding_synon
+chr4	EP_32251_177_SD3_17	yes	no	missense_mutation
+chr4	EP_34640_289_SD3_17	yes	no	missense_mutation
+chr4	EP_34646_466_SD3_17	yes	no	missense_mutation
+chr4	EP_32254_27_SD3_17	yes	no	intron
+chr4	EP_32254_223_SD3_17	yes	no	intron
+chr21	EP_32257_290_SD3_17	yes	no	coding_synon
+chr21	EP_32259_72_SD3_17	yes	no	coding_synon
+chr21	EP_32270_321_SD3_17	yes	no	intron
+chr6	EP_32280_282_SD3_17	yes	no	coding_synon
+chr6	EP_32283_120_SD3_17	yes	no	missense_mutation
+chr6	EP_32287_173_SD3_17	yes	no	missense_mutation
+chr1	EP_32298_120_SD3_17	yes	no	coding_synon
+chr1	EP_32298_162_SD3_17	yes	no	coding_synon
+chr1	EP_32298_133_SD3_17	yes	no	missense_mutation
+chr1	EP_32311_239_SD3_17	yes	no	missense_mutation
+chr1	EP_32308_34_SD3_17	yes	no	intron
+chr11	EP_32317_172_SD3_17	yes	no	coding_synon
+chr11	EP_32319_191_SD3_17	yes	no	missense_mutation
+chr19	EP_32334_228_SD3_17	yes	no	coding_synon
+chr19	EP_32336_139_SD3_17	yes	no	coding_synon
+chr19	EP_32343_223_SD3_17	yes	no	coding_synon
+chr19	EP_32332_41_SD3_17	yes	no	missense_mutation
+chr19	EP_32334_80_SD3_17	yes	no	missense_mutation
+chr19	EP_32337_68_SD3_17	yes	no	missense_mutation
+chr19	EP_32346_189_SD3_17	yes	no	missense_mutation
+chr19	EP_32346_192_SD3_17	yes	no	missense_mutation
+chr19	EP_32336_60_SD3_17	yes	no	splice_region
+chr9	EP_32356_121_SD3_17	yes	no	intron
+chr9	EP_32363_264_SD3_17	yes	no	splice_region
+chr16	EP_32390_229_SD3_17	yes	no	coding_synon
+chr16	EP_32390_70_SD3_17	yes	no	coding_synon
+chr16	EP_32391_92_SD3_17	yes	no	coding_synon
+chr16	EP_32390_87_SD3_17	yes	no	missense_mutation
+chr16	EP_32391_294_SD3_17	yes	no	missense_mutation
+chr16	EP_32392_247_SD3_17	yes	no	missense_mutation
+chr16	EP_32389_267_SD3_17	yes	no	intron
+chr12	EP_32404_239_SD3_17	yes	no	coding_synon
+chr12	EP_32407_219_SD3_17	yes	no	coding_synon
+chr12	EP_32415_88_SD3_17	yes	no	coding_synon
+chr12	EP_32417_413_SD3_17	yes	no	coding_synon
+chr12	EP_32404_342_SD3_17	yes	no	missense_mutation
+chr12	EP_32421_100_SD3_17	yes	no	3' UTR
+chr12	EP_32419_277_SD3_17	yes	no	3' UTR
+chr17	EP_32429_187_SD3_17	yes	no	coding_synon
+chr17	EP_32429_85_SD3_17	yes	no	coding_synon
+chr17	EP_32424_450_SD3_17	yes	no	missense_mutation
+chr19	EP_32447_103_SD3_17	yes	no	coding_synon
+chr19	EP_32457_218_SD3_17	yes	no	3' UTR
+chr9	EP_32463_149_SD3_17	yes	no	coding_synon
+chr9	EP_32466_268_SD3_17	yes	no	coding_synon
+chr9	EP_32469_195_SD3_17	yes	no	coding_synon
+chr9	EP_32470_198_SD3_17	yes	no	coding_synon
+chr9	EP_32464_89_SD3_17	yes	no	missense_mutation
+chr9	EP_32464_93_SD3_17	yes	no	missense_mutation
+chr9	EP_32472_361_SD3_17	yes	no	missense_mutation
+chr9	EP_32472_79_SD3_17	yes	no	missense_mutation
+chr9	EP_32480_229_SD3_17	yes	no	3' UTR
+chr9	EP_32476_140_SD3_17	yes	no	3' UTR
+chr9	EP_32458_203_SD3_17	yes	no	5' UTR
+chr9	EP_32458_129_SD3_17	yes	no	5' UTR
+chr8	EP_32491_62_SD3_17	yes	no	coding_synon
+chr8	EP_32483_434_SD3_17	yes	no	missense_mutation
+chr8	EP_32497_227_SD3_17	yes	no	3' UTR
+chr6	EP_32514_334_SD3_17	yes	no	coding_synon
+chr6	EP_32514_445_SD3_17	yes	no	coding_synon
+chr6	EP_32518_214_SD3_17	yes	no	coding_synon
+chr6	EP_32524_292_SD3_17	yes	no	coding_synon
+chr6	EP_32523_213_SD3_17	yes	no	missense_mutation
+chr6	EP_32524_149_SD3_17	yes	no	missense_mutation
+chr6	EP_32524_194_SD3_17	yes	no	missense_mutation
+chr6	EP_32521_41_SD3_17	yes	no	intron
+chr3	EP_32536_252_SD3_17	yes	no	coding_synon
+chr3	EP_32533_355_SD3_17	yes	no	missense_mutation
+chr3	EP_32534_262_SD3_17	yes	no	missense_mutation
+chr3	EP_32537_314_SD3_17	yes	no	missense_mutation
+chr7	EP_32549_71_SD3_17	yes	no	coding_synon
+chr7	EP_32546_162_SD3_17	yes	no	missense_mutation
+chr6	EP_32559_198_SD3_17	yes	no	coding_synon
+chr6	EP_32563_129_SD3_17	yes	no	coding_synon
+chr6	EP_32563_546_SD3_17	yes	no	coding_synon
+chr6	EP_32564_280_SD3_17	yes	no	coding_synon
+chr6	EP_32565_116_SD3_17	yes	no	coding_synon
+chr6	EP_32562_572_SD3_17	yes	no	intron
+chr11	EP_32570_359_SD3_17	yes	no	coding_synon
+chr11	EP_32570_83_SD3_17	yes	no	coding_synon
+chr11	EP_32573_251_SD3_17	yes	no	coding_synon
+chr11	EP_32569_385_SD3_17	yes	no	missense_mutation
+chr11	EP_32570_328_SD3_17	yes	no	missense_mutation
+chr11	EP_32573_99_SD3_17	yes	no	missense_mutation
+chr11	EP_32576_270_SD3_17	yes	no	missense_mutation
+chr5	EP_32590_184_SD3_17	yes	no	coding_synon
+chr5	EP_32592_234_SD3_17	yes	no	coding_synon
+chr5	EP_32592_243_SD3_17	yes	no	coding_synon
+chr5	EP_32592_312_SD3_17	yes	no	coding_synon
+chr5	EP_32592_424_SD3_17	yes	no	missense_mutation
+chr5	EP_32592_95_SD3_17	yes	no	missense_mutation
+chr5	EP_32595_226_SD3_17	yes	no	3' UTR
+chr5	EP_32595_412_SD3_17	yes	no	3' UTR
+chr5	EP_32596_406_SD3_17	yes	no	3' UTR
+chr5	EP_32600_172_SD3_17	yes	no	3' UTR
+chr5	EP_32595_369_SD3_17	yes	no	3' UTR
+chr5	EP_32595_426_SD3_17	yes	no	3' UTR
+chr5	EP_32595_484_SD3_17	yes	no	3' UTR
+chr5	EP_32601_120_SD3_17	yes	no	promoter
+chr3	EP_32606_85_SD3_17	yes	no	coding_synon
+chr3	EP_32611_305_SD3_17	yes	no	coding_synon
+chr3	EP_32613_101_SD3_17	yes	no	coding_synon
+chr3	EP_32611_395_SD3_17	yes	no	missense_mutation
+chr7	EP_32638_332_SD3_17	yes	no	coding_synon
+chr7	EP_32629_48_SD3_17	yes	no	missense_mutation
+chr7	EP_32633_140_SD3_17	yes	no	missense_mutation
+chr7	EP_32635_243_SD3_17	yes	no	missense_mutation
+chr19	EP_32657_169_SD3_17	yes	no	coding_synon
+chr19	EP_32657_304_SD3_17	yes	no	coding_synon
+chr19	EP_32657_361_SD3_17	yes	no	coding_synon
+chr19	EP_32659_138_SD3_17	yes	no	coding_synon
+chr19	EP_32662_145_SD3_17	yes	no	coding_synon
+chr19	EP_32666_243_SD3_17	yes	no	3' UTR
+chr19	EP_32657_48_SD3_17	yes	no	intron
+chr1	EP_32672_206_SD3_17	yes	no	coding_synon
+chr1	EP_32673_71_SD3_17	yes	no	coding_synon
+chr1	EP_32671_124_SD3_17	yes	no	missense_mutation
+chr1	EP_32673_249_SD3_17	yes	no	missense_mutation
+chr1	EP_32674_117_SD3_17	yes	no	missense_mutation
+chr1	EP_32677_280_SD3_17	yes	no	3' UTR
+chr1	EP_32679_432_SD3_17	yes	no	3' UTR
+chr15	EP_10070001_214_SD3_17	yes	no	coding_synon
+chr15	EP_10070067_265_SD3_17	yes	no	coding_synon
+chr15	EP_32685_78_SD3_17	yes	no	coding_synon
+chr15	EP_32688_293_SD3_17	yes	no	missense_mutation
+chr5	EP_32695_188_SD3_17	yes	no	coding_synon
+chr5	EP_32695_400_SD3_17	yes	no	missense_mutation
+chr5	EP_32696_248_SD3_17	yes	no	missense_mutation
+chr6	EP_32698_315_SD3_17	yes	no	missense_mutation
+chr6	EP_32699_476_SD3_17	yes	no	missense_mutation
+chr1	EP_32704_261_SD3_17	yes	no	coding_synon
+chr1	EP_32706_509_SD3_17	yes	no	coding_synon
+chr1	EP_32704_70_SD3_17	yes	no	missense_mutation
+chr1	EP_32705_77_SD3_17	yes	no	missense_mutation
+chr1	EP_32707_393_SD3_17	yes	no	3' UTR
+chr1	EP_32702_256_SD3_17	yes	no	5' UTR
+chr6	EP_32714_224_SD3_17	yes	no	coding_synon
+chr6	EP_32711_267_SD3_17	yes	no	intron
+chr3	EP_32717_220_SD3_17	yes	no	missense_mutation
+chr3	EP_32718_197_SD3_17	yes	no	missense_mutation
+chr13	EP_32722_121_SD3_17	yes	no	missense_mutation
+chr13	EP_32724_171_SD3_17	yes	no	missense_mutation
+chr13	EP_32725_159_SD3_17	yes	no	3' UTR
+chr11	EP_32753_138_SD3_17	yes	no	missense_mutation
+chr11	EP_32755_151_SD3_17	yes	no	missense_mutation
+chr11	EP_32759_178_SD3_17	yes	no	missense_mutation
+chr11	EP_32759_32_SD3_17	yes	no	intron
+chr11	EP_32770_174_SD3_17	yes	no	missense_mutation
+chr11	EP_32770_96_SD3_17	yes	no	missense_mutation
+chr3	EP_32778_73_SD3_17	yes	no	coding_synon
+chr3	EP_32783_228_SD3_17	yes	no	coding_synon
+chr3	EP_32778_68_SD3_17	yes	no	missense_mutation
+chr3	EP_32785_200_SD3_17	yes	no	missense_mutation
+chr3	EP_32785_75_SD3_17	yes	no	missense_mutation
+chr3	EP_32791_98_SD3_17	yes	no	coding_synon
+chr3	EP_32791_202_SD3_17	yes	no	missense_mutation
+chr3	EP_32793_221_SD3_17	yes	no	missense_mutation
+chr3	EP_32794_232_SD3_17	yes	no	3' UTR
+chr3	EP_32796_358_SD3_17	yes	no	splice_site
+chr5	EP_32813_123_SD3_17	yes	no	coding_synon
+chr5	EP_32814_197_SD3_17	yes	no	coding_synon
+chr5	EP_32820_160_SD3_17	yes	no	intron
+chr7	EP_32824_362_SD3_17	yes	no	coding_synon
+chr7	EP_32826_170_SD3_17	yes	no	coding_synon
+chr7	EP_32824_267_SD3_17	yes	no	missense_mutation
+chr7	EP_32826_217_SD3_17	yes	no	missense_mutation
+chr1	EP_32828_188_SD3_17	yes	no	coding_synon
+chr1	EP_32829_411_SD3_17	yes	no	coding_synon
+chr1	EP_32832_56_SD3_17	yes	no	coding_synon
+chr1	EP_32831_221_SD3_17	yes	no	missense_mutation
+chr1	EP_32831_314_SD3_17	yes	no	missense_mutation
+chr10	EP_32835_219_SD3_17	yes	no	missense_mutation
+chr10	EP_32850_142_SD3_17	yes	no	missense_mutation
+chr10	EP_32850_272_SD3_17	yes	no	missense_mutation
+chr1	EP_32862_23_SD3_17	yes	no	coding_synon
+chr1	EP_32861_181_SD3_17	yes	no	missense_mutation
+chr1	EP_32875_362_SD3_17	yes	no	coding_synon
+chr1	EP_32875_377_SD3_17	yes	no	missense_mutation
+chr11	EP_32887_448_SD3_17	yes	no	missense_mutation
+chr11	EP_32887_499_SD3_17	yes	no	missense_mutation
+chr12	EP_32893_154_SD3_17	yes	no	missense_mutation
+chr12	EP_32893_361_SD3_17	yes	no	missense_mutation
+chr12	EP_32893_529_SD3_17	yes	no	missense_mutation
+chr12	EP_32893_539_SD3_17	yes	no	missense_mutation
+chr12	EP_32895_409_SD3_17	yes	no	missense_mutation
+chr12	EP_32903_238_SD3_17	yes	no	coding_synon
+chr12	EP_32904_32_SD3_17	yes	no	coding_synon
+chr12	EP_32900_214_SD3_17	yes	no	missense_mutation
+chr12	EP_32899_341_SD3_17	yes	no	5' UTR
+chr19	EP_32912_153_SD3_17	yes	no	coding_synon
+chr19	EP_32914_449_SD3_17	yes	no	3' UTR
+chr19	EP_32918_320_SD3_17	yes	no	3' UTR
+chr3	EP_32923_82_SD3_17	yes	no	missense_mutation
+chr3	EP_32932_32_SD3_17	yes	no	intron
+chr1	EP_32955_72_SD3_17	yes	no	coding_synon
+chr17	EP_32977_66_SD3_17	yes	no	coding_synon
+chr17	EP_32979_154_SD3_17	yes	no	missense_mutation
+chr20	EP_32990_390_SD3_17	yes	no	missense_mutation
+chr20	EP_32990_400_SD3_17	yes	no	missense_mutation
+chr20	EP_32992_403_SD3_17	yes	no	missense_mutation
+chr20	EP_32993_298_SD3_17	yes	no	3' UTR
+chr20	EP_32993_432_SD3_17	yes	no	3' UTR
+chr8	EP_32998_270_SD3_17	yes	no	missense_mutation
+chr11	EP_33007_212_SD3_17	yes	no	coding_synon
+chr11	EP_33009_404_SD3_17	yes	no	coding_synon
+chr11	EP_33010_141_SD3_17	yes	no	coding_synon
+chr12	EP_33017_532_SD3_17	yes	no	coding_synon
+chr19	EP_33030_130_SD3_17	yes	no	coding_synon
+chr19	EP_33036_390_SD3_17	yes	no	3' UTR
+chr1	EP_33041_219_SD3_17	yes	no	coding_synon
+chr1	EP_33040_255_SD3_17	yes	no	missense_mutation
+chr1	EP_33046_201_SD3_17	yes	no	3' UTR
+chrX	EP_33056_205_SD3_17	yes	no	coding_synon
+chrX	EP_33062_297_SD3_17	yes	no	coding_synon
+chrX	EP_33059_128_SD3_17	yes	no	missense_mutation
+chrX	EP_33060_136_SD3_17	yes	no	missense_mutation
+chrX	EP_33062_296_SD3_17	yes	no	missense_mutation
+chr7	EP_33069_119_SD3_17	yes	no	coding_synon
+chr7	EP_33069_357_SD3_17	yes	no	coding_synon
+chr7	EP_33074_243_SD3_17	yes	no	missense_mutation
+chr7	EP_33066_320_SD3_17	yes	no	5' UTR
+chr7	EP_33072_334_SD3_17	yes	no	intron
+chr1	EP_33083_418_SD3_17	yes	no	coding_synon
+chr1	EP_33083_422_SD3_17	yes	no	missense_mutation
+chr1	EP_33081_200_SD3_17	yes	no	5' UTR
+chr21	EP_10072462_235_SD3_17	yes	no	3' UTR
+chrX	EP_33102_413_SD3_17	yes	no	missense_mutation
+chrX	EP_34661_508_SD3_17	yes	no	3' UTR
+chr21	EP_30192_161_SD3_17	yes	no	5' UTR
+chr11	EP_34663_426_SD3_17	yes	no	3' UTR
+chr2	EP_34669_125_SD3_17	yes	no	coding_synon
+chr2	EP_34669_318_SD3_17	yes	no	coding_synon
+chr2	EP_34669_41_SD3_17	yes	no	coding_synon
+chr2	EP_34670_448_SD3_17	yes	no	missense_mutation
+chr20	EP_34673_248_SD3_17	yes	no	coding_synon
+chr20	EP_33115_387_SD3_17	yes	no	5' UTR
+chr18	EP_33124_221_SD3_17	yes	no	coding_synon
+chr16	EP_33144_163_SD3_17	yes	no	coding_synon
+chr16	EP_33145_366_SD3_17	yes	no	coding_synon
+chr16	EP_33145_113_SD3_17	yes	no	missense_mutation
+chr16	EP_33145_377_SD3_17	yes	no	missense_mutation
+chr16	EP_33145_457_SD3_17	yes	no	missense_mutation
+chr16	EP_33146_256_SD3_17	yes	no	missense_mutation
+chr16	EP_33146_453_SD3_17	yes	no	missense_mutation
+chr16	EP_33141_383_SD3_17	yes	no	intron
+chr16	EP_33147_49_SD3_17	yes	no	promoter
+chr1	EP_33160_260_SD3_17	yes	no	coding_synon
+chr1	EP_33160_431_SD3_17	yes	no	coding_synon
+chr1	EP_33156_251_SD3_17	yes	no	missense_mutation
+chr1	EP_33159_144_SD3_17	yes	no	missense_mutation
+chr7	EP_30205_225_SD3_17	yes	no	coding_synon
+chr7	EP_33170_325_SD3_17	yes	no	coding_synon
+chr7	EP_33171_159_SD3_17	yes	no	coding_synon
+chr7	EP_30200_388_SD3_17	yes	no	missense_mutation
+chr7	EP_30210_104_SD3_17	yes	no	missense_mutation
+chr7	EP_33166_86_SD3_17	yes	no	missense_mutation
+chr7	EP_33176_77_SD3_17	yes	no	missense_mutation
+chr7	EP_33179_355_SD3_17	yes	no	3' UTR
+chr7	EP_33175_404_SD3_17	yes	no	intron
+chr7	EP_30201_51_SD3_17	yes	no	intron
+chr12	EP_33191_178_SD3_17	yes	no	coding_synon
+chr12	EP_33194_154_SD3_17	yes	no	coding_synon
+chr12	EP_33196_148_SD3_17	yes	no	coding_synon
+chr12	EP_33200_206_SD3_17	yes	no	coding_synon
+chr12	EP_33191_277_SD3_17	yes	no	intron
+chr17	EP_33205_244_SD3_17	yes	no	coding_synon
+chr17	EP_33210_229_SD3_17	yes	no	coding_synon
+chr17	EP_33219_354_SD3_17	yes	no	coding_synon
+chr17	EP_33212_125_SD3_17	yes	no	missense_mutation
+chr17	EP_33216_411_SD3_17	yes	no	missense_mutation
+chr14	EP_33231_329_SD3_17	yes	no	coding_synon
+chr14	EP_33238_341_SD3_17	yes	no	coding_synon
+chr14	EP_33232_169_SD3_17	yes	no	missense_mutation
+chr14	EP_33244_70_SD3_17	yes	no	intron
+chr14	EP_33244_137_SD3_17	yes	no	intron
+chr17	EP_33247_121_SD3_17	yes	no	coding_synon
+chr17	EP_33250_416_SD3_17	yes	no	coding_synon
+chr17	EP_33251_347_SD3_17	yes	no	coding_synon
+chr17	EP_33263_50_SD3_17	yes	no	coding_synon
+chr17	EP_33250_79_SD3_17	yes	no	missense_mutation
+chr17	EP_33251_409_SD3_17	yes	no	missense_mutation
+chr17	EP_33253_166_SD3_17	yes	no	missense_mutation
+chr17	EP_33250_57_SD3_17	yes	no	splice_region
+chr2	EP_33273_450_SD3_17	yes	no	coding_synon
+chr2	EP_33275_385_SD3_17	yes	no	coding_synon
+chr2	EP_33277_205_SD3_17	yes	no	coding_synon
+chr2	EP_33279_124_SD3_17	yes	no	coding_synon
+chr2	EP_33283_217_SD3_17	yes	no	coding_synon
+chr2	EP_33278_222_SD3_17	yes	no	missense_mutation
+chr2	EP_33273_86_SD3_17	yes	no	intron
+chr2	EP_33278_79_SD3_17	yes	no	intron
+chr2	EP_33280_268_SD3_17	yes	no	intron
+chr2	EP_33278_457_SD3_17	yes	no	intron
+chr3	EP_33298_279_SD3_17	yes	no	coding_synon
+chr3	EP_33302_200_SD3_17	yes	no	coding_synon
+chr3	EP_33302_407_SD3_17	yes	no	coding_synon
+chr3	EP_33300_93_SD3_17	yes	no	missense_mutation
+chr3	EP_33302_51_SD3_17	yes	no	missense_mutation
+chr3	EP_33299_230_SD3_17	yes	no	splice_region
+chr5	EP_33614_79_SD3_17	yes	no	intron
+chr5	EP_33615_234_SD3_17	yes	no	intron
+chr5	EP_33613_143_SD3_17	yes	no	intron
+chr11	EP_33309_217_SD3_17	yes	no	missense_mutation
+chr1	EP_33327_111_SD3_17	yes	no	coding_synon
+chr1	EP_33325_384_SD3_17	yes	no	missense_mutation
+chr11	EP_33340_28_SD3_17	yes	no	3' UTR
+chr17	EP_33344_477_SD3_17	yes	no	missense_mutation
+chr17	EP_33345_324_SD3_17	yes	no	3' UTR
+chr19	EP_33360_253_SD3_17	yes	no	coding_synon
+chr19	EP_33359_361_SD3_17	yes	no	missense_mutation
+chr19	EP_33362_449_SD3_17	yes	no	3' UTR
+chr19	EP_33355_451_SD3_17	yes	no	intron
+chr21	EP_33369_398_SD3_17	yes	no	coding_synon
+chr21	EP_33370_94_SD3_17	yes	no	coding_synon
+chr21	EP_33369_78_SD3_17	yes	no	missense_mutation
+chr21	EP_33371_334_SD3_17	yes	no	missense_mutation
+chr17	EP_33382_359_SD3_17	yes	no	coding_synon
+chr17	EP_33389_397_SD3_17	yes	no	3' UTR
+chr2	EP_33406_279_SD3_17	yes	no	coding_synon
+chr2	EP_33412_318_SD3_17	yes	no	3' UTR
+chr22	EP_33415_260_SD3_17	yes	no	coding_synon
+chr22	EP_33417_256_SD3_17	yes	no	missense_mutation
+chr11	EP_33423_335_SD3_17	yes	no	coding_synon
+chr11	EP_33428_245_SD3_17	yes	no	3' UTR
+chr11	EP_33427_391_SD3_17	yes	no	3' UTR
+chr11	EP_33427_540_SD3_17	yes	no	3' UTR
+chr21	EP_33433_559_SD3_17	yes	no	intron
+chr1	EP_33450_125_SD3_17	yes	no	3' UTR
+chr1	EP_33450_455_SD3_17	yes	no	3' UTR
+chr1	EP_33448_523_SD3_17	yes	no	intron
+chr1	EP_33457_122_SD3_17	yes	no	missense_mutation
+chr14	EP_33482_392_SD3_17	yes	no	coding_synon
+chr14	EP_33483_43_SD3_17	yes	no	coding_synon
+chr6	EP_33491_130_SD3_17	yes	no	coding_synon
+chr6	EP_33491_88_SD3_17	yes	no	coding_synon
+chr6	EP_33492_102_SD3_17	yes	no	coding_synon
+chr6	EP_33492_75_SD3_17	yes	no	coding_synon
+chr6	EP_33493_102_SD3_17	yes	no	missense_mutation
+chr6	EP_33501_211_SD3_17	yes	no	coding_synon
+chr6	EP_33501_87_SD3_17	yes	no	missense_mutation
+chr6	EP_33502_192_SD3_17	yes	no	missense_mutation
+chr6	EP_33500_239_SD3_17	yes	no	intron
+chr6	EP_33496_401_SD3_17	yes	no	promoter
+chr1	EP_33508_202_SD3_17	yes	no	coding_synon
+chr1	EP_33509_223_SD3_17	yes	no	missense_mutation
+chr11	EP_33526_80_SD3_17	yes	no	coding_synon
+chr11	EP_33528_122_SD3_17	yes	no	coding_synon
+chr11	EP_33530_209_SD3_17	yes	no	promoter
+chr6	EP_33542_133_SD3_17	yes	no	coding_synon
+chr6	EP_33545_367_SD3_17	yes	no	coding_synon
+chr6	EP_33549_286_SD3_17	yes	no	3' UTR
+chr6	EP_33549_265_SD3_17	yes	no	3' UTR
+chr6	EP_33547_39_SD3_17	yes	no	3' UTR
+chr6	EP_33547_252_SD3_17	yes	no	3' UTR
+chr6	EP_33547_77_SD3_17	yes	no	3' UTR
+chr19	EP_33554_451_SD3_17	yes	no	coding_synon
+chr19	EP_33553_232_SD3_17	yes	no	missense_mutation
+chr19	EP_33554_395_SD3_17	yes	no	missense_mutation
+chr11	EP_33566_267_SD3_17	yes	no	coding_synon
+chr11	EP_33562_448_SD3_17	yes	no	missense_mutation
+chr11	EP_33570_179_SD3_17	yes	no	3' UTR
+chr8	EP_33575_105_SD3_17	yes	no	coding_synon
+chr10	EP_10075853_183_SD3_17	yes	no	coding_synon
+chr10	EP_33602_81_SD3_17	yes	no	coding_synon
+chr10	EP_33603_212_SD3_17	yes	no	coding_synon
+chr10	EP_10075851_266_SD3_17	yes	no	splice_region
+chr3	EP_33625_62_SD3_17	yes	no	missense_mutation
+chr3	EP_33627_240_SD3_17	yes	no	3' UTR
+chr3	EP_33619_82_SD3_17	yes	no	intron
+chr3	EP_33623_51_SD3_17	yes	no	intron
+chr3	EP_33642_104_SD3_17	yes	no	5' UTR
+chr3	EP_33633_283_SD3_17	yes	no	intron
+chr3	EP_33641_24_SD3_17	yes	no	intron
+chr3	EP_33643_395_SD3_17	yes	no	promoter
+chr12	EP_33650_122_SD3_17	yes	no	3' UTR
+chr5	EP_33672_155_SD3_17	yes	no	missense_mutation
+chr5	EP_33676_412_SD3_17	yes	no	intron
+chr1	EP_33682_147_SD3_17	yes	no	missense_mutation
+chr1	EP_33683_220_SD3_17	yes	no	missense_mutation
+chr1	EP_33683_475_SD3_17	yes	no	missense_mutation
+chr11	EP_33724_157_SD3_17	yes	no	3' UTR
+chr11	EP_10076903_336_SD3_17	yes	no	3' UTR
+chr11	EP_30229_67_SD3_17	yes	no	intron
+chr11	EP_33716_49_SD3_17	yes	no	intron
+chr11	EP_33715_61_SD3_17	yes	no	intron
+chr11	EP_30231_124_SD3_17	yes	no	intron
+chr20	EP_10077050_136_SD3_17	yes	no	coding_synon
+chr20	EP_33739_107_SD3_17	yes	no	coding_synon
+chr20	EP_33745_452_SD3_17	yes	no	intron
+chr20	EP_33748_555_SD3_17	yes	no	promoter
+chr8	EP_33777_80_SD3_17	yes	no	coding_synon
+chr8	EP_33778_177_SD3_17	yes	no	coding_synon
+chr8	EP_33781_406_SD3_17	yes	no	coding_synon
+chr8	EP_33782_224_SD3_17	yes	no	coding_synon
+chr8	EP_33779_142_SD3_17	yes	no	missense_mutation
+chr1	EP_33790_69_SD3_17	yes	no	coding_synon
+chr1	EP_33796_106_SD3_17	yes	no	coding_synon
+chr1	EP_33796_114_SD3_17	yes	no	coding_synon
+chr1	EP_33794_143_SD3_17	yes	no	missense_mutation
+chr1	EP_33798_34_SD3_17	yes	no	intron
+chr6	EP_33814_532_SD3_17	yes	no	coding_synon
+chr6	EP_33803_203_SD3_17	yes	no	intron
+chr6	EP_33807_239_SD3_17	yes	no	intron
+chr8	EP_33844_96_SD3_17	yes	no	coding_synon
+chr2	EP_33851_167_SD3_17	yes	no	coding_synon
+chr2	EP_33851_245_SD3_17	yes	no	coding_synon
+chr2	EP_33851_142_SD3_17	yes	no	missense_mutation
+chr9	EP_33863_112_SD3_17	yes	no	coding_synon
+chr9	EP_33866_141_SD3_17	yes	no	coding_synon
+chr9	EP_33875_143_SD3_17	yes	no	coding_synon
+chr9	EP_33875_89_SD3_17	yes	no	coding_synon
+chr9	EP_33873_268_SD3_17	yes	no	missense_mutation
+chr9	EP_33878_89_SD3_17	yes	no	missense_mutation
+chr9	EP_33868_179_SD3_17	yes	no	intron
+chr9	EP_33867_206_SD3_17	yes	no	nonsense_mutation
+chr8	EP_33887_118_SD3_17	yes	no	coding_synon
+chr8	EP_33887_145_SD3_17	yes	no	coding_synon
+chr8	EP_33886_318_SD3_17	yes	no	missense_mutation
+chr8	EP_33887_226_SD3_17	yes	no	missense_mutation
+chr8	EP_33888_109_SD3_17	yes	no	missense_mutation
+chr9	EP_33897_132_SD3_17	yes	no	coding_synon
+chr9	EP_33897_69_SD3_17	yes	no	coding_synon
+chr17	EP_31493_147_SD3_17	yes	no	promoter
+chr17	EP_31494_338_SD3_17	yes	no	promoter
+chr17	EP_31491_273_SD3_17	yes	no	promoter
+chr17	EP_31493_30_SD3_17	yes	no	promoter
+chr17	EP_31493_24_SD3_17	yes	no	promoter
+chr2	EP_32733_237_SD3_17	yes	no	intron
+chr19	EP_33926_119_SD3_17	yes	no	coding_synon
+chr19	EP_33927_116_SD3_17	yes	no	coding_synon
+chr19	EP_33928_173_SD3_17	yes	no	coding_synon
+chr19	EP_33930_220_SD3_17	yes	no	coding_synon
+chr19	EP_33933_74_SD3_17	yes	no	coding_synon
+chr19	EP_33940_172_SD3_17	yes	no	coding_synon
+chr19	EP_33944_241_SD3_17	yes	no	coding_synon
+chr19	EP_33946_131_SD3_17	yes	no	coding_synon
+chr19	EP_33955_128_SD3_17	yes	no	coding_synon
+chr19	EP_33964_243_SD3_17	yes	no	coding_synon
+chr19	EP_33967_83_SD3_17	yes	no	coding_synon
+chr19	EP_33982_92_SD3_17	yes	no	coding_synon
+chr19	EP_33983_93_SD3_17	yes	no	coding_synon
+chr19	EP_33996_74_SD3_17	yes	no	coding_synon
+chr19	EP_34000_86_SD3_17	yes	no	coding_synon
+chr19	EP_34002_203_SD3_17	yes	no	coding_synon
+chr19	EP_34003_176_SD3_17	yes	no	coding_synon
+chr19	EP_33923_126_SD3_17	yes	no	missense_mutation
+chr19	EP_33931_117_SD3_17	yes	no	missense_mutation
+chr19	EP_33934_164_SD3_17	yes	no	missense_mutation
+chr19	EP_33944_176_SD3_17	yes	no	missense_mutation
+chr19	EP_33958_122_SD3_17	yes	no	missense_mutation
+chr19	EP_33960_89_SD3_17	yes	no	missense_mutation
+chr19	EP_33968_233_SD3_17	yes	no	missense_mutation
+chr19	EP_33972_185_SD3_17	yes	no	missense_mutation
+chr19	EP_33974_123_SD3_17	yes	no	missense_mutation
+chr19	EP_33900_101_SD3_17	yes	no	5' UTR
+chr19	EP_33940_379_SD3_17	yes	no	intron
+chr19	EP_33942_233_SD3_17	yes	no	intron
+chr19	EP_33942_57_SD3_17	yes	no	intron
+chr19	EP_33950_97_SD3_17	yes	no	intron
+chr19	EP_33913_34_SD3_17	yes	no	intron
+chr19	EP_33903_194_SD3_17	yes	no	intron
+chr19	EP_33944_269_SD3_17	yes	no	intron
+chr19	EP_33974_56_SD3_17	yes	no	splice_region
+chr19	EP_33924_58_SD3_17	yes	no	splice_region
+chr1	EP_34029_98_SD3_17	yes	no	coding_synon
+chr1	EP_34031_160_SD3_17	yes	no	coding_synon
+chr1	EP_34083_167_SD3_17	yes	no	coding_synon
+chr1	EP_34087_163_SD3_17	yes	no	coding_synon
+chr1	EP_34101_305_SD3_17	yes	no	coding_synon
+chr1	EP_34106_113_SD3_17	yes	no	coding_synon
+chr1	EP_34038_230_SD3_17	yes	no	missense_mutation
+chr1	EP_34042_134_SD3_17	yes	no	missense_mutation
+chr1	EP_34046_205_SD3_17	yes	no	missense_mutation
+chr1	EP_34080_232_SD3_17	yes	no	missense_mutation
+chr1	EP_34042_21_SD3_17	yes	no	intron
+chr1	EP_34018_346_SD3_17	yes	no	intron
+chr1	EP_34038_32_SD3_17	yes	no	intron
+chr1	EP_34052_31_SD3_17	yes	no	intron
+chr1	EP_34078_310_SD3_17	yes	no	splice_region
+chr1	EP_34018_198_SD3_17	yes	no	splice_region
+chr15	EP_34125_121_SD3_17	yes	no	coding_synon
+chr15	EP_34131_128_SD3_17	yes	no	coding_synon
+chr15	EP_34132_232_SD3_17	yes	no	coding_synon
+chr15	EP_34155_140_SD3_17	yes	no	coding_synon
+chr15	EP_34155_155_SD3_17	yes	no	coding_synon
+chr15	EP_34165_157_SD3_17	yes	no	coding_synon
+chr15	EP_34173_161_SD3_17	yes	no	coding_synon
+chr15	EP_34180_144_SD3_17	yes	no	coding_synon
+chr15	EP_34201_128_SD3_17	yes	no	coding_synon
+chr15	EP_34207_112_SD3_17	yes	no	coding_synon
+chr15	EP_34213_36_SD3_17	yes	no	coding_synon
+chr15	EP_34213_78_SD3_17	yes	no	coding_synon
+chr15	EP_34217_131_SD3_17	yes	no	coding_synon
+chr15	EP_34217_200_SD3_17	yes	no	coding_synon
+chr15	EP_34130_98_SD3_17	yes	no	missense_mutation
+chr15	EP_34139_244_SD3_17	yes	no	missense_mutation
+chr15	EP_34150_160_SD3_17	yes	no	missense_mutation
+chr15	EP_34155_176_SD3_17	yes	no	missense_mutation
+chr15	EP_34155_208_SD3_17	yes	no	missense_mutation
+chr15	EP_34157_336_SD3_17	yes	no	missense_mutation
+chr15	EP_34158_214_SD3_17	yes	no	missense_mutation
+chr15	EP_34165_228_SD3_17	yes	no	missense_mutation
+chr15	EP_34166_155_SD3_17	yes	no	missense_mutation
+chr15	EP_34167_112_SD3_17	yes	no	missense_mutation
+chr15	EP_34167_97_SD3_17	yes	no	missense_mutation
+chr15	EP_34185_80_SD3_17	yes	no	missense_mutation
+chr15	EP_34187_179_SD3_17	yes	no	missense_mutation
+chr15	EP_34198_148_SD3_17	yes	no	missense_mutation
+chr15	EP_34208_112_SD3_17	yes	no	missense_mutation
+chr15	EP_34212_196_SD3_17	yes	no	missense_mutation
+chr15	EP_34212_30_SD3_17	yes	no	missense_mutation
+chr15	EP_34230_458_SD3_17	yes	no	3' UTR
+chr15	EP_34217_292_SD3_17	yes	no	intron
+chr15	EP_34176_244_SD3_17	yes	no	intron
+chr15	EP_34167_216_SD3_17	yes	no	intron
+chr15	EP_34201_184_SD3_17	yes	no	intron
+chr15	EP_34218_50_SD3_17	yes	no	intron
+chr15	EP_34169_272_SD3_17	yes	no	intron
+chr15	EP_34173_255_SD3_17	yes	no	intron
+chr15	EP_34165_256_SD3_17	yes	no	intron
+chr15	EP_34131_274_SD3_17	yes	no	intron
+chr15	EP_34155_53_SD3_17	yes	no	splice_region
+chr15	EP_34194_66_SD3_17	yes	no	splice_site
+chr3	EP_34231_138_SD3_17	yes	no	coding_synon
+chr3	EP_34231_288_SD3_17	yes	no	coding_synon
+chr3	EP_34257_254_SD3_17	yes	no	coding_synon
+chr3	EP_34236_93_SD3_17	yes	no	missense_mutation
+chr3	EP_34240_146_SD3_17	yes	no	missense_mutation
+chr3	EP_34246_178_SD3_17	yes	no	missense_mutation
+chr3	EP_34235_36_SD3_17	yes	no	intron
+chr3	EP_34246_48_SD3_17	yes	no	intron
+chr3	EP_34238_123_SD3_17	yes	no	nonsense_mutation
+chr3	EP_34245_254_SD3_17	yes	no	nonsense_mutation
+chr3	EP_34258_194_SD3_17	yes	no	nonsense_mutation
+chr3	EP_34284_245_SD3_17	yes	no	coding_synon
+chr3	EP_34287_314_SD3_17	yes	no	coding_synon
+chr3	EP_34288_403_SD3_17	yes	no	coding_synon
+chr3	EP_34288_49_SD3_17	yes	no	coding_synon
+chr3	EP_34288_260_SD3_17	yes	no	missense_mutation
+chr3	EP_34277_301_SD3_17	yes	no	intron
+chr3	EP_34268_176_SD3_17	yes	no	intron
+chr3	EP_34280_34_SD3_17	yes	no	intron
+chr3	EP_34267_262_SD3_17	yes	no	intron
+chr3	EP_34291_72_SD3_17	yes	no	promoter
+chr2	EP_148691_221_SD3_17	yes	no	coding_synon
+chr2	EP_34316_206_SD3_17	yes	no	coding_synon
+chr2	EP_34300_240_SD3_17	yes	no	missense_mutation
+chr2	EP_34318_349_SD3_17	yes	no	missense_mutation
+chr2	EP_34318_350_SD3_17	yes	no	missense_mutation
+chr19	EP_34323_105_SD3_17	yes	no	missense_mutation
+chr19	EP_34331_303_SD3_17	yes	no	missense_mutation
+chr2	EP_34345_354_SD3_17	yes	no	coding_synon
+chr2	EP_151755_37_SD3_17	yes	no	missense_mutation
+chr2	EP_34342_295_SD3_17	yes	no	intron
+chr2	EP_30452_448_SD3_17	yes	no	intron
+chr2	EP_34347_457_SD3_17	yes	no	intron
+chr2	EP_151863_335_SD3_17	yes	no	coding_synon
+chr2	EP_34399_151_SD3_17	yes	no	coding_synon
+chr2	EP_34375_279_SD3_17	yes	no	missense_mutation
+chr2	EP_34380_151_SD3_17	yes	no	missense_mutation
+chr2	EP_34377_236_SD3_17	yes	no	intron
+chr2	EP_34380_395_SD3_17	yes	no	intron
+chr2	EP_34378_192_SD3_17	yes	no	splice_region
+chr11	EP_34413_221_SD3_17	yes	no	missense_mutation
+chr11	EP_34418_86_SD3_17	yes	no	3' UTR
+chr11	EP_34420_512_SD3_17	yes	no	3' UTR
+chr11	EP_34421_473_SD3_17	yes	no	3' UTR
+chr11	EP_34415_157_SD3_17	yes	no	intron
+chr11	EP_34411_37_SD3_17	yes	no	intron
+chr11	EP_34410_245_SD3_17	yes	no	intron
+chr11	EP_34410_298_SD3_17	yes	no	intron
+chr17	EP_34450_533_SD3_17	yes	no	coding_synon
+chr17	EP_34425_104_SD3_17	yes	no	missense_mutation
+chr17	EP_34432_101_SD3_17	yes	no	missense_mutation
+chr17	EP_34436_98_SD3_17	yes	no	missense_mutation
+chr17	EP_34447_237_SD3_17	yes	no	missense_mutation
+chr17	EP_34440_69_SD3_17	yes	no	intron
+chr3	EP_30241_339_SD3_17	yes	no	coding_synon
+chr3	EP_34472_103_SD3_17	yes	no	coding_synon
+chr3	EP_34481_272_SD3_17	yes	no	coding_synon
+chr3	EP_34481_366_SD3_17	yes	no	coding_synon
+chr3	EP_34499_272_SD3_17	yes	no	coding_synon
+chr3	EP_30243_322_SD3_17	yes	no	missense_mutation
+chr3	EP_30251_343_SD3_17	yes	no	missense_mutation
+chr3	EP_10097158_177_SD3_17	yes	no	3' UTR
+chr3	EP_34501_215_SD3_17	yes	no	3' UTR
+chr3	EP_30260_117_SD3_17	yes	no	intron
+chr3	EP_30235_251_SD3_17	yes	no	intron
+chr3	EP_30258_39_SD3_17	yes	no	intron
+chr3	EP_30241_118_SD3_17	yes	no	intron
+chr3	EP_30235_252_SD3_17	yes	no	intron
+chr3	EP_30260_401_SD3_17	yes	no	intron
+chr2	EP_34518_231_SD3_17	yes	no	coding_synon
+chr2	EP_34531_194_SD3_17	yes	no	coding_synon
+chr2	EP_34516_190_SD3_17	yes	no	missense_mutation
+chr2	EP_34521_257_SD3_17	yes	no	missense_mutation
+chr2	EP_34532_222_SD3_17	yes	no	missense_mutation
+chr2	EP_34533_213_SD3_17	yes	no	missense_mutation
+chr2	EP_34508_40_SD3_17	yes	no	intron
+chr2	EP_34531_459_SD3_17	yes	no	intron
+chr2	EP_34513_296_SD3_17	yes	no	intron
+chr2	EP_34530_467_SD3_17	yes	no	splice_site
+chr12	EP_34561_317_SD3_17	yes	no	coding_synon
+chr12	EP_34564_96_SD3_17	yes	no	coding_synon
+chr12	EP_34547_342_SD3_17	yes	no	missense_mutation
+chr12	EP_34552_237_SD3_17	yes	no	missense_mutation
+chr12	EP_34555_235_SD3_17	yes	no	missense_mutation
+chr12	EP_34563_98_SD3_17	yes	no	missense_mutation
+chr12	EP_34566_398_SD3_17	yes	no	3' UTR
+chr12	EP_34555_270_SD3_17	yes	no	intron
+chr2	EP_34576_222_SD3_17	yes	no	coding_synon
+chr2	EP_34588_152_SD3_17	yes	no	coding_synon
+chr2	EP_34583_488_SD3_17	yes	no	missense_mutation
+chr2	EP_34595_294_SD3_17	yes	no	missense_mutation
+chr2	EP_34596_369_SD3_17	yes	no	3' UTR
+chr2	EP_34578_458_SD3_17	yes	no	intron
+chr2	EP_34588_60_SD3_17	yes	no	intron
+chr2	EP_34581_129_SD3_17	yes	no	intron
+chr2	EP_34577_23_SD3_17	yes	no	intron
+chr20	EP_151869_283_SD3_17	yes	no	coding_synon
+chr20	EP_34607_142_SD3_17	yes	no	coding_synon
+chr20	EP_34609_70_SD3_17	yes	no	missense_mutation
+chr20	EP_34620_129_SD3_17	yes	no	missense_mutation
+chr20	EP_34620_156_SD3_17	yes	no	missense_mutation
+chr20	EP_34627_315_SD3_17	yes	no	3' UTR
+chr20	EP_34627_322_SD3_17	yes	no	3' UTR
+chr20	EP_34628_410_SD3_17	yes	no	3' UTR
+chr20	EP_151767_286_SD3_17	yes	no	intron
+chr20	EP_34613_170_SD3_17	yes	no	splice_region
+chr2	EP_33348_321_SD3_17	yes	no	intron
+chr2	EP_33354_155_SD3_17	yes	no	intron
+chr20	EP_33756_302_SD3_17	yes	no	N/A
+chr20	EP_33754_363_SD3_17	yes	no	N/A
+chr20	EP_33749_322_SD3_17	yes	no	N/A
+chr20	EP_33754_319_SD3_17	yes	no	N/A
+chr4	EP_30496_436_SD3_17	no	yes	coding_synon
+chr4	EP_30504_227_SD3_17	no	yes	coding_synon
+chr4	EP_30511_224_SD3_17	no	yes	coding_synon
+chr4	EP_10057581_186_SD3_17	no	yes	missense_mutation
+chr4	EP_10057605_195_SD3_17	no	yes	missense_mutation
+chr4	EP_30497_235_SD3_17	no	yes	missense_mutation
+chr4	EP_30497_253_SD3_17	no	yes	missense_mutation
+chr19	EP_10058652_90_SD3_17	no	yes	coding_synon
+chr19	EP_30568_247_SD3_17	no	yes	coding_synon
+chr19	EP_10058301_94_SD3_17	no	yes	missense_mutation
+chr19	EP_30529_22_SD3_17	no	yes	intron
+chr9	EP_30582_102_SD3_17	no	yes	coding_synon
+chr9	EP_30593_132_SD3_17	no	yes	coding_synon
+chr9	EP_30596_168_SD3_17	no	yes	missense_mutation
+chr9	EP_30627_242_SD3_17	no	yes	3' UTR
+chr9	EP_30599_38_SD3_17	no	yes	intron
+chr9	EP_30619_184_SD3_17	no	yes	splice_region
+chr12	EP_30634_133_SD3_17	no	yes	coding_synon
+chr3	EP_30690_140_SD3_17	no	yes	coding_synon
+chr3	EP_30713_92_SD3_17	no	yes	missense_mutation
+chr3	EP_30722_166_SD3_17	no	yes	missense_mutation
+chr3	EP_10059954_138_SD3_17	no	yes	intron
+chr1	EP_30739_146_SD3_17	no	yes	coding_synon
+chr1	EP_30766_145_SD3_17	no	yes	coding_synon
+chr1	EP_30776_129_SD3_17	no	yes	coding_synon
+chrX	EP_30816_72_SD3_17	no	yes	coding_synon
+chrX	EP_30823_125_SD3_17	no	yes	missense_mutation
+chrX	EP_30795_61_SD3_17	no	yes	splice_site
+chr17	EP_30842_97_SD3_17	no	yes	coding_synon
+chr17	EP_148619_122_SD3_17	no	yes	missense_mutation
+chr17	EP_30838_225_SD3_17	no	yes	missense_mutation
+chr17	EP_30874_241_SD3_17	no	yes	missense_mutation
+chr16	EP_30894_154_SD3_17	no	yes	coding_synon
+chr16	EP_30886_221_SD3_17	no	yes	missense_mutation
+chr22	EP_30935_68_SD3_17	no	yes	coding_synon
+chr22	EP_30931_214_SD3_17	no	yes	missense_mutation
+chr22	EP_30948_42_SD3_17	no	yes	intron
+chr1	EP_30966_105_SD3_17	no	yes	coding_synon
+chr1	EP_31004_115_SD3_17	no	yes	missense_mutation
+chr7	EP_31021_139_SD3_17	no	yes	coding_synon
+chr7	EP_31021_192_SD3_17	no	yes	coding_synon
+chr3	EP_10099000_32_SD3_17	no	yes	coding_synon
+chr3	EP_31075_148_SD3_17	no	yes	coding_synon
+chr3	EP_31075_81_SD3_17	no	yes	missense_mutation
+chr3	EP_31092_85_SD3_17	no	yes	coding_synon
+chr3	EP_31098_127_SD3_17	no	yes	coding_synon
+chr3	EP_31123_88_SD3_17	no	yes	missense_mutation
+chr17	EP_31186_94_SD3_17	no	yes	missense_mutation
+chr17	EP_31196_55_SD3_17	no	yes	intron
+chr10	EP_31204_184_SD3_17	no	yes	intron
+chr17	EP_31261_276_SD3_17	no	yes	missense_mutation
+chr22	EP_31272_215_SD3_17	no	yes	missense_mutation
+chr16	EP_31281_21_SD3_17	no	yes	missense_mutation
+chr17	EP_31289_101_SD3_17	no	yes	coding_synon
+chr19	EP_31304_133_SD3_17	no	yes	coding_synon
+chr19	EP_31305_449_SD3_17	no	yes	3' UTR
+chr11	EP_31334_148_SD3_17	no	yes	promoter
+chr8	EP_31343_305_SD3_17	no	yes	5' UTR
+chr20	EP_10101600_271_SD3_17	no	yes	coding_synon
+chr20	EP_10101600_301_SD3_17	no	yes	coding_synon
+chr20	EP_31374_332_SD3_17	no	yes	coding_synon
+chr20	EP_10101559_139_SD3_17	no	yes	3' UTR
+chr20	EP_10101400_185_SD3_17	no	yes	5' UTR
+chr20	EP_10101600_158_SD3_17	no	yes	intron
+chr4	EP_31422_95_SD3_17	no	yes	missense_mutation
+chr17	EP_31428_124_SD3_17	no	yes	missense_mutation
+chr15	EP_31462_500_SD3_17	no	yes	missense_mutation
+chr2	EP_31479_93_SD3_17	no	yes	missense_mutation
+chr17	EP_31484_95_SD3_17	no	yes	missense_mutation
+chr17	EP_31490_191_SD3_17	no	yes	intron
+chr2	EP_31506_118_SD3_17	no	yes	coding_synon
+chr7	EP_31531_278_SD3_17	no	yes	coding_synon
+chr3	EP_31549_161_SD3_17	no	yes	missense_mutation
+chr4	EP_31577_124_SD3_17	no	yes	coding_synon
+chrX	EP_31612_242_SD3_17	no	yes	coding_synon
+chrX	EP_31606_78_SD3_17	no	yes	missense_mutation
+chr1	EP_31688_169_SD3_17	no	yes	missense_mutation
+chr1	EP_31688_204_SD3_17	no	yes	missense_mutation
+chr1	EP_31715_25_SD3_17	no	yes	intron
+chr5	EP_31727_178_SD3_17	no	yes	missense_mutation
+chr4	EP_31771_130_SD3_17	no	yes	coding_synon
+chr4	EP_31771_128_SD3_17	no	yes	missense_mutation
+chr4	EP_31771_138_SD3_17	no	yes	missense_mutation
+chr9	EP_32138_84_SD3_17	no	yes	missense_mutation
+chr5	EP_31819_216_SD3_17	no	yes	coding_synon
+chr5	EP_31818_39_SD3_17	no	yes	intron
+chr5	EP_31818_294_SD3_17	no	yes	intron
+chr4	EP_31860_150_SD3_17	no	yes	missense_mutation
+chr4	EP_31876_510_SD3_17	no	yes	3' UTR
+chr5	EP_31903_46_SD3_17	no	yes	coding_synon
+chr5	EP_9951358_98_SD3_17	no	yes	coding_synon
+chr6	EP_32064_168_SD3_17	no	yes	3' UTR
+chr6	EP_32061_21_SD3_17	no	yes	intron
+chr6	EP_32073_253_SD3_17	no	yes	coding_synon
+chr6	EP_32073_98_SD3_17	no	yes	missense_mutation
+chr6	EP_32066_52_SD3_17	no	yes	intron
+chr15	EP_32511_571_SD3_17	no	yes	3' UTR
+chr15	EP_32502_203_SD3_17	no	yes	intron
+chr15	EP_32504_296_SD3_17	no	yes	intron
+chr5	EP_32085_199_SD3_17	no	yes	missense_mutation
+chr4	EP_32115_110_SD3_17	no	yes	5' UTR
+chr5	EP_32159_118_SD3_17	no	yes	coding_synon
+chr4	EP_32181_305_SD3_17	no	yes	coding_synon
+chrX	EP_32203_83_SD3_17	no	yes	coding_synon
+chr11	EP_32222_103_SD3_17	no	yes	coding_synon
+chr11	EP_32224_296_SD3_17	no	yes	coding_synon
+chr10	EP_32233_111_SD3_17	no	yes	coding_synon
+chr10	EP_32233_35_SD3_17	no	yes	intron
+chr21	EP_10066703_192_SD3_17	no	yes	nonsense_mutation
+chr16	EP_32397_361_SD3_17	no	yes	3' UTR
+chr17	EP_32429_229_SD3_17	no	yes	coding_synon
+chr17	EP_32435_116_SD3_17	no	yes	missense_mutation
+chr9	EP_32463_263_SD3_17	no	yes	missense_mutation
+chr9	EP_32472_156_SD3_17	no	yes	missense_mutation
+chr9	EP_32472_326_SD3_17	no	yes	missense_mutation
+chr9	EP_32472_344_SD3_17	no	yes	missense_mutation
+chr8	EP_32486_163_SD3_17	no	yes	missense_mutation
+chr8	EP_32491_103_SD3_17	no	yes	missense_mutation
+chr6	EP_32523_350_SD3_17	no	yes	coding_synon
+chr6	EP_32524_154_SD3_17	no	yes	coding_synon
+chr6	EP_32522_534_SD3_17	no	yes	missense_mutation
+chr6	EP_32523_472_SD3_17	no	yes	missense_mutation
+chr3	EP_32536_57_SD3_17	no	yes	coding_synon
+chr7	EP_32544_255_SD3_17	no	yes	coding_synon
+chr6	EP_32563_78_SD3_17	no	yes	coding_synon
+chr6	EP_32561_146_SD3_17	no	yes	missense_mutation
+chr11	EP_32571_87_SD3_17	no	yes	missense_mutation
+chr5	EP_32586_114_SD3_17	no	yes	coding_synon
+chr5	EP_32592_349_SD3_17	no	yes	missense_mutation
+chr19	EP_30327_173_SD3_17	no	yes	coding_synon
+chr15	EP_10070073_273_SD3_17	no	yes	coding_synon
+chrX	EP_10070420_277_SD3_17	no	yes	intron
+chr11	EP_32757_112_SD3_17	no	yes	coding_synon
+chr3	EP_32792_283_SD3_17	no	yes	coding_synon
+chr3	EP_32803_99_SD3_17	no	yes	missense_mutation
+chr3	EP_32806_158_SD3_17	no	yes	missense_mutation
+chr5	EP_32821_98_SD3_17	no	yes	missense_mutation
+chr5	EP_32815_115_SD3_17	no	yes	intron
+chr12	EP_10071364_72_SD3_17	no	yes	coding_synon
+chr12	EP_32859_191_SD3_17	no	yes	coding_synon
+chr1	EP_32862_370_SD3_17	no	yes	missense_mutation
+chr3	EP_32944_497_SD3_17	no	yes	3' UTR
+chr1	EP_10037051_70_SD3_17	no	yes	coding_synon
+chr1	EP_10071703_194_SD3_17	no	yes	3' UTR
+chr1	EP_10071703_231_SD3_17	no	yes	3' UTR
+chr1	EP_10071708_335_SD3_17	no	yes	promoter
+chr17	EP_32979_118_SD3_17	no	yes	missense_mutation
+chr20	EP_32994_159_SD3_17	no	yes	3' UTR
+chr8	EP_33002_90_SD3_17	no	yes	coding_synon
+chr21	EP_10072469_124_SD3_17	no	yes	missense_mutation
+chr21	EP_10072457_359_SD3_17	no	yes	3' UTR
+chr20	EP_33118_229_SD3_17	no	yes	coding_synon
+chr16	EP_33144_164_SD3_17	no	yes	missense_mutation
+chr7	EP_33172_223_SD3_17	no	yes	coding_synon
+chr12	EP_33199_79_SD3_17	no	yes	coding_synon
+chr17	EP_33211_115_SD3_17	no	yes	coding_synon
+chr17	EP_33247_147_SD3_17	no	yes	missense_mutation
+chr2	EP_33280_94_SD3_17	no	yes	missense_mutation
+chr11	EP_33308_86_SD3_17	no	yes	coding_synon
+chr11	EP_33314_123_SD3_17	no	yes	3' UTR
+chr19	EP_33359_137_SD3_17	no	yes	coding_synon
+chr17	EP_10074566_64_SD3_17	no	yes	3' UTR
+chr17	EP_10074575_256_SD3_17	no	yes	3' UTR
+chr17	EP_10074571_253_SD3_17	no	yes	3' UTR
+chr17	EP_10074571_259_SD3_17	no	yes	3' UTR
+chr17	EP_10074576_356_SD3_17	no	yes	promoter
+chr11	EP_33424_380_SD3_17	no	yes	coding_synon
+chr11	EP_33424_432_SD3_17	no	yes	missense_mutation
+chr12	EP_10074763_310_SD3_17	no	yes	coding_synon
+chr12	EP_10074763_372_SD3_17	no	yes	coding_synon
+chr12	EP_10074753_275_SD3_17	no	yes	3' UTR
+chr12	EP_10074755_28_SD3_17	no	yes	3' UTR
+chr1	EP_33449_96_SD3_17	no	yes	missense_mutation
+chr14	EP_33467_74_SD3_17	no	yes	coding_synon
+chr6	EP_33492_71_SD3_17	no	yes	missense_mutation
+chr1	EP_10075350_357_SD3_17	no	yes	intron
+chr6	EP_33545_339_SD3_17	no	yes	missense_mutation
+chr11	EP_33572_211_SD3_17	no	yes	intron
+chr10	EP_10075951_150_SD3_17	no	yes	coding_synon
+chr10	EP_10075811_386_SD3_17	no	yes	missense_mutation
+chr10	EP_10075811_27_SD3_17	no	yes	intron
+chr19	EP_33657_357_SD3_17	no	yes	coding_synon
+chr11	EP_33713_144_SD3_17	no	yes	coding_synon
+chr11	EP_33715_212_SD3_17	no	yes	missense_mutation
+chr8	EP_10077253_171_SD3_17	no	yes	coding_synon
+chr8	EP_10077253_243_SD3_17	no	yes	coding_synon
+chr6	EP_33802_27_SD3_17	no	yes	intron
+chr8	EP_33890_160_SD3_17	no	yes	coding_synon
+chr9	EP_33898_136_SD3_17	no	yes	missense_mutation
+chr17	EP_31493_133_SD3_17	no	yes	promoter
+chr19	EP_33987_163_SD3_17	no	yes	coding_synon
+chr19	EP_33935_177_SD3_17	no	yes	missense_mutation
+chr19	EP_33945_239_SD3_17	no	yes	missense_mutation
+chr1	EP_10079803_242_SD3_17	no	yes	coding_synon
+chr1	EP_10080300_232_SD3_17	no	yes	coding_synon
+chr1	EP_34068_172_SD3_17	no	yes	coding_synon
+chr1	EP_10080000_232_SD3_17	no	yes	missense_mutation
+chr1	EP_10080204_235_SD3_17	no	yes	missense_mutation
+chr1	EP_10079554_143_SD3_17	no	yes	intron
+chr1	EP_10079853_277_SD3_17	no	yes	intron
+chr1	EP_10079801_253_SD3_17	no	yes	intron
+chr1	EP_10079500_169_SD3_17	no	yes	intron
+chr1	EP_10079801_222_SD3_17	no	yes	intron
+chr1	EP_10080051_331_SD3_17	no	yes	intron
+chr1	EP_10080205_87_SD3_17	no	yes	intron
+chr1	EP_10079803_206_SD3_17	no	yes	intron
+chr1	EP_10079600_70_SD3_17	no	yes	splice_region
+chr1	EP_10094750_46_SD3_17	no	yes	splice_region
+chr15	EP_34137_170_SD3_17	no	yes	missense_mutation
+chr15	EP_34212_346_SD3_17	no	yes	missense_mutation
+chr3	EP_34246_268_SD3_17	no	yes	missense_mutation
+chr3	EP_34258_449_SD3_17	no	yes	missense_mutation
+chr2	EP_10057964_25_SD3_17	no	yes	coding_synon
+chr2	EP_34300_284_SD3_17	no	yes	missense_mutation
+chr2	EP_10057702_80_SD3_17	no	yes	intron
+chr2	EP_9962354_78_SD3_17	no	yes	intron
+chr2	EP_10057702_185_SD3_17	no	yes	intron
+chr19	EP_10096508_133_SD3_17	no	yes	intron
+chr19	EP_10096505_131_SD3_17	no	yes	splice_region
+chr2	EP_10105253_278_SD3_17	no	yes	coding_synon
+chr2	EP_34335_213_SD3_17	no	yes	missense_mutation
+chr2	EP_10105152_128_SD3_17	no	yes	intron
+chr2	EP_30451_253_SD3_17	no	yes	intron
+chr2	EP_10105253_149_SD3_17	no	yes	intron
+chr2	EP_10105050_420_SD3_17	no	yes	intron
+chr2	EP_10105105_47_SD3_17	no	yes	splice_region
+chr2	EP_151860_323_SD3_17	no	yes	coding_synon
+chr17	EP_34449_116_SD3_17	no	yes	missense_mutation
+chr11	EP_34461_389_SD3_17	no	yes	3' UTR
+chr3	EP_34481_319_SD3_17	no	yes	missense_mutation
+chr3	EP_34498_221_SD3_17	no	yes	missense_mutation
+chr2	EP_34530_460_SD3_17	no	yes	coding_synon
+chr2	EP_34578_154_SD3_17	no	yes	missense_mutation
+chr4	EP_10057571_204_SD3_17	yes	yes	coding_synon
+chr4	EP_10057586_103_SD3_17	yes	yes	coding_synon
+chr4	EP_10057602_179_SD3_17	yes	yes	coding_synon
+chr4	EP_30475_184_SD3_17	yes	yes	coding_synon
+chr4	EP_30484_264_SD3_17	yes	yes	coding_synon
+chr4	EP_30495_360_SD3_17	yes	yes	coding_synon
+chr4	EP_30497_338_SD3_17	yes	yes	coding_synon
+chr4	EP_30504_251_SD3_17	yes	yes	coding_synon
+chr4	EP_10057582_41_SD3_17	yes	yes	missense_mutation
+chr4	EP_10057587_44_SD3_17	yes	yes	missense_mutation
+chr4	EP_10057587_90_SD3_17	yes	yes	missense_mutation
+chr4	EP_30497_334_SD3_17	yes	yes	missense_mutation
+chr4	EP_30497_360_SD3_17	yes	yes	missense_mutation
+chr4	EP_30513_69_SD3_17	yes	yes	3' UTR
+chr4	EP_30486_199_SD3_17	yes	yes	intron
+chr4	EP_30490_192_SD3_17	yes	yes	intron
+chr4	EP_30506_322_SD3_17	yes	yes	intron
+chr4	EP_30464_317_SD3_17	yes	yes	intron
+chr4	EP_30458_256_SD3_17	yes	yes	intron
+chr11	EP_31342_190_SD3_17	yes	yes	promoter
+chr11	EP_31342_55_SD3_17	yes	yes	promoter
+chr11	EP_31342_105_SD3_17	yes	yes	promoter
+chr11	EP_31342_295_SD3_17	yes	yes	promoter
+chr1	EP_30520_111_SD3_17	yes	yes	coding_synon
+chr1	EP_30520_438_SD3_17	yes	yes	coding_synon
+chr1	EP_30520_501_SD3_17	yes	yes	3' UTR
+chr1	EP_30516_189_SD3_17	yes	yes	5' UTR
+chr1	EP_30516_236_SD3_17	yes	yes	5' UTR
+chr1	EP_30516_45_SD3_17	yes	yes	promoter
+chr1	EP_30521_249_SD3_17	yes	yes	promoter
+chr19	EP_10058700_156_SD3_17	yes	yes	coding_synon
+chr19	EP_10058900_73_SD3_17	yes	yes	coding_synon
+chr19	EP_30530_79_SD3_17	yes	yes	coding_synon
+chr19	EP_30535_82_SD3_17	yes	yes	coding_synon
+chr19	EP_30538_76_SD3_17	yes	yes	coding_synon
+chr19	EP_30543_74_SD3_17	yes	yes	coding_synon
+chr19	EP_30546_84_SD3_17	yes	yes	coding_synon
+chr19	EP_10058653_247_SD3_17	yes	yes	missense_mutation
+chr19	EP_30540_150_SD3_17	yes	yes	missense_mutation
+chr19	EP_30552_197_SD3_17	yes	yes	missense_mutation
+chr19	EP_30531_150_SD3_17	yes	yes	intron
+chr19	EP_30535_59_SD3_17	yes	yes	intron
+chr19	EP_30537_174_SD3_17	yes	yes	intron
+chr19	EP_30540_181_SD3_17	yes	yes	intron
+chr19	EP_9949429_245_SD3_17	yes	yes	intron
+chr19	EP_10058403_177_SD3_17	yes	yes	intron
+chr19	EP_10058700_225_SD3_17	yes	yes	intron
+chr9	EP_30607_252_SD3_17	yes	yes	coding_synon
+chr9	EP_30619_109_SD3_17	yes	yes	coding_synon
+chr9	EP_30626_132_SD3_17	yes	yes	coding_synon
+chr9	EP_30607_122_SD3_17	yes	yes	missense_mutation
+chr9	EP_30618_125_SD3_17	yes	yes	missense_mutation
+chr9	EP_30627_156_SD3_17	yes	yes	3' UTR
+chr9	EP_30581_237_SD3_17	yes	yes	intron
+chr9	EP_30624_349_SD3_17	yes	yes	intron
+chr9	EP_30622_221_SD3_17	yes	yes	intron
+chr9	EP_30590_196_SD3_17	yes	yes	intron
+chr9	EP_30591_39_SD3_17	yes	yes	intron
+chr9	EP_30603_44_SD3_17	yes	yes	intron
+chr9	EP_30593_161_SD3_17	yes	yes	splice_region
+chr12	EP_10059454_132_SD3_17	yes	yes	coding_synon
+chr12	EP_10059502_237_SD3_17	yes	yes	coding_synon
+chr12	EP_30630_184_SD3_17	yes	yes	coding_synon
+chr12	EP_30632_109_SD3_17	yes	yes	coding_synon
+chr12	EP_30670_332_SD3_17	yes	yes	coding_synon
+chr12	EP_10059307_216_SD3_17	yes	yes	3' UTR
+chr12	EP_30638_36_SD3_17	yes	yes	intron
+chr12	EP_30632_221_SD3_17	yes	yes	intron
+chr12	EP_30632_223_SD3_17	yes	yes	intron
+chr12	EP_10059454_204_SD3_17	yes	yes	intron
+chr12	EP_10059350_310_SD3_17	yes	yes	intron
+chr12	EP_30666_25_SD3_17	yes	yes	intron
+chr3	EP_10059758_215_SD3_17	yes	yes	coding_synon
+chr3	EP_10060250_232_SD3_17	yes	yes	coding_synon
+chr3	EP_30701_141_SD3_17	yes	yes	coding_synon
+chr3	EP_30713_123_SD3_17	yes	yes	coding_synon
+chr3	EP_30729_220_SD3_17	yes	yes	coding_synon
+chr3	EP_9949490_228_SD3_17	yes	yes	coding_synon
+chr3	EP_10059755_239_SD3_17	yes	yes	3' UTR
+chr3	EP_30680_149_SD3_17	yes	yes	5' UTR
+chr3	EP_30705_188_SD3_17	yes	yes	intron
+chr3	EP_9949490_274_SD3_17	yes	yes	intron
+chr3	EP_30695_293_SD3_17	yes	yes	intron
+chr3	EP_10059953_178_SD3_17	yes	yes	intron
+chr3	EP_10060153_153_SD3_17	yes	yes	intron
+chr3	EP_10059954_297_SD3_17	yes	yes	intron
+chr3	EP_10060003_134_SD3_17	yes	yes	intron
+chr3	EP_30706_52_SD3_17	yes	yes	intron
+chr3	EP_10060051_265_SD3_17	yes	yes	intron
+chr1	EP_30737_196_SD3_17	yes	yes	coding_synon
+chr1	EP_30739_176_SD3_17	yes	yes	coding_synon
+chr1	EP_30761_83_SD3_17	yes	yes	coding_synon
+chr1	EP_30769_172_SD3_17	yes	yes	coding_synon
+chr1	EP_30776_120_SD3_17	yes	yes	coding_synon
+chr1	EP_30776_96_SD3_17	yes	yes	coding_synon
+chr1	EP_30779_230_SD3_17	yes	yes	coding_synon
+chr1	EP_30752_191_SD3_17	yes	yes	missense_mutation
+chr1	EP_30776_139_SD3_17	yes	yes	missense_mutation
+chr1	EP_30747_21_SD3_17	yes	yes	intron
+chr1	EP_30766_254_SD3_17	yes	yes	intron
+chr1	EP_30759_73_SD3_17	yes	yes	intron
+chr1	EP_30763_253_SD3_17	yes	yes	intron
+chr1	EP_30743_58_SD3_17	yes	yes	intron
+chr1	EP_30740_55_SD3_17	yes	yes	splice_region
+chrX	EP_30796_131_SD3_17	yes	yes	coding_synon
+chrX	EP_30810_225_SD3_17	yes	yes	coding_synon
+chrX	EP_30795_191_SD3_17	yes	yes	missense_mutation
+chrX	EP_30796_70_SD3_17	yes	yes	missense_mutation
+chrX	EP_30786_238_SD3_17	yes	yes	intron
+chrX	EP_30803_60_SD3_17	yes	yes	splice_region
+chrX	EP_30790_57_SD3_17	yes	yes	splice_region
+chr17	EP_30841_115_SD3_17	yes	yes	coding_synon
+chr17	EP_30870_144_SD3_17	yes	yes	coding_synon
+chr17	EP_30876_134_SD3_17	yes	yes	coding_synon
+chr17	EP_30876_368_SD3_17	yes	yes	coding_synon
+chr17	EP_30840_289_SD3_17	yes	yes	missense_mutation
+chr17	EP_30850_373_SD3_17	yes	yes	missense_mutation
+chr17	EP_30856_205_SD3_17	yes	yes	missense_mutation
+chr17	EP_30844_299_SD3_17	yes	yes	intron
+chr17	EP_148595_87_SD3_17	yes	yes	intron
+chr17	EP_30840_34_SD3_17	yes	yes	intron
+chr17	EP_30861_209_SD3_17	yes	yes	intron
+chr17	EP_30843_244_SD3_17	yes	yes	intron
+chr17	EP_10057005_313_SD3_17	yes	yes	promoter
+chr17	EP_30874_37_SD3_17	yes	yes	promoter
+chr17	EP_30860_236_SD3_17	yes	yes	splice_region
+chr16	EP_30887_374_SD3_17	yes	yes	coding_synon
+chr16	EP_30889_203_SD3_17	yes	yes	coding_synon
+chr16	EP_30890_118_SD3_17	yes	yes	coding_synon
+chr16	EP_30890_259_SD3_17	yes	yes	coding_synon
+chr16	EP_30901_138_SD3_17	yes	yes	coding_synon
+chr16	EP_30902_277_SD3_17	yes	yes	coding_synon
+chr16	EP_30903_124_SD3_17	yes	yes	coding_synon
+chr16	EP_30903_127_SD3_17	yes	yes	coding_synon
+chr16	EP_30903_187_SD3_17	yes	yes	coding_synon
+chr16	EP_30914_372_SD3_17	yes	yes	coding_synon
+chr16	EP_30914_381_SD3_17	yes	yes	coding_synon
+chr16	EP_30914_429_SD3_17	yes	yes	coding_synon
+chr16	EP_30916_157_SD3_17	yes	yes	coding_synon
+chr16	EP_30916_268_SD3_17	yes	yes	coding_synon
+chr16	EP_30916_451_SD3_17	yes	yes	coding_synon
+chr16	EP_30887_204_SD3_17	yes	yes	missense_mutation
+chr16	EP_30887_261_SD3_17	yes	yes	missense_mutation
+chr16	EP_30890_441_SD3_17	yes	yes	missense_mutation
+chr16	EP_30891_436_SD3_17	yes	yes	missense_mutation
+chr16	EP_30910_136_SD3_17	yes	yes	missense_mutation
+chr16	EP_30914_263_SD3_17	yes	yes	missense_mutation
+chr16	EP_30916_213_SD3_17	yes	yes	missense_mutation
+chr16	EP_30916_264_SD3_17	yes	yes	missense_mutation
+chr16	EP_30920_254_SD3_17	yes	yes	3' UTR
+chr16	EP_30920_380_SD3_17	yes	yes	3' UTR
+chr16	EP_30919_257_SD3_17	yes	yes	3' UTR
+chr16	EP_30919_243_SD3_17	yes	yes	3' UTR
+chr16	EP_30919_163_SD3_17	yes	yes	3' UTR
+chr16	EP_30920_131_SD3_17	yes	yes	3' UTR
+chr16	EP_30903_234_SD3_17	yes	yes	intron
+chr16	EP_30902_75_SD3_17	yes	yes	intron
+chr16	EP_30903_24_SD3_17	yes	yes	intron
+chr16	EP_30903_282_SD3_17	yes	yes	intron
+chr16	EP_30892_232_SD3_17	yes	yes	intron
+chr16	EP_30911_193_SD3_17	yes	yes	intron
+chr16	EP_30888_252_SD3_17	yes	yes	intron
+chr16	EP_30899_59_SD3_17	yes	yes	intron
+chr16	EP_30911_172_SD3_17	yes	yes	splice_region
+chr22	EP_30921_169_SD3_17	yes	yes	coding_synon
+chr22	EP_30926_150_SD3_17	yes	yes	coding_synon
+chr22	EP_30932_77_SD3_17	yes	yes	coding_synon
+chr22	EP_30936_223_SD3_17	yes	yes	coding_synon
+chr22	EP_30926_242_SD3_17	yes	yes	missense_mutation
+chr22	EP_30937_291_SD3_17	yes	yes	missense_mutation
+chr22	EP_30952_353_SD3_17	yes	yes	missense_mutation
+chr22	EP_30934_257_SD3_17	yes	yes	intron
+chr22	EP_30929_48_SD3_17	yes	yes	intron
+chr22	EP_30952_426_SD3_17	yes	yes	intron
+chr1	EP_30965_160_SD3_17	yes	yes	coding_synon
+chr1	EP_30970_89_SD3_17	yes	yes	coding_synon
+chr1	EP_30971_120_SD3_17	yes	yes	coding_synon
+chr1	EP_30971_133_SD3_17	yes	yes	coding_synon
+chr1	EP_30971_169_SD3_17	yes	yes	coding_synon
+chr1	EP_30971_193_SD3_17	yes	yes	coding_synon
+chr1	EP_30978_150_SD3_17	yes	yes	coding_synon
+chr1	EP_30981_137_SD3_17	yes	yes	coding_synon
+chr1	EP_30982_168_SD3_17	yes	yes	coding_synon
+chr1	EP_30986_220_SD3_17	yes	yes	coding_synon
+chr1	EP_30991_102_SD3_17	yes	yes	coding_synon
+chr1	EP_31000_251_SD3_17	yes	yes	coding_synon
+chr1	EP_30962_131_SD3_17	yes	yes	missense_mutation
+chr1	EP_30970_204_SD3_17	yes	yes	missense_mutation
+chr1	EP_30970_87_SD3_17	yes	yes	missense_mutation
+chr1	EP_30972_73_SD3_17	yes	yes	missense_mutation
+chr1	EP_30993_116_SD3_17	yes	yes	missense_mutation
+chr1	EP_30998_116_SD3_17	yes	yes	missense_mutation
+chr1	EP_31000_138_SD3_17	yes	yes	missense_mutation
+chr1	EP_31004_175_SD3_17	yes	yes	missense_mutation
+chr1	EP_31004_286_SD3_17	yes	yes	missense_mutation
+chr1	EP_30962_22_SD3_17	yes	yes	intron
+chr1	EP_30987_212_SD3_17	yes	yes	intron
+chr1	EP_30970_251_SD3_17	yes	yes	intron
+chr1	EP_30982_195_SD3_17	yes	yes	intron
+chr1	EP_30972_40_SD3_17	yes	yes	intron
+chr1	EP_30974_56_SD3_17	yes	yes	splice_region
+chr1	EP_30973_188_SD3_17	yes	yes	splice_region
+chr1	EP_30997_56_SD3_17	yes	yes	splice_region
+chr1	EP_30970_60_SD3_17	yes	yes	splice_region
+chr1	EP_30993_56_SD3_17	yes	yes	splice_region
+chr7	EP_31017_174_SD3_17	yes	yes	coding_synon
+chr7	EP_31044_108_SD3_17	yes	yes	coding_synon
+chr7	EP_31032_86_SD3_17	yes	yes	missense_mutation
+chr7	EP_31044_88_SD3_17	yes	yes	missense_mutation
+chr7	EP_31010_291_SD3_17	yes	yes	intron
+chr7	EP_31010_297_SD3_17	yes	yes	intron
+chr7	EP_31040_49_SD3_17	yes	yes	intron
+chr7	EP_31012_323_SD3_17	yes	yes	intron
+chr7	EP_31041_31_SD3_17	yes	yes	intron
+chr7	EP_31032_209_SD3_17	yes	yes	intron
+chr7	EP_31010_267_SD3_17	yes	yes	intron
+chr7	EP_31021_317_SD3_17	yes	yes	intron
+chr7	EP_31020_58_SD3_17	yes	yes	intron
+chr7	EP_31020_373_SD3_17	yes	yes	intron
+chr7	EP_31040_283_SD3_17	yes	yes	intron
+chr3	EP_31054_184_SD3_17	yes	yes	coding_synon
+chr3	EP_31059_41_SD3_17	yes	yes	intron
+chr3	EP_31084_61_SD3_17	yes	yes	splice_region
+chr3	EP_31092_28_SD3_17	yes	yes	coding_synon
+chr3	EP_31097_141_SD3_17	yes	yes	coding_synon
+chr3	EP_31102_78_SD3_17	yes	yes	coding_synon
+chr3	EP_31106_114_SD3_17	yes	yes	coding_synon
+chr3	EP_31111_106_SD3_17	yes	yes	coding_synon
+chr3	EP_31115_81_SD3_17	yes	yes	coding_synon
+chr3	EP_31127_110_SD3_17	yes	yes	coding_synon
+chr3	EP_31127_71_SD3_17	yes	yes	coding_synon
+chr3	EP_31114_191_SD3_17	yes	yes	missense_mutation
+chr3	EP_31116_120_SD3_17	yes	yes	missense_mutation
+chr3	EP_31097_21_SD3_17	yes	yes	intron
+chr3	EP_31111_27_SD3_17	yes	yes	intron
+chr3	EP_31107_182_SD3_17	yes	yes	intron
+chr3	EP_31097_300_SD3_17	yes	yes	intron
+chr3	EP_31122_43_SD3_17	yes	yes	intron
+chr3	EP_31112_27_SD3_17	yes	yes	intron
+chr3	EP_31091_27_SD3_17	yes	yes	intron
+chr3	EP_31121_171_SD3_17	yes	yes	intron
+chr3	EP_31095_59_SD3_17	yes	yes	intron
+chr3	EP_31130_282_SD3_17	yes	yes	promoter
+chr3	EP_31115_60_SD3_17	yes	yes	splice_region
+chr3	EP_31095_211_SD3_17	yes	yes	splice_region
+chr12	EP_31133_135_SD3_17	yes	yes	coding_synon
+chr12	EP_31145_111_SD3_17	yes	yes	coding_synon
+chr12	EP_31146_110_SD3_17	yes	yes	coding_synon
+chr12	EP_31149_83_SD3_17	yes	yes	coding_synon
+chr12	EP_31152_88_SD3_17	yes	yes	coding_synon
+chr12	EP_31155_89_SD3_17	yes	yes	coding_synon
+chr12	EP_31157_97_SD3_17	yes	yes	coding_synon
+chr12	EP_31139_81_SD3_17	yes	yes	missense_mutation
+chr12	EP_31154_122_SD3_17	yes	yes	missense_mutation
+chr12	EP_31166_159_SD3_17	yes	yes	3' UTR
+chr12	EP_31171_436_SD3_17	yes	yes	3' UTR
+chr12	EP_31171_440_SD3_17	yes	yes	3' UTR
+chr12	EP_31173_427_SD3_17	yes	yes	3' UTR
+chr12	EP_31172_81_SD3_17	yes	yes	3' UTR
+chr12	EP_31173_376_SD3_17	yes	yes	3' UTR
+chr12	EP_31170_423_SD3_17	yes	yes	3' UTR
+chr12	EP_31171_246_SD3_17	yes	yes	3' UTR
+chr12	EP_31169_147_SD3_17	yes	yes	3' UTR
+chr12	EP_31150_50_SD3_17	yes	yes	intron
+chr12	EP_31153_198_SD3_17	yes	yes	intron
+chr12	EP_31160_162_SD3_17	yes	yes	intron
+chr12	EP_31150_223_SD3_17	yes	yes	intron
+chr12	EP_31140_50_SD3_17	yes	yes	intron
+chr12	EP_31161_109_SD3_17	yes	yes	intron
+chr12	EP_31155_193_SD3_17	yes	yes	intron
+chr12	EP_31149_45_SD3_17	yes	yes	intron
+chr17	EP_31186_69_SD3_17	yes	yes	coding_synon
+chr17	EP_31186_93_SD3_17	yes	yes	coding_synon
+chr17	EP_31191_291_SD3_17	yes	yes	3' UTR
+chr17	EP_31192_364_SD3_17	yes	yes	3' UTR
+chr17	EP_31189_400_SD3_17	yes	yes	3' UTR
+chr17	EP_31190_479_SD3_17	yes	yes	3' UTR
+chr17	EP_31190_386_SD3_17	yes	yes	3' UTR
+chr10	EP_31211_275_SD3_17	yes	yes	coding_synon
+chr10	EP_31211_95_SD3_17	yes	yes	coding_synon
+chr10	EP_31212_286_SD3_17	yes	yes	missense_mutation
+chr10	EP_31212_314_SD3_17	yes	yes	3' UTR
+chr10	EP_31197_254_SD3_17	yes	yes	intron
+chr10	EP_31218_185_SD3_17	yes	yes	intron
+chr10	EP_31208_365_SD3_17	yes	yes	intron
+chr10	EP_31201_227_SD3_17	yes	yes	intron
+chr10	EP_31204_294_SD3_17	yes	yes	intron
+chr10	EP_31202_74_SD3_17	yes	yes	intron
+chr10	EP_31207_187_SD3_17	yes	yes	splice_region
+chr12	EP_31240_317_SD3_17	yes	yes	coding_synon
+chr12	EP_31242_266_SD3_17	yes	yes	3' UTR
+chr12	EP_31231_195_SD3_17	yes	yes	intron
+chr12	EP_31232_211_SD3_17	yes	yes	intron
+chr12	EP_31236_189_SD3_17	yes	yes	intron
+chr2	EP_31257_136_SD3_17	yes	yes	coding_synon
+chr2	EP_31246_304_SD3_17	yes	yes	intron
+chr17	EP_31264_185_SD3_17	yes	yes	coding_synon
+chr17	EP_31264_210_SD3_17	yes	yes	missense_mutation
+chr17	EP_31265_284_SD3_17	yes	yes	3' UTR
+chr17	EP_31263_24_SD3_17	yes	yes	intron
+chr22	EP_31270_40_SD3_17	yes	yes	intron
+chr16	EP_31282_41_SD3_17	yes	yes	coding_synon
+chr16	EP_31275_105_SD3_17	yes	yes	5' UTR
+chr16	EP_31283_365_SD3_17	yes	yes	promoter
+chr17	EP_31286_118_SD3_17	yes	yes	coding_synon
+chr17	EP_31289_149_SD3_17	yes	yes	coding_synon
+chr17	EP_31289_92_SD3_17	yes	yes	coding_synon
+chr17	EP_10100252_330_SD3_17	yes	yes	3' UTR
+chr17	EP_31294_72_SD3_17	yes	yes	3' UTR
+chr17	EP_31294_284_SD3_17	yes	yes	3' UTR
+chr17	EP_31291_201_SD3_17	yes	yes	3' UTR
+chr17	EP_31295_133_SD3_17	yes	yes	coding_synon
+chr17	EP_31295_157_SD3_17	yes	yes	coding_synon
+chr17	EP_31295_178_SD3_17	yes	yes	coding_synon
+chr17	EP_31300_38_SD3_17	yes	yes	coding_synon
+chr17	EP_31296_52_SD3_17	yes	yes	intron
+chr17	EP_31300_86_SD3_17	yes	yes	promoter
+chr19	EP_31304_273_SD3_17	yes	yes	missense_mutation
+chr19	EP_31305_180_SD3_17	yes	yes	3' UTR
+chr19	EP_31305_493_SD3_17	yes	yes	3' UTR
+chr19	EP_31302_159_SD3_17	yes	yes	5' UTR
+chr19	EP_31310_162_SD3_17	yes	yes	intron
+chr2	EP_31330_105_SD3_17	yes	yes	coding_synon
+chr2	EP_31331_232_SD3_17	yes	yes	missense_mutation
+chr2	EP_31332_232_SD3_17	yes	yes	intron
+chr11	EP_31340_352_SD3_17	yes	yes	missense_mutation
+chr11	EP_31340_377_SD3_17	yes	yes	missense_mutation
+chr11	EP_31334_163_SD3_17	yes	yes	promoter
+chr8	EP_31348_197_SD3_17	yes	yes	coding_synon
+chr8	EP_10100702_58_SD3_17	yes	yes	missense_mutation
+chr8	EP_31348_175_SD3_17	yes	yes	missense_mutation
+chr8	EP_31351_93_SD3_17	yes	yes	missense_mutation
+chr8	EP_10100700_200_SD3_17	yes	yes	3' UTR
+chr8	EP_10100701_101_SD3_17	yes	yes	3' UTR
+chr8	EP_10100701_192_SD3_17	yes	yes	3' UTR
+chr8	EP_10100703_304_SD3_17	yes	yes	intron
+chr8	EP_31343_489_SD3_17	yes	yes	promoter
+chr15	EP_31358_126_SD3_17	yes	yes	coding_synon
+chr15	EP_31360_149_SD3_17	yes	yes	coding_synon
+chr15	EP_31360_95_SD3_17	yes	yes	coding_synon
+chr15	EP_31361_127_SD3_17	yes	yes	coding_synon
+chr15	EP_31358_175_SD3_17	yes	yes	missense_mutation
+chr15	EP_31367_447_SD3_17	yes	yes	3' UTR
+chr15	EP_31366_377_SD3_17	yes	yes	3' UTR
+chr15	EP_31360_55_SD3_17	yes	yes	splice_region
+chr15	EP_31360_177_SD3_17	yes	yes	splice_region
+chr20	EP_10101603_31_SD3_17	yes	yes	coding_synon
+chr20	EP_10101603_70_SD3_17	yes	yes	coding_synon
+chr20	EP_31374_167_SD3_17	yes	yes	coding_synon
+chr20	EP_31374_185_SD3_17	yes	yes	coding_synon
+chr20	EP_10101560_235_SD3_17	yes	yes	3' UTR
+chr20	EP_31370_37_SD3_17	yes	yes	intron
+chr15	EP_31385_207_SD3_17	yes	yes	missense_mutation
+chr15	EP_31387_420_SD3_17	yes	yes	missense_mutation
+chr15	EP_31390_317_SD3_17	yes	yes	3' UTR
+chr15	EP_31389_471_SD3_17	yes	yes	3' UTR
+chr15	EP_31385_32_SD3_17	yes	yes	intron
+chr15	EP_31383_29_SD3_17	yes	yes	intron
+chr15	EP_31367_285_SD3_17	yes	yes	promoter
+chr8	EP_31399_238_SD3_17	yes	yes	3' UTR
+chr8	EP_31400_62_SD3_17	yes	yes	3' UTR
+chr15	EP_31411_341_SD3_17	yes	yes	coding_synon
+chr4	EP_31416_101_SD3_17	yes	yes	coding_synon
+chr4	EP_31417_143_SD3_17	yes	yes	coding_synon
+chr4	EP_31417_179_SD3_17	yes	yes	coding_synon
+chr4	EP_31417_203_SD3_17	yes	yes	coding_synon
+chr4	EP_31420_103_SD3_17	yes	yes	coding_synon
+chr4	EP_31421_108_SD3_17	yes	yes	missense_mutation
+chr4	EP_31422_225_SD3_17	yes	yes	missense_mutation
+chr4	EP_31423_253_SD3_17	yes	yes	3' UTR
+chr4	EP_31423_438_SD3_17	yes	yes	3' UTR
+chr4	EP_31423_319_SD3_17	yes	yes	3' UTR
+chr4	EP_31416_144_SD3_17	yes	yes	intron
+chr17	EP_31436_130_SD3_17	yes	yes	3' UTR
+chr17	EP_31436_343_SD3_17	yes	yes	3' UTR
+chr17	EP_31434_249_SD3_17	yes	yes	intron
+chr17	EP_31432_321_SD3_17	yes	yes	intron
+chr1	EP_31446_38_SD3_17	yes	yes	coding_synon
+chr1	EP_31446_175_SD3_17	yes	yes	3' UTR
+chr1	EP_10102553_42_SD3_17	yes	yes	3' UTR
+chr1	EP_10102553_201_SD3_17	yes	yes	3' UTR
+chr1	EP_10102553_267_SD3_17	yes	yes	3' UTR
+chr1	EP_10102553_313_SD3_17	yes	yes	3' UTR
+chr1	EP_31438_119_SD3_17	yes	yes	5' UTR
+chr1	EP_31438_280_SD3_17	yes	yes	5' UTR
+chr1	EP_31441_44_SD3_17	yes	yes	intron
+chr1	EP_31444_557_SD3_17	yes	yes	intron
+chr1	EP_31440_229_SD3_17	yes	yes	splice_region
+chr8	EP_31453_338_SD3_17	yes	yes	coding_synon
+chr8	EP_31454_472_SD3_17	yes	yes	coding_synon
+chr8	EP_31454_365_SD3_17	yes	yes	missense_mutation
+chr8	EP_31448_134_SD3_17	yes	yes	5' UTR
+chr8	EP_31454_609_SD3_17	yes	yes	intron
+chr15	EP_31462_454_SD3_17	yes	yes	coding_synon
+chr15	EP_31461_154_SD3_17	yes	yes	missense_mutation
+chr15	EP_31463_356_SD3_17	yes	yes	missense_mutation
+chr15	EP_31465_402_SD3_17	yes	yes	3' UTR
+chr15	EP_31466_49_SD3_17	yes	yes	promoter
+chr2	EP_31468_74_SD3_17	yes	yes	coding_synon
+chr2	EP_31469_130_SD3_17	yes	yes	coding_synon
+chr2	EP_31480_114_SD3_17	yes	yes	3' UTR
+chr2	EP_31476_202_SD3_17	yes	yes	splice_region
+chr17	EP_31487_145_SD3_17	yes	yes	coding_synon
+chr17	EP_31483_203_SD3_17	yes	yes	missense_mutation
+chr17	EP_31489_52_SD3_17	yes	yes	intron
+chr2	EP_31507_104_SD3_17	yes	yes	coding_synon
+chr2	EP_31507_198_SD3_17	yes	yes	missense_mutation
+chr2	EP_31504_51_SD3_17	yes	yes	intron
+chr2	EP_31501_52_SD3_17	yes	yes	intron
+chr7	EP_31510_149_SD3_17	yes	yes	coding_synon
+chr7	EP_31525_300_SD3_17	yes	yes	coding_synon
+chr7	EP_31511_139_SD3_17	yes	yes	missense_mutation
+chr7	EP_31526_70_SD3_17	yes	yes	missense_mutation
+chr7	EP_31509_49_SD3_17	yes	yes	5' UTR
+chr7	EP_31509_42_SD3_17	yes	yes	5' UTR
+chr7	EP_31521_39_SD3_17	yes	yes	intron
+chr7	EP_31513_40_SD3_17	yes	yes	intron
+chr7	EP_31526_207_SD3_17	yes	yes	intron
+chr7	EP_31510_216_SD3_17	yes	yes	intron
+chr7	EP_31520_247_SD3_17	yes	yes	intron
+chr7	EP_31526_179_SD3_17	yes	yes	splice_region
+chr7	EP_31521_58_SD3_17	yes	yes	splice_region
+chr3	EP_31541_142_SD3_17	yes	yes	coding_synon
+chr3	EP_31543_132_SD3_17	yes	yes	coding_synon
+chr3	EP_31547_158_SD3_17	yes	yes	coding_synon
+chr3	EP_31549_88_SD3_17	yes	yes	missense_mutation
+chr3	EP_31550_143_SD3_17	yes	yes	missense_mutation
+chr3	EP_31551_126_SD3_17	yes	yes	missense_mutation
+chr3	EP_31546_194_SD3_17	yes	yes	intron
+chr3	EP_31549_44_SD3_17	yes	yes	intron
+chr3	EP_31545_21_SD3_17	yes	yes	intron
+chr3	EP_31549_42_SD3_17	yes	yes	intron
+chr4	EP_31570_233_SD3_17	yes	yes	coding_synon
+chr4	EP_31570_251_SD3_17	yes	yes	coding_synon
+chr4	EP_31572_426_SD3_17	yes	yes	3' UTR
+chr4	EP_31574_335_SD3_17	yes	yes	3' UTR
+chr4	EP_31569_568_SD3_17	yes	yes	intron
+chr4	EP_31571_40_SD3_17	yes	yes	intron
+chr4	EP_31578_26_SD3_17	yes	yes	intron
+chrX	EP_31593_110_SD3_17	yes	yes	coding_synon
+chrX	EP_31599_234_SD3_17	yes	yes	3' UTR
+chrX	EP_31600_405_SD3_17	yes	yes	3' UTR
+chrX	EP_31598_311_SD3_17	yes	yes	3' UTR
+chrX	EP_31600_352_SD3_17	yes	yes	3' UTR
+chrX	EP_31597_218_SD3_17	yes	yes	3' UTR
+chrX	EP_31600_198_SD3_17	yes	yes	3' UTR
+chrX	EP_31587_292_SD3_17	yes	yes	intron
+chrX	EP_31582_193_SD3_17	yes	yes	intron
+chrX	EP_31589_51_SD3_17	yes	yes	intron
+chrX	EP_31600_537_SD3_17	yes	yes	promoter
+chrX	EP_31606_253_SD3_17	yes	yes	intron
+chrX	EP_31611_49_SD3_17	yes	yes	intron
+chr1	EP_31635_186_SD3_17	yes	yes	coding_synon
+chr1	EP_31636_89_SD3_17	yes	yes	coding_synon
+chr1	EP_31646_367_SD3_17	yes	yes	3' UTR
+chr1	EP_31642_135_SD3_17	yes	yes	3' UTR
+chr1	EP_31642_99_SD3_17	yes	yes	3' UTR
+chr1	EP_31642_122_SD3_17	yes	yes	3' UTR
+chr1	EP_31643_404_SD3_17	yes	yes	3' UTR
+chr1	EP_31624_30_SD3_17	yes	yes	intron
+chr1	EP_31622_207_SD3_17	yes	yes	intron
+chr1	EP_31637_255_SD3_17	yes	yes	intron
+chr1	EP_31650_41_SD3_17	yes	yes	intron
+chr1	EP_31650_53_SD3_17	yes	yes	intron
+chr1	EP_31621_53_SD3_17	yes	yes	splice_region
+chr1	EP_31625_143_SD3_17	yes	yes	splice_region
+chr16	EP_31659_78_SD3_17	yes	yes	coding_synon
+chr16	EP_31662_79_SD3_17	yes	yes	coding_synon
+chr16	EP_31666_107_SD3_17	yes	yes	coding_synon
+chr16	EP_31667_181_SD3_17	yes	yes	coding_synon
+chr16	EP_31667_174_SD3_17	yes	yes	missense_mutation
+chr16	EP_31680_464_SD3_17	yes	yes	3' UTR
+chr16	EP_31679_334_SD3_17	yes	yes	3' UTR
+chr16	EP_31677_44_SD3_17	yes	yes	3' UTR
+chr16	EP_31679_226_SD3_17	yes	yes	3' UTR
+chr16	EP_31680_463_SD3_17	yes	yes	3' UTR
+chr16	EP_31680_193_SD3_17	yes	yes	3' UTR
+chr16	EP_31673_227_SD3_17	yes	yes	intron
+chr16	EP_31676_197_SD3_17	yes	yes	intron
+chr16	EP_31656_53_SD3_17	yes	yes	intron
+chr16	EP_31671_61_SD3_17	yes	yes	intron
+chr16	EP_31661_54_SD3_17	yes	yes	intron
+chr16	EP_31658_211_SD3_17	yes	yes	intron
+chr16	EP_31656_233_SD3_17	yes	yes	intron
+chr16	EP_31676_185_SD3_17	yes	yes	intron
+chr16	EP_31675_360_SD3_17	yes	yes	intron
+chr16	EP_31673_217_SD3_17	yes	yes	intron
+chr16	EP_31660_164_SD3_17	yes	yes	intron
+chr16	EP_31658_182_SD3_17	yes	yes	splice_region
+chr16	EP_31672_156_SD3_17	yes	yes	splice_region
+chr16	EP_31672_158_SD3_17	yes	yes	splice_region
+chr1	EP_31684_143_SD3_17	yes	yes	missense_mutation
+chr1	EP_31684_80_SD3_17	yes	yes	missense_mutation
+chr1	EP_31689_141_SD3_17	yes	yes	missense_mutation
+chr1	EP_31690_152_SD3_17	yes	yes	missense_mutation
+chr1	EP_31691_94_SD3_17	yes	yes	missense_mutation
+chr1	EP_31692_112_SD3_17	yes	yes	missense_mutation
+chr1	EP_31694_138_SD3_17	yes	yes	missense_mutation
+chr1	EP_31695_254_SD3_17	yes	yes	missense_mutation
+chr1	EP_31699_133_SD3_17	yes	yes	missense_mutation
+chr1	EP_31685_33_SD3_17	yes	yes	intron
+chr1	EP_31698_176_SD3_17	yes	yes	intron
+chr1	EP_31698_177_SD3_17	yes	yes	intron
+chr1	EP_31696_224_SD3_17	yes	yes	intron
+chr1	EP_31695_22_SD3_17	yes	yes	intron
+chr1	EP_31683_32_SD3_17	yes	yes	intron
+chr1	EP_31693_24_SD3_17	yes	yes	intron
+chr1	EP_31694_190_SD3_17	yes	yes	intron
+chr1	EP_31682_50_SD3_17	yes	yes	intron
+chr1	EP_31689_181_SD3_17	yes	yes	intron
+chr1	EP_31697_50_SD3_17	yes	yes	intron
+chr1	EP_31698_57_SD3_17	yes	yes	splice_region
+chr1	EP_31707_204_SD3_17	yes	yes	coding_synon
+chr1	EP_31712_84_SD3_17	yes	yes	coding_synon
+chr1	EP_31717_109_SD3_17	yes	yes	coding_synon
+chr1	EP_31718_199_SD3_17	yes	yes	coding_synon
+chr1	EP_31704_142_SD3_17	yes	yes	missense_mutation
+chr1	EP_31704_74_SD3_17	yes	yes	missense_mutation
+chr1	EP_31718_190_SD3_17	yes	yes	missense_mutation
+chr1	EP_31713_160_SD3_17	yes	yes	intron
+chr1	EP_31712_43_SD3_17	yes	yes	intron
+chr1	EP_31721_28_SD3_17	yes	yes	intron
+chr1	EP_31721_25_SD3_17	yes	yes	intron
+chr1	EP_31709_58_SD3_17	yes	yes	splice_region
+chr5	EP_31728_141_SD3_17	yes	yes	coding_synon
+chr5	EP_31729_367_SD3_17	yes	yes	3' UTR
+chr5	EP_31724_263_SD3_17	yes	yes	5' UTR
+chr11	EP_31735_194_SD3_17	yes	yes	coding_synon
+chr11	EP_31738_244_SD3_17	yes	yes	coding_synon
+chr11	EP_31738_262_SD3_17	yes	yes	coding_synon
+chr11	EP_31738_222_SD3_17	yes	yes	missense_mutation
+chr11	EP_31738_269_SD3_17	yes	yes	missense_mutation
+chr11	EP_31740_382_SD3_17	yes	yes	3' UTR
+chr11	EP_31741_89_SD3_17	yes	yes	3' UTR
+chr11	EP_31741_438_SD3_17	yes	yes	3' UTR
+chr3	EP_31744_38_SD3_17	yes	yes	missense_mutation
+chr3	EP_31743_148_SD3_17	yes	yes	5' UTR
+chr11	EP_31769_43_SD3_17	yes	yes	intron
+chr11	EP_31769_63_SD3_17	yes	yes	intron
+chr4	EP_31775_240_SD3_17	yes	yes	3' UTR
+chr4	EP_31775_109_SD3_17	yes	yes	3' UTR
+chr11	EP_33534_292_SD3_17	yes	yes	promoter
+chr17	EP_31426_119_SD3_17	yes	yes	promoter
+chr6	EP_31788_153_SD3_17	yes	yes	coding_synon
+chr6	EP_31788_156_SD3_17	yes	yes	coding_synon
+chr6	EP_31788_84_SD3_17	yes	yes	coding_synon
+chr6	EP_31806_80_SD3_17	yes	yes	coding_synon
+chr6	EP_31808_425_SD3_17	yes	yes	3' UTR
+chr6	EP_31808_249_SD3_17	yes	yes	3' UTR
+chr6	EP_31802_373_SD3_17	yes	yes	3' UTR
+chr6	EP_31806_27_SD3_17	yes	yes	intron
+chr6	EP_30267_54_SD3_17	yes	yes	intron
+chr6	EP_31787_309_SD3_17	yes	yes	intron
+chr6	EP_31789_185_SD3_17	yes	yes	intron
+chr6	EP_31785_182_SD3_17	yes	yes	intron
+chr6	EP_31784_40_SD3_17	yes	yes	intron
+chr6	EP_31794_40_SD3_17	yes	yes	intron
+chr6	EP_31788_54_SD3_17	yes	yes	splice_region
+chr6	EP_31793_187_SD3_17	yes	yes	splice_region
+chr9	EP_32129_147_SD3_17	yes	yes	coding_synon
+chr9	EP_32129_162_SD3_17	yes	yes	coding_synon
+chr9	EP_32145_104_SD3_17	yes	yes	coding_synon
+chr9	EP_32145_118_SD3_17	yes	yes	missense_mutation
+chr9	EP_32149_328_SD3_17	yes	yes	3' UTR
+chr9	EP_32147_465_SD3_17	yes	yes	3' UTR
+chr9	EP_32150_170_SD3_17	yes	yes	3' UTR
+chr9	EP_32141_23_SD3_17	yes	yes	intron
+chr9	EP_32130_256_SD3_17	yes	yes	intron
+chr9	EP_32137_234_SD3_17	yes	yes	intron
+chr9	EP_32144_222_SD3_17	yes	yes	intron
+chr9	EP_32140_214_SD3_17	yes	yes	intron
+chr9	EP_32146_248_SD3_17	yes	yes	intron
+chr9	EP_32131_171_SD3_17	yes	yes	splice_region
+chr9	EP_32144_196_SD3_17	yes	yes	splice_region
+chr5	EP_31814_252_SD3_17	yes	yes	coding_synon
+chr5	EP_31823_77_SD3_17	yes	yes	3' UTR
+chr5	EP_10064462_196_SD3_17	yes	yes	3' UTR
+chr5	EP_31811_168_SD3_17	yes	yes	5' UTR
+chr5	EP_31811_279_SD3_17	yes	yes	5' UTR
+chr5	EP_31818_267_SD3_17	yes	yes	intron
+chr5	EP_31820_51_SD3_17	yes	yes	intron
+chr5	EP_31820_286_SD3_17	yes	yes	intron
+chr5	EP_31815_29_SD3_17	yes	yes	intron
+chr5	EP_31813_161_SD3_17	yes	yes	splice_region
+chr4	EP_31831_157_SD3_17	yes	yes	coding_synon
+chr4	EP_31838_561_SD3_17	yes	yes	3' UTR
+chr4	EP_31830_133_SD3_17	yes	yes	splice_region
+chrX	EP_31840_153_SD3_17	yes	yes	5' UTR
+chrX	EP_31850_455_SD3_17	yes	yes	intron
+chr4	EP_31853_73_SD3_17	yes	yes	missense_mutation
+chr4	EP_31881_429_SD3_17	yes	yes	3' UTR
+chr4	EP_31868_707_SD3_17	yes	yes	3' UTR
+chr4	EP_31878_473_SD3_17	yes	yes	3' UTR
+chr4	EP_31869_455_SD3_17	yes	yes	3' UTR
+chr4	EP_31870_576_SD3_17	yes	yes	3' UTR
+chr4	EP_31873_216_SD3_17	yes	yes	3' UTR
+chr4	EP_31869_434_SD3_17	yes	yes	3' UTR
+chr4	EP_31865_138_SD3_17	yes	yes	3' UTR
+chr4	EP_31869_213_SD3_17	yes	yes	3' UTR
+chr4	EP_31869_360_SD3_17	yes	yes	3' UTR
+chr4	EP_31865_50_SD3_17	yes	yes	3' UTR
+chr4	EP_31864_541_SD3_17	yes	yes	3' UTR
+chr4	EP_31879_293_SD3_17	yes	yes	3' UTR
+chr4	EP_31880_617_SD3_17	yes	yes	3' UTR
+chr4	EP_31877_208_SD3_17	yes	yes	3' UTR
+chr4	EP_31877_366_SD3_17	yes	yes	3' UTR
+chr4	EP_31869_147_SD3_17	yes	yes	3' UTR
+chr4	EP_31872_562_SD3_17	yes	yes	3' UTR
+chr4	EP_31872_495_SD3_17	yes	yes	3' UTR
+chr4	EP_31860_371_SD3_17	yes	yes	intron
+chr4	EP_31859_275_SD3_17	yes	yes	intron
+chr15	EP_31887_88_SD3_17	yes	yes	coding_synon
+chr15	EP_31889_160_SD3_17	yes	yes	coding_synon
+chr15	EP_31889_202_SD3_17	yes	yes	coding_synon
+chr15	EP_31890_107_SD3_17	yes	yes	coding_synon
+chr15	EP_34635_52_SD3_17	yes	yes	intron
+chr15	EP_31889_36_SD3_17	yes	yes	intron
+chr15	EP_31889_54_SD3_17	yes	yes	splice_region
+chr5	EP_31894_71_SD3_17	yes	yes	coding_synon
+chr5	EP_31901_259_SD3_17	yes	yes	coding_synon
+chr5	EP_31899_107_SD3_17	yes	yes	missense_mutation
+chr5	EP_31902_296_SD3_17	yes	yes	missense_mutation
+chr5	EP_31903_199_SD3_17	yes	yes	3' UTR
+chr5	EP_31900_60_SD3_17	yes	yes	intron
+chr5	EP_31902_78_SD3_17	yes	yes	intron
+chr4	EP_31909_113_SD3_17	yes	yes	coding_synon
+chr4	EP_31909_142_SD3_17	yes	yes	coding_synon
+chr4	EP_31912_216_SD3_17	yes	yes	coding_synon
+chr4	EP_31912_228_SD3_17	yes	yes	coding_synon
+chr4	EP_31912_87_SD3_17	yes	yes	coding_synon
+chr4	EP_31905_166_SD3_17	yes	yes	intron
+chr4	EP_31906_223_SD3_17	yes	yes	intron
+chr4	EP_31912_43_SD3_17	yes	yes	intron
+chr5	EP_31925_294_SD3_17	yes	yes	coding_synon
+chr5	EP_31926_69_SD3_17	yes	yes	3' UTR
+chr5	EP_31922_237_SD3_17	yes	yes	intron
+chr5	EP_31922_66_SD3_17	yes	yes	intron
+chr15	EP_31935_131_SD3_17	yes	yes	coding_synon
+chr15	EP_31938_29_SD3_17	yes	yes	3' UTR
+chr15	EP_31936_48_SD3_17	yes	yes	intron
+chr15	EP_31936_377_SD3_17	yes	yes	intron
+chr15	EP_31931_50_SD3_17	yes	yes	intron
+chr15	EP_31941_188_SD3_17	yes	yes	promoter
+chr15	EP_31941_48_SD3_17	yes	yes	promoter
+chr1	EP_31943_85_SD3_17	yes	yes	coding_synon
+chr1	EP_31945_197_SD3_17	yes	yes	coding_synon
+chr1	EP_31943_48_SD3_17	yes	yes	intron
+chr1	EP_31950_61_SD3_17	yes	yes	intron
+chrX	EP_31954_151_SD3_17	yes	yes	coding_synon
+chrX	EP_31957_130_SD3_17	yes	yes	coding_synon
+chrX	EP_31961_276_SD3_17	yes	yes	missense_mutation
+chrX	EP_31968_98_SD3_17	yes	yes	missense_mutation
+chrX	EP_31970_258_SD3_17	yes	yes	3' UTR
+chrX	EP_31970_50_SD3_17	yes	yes	3' UTR
+chrX	EP_31963_269_SD3_17	yes	yes	3' UTR
+chrX	EP_31972_318_SD3_17	yes	yes	3' UTR
+chr4	EP_31984_204_SD3_17	yes	yes	coding_synon
+chr4	EP_31989_232_SD3_17	yes	yes	coding_synon
+chr4	EP_31990_324_SD3_17	yes	yes	missense_mutation
+chr4	EP_31990_47_SD3_17	yes	yes	3' UTR
+chr4	EP_31981_186_SD3_17	yes	yes	5' UTR
+chr4	EP_31986_99_SD3_17	yes	yes	intron
+chr5	EP_10065300_129_SD3_17	yes	yes	coding_synon
+chr5	EP_31998_168_SD3_17	yes	yes	coding_synon
+chr5	EP_10065305_147_SD3_17	yes	yes	3' UTR
+chr5	EP_10065305_199_SD3_17	yes	yes	3' UTR
+chr5	EP_31993_198_SD3_17	yes	yes	5' UTR
+chr5	EP_32000_409_SD3_17	yes	yes	intron
+chr5	EP_32000_68_SD3_17	yes	yes	intron
+chr5	EP_31998_266_SD3_17	yes	yes	intron
+chr15	EP_32016_160_SD3_17	yes	yes	coding_synon
+chr15	EP_32016_251_SD3_17	yes	yes	missense_mutation
+chr15	EP_32024_325_SD3_17	yes	yes	intron
+chr15	EP_32015_21_SD3_17	yes	yes	intron
+chr15	EP_32021_162_SD3_17	yes	yes	intron
+chr5	EP_32027_113_SD3_17	yes	yes	coding_synon
+chr5	EP_32027_81_SD3_17	yes	yes	coding_synon
+chr5	EP_32027_90_SD3_17	yes	yes	missense_mutation
+chr5	EP_32035_277_SD3_17	yes	yes	missense_mutation
+chr5	EP_32037_101_SD3_17	yes	yes	3' UTR
+chr5	EP_32037_444_SD3_17	yes	yes	3' UTR
+chr5	EP_32038_424_SD3_17	yes	yes	3' UTR
+chr5	EP_32038_325_SD3_17	yes	yes	3' UTR
+chr5	EP_32038_396_SD3_17	yes	yes	3' UTR
+chr5	EP_32037_563_SD3_17	yes	yes	3' UTR
+chr5	EP_32025_118_SD3_17	yes	yes	5' UTR
+chr5	EP_32031_228_SD3_17	yes	yes	intron
+chr5	EP_32035_69_SD3_17	yes	yes	intron
+chr5	EP_32029_121_SD3_17	yes	yes	intron
+chr5	EP_32025_48_SD3_17	yes	yes	promoter
+chr5	EP_32025_59_SD3_17	yes	yes	promoter
+chrX	EP_32049_336_SD3_17	yes	yes	missense_mutation
+chrX	EP_32045_169_SD3_17	yes	yes	intron
+chr6	EP_32057_209_SD3_17	yes	yes	coding_synon
+chr6	EP_32062_364_SD3_17	yes	yes	coding_synon
+chr6	EP_32053_105_SD3_17	yes	yes	missense_mutation
+chr6	EP_32053_109_SD3_17	yes	yes	missense_mutation
+chr6	EP_32063_271_SD3_17	yes	yes	3' UTR
+chr6	EP_32059_241_SD3_17	yes	yes	intron
+chr6	EP_32060_67_SD3_17	yes	yes	intron
+chr6	EP_32059_236_SD3_17	yes	yes	intron
+chr6	EP_32068_116_SD3_17	yes	yes	coding_synon
+chr6	EP_32074_172_SD3_17	yes	yes	missense_mutation
+chr6	EP_32072_28_SD3_17	yes	yes	intron
+chr6	EP_32070_200_SD3_17	yes	yes	intron
+chr15	EP_32511_64_SD3_17	yes	yes	3' UTR
+chr15	EP_32511_80_SD3_17	yes	yes	3' UTR
+chr15	EP_32510_138_SD3_17	yes	yes	3' UTR
+chr15	EP_32510_161_SD3_17	yes	yes	3' UTR
+chr15	EP_32510_349_SD3_17	yes	yes	3' UTR
+chr15	EP_32511_568_SD3_17	yes	yes	3' UTR
+chr15	EP_32509_246_SD3_17	yes	yes	3' UTR
+chr15	EP_32511_469_SD3_17	yes	yes	3' UTR
+chr15	EP_32502_240_SD3_17	yes	yes	intron
+chr15	EP_32502_273_SD3_17	yes	yes	intron
+chr15	EP_32503_206_SD3_17	yes	yes	intron
+chr15	EP_32512_577_SD3_17	yes	yes	promoter
+chr5	EP_32084_123_SD3_17	yes	yes	coding_synon
+chr5	EP_32085_305_SD3_17	yes	yes	missense_mutation
+chr5	EP_32076_280_SD3_17	yes	yes	5' UTR
+chr5	EP_32080_23_SD3_17	yes	yes	intron
+chrX	EP_32093_147_SD3_17	yes	yes	coding_synon
+chrX	EP_32095_98_SD3_17	yes	yes	coding_synon
+chrX	EP_32099_380_SD3_17	yes	yes	3' UTR
+chrX	EP_32100_201_SD3_17	yes	yes	3' UTR
+chr4	EP_32104_175_SD3_17	yes	yes	coding_synon
+chr4	EP_32104_178_SD3_17	yes	yes	coding_synon
+chr4	EP_32105_238_SD3_17	yes	yes	coding_synon
+chr4	EP_32113_84_SD3_17	yes	yes	3' UTR
+chr4	EP_32112_582_SD3_17	yes	yes	3' UTR
+chr4	EP_32105_300_SD3_17	yes	yes	intron
+chr4	EP_32111_371_SD3_17	yes	yes	intron
+chr4	EP_32109_87_SD3_17	yes	yes	intron
+chr4	EP_32126_204_SD3_17	yes	yes	3' UTR
+chr4	EP_32117_335_SD3_17	yes	yes	intron
+chr4	EP_32126_702_SD3_17	yes	yes	promoter
+chr5	EP_32157_133_SD3_17	yes	yes	coding_synon
+chr5	EP_32159_91_SD3_17	yes	yes	coding_synon
+chr5	EP_32161_60_SD3_17	yes	yes	intron
+chr5	EP_32155_224_SD3_17	yes	yes	intron
+chr5	EP_32165_285_SD3_17	yes	yes	intron
+chr4	EP_32176_113_SD3_17	yes	yes	coding_synon
+chr4	EP_9820101_141_SD3_17	yes	yes	coding_synon
+chr4	EP_32177_63_SD3_17	yes	yes	intron
+chr4	EP_9820101_413_SD3_17	yes	yes	intron
+chr4	EP_9820101_61_SD3_17	yes	yes	intron
+chr4	EP_32177_91_SD3_17	yes	yes	intron
+chrX	EP_32199_97_SD3_17	yes	yes	coding_synon
+chrX	EP_32211_135_SD3_17	yes	yes	3' UTR
+chrX	EP_32209_23_SD3_17	yes	yes	intron
+chrX	EP_32196_57_SD3_17	yes	yes	intron
+chrX	EP_32199_238_SD3_17	yes	yes	intron
+chrX	EP_32196_83_SD3_17	yes	yes	intron
+chr11	EP_32214_309_SD3_17	yes	yes	coding_synon
+chr11	EP_32225_188_SD3_17	yes	yes	coding_synon
+chr11	EP_32215_52_SD3_17	yes	yes	intron
+chr11	EP_32216_30_SD3_17	yes	yes	intron
+chr11	EP_32214_101_SD3_17	yes	yes	intron
+chr11	EP_32226_35_SD3_17	yes	yes	intron
+chr11	EP_32218_56_SD3_17	yes	yes	splice_region
+chr10	EP_32233_81_SD3_17	yes	yes	coding_synon
+chr10	EP_32234_271_SD3_17	yes	yes	coding_synon
+chr10	EP_32233_110_SD3_17	yes	yes	missense_mutation
+chr10	EP_32235_348_SD3_17	yes	yes	missense_mutation
+chr10	EP_32241_442_SD3_17	yes	yes	3' UTR
+chr10	EP_32243_101_SD3_17	yes	yes	3' UTR
+chr10	EP_32243_112_SD3_17	yes	yes	3' UTR
+chr10	EP_32245_123_SD3_17	yes	yes	3' UTR
+chr10	EP_32244_381_SD3_17	yes	yes	3' UTR
+chr10	EP_32243_82_SD3_17	yes	yes	3' UTR
+chr10	EP_32238_250_SD3_17	yes	yes	intron
+chr4	EP_34639_68_SD3_17	yes	yes	coding_synon
+chr4	EP_34636_289_SD3_17	yes	yes	intron
+chr4	EP_34639_292_SD3_17	yes	yes	intron
+chr4	EP_34644_84_SD3_17	yes	yes	intron
+chr4	EP_32251_262_SD3_17	yes	yes	intron
+chr21	EP_10066703_126_SD3_17	yes	yes	coding_synon
+chr21	EP_10067001_56_SD3_17	yes	yes	coding_synon
+chr21	EP_32264_164_SD3_17	yes	yes	coding_synon
+chr21	EP_32267_64_SD3_17	yes	yes	intron
+chr21	EP_32264_109_SD3_17	yes	yes	intron
+chr21	EP_10066651_167_SD3_17	yes	yes	intron
+chr21	EP_32257_319_SD3_17	yes	yes	intron
+chr6	EP_32283_140_SD3_17	yes	yes	coding_synon
+chr6	EP_32288_209_SD3_17	yes	yes	coding_synon
+chr6	EP_32289_189_SD3_17	yes	yes	coding_synon
+chr6	EP_32288_279_SD3_17	yes	yes	missense_mutation
+chr6	EP_32294_131_SD3_17	yes	yes	3' UTR
+chr6	EP_32288_41_SD3_17	yes	yes	intron
+chr6	EP_32280_88_SD3_17	yes	yes	intron
+chr6	EP_32280_59_SD3_17	yes	yes	intron
+chr6	EP_32284_78_SD3_17	yes	yes	intron
+chr6	EP_32289_68_SD3_17	yes	yes	splice_region
+chr6	EP_32287_306_SD3_17	yes	yes	splice_region
+chr6	EP_32281_213_SD3_17	yes	yes	splice_region
+chr1	EP_32298_258_SD3_17	yes	yes	coding_synon
+chr1	EP_32301_216_SD3_17	yes	yes	coding_synon
+chr1	EP_32301_95_SD3_17	yes	yes	missense_mutation
+chr1	EP_32302_37_SD3_17	yes	yes	intron
+chr1	EP_32300_176_SD3_17	yes	yes	intron
+chr1	EP_32308_286_SD3_17	yes	yes	splice_region
+chr11	EP_32321_89_SD3_17	yes	yes	coding_synon
+chr11	EP_32323_65_SD3_17	yes	yes	coding_synon
+chr11	EP_32325_107_SD3_17	yes	yes	coding_synon
+chr11	EP_32326_183_SD3_17	yes	yes	coding_synon
+chr11	EP_32319_111_SD3_17	yes	yes	missense_mutation
+chr11	EP_32325_27_SD3_17	yes	yes	intron
+chr11	EP_32321_182_SD3_17	yes	yes	intron
+chr11	EP_32330_259_SD3_17	yes	yes	intron
+chr19	EP_32340_220_SD3_17	yes	yes	splice_region
+chr9	EP_32353_311_SD3_17	yes	yes	5' UTR
+chr16	EP_32384_236_SD3_17	yes	yes	coding_synon
+chr16	EP_32389_154_SD3_17	yes	yes	coding_synon
+chr16	EP_32392_203_SD3_17	yes	yes	missense_mutation
+chr16	EP_32399_477_SD3_17	yes	yes	3' UTR
+chr16	EP_32381_31_SD3_17	yes	yes	intron
+chr16	EP_32383_193_SD3_17	yes	yes	intron
+chr12	EP_32402_156_SD3_17	yes	yes	coding_synon
+chr12	EP_32402_507_SD3_17	yes	yes	coding_synon
+chr12	EP_32407_318_SD3_17	yes	yes	coding_synon
+chr12	EP_32409_186_SD3_17	yes	yes	coding_synon
+chr12	EP_32410_267_SD3_17	yes	yes	coding_synon
+chr12	EP_32413_147_SD3_17	yes	yes	coding_synon
+chr12	EP_32414_453_SD3_17	yes	yes	coding_synon
+chr12	EP_32416_517_SD3_17	yes	yes	coding_synon
+chr12	EP_32417_302_SD3_17	yes	yes	coding_synon
+chr12	EP_32417_323_SD3_17	yes	yes	coding_synon
+chr12	EP_32421_282_SD3_17	yes	yes	3' UTR
+chr12	EP_32419_435_SD3_17	yes	yes	3' UTR
+chr12	EP_32402_536_SD3_17	yes	yes	5' UTR
+chr12	EP_32405_67_SD3_17	yes	yes	intron
+chr12	EP_32407_30_SD3_17	yes	yes	intron
+chr17	EP_32424_373_SD3_17	yes	yes	coding_synon
+chr17	EP_32424_279_SD3_17	yes	yes	missense_mutation
+chr17	EP_32438_138_SD3_17	yes	yes	missense_mutation
+chr17	EP_32427_246_SD3_17	yes	yes	intron
+chr19	EP_32448_231_SD3_17	yes	yes	intron
+chr9	EP_32461_81_SD3_17	yes	yes	coding_synon
+chr9	EP_32462_172_SD3_17	yes	yes	coding_synon
+chr9	EP_32463_260_SD3_17	yes	yes	coding_synon
+chr9	EP_32464_388_SD3_17	yes	yes	coding_synon
+chr9	EP_32464_75_SD3_17	yes	yes	coding_synon
+chr9	EP_32465_242_SD3_17	yes	yes	coding_synon
+chr9	EP_32468_175_SD3_17	yes	yes	coding_synon
+chr9	EP_32472_297_SD3_17	yes	yes	coding_synon
+chr9	EP_32463_295_SD3_17	yes	yes	missense_mutation
+chr9	EP_32464_276_SD3_17	yes	yes	missense_mutation
+chr9	EP_32464_296_SD3_17	yes	yes	missense_mutation
+chr9	EP_32468_174_SD3_17	yes	yes	missense_mutation
+chr9	EP_32472_193_SD3_17	yes	yes	missense_mutation
+chr9	EP_32472_226_SD3_17	yes	yes	missense_mutation
+chr9	EP_32472_289_SD3_17	yes	yes	missense_mutation
+chr9	EP_32475_194_SD3_17	yes	yes	3' UTR
+chr9	EP_32475_371_SD3_17	yes	yes	3' UTR
+chr9	EP_32476_380_SD3_17	yes	yes	3' UTR
+chr9	EP_32478_515_SD3_17	yes	yes	3' UTR
+chr9	EP_32474_337_SD3_17	yes	yes	3' UTR
+chr9	EP_32479_477_SD3_17	yes	yes	3' UTR
+chr9	EP_32463_58_SD3_17	yes	yes	intron
+chr9	EP_32462_471_SD3_17	yes	yes	intron
+chr6	EP_32523_221_SD3_17	yes	yes	coding_synon
+chr6	EP_32524_103_SD3_17	yes	yes	coding_synon
+chr6	EP_32524_148_SD3_17	yes	yes	coding_synon
+chr6	EP_32524_430_SD3_17	yes	yes	coding_synon
+chr6	EP_32523_405_SD3_17	yes	yes	missense_mutation
+chr6	EP_32527_404_SD3_17	yes	yes	3' UTR
+chr6	EP_32526_231_SD3_17	yes	yes	3' UTR
+chr6	EP_32527_496_SD3_17	yes	yes	3' UTR
+chr6	EP_32530_114_SD3_17	yes	yes	3' UTR
+chr6	EP_32530_332_SD3_17	yes	yes	3' UTR
+chr6	EP_32527_405_SD3_17	yes	yes	3' UTR
+chr3	EP_32537_137_SD3_17	yes	yes	coding_synon
+chr3	EP_32534_439_SD3_17	yes	yes	missense_mutation
+chr7	EP_32543_194_SD3_17	yes	yes	coding_synon
+chr7	EP_32545_41_SD3_17	yes	yes	coding_synon
+chr7	EP_32540_425_SD3_17	yes	yes	5' UTR
+chr6	EP_32555_278_SD3_17	yes	yes	coding_synon
+chr6	EP_32561_138_SD3_17	yes	yes	coding_synon
+chr6	EP_32563_303_SD3_17	yes	yes	coding_synon
+chr6	EP_32561_238_SD3_17	yes	yes	intron
+chr6	EP_32558_252_SD3_17	yes	yes	intron
+chr6	EP_32564_37_SD3_17	yes	yes	intron
+chr11	EP_32570_330_SD3_17	yes	yes	missense_mutation
+chr11	EP_32570_358_SD3_17	yes	yes	missense_mutation
+chr11	EP_32581_113_SD3_17	yes	yes	3' UTR
+chr11	EP_32580_198_SD3_17	yes	yes	3' UTR
+chr11	EP_32581_281_SD3_17	yes	yes	3' UTR
+chr11	EP_32580_303_SD3_17	yes	yes	3' UTR
+chr11	EP_32572_37_SD3_17	yes	yes	intron
+chr11	EP_32573_342_SD3_17	yes	yes	intron
+chr5	EP_32588_131_SD3_17	yes	yes	coding_synon
+chr5	EP_32589_190_SD3_17	yes	yes	coding_synon
+chr5	EP_32589_64_SD3_17	yes	yes	coding_synon
+chr5	EP_32590_181_SD3_17	yes	yes	coding_synon
+chr5	EP_32599_260_SD3_17	yes	yes	3' UTR
+chr5	EP_32599_493_SD3_17	yes	yes	3' UTR
+chr5	EP_32600_201_SD3_17	yes	yes	3' UTR
+chr5	EP_32599_181_SD3_17	yes	yes	3' UTR
+chr5	EP_32589_354_SD3_17	yes	yes	intron
+chr5	EP_32591_436_SD3_17	yes	yes	intron
+chr5	EP_32594_266_SD3_17	yes	yes	splice_region
+chr3	EP_32604_22_SD3_17	yes	yes	coding_synon
+chr3	EP_32611_130_SD3_17	yes	yes	coding_synon
+chr3	EP_32611_344_SD3_17	yes	yes	coding_synon
+chr3	EP_32612_272_SD3_17	yes	yes	coding_synon
+chr3	EP_32612_311_SD3_17	yes	yes	coding_synon
+chr3	EP_32609_196_SD3_17	yes	yes	missense_mutation
+chr3	EP_32610_200_SD3_17	yes	yes	missense_mutation
+chr3	EP_32611_220_SD3_17	yes	yes	missense_mutation
+chr3	EP_32611_528_SD3_17	yes	yes	missense_mutation
+chr3	EP_32615_336_SD3_17	yes	yes	3' UTR
+chr3	EP_32616_143_SD3_17	yes	yes	3' UTR
+chr3	EP_32616_86_SD3_17	yes	yes	3' UTR
+chr3	EP_32615_340_SD3_17	yes	yes	3' UTR
+chr3	EP_32612_641_SD3_17	yes	yes	intron
+chr3	EP_32612_576_SD3_17	yes	yes	intron
+chr3	EP_32613_324_SD3_17	yes	yes	intron
+chr3	EP_32608_78_SD3_17	yes	yes	intron
+chr3	EP_32604_326_SD3_17	yes	yes	splice_region
+chr7	EP_32634_212_SD3_17	yes	yes	missense_mutation
+chr7	EP_32641_323_SD3_17	yes	yes	3' UTR
+chr7	EP_32633_281_SD3_17	yes	yes	intron
+chr7	EP_32635_315_SD3_17	yes	yes	intron
+chr7	EP_32633_51_SD3_17	yes	yes	intron
+chr19	EP_32657_367_SD3_17	yes	yes	coding_synon
+chr19	EP_32658_227_SD3_17	yes	yes	coding_synon
+chr19	EP_32659_87_SD3_17	yes	yes	coding_synon
+chr19	EP_32660_87_SD3_17	yes	yes	coding_synon
+chr19	EP_32658_311_SD3_17	yes	yes	intron
+chr19	EP_32660_57_SD3_17	yes	yes	intron
+chr19	EP_32659_44_SD3_17	yes	yes	intron
+chr1	EP_32678_111_SD3_17	yes	yes	3' UTR
+chr1	EP_32678_107_SD3_17	yes	yes	3' UTR
+chr1	EP_32679_285_SD3_17	yes	yes	3' UTR
+chr1	EP_32668_388_SD3_17	yes	yes	intron
+chr15	EP_10070001_174_SD3_17	yes	yes	coding_synon
+chr15	EP_10070070_188_SD3_17	yes	yes	coding_synon
+chr15	EP_10070073_231_SD3_17	yes	yes	coding_synon
+chr15	EP_32692_141_SD3_17	yes	yes	coding_synon
+chr15	EP_10070067_216_SD3_17	yes	yes	missense_mutation
+chr15	EP_10070052_242_SD3_17	yes	yes	3' UTR
+chr15	EP_10070072_306_SD3_17	yes	yes	intron
+chr5	EP_32696_355_SD3_17	yes	yes	coding_synon
+chr6	EP_32698_325_SD3_17	yes	yes	coding_synon
+chr6	EP_32700_375_SD3_17	yes	yes	coding_synon
+chr6	EP_32698_499_SD3_17	yes	yes	promoter
+chr6	EP_32700_56_SD3_17	yes	yes	promoter
+chr1	EP_32708_222_SD3_17	yes	yes	3' UTR
+chr1	EP_32702_147_SD3_17	yes	yes	5' UTR
+chr3	EP_32718_475_SD3_17	yes	yes	coding_synon
+chr3	EP_32719_428_SD3_17	yes	yes	3' UTR
+chr13	EP_32721_373_SD3_17	yes	yes	coding_synon
+chr13	EP_32722_194_SD3_17	yes	yes	coding_synon
+chr13	EP_32721_401_SD3_17	yes	yes	missense_mutation
+chr13	EP_32725_219_SD3_17	yes	yes	3' UTR
+chr13	EP_32726_224_SD3_17	yes	yes	3' UTR
+chrX	EP_32741_103_SD3_17	yes	yes	missense_mutation
+chrX	EP_10070411_195_SD3_17	yes	yes	3' UTR
+chrX	EP_10070304_96_SD3_17	yes	yes	5' UTR
+chrX	EP_32742_126_SD3_17	yes	yes	intron
+chrX	EP_10070304_34_SD3_17	yes	yes	promoter
+chr11	EP_32752_100_SD3_17	yes	yes	coding_synon
+chr11	EP_32757_94_SD3_17	yes	yes	coding_synon
+chr11	EP_32760_301_SD3_17	yes	yes	coding_synon
+chr11	EP_32752_29_SD3_17	yes	yes	5' UTR
+chr11	EP_32753_44_SD3_17	yes	yes	intron
+chr11	EP_32754_124_SD3_17	yes	yes	splice_region
+chr11	EP_32770_170_SD3_17	yes	yes	coding_synon
+chr11	EP_32770_94_SD3_17	yes	yes	missense_mutation
+chr11	EP_32765_127_SD3_17	yes	yes	5' UTR
+chr11	EP_32769_194_SD3_17	yes	yes	intron
+chr11	EP_32775_489_SD3_17	yes	yes	promoter
+chr3	EP_32779_89_SD3_17	yes	yes	coding_synon
+chr3	EP_32781_162_SD3_17	yes	yes	missense_mutation
+chr3	EP_32785_135_SD3_17	yes	yes	missense_mutation
+chr3	EP_32786_220_SD3_17	yes	yes	3' UTR
+chr3	EP_32783_65_SD3_17	yes	yes	intron
+chr3	EP_32785_44_SD3_17	yes	yes	intron
+chr3	EP_32791_218_SD3_17	yes	yes	coding_synon
+chr3	EP_32793_166_SD3_17	yes	yes	coding_synon
+chr3	EP_32794_41_SD3_17	yes	yes	coding_synon
+chr3	EP_32790_153_SD3_17	yes	yes	missense_mutation
+chr3	EP_32790_169_SD3_17	yes	yes	missense_mutation
+chr3	EP_32791_76_SD3_17	yes	yes	missense_mutation
+chr3	EP_32792_263_SD3_17	yes	yes	missense_mutation
+chr3	EP_32793_231_SD3_17	yes	yes	missense_mutation
+chr3	EP_32794_196_SD3_17	yes	yes	3' UTR
+chr3	EP_32794_79_SD3_17	yes	yes	3' UTR
+chr3	EP_32794_112_SD3_17	yes	yes	3' UTR
+chr3	EP_32794_107_SD3_17	yes	yes	3' UTR
+chr3	EP_32788_198_SD3_17	yes	yes	5' UTR
+chr3	EP_32792_298_SD3_17	yes	yes	intron
+chr3	EP_32806_206_SD3_17	yes	yes	missense_mutation
+chr3	EP_32804_138_SD3_17	yes	yes	3' UTR
+chr3	EP_32795_68_SD3_17	yes	yes	5' UTR
+chr5	EP_32810_103_SD3_17	yes	yes	coding_synon
+chr5	EP_32812_245_SD3_17	yes	yes	intron
+chr5	EP_32813_398_SD3_17	yes	yes	intron
+chr5	EP_32811_61_SD3_17	yes	yes	splice_region
+chr7	EP_32824_74_SD3_17	yes	yes	coding_synon
+chr7	EP_32824_105_SD3_17	yes	yes	missense_mutation
+chr7	EP_32824_44_SD3_17	yes	yes	5' UTR
+chr1	EP_32828_329_SD3_17	yes	yes	coding_synon
+chr1	EP_32829_165_SD3_17	yes	yes	coding_synon
+chr1	EP_32832_23_SD3_17	yes	yes	coding_synon
+chr1	EP_32832_35_SD3_17	yes	yes	coding_synon
+chr1	EP_32827_371_SD3_17	yes	yes	5' UTR
+chr1	EP_32830_251_SD3_17	yes	yes	intron
+chr10	EP_32837_482_SD3_17	yes	yes	missense_mutation
+chr10	EP_32849_209_SD3_17	yes	yes	3' UTR
+chr10	EP_32847_301_SD3_17	yes	yes	3' UTR
+chr10	EP_32855_584_SD3_17	yes	yes	3' UTR
+chr10	EP_32844_207_SD3_17	yes	yes	intron
+chr12	EP_10071304_169_SD3_17	yes	yes	coding_synon
+chr12	EP_10071304_289_SD3_17	yes	yes	coding_synon
+chr12	EP_10071364_216_SD3_17	yes	yes	coding_synon
+chr12	EP_10071364_273_SD3_17	yes	yes	promoter
+chr1	EP_32862_428_SD3_17	yes	yes	coding_synon
+chr1	EP_32862_479_SD3_17	yes	yes	coding_synon
+chr1	EP_32862_86_SD3_17	yes	yes	coding_synon
+chr1	EP_32863_103_SD3_17	yes	yes	coding_synon
+chr1	EP_32860_23_SD3_17	yes	yes	missense_mutation
+chr1	EP_32862_169_SD3_17	yes	yes	missense_mutation
+chr1	EP_32860_324_SD3_17	yes	yes	5' UTR
+chr1	EP_32871_390_SD3_17	yes	yes	coding_synon
+chr1	EP_32867_194_SD3_17	yes	yes	5' UTR
+chr1	EP_32866_130_SD3_17	yes	yes	5' UTR
+chr1	EP_32878_302_SD3_17	yes	yes	3' UTR
+chr11	EP_32887_500_SD3_17	yes	yes	coding_synon
+chr12	EP_32897_185_SD3_17	yes	yes	3' UTR
+chr12	EP_32891_205_SD3_17	yes	yes	5' UTR
+chr12	EP_32897_477_SD3_17	yes	yes	promoter
+chr12	EP_32900_122_SD3_17	yes	yes	coding_synon
+chr12	EP_32905_111_SD3_17	yes	yes	3' UTR
+chr12	EP_32905_192_SD3_17	yes	yes	3' UTR
+chr12	EP_32905_265_SD3_17	yes	yes	3' UTR
+chr12	EP_32906_141_SD3_17	yes	yes	3' UTR
+chr12	EP_32906_234_SD3_17	yes	yes	3' UTR
+chr12	EP_32906_482_SD3_17	yes	yes	3' UTR
+chr12	EP_32899_194_SD3_17	yes	yes	5' UTR
+chr12	EP_32907_554_SD3_17	yes	yes	promoter
+chr19	EP_32912_291_SD3_17	yes	yes	coding_synon
+chr19	EP_32911_456_SD3_17	yes	yes	missense_mutation
+chr19	EP_32912_211_SD3_17	yes	yes	missense_mutation
+chr19	EP_32913_392_SD3_17	yes	yes	3' UTR
+chr19	EP_32917_345_SD3_17	yes	yes	3' UTR
+chr19	EP_32916_461_SD3_17	yes	yes	3' UTR
+chr19	EP_32918_501_SD3_17	yes	yes	3' UTR
+chr19	EP_32916_56_SD3_17	yes	yes	3' UTR
+chr19	EP_32916_70_SD3_17	yes	yes	3' UTR
+chr19	EP_32913_291_SD3_17	yes	yes	3' UTR
+chr19	EP_32913_198_SD3_17	yes	yes	3' UTR
+chr19	EP_32918_74_SD3_17	yes	yes	3' UTR
+chr19	EP_32914_167_SD3_17	yes	yes	3' UTR
+chr3	EP_32932_95_SD3_17	yes	yes	coding_synon
+chr3	EP_32943_467_SD3_17	yes	yes	3' UTR
+chr3	EP_32942_235_SD3_17	yes	yes	3' UTR
+chr3	EP_32940_291_SD3_17	yes	yes	intron
+chr3	EP_32929_263_SD3_17	yes	yes	intron
+chr3	EP_32939_410_SD3_17	yes	yes	intron
+chr3	EP_32926_71_SD3_17	yes	yes	intron
+chr3	EP_32945_359_SD3_17	yes	yes	promoter
+chr3	EP_32945_413_SD3_17	yes	yes	promoter
+chr1	EP_32954_120_SD3_17	yes	yes	coding_synon
+chr1	EP_32964_104_SD3_17	yes	yes	coding_synon
+chr1	EP_32968_121_SD3_17	yes	yes	3' UTR
+chr1	EP_10037000_337_SD3_17	yes	yes	intron
+chr1	EP_10037053_106_SD3_17	yes	yes	intron
+chr1	EP_10037001_228_SD3_17	yes	yes	intron
+chr1	EP_10037001_159_SD3_17	yes	yes	intron
+chr1	EP_10037001_28_SD3_17	yes	yes	intron
+chr1	EP_32959_28_SD3_17	yes	yes	intron
+chr1	EP_10037002_313_SD3_17	yes	yes	intron
+chr1	EP_10037002_285_SD3_17	yes	yes	intron
+chr1	EP_10037002_271_SD3_17	yes	yes	intron
+chr1	EP_10037050_183_SD3_17	yes	yes	intron
+chr1	EP_10037002_286_SD3_17	yes	yes	intron
+chr1	EP_10037050_31_SD3_17	yes	yes	intron
+chr1	EP_10037050_46_SD3_17	yes	yes	intron
+chr1	EP_10037002_371_SD3_17	yes	yes	intron
+chr17	EP_32969_317_SD3_17	yes	yes	promoter
+chr20	EP_32991_167_SD3_17	yes	yes	missense_mutation
+chr20	EP_32994_463_SD3_17	yes	yes	3' UTR
+chr8	EP_32998_235_SD3_17	yes	yes	coding_synon
+chr8	EP_33003_362_SD3_17	yes	yes	coding_synon
+chr8	EP_33004_364_SD3_17	yes	yes	coding_synon
+chr8	EP_32996_58_SD3_17	yes	yes	5' UTR
+chr8	EP_32996_135_SD3_17	yes	yes	5' UTR
+chr11	EP_33009_236_SD3_17	yes	yes	coding_synon
+chr12	EP_33015_375_SD3_17	yes	yes	coding_synon
+chr19	EP_33036_114_SD3_17	yes	yes	3' UTR
+chr19	EP_33036_218_SD3_17	yes	yes	3' UTR
+chr1	EP_33041_461_SD3_17	yes	yes	missense_mutation
+chr1	EP_33041_473_SD3_17	yes	yes	missense_mutation
+chr1	EP_33044_326_SD3_17	yes	yes	intron
+chr1	EP_33040_24_SD3_17	yes	yes	intron
+chrX	EP_33054_406_SD3_17	yes	yes	5' UTR
+chr7	EP_33078_246_SD3_17	yes	yes	3' UTR
+chr7	EP_33079_323_SD3_17	yes	yes	3' UTR
+chr7	EP_33067_192_SD3_17	yes	yes	5' UTR
+chr7	EP_33071_37_SD3_17	yes	yes	intron
+chr1	EP_33083_163_SD3_17	yes	yes	coding_synon
+chr1	EP_33084_130_SD3_17	yes	yes	coding_synon
+chr1	EP_33092_93_SD3_17	yes	yes	3' UTR
+chr1	EP_33086_54_SD3_17	yes	yes	intron
+chr1	EP_33089_39_SD3_17	yes	yes	intron
+chr21	EP_10072469_287_SD3_17	yes	yes	coding_synon
+chr21	EP_10072469_118_SD3_17	yes	yes	missense_mutation
+chr21	EP_10072469_259_SD3_17	yes	yes	missense_mutation
+chr21	EP_10072462_251_SD3_17	yes	yes	3' UTR
+chr21	EP_10072462_354_SD3_17	yes	yes	3' UTR
+chr21	EP_34659_174_SD3_17	yes	yes	3' UTR
+chr21	EP_10072465_208_SD3_17	yes	yes	3' UTR
+chr21	EP_10072467_30_SD3_17	yes	yes	3' UTR
+chr21	EP_10072467_362_SD3_17	yes	yes	3' UTR
+chr21	EP_34659_155_SD3_17	yes	yes	3' UTR
+chr21	EP_10072465_296_SD3_17	yes	yes	3' UTR
+chr21	EP_33095_51_SD3_17	yes	yes	intron
+chrX	EP_34661_311_SD3_17	yes	yes	3' UTR
+chrX	EP_33101_267_SD3_17	yes	yes	promoter
+chr21	EP_10072550_67_SD3_17	yes	yes	intron
+chr21	EP_10072550_39_SD3_17	yes	yes	intron
+chr11	EP_33109_177_SD3_17	yes	yes	coding_synon
+chr11	EP_34663_419_SD3_17	yes	yes	3' UTR
+chr11	EP_34631_226_SD3_17	yes	yes	3' UTR
+chr11	EP_34631_184_SD3_17	yes	yes	3' UTR
+chr2	EP_33111_176_SD3_17	yes	yes	coding_synon
+chr2	EP_34665_64_SD3_17	yes	yes	coding_synon
+chr2	EP_34666_24_SD3_17	yes	yes	coding_synon
+chr2	EP_34665_235_SD3_17	yes	yes	missense_mutation
+chr2	EP_34665_332_SD3_17	yes	yes	3' UTR
+chr2	EP_34667_75_SD3_17	yes	yes	3' UTR
+chr2	EP_34669_32_SD3_17	yes	yes	coding_synon
+chr2	EP_34670_254_SD3_17	yes	yes	coding_synon
+chr2	EP_34670_437_SD3_17	yes	yes	coding_synon
+chr20	EP_34674_270_SD3_17	yes	yes	coding_synon
+chr20	EP_33114_148_SD3_17	yes	yes	3' UTR
+chr20	EP_33120_176_SD3_17	yes	yes	intron
+chr20	EP_33120_177_SD3_17	yes	yes	intron
+chr20	EP_33120_469_SD3_17	yes	yes	intron
+chr20	EP_33120_294_SD3_17	yes	yes	intron
+chr2	EP_33133_283_SD3_17	yes	yes	3' UTR
+chr2	EP_33134_540_SD3_17	yes	yes	3' UTR
+chr2	EP_33132_348_SD3_17	yes	yes	3' UTR
+chr16	EP_33145_108_SD3_17	yes	yes	coding_synon
+chr16	EP_33145_203_SD3_17	yes	yes	missense_mutation
+chr16	EP_33145_470_SD3_17	yes	yes	missense_mutation
+chr16	EP_33146_244_SD3_17	yes	yes	missense_mutation
+chr16	EP_33142_373_SD3_17	yes	yes	intron
+chr16	EP_33141_272_SD3_17	yes	yes	intron
+chr16	EP_33138_129_SD3_17	yes	yes	intron
+chr1	EP_33155_429_SD3_17	yes	yes	coding_synon
+chr1	EP_33159_463_SD3_17	yes	yes	coding_synon
+chr1	EP_33159_122_SD3_17	yes	yes	missense_mutation
+chr1	EP_33161_93_SD3_17	yes	yes	3' UTR
+chr1	EP_33161_112_SD3_17	yes	yes	3' UTR
+chr1	EP_33151_65_SD3_17	yes	yes	splice_region
+chr7	EP_30203_161_SD3_17	yes	yes	coding_synon
+chr7	EP_30203_89_SD3_17	yes	yes	coding_synon
+chr7	EP_30205_333_SD3_17	yes	yes	coding_synon
+chr7	EP_30206_277_SD3_17	yes	yes	coding_synon
+chr7	EP_30205_530_SD3_17	yes	yes	intron
+chr7	EP_30210_252_SD3_17	yes	yes	intron
+chr7	EP_33176_43_SD3_17	yes	yes	intron
+chr7	EP_30207_398_SD3_17	yes	yes	intron
+chr12	EP_33200_158_SD3_17	yes	yes	coding_synon
+chr12	EP_33198_161_SD3_17	yes	yes	missense_mutation
+chr12	EP_33201_175_SD3_17	yes	yes	missense_mutation
+chr12	EP_33202_368_SD3_17	yes	yes	3' UTR
+chr12	EP_33195_40_SD3_17	yes	yes	intron
+chr12	EP_33196_48_SD3_17	yes	yes	intron
+chr17	EP_33211_190_SD3_17	yes	yes	coding_synon
+chr17	EP_33208_34_SD3_17	yes	yes	intron
+chr17	EP_33213_48_SD3_17	yes	yes	intron
+chr14	EP_33233_318_SD3_17	yes	yes	missense_mutation
+chr14	EP_33244_213_SD3_17	yes	yes	intron
+chr14	EP_33244_476_SD3_17	yes	yes	intron
+chr14	EP_33231_397_SD3_17	yes	yes	intron
+chr14	EP_33227_180_SD3_17	yes	yes	intron
+chr14	EP_33240_37_SD3_17	yes	yes	intron
+chr17	EP_33247_160_SD3_17	yes	yes	coding_synon
+chr17	EP_33249_75_SD3_17	yes	yes	coding_synon
+chr17	EP_33250_239_SD3_17	yes	yes	coding_synon
+chr17	EP_33254_124_SD3_17	yes	yes	coding_synon
+chr17	EP_33256_112_SD3_17	yes	yes	coding_synon
+chr17	EP_33252_182_SD3_17	yes	yes	missense_mutation
+chr17	EP_33256_122_SD3_17	yes	yes	missense_mutation
+chr17	EP_33257_92_SD3_17	yes	yes	missense_mutation
+chr17	EP_33259_145_SD3_17	yes	yes	missense_mutation
+chr17	EP_33256_32_SD3_17	yes	yes	intron
+chr17	EP_33257_258_SD3_17	yes	yes	intron
+chr2	EP_33269_440_SD3_17	yes	yes	coding_synon
+chr3	EP_33286_94_SD3_17	yes	yes	coding_synon
+chr3	EP_33301_137_SD3_17	yes	yes	missense_mutation
+chr3	EP_33304_203_SD3_17	yes	yes	3' UTR
+chr3	EP_33298_465_SD3_17	yes	yes	intron
+chr3	EP_33292_62_SD3_17	yes	yes	splice_region
+chr5	EP_33614_176_SD3_17	yes	yes	intron
+chr5	EP_33611_71_SD3_17	yes	yes	intron
+chr5	EP_33613_48_SD3_17	yes	yes	intron
+chr5	EP_33615_325_SD3_17	yes	yes	intron
+chr5	EP_33616_249_SD3_17	yes	yes	intron
+chr5	EP_33616_250_SD3_17	yes	yes	intron
+chr5	EP_33616_31_SD3_17	yes	yes	intron
+chr5	EP_33615_370_SD3_17	yes	yes	intron
+chr5	EP_33611_174_SD3_17	yes	yes	intron
+chr5	EP_33611_100_SD3_17	yes	yes	intron
+chr5	EP_33611_365_SD3_17	yes	yes	intron
+chr11	EP_33312_407_SD3_17	yes	yes	3' UTR
+chr11	EP_33311_69_SD3_17	yes	yes	3' UTR
+chr11	EP_33313_130_SD3_17	yes	yes	3' UTR
+chr11	EP_33314_157_SD3_17	yes	yes	3' UTR
+chr11	EP_33315_201_SD3_17	yes	yes	5' UTR
+chr1	EP_33327_392_SD3_17	yes	yes	missense_mutation
+chr1	EP_33331_516_SD3_17	yes	yes	3' UTR
+chr1	EP_33332_247_SD3_17	yes	yes	3' UTR
+chr1	EP_33330_405_SD3_17	yes	yes	3' UTR
+chr1	EP_33331_120_SD3_17	yes	yes	3' UTR
+chr11	EP_33338_274_SD3_17	yes	yes	coding_synon
+chr11	EP_33338_43_SD3_17	yes	yes	coding_synon
+chr11	EP_33339_93_SD3_17	yes	yes	coding_synon
+chr11	EP_33337_381_SD3_17	yes	yes	missense_mutation
+chr11	EP_33338_36_SD3_17	yes	yes	missense_mutation
+chr11	EP_33339_227_SD3_17	yes	yes	missense_mutation
+chr11	EP_33339_82_SD3_17	yes	yes	missense_mutation
+chr11	EP_33340_101_SD3_17	yes	yes	3' UTR
+chr11	EP_33340_254_SD3_17	yes	yes	3' UTR
+chr17	EP_33342_309_SD3_17	yes	yes	coding_synon
+chr17	EP_33342_324_SD3_17	yes	yes	coding_synon
+chr17	EP_33343_222_SD3_17	yes	yes	coding_synon
+chr17	EP_33343_444_SD3_17	yes	yes	coding_synon
+chr17	EP_33344_301_SD3_17	yes	yes	coding_synon
+chr17	EP_33344_319_SD3_17	yes	yes	coding_synon
+chr17	EP_33344_394_SD3_17	yes	yes	coding_synon
+chr17	EP_33341_139_SD3_17	yes	yes	missense_mutation
+chr17	EP_33342_110_SD3_17	yes	yes	missense_mutation
+chr17	EP_33342_185_SD3_17	yes	yes	missense_mutation
+chr17	EP_33342_233_SD3_17	yes	yes	missense_mutation
+chr17	EP_33343_201_SD3_17	yes	yes	missense_mutation
+chr17	EP_33343_370_SD3_17	yes	yes	missense_mutation
+chr17	EP_33343_92_SD3_17	yes	yes	missense_mutation
+chr17	EP_33344_523_SD3_17	yes	yes	3' UTR
+chr17	EP_33344_527_SD3_17	yes	yes	3' UTR
+chr17	EP_33344_489_SD3_17	yes	yes	coding_synon
+chr19	EP_33360_110_SD3_17	yes	yes	missense_mutation
+chr19	EP_33360_336_SD3_17	yes	yes	missense_mutation
+chr21	EP_33369_355_SD3_17	yes	yes	missense_mutation
+chr21	EP_33374_88_SD3_17	yes	yes	3' UTR
+chr21	EP_33372_375_SD3_17	yes	yes	3' UTR
+chr17	EP_33381_206_SD3_17	yes	yes	missense_mutation
+chr17	EP_33388_301_SD3_17	yes	yes	3' UTR
+chr17	EP_33387_28_SD3_17	yes	yes	3' UTR
+chr17	EP_33390_224_SD3_17	yes	yes	intron
+chr17	EP_33378_196_SD3_17	yes	yes	splice_site
+chr17	EP_10074556_250_SD3_17	yes	yes	coding_synon
+chr17	EP_10074581_177_SD3_17	yes	yes	coding_synon
+chr17	EP_33397_447_SD3_17	yes	yes	3' UTR
+chr17	EP_10074564_251_SD3_17	yes	yes	3' UTR
+chr17	EP_10074564_53_SD3_17	yes	yes	3' UTR
+chr17	EP_33397_173_SD3_17	yes	yes	3' UTR
+chr17	EP_33397_239_SD3_17	yes	yes	3' UTR
+chr17	EP_10074564_235_SD3_17	yes	yes	3' UTR
+chr17	EP_10074564_250_SD3_17	yes	yes	3' UTR
+chr17	EP_10074564_182_SD3_17	yes	yes	3' UTR
+chr2	EP_33406_297_SD3_17	yes	yes	coding_synon
+chr2	EP_33408_181_SD3_17	yes	yes	coding_synon
+chr2	EP_33409_340_SD3_17	yes	yes	coding_synon
+chr2	EP_33404_60_SD3_17	yes	yes	promoter
+chr22	EP_33417_186_SD3_17	yes	yes	coding_synon
+chr22	EP_33417_417_SD3_17	yes	yes	coding_synon
+chr22	EP_33418_426_SD3_17	yes	yes	3' UTR
+chr22	EP_33418_268_SD3_17	yes	yes	3' UTR
+chr22	EP_33418_250_SD3_17	yes	yes	3' UTR
+chr22	EP_33418_249_SD3_17	yes	yes	3' UTR
+chr22	EP_33418_28_SD3_17	yes	yes	promoter
+chr11	EP_33423_233_SD3_17	yes	yes	coding_synon
+chr11	EP_33424_398_SD3_17	yes	yes	coding_synon
+chr11	EP_33424_422_SD3_17	yes	yes	coding_synon
+chr11	EP_33428_350_SD3_17	yes	yes	3' UTR
+chr11	EP_33427_416_SD3_17	yes	yes	3' UTR
+chr11	EP_33426_472_SD3_17	yes	yes	3' UTR
+chr11	EP_33425_79_SD3_17	yes	yes	splice_region
+chr21	EP_33433_49_SD3_17	yes	yes	coding_synon
+chr21	EP_33435_409_SD3_17	yes	yes	coding_synon
+chr21	EP_33431_122_SD3_17	yes	yes	splice_region
+chr1	EP_33449_309_SD3_17	yes	yes	missense_mutation
+chr1	EP_33452_259_SD3_17	yes	yes	3' UTR
+chr1	EP_33450_419_SD3_17	yes	yes	3' UTR
+chr1	EP_33449_27_SD3_17	yes	yes	intron
+chr1	EP_33458_251_SD3_17	yes	yes	3' UTR
+chr14	EP_33464_69_SD3_17	yes	yes	coding_synon
+chr14	EP_33467_258_SD3_17	yes	yes	coding_synon
+chr14	EP_33467_276_SD3_17	yes	yes	coding_synon
+chr14	EP_33468_164_SD3_17	yes	yes	missense_mutation
+chr14	EP_33460_356_SD3_17	yes	yes	5' UTR
+chr14	EP_33473_122_SD3_17	yes	yes	5' UTR
+chr14	EP_33460_347_SD3_17	yes	yes	5' UTR
+chr14	EP_33460_232_SD3_17	yes	yes	5' UTR
+chr14	EP_33460_165_SD3_17	yes	yes	5' UTR
+chr14	EP_33460_97_SD3_17	yes	yes	5' UTR
+chr14	EP_33464_27_SD3_17	yes	yes	intron
+chr14	EP_33462_466_SD3_17	yes	yes	intron
+chr14	EP_33465_265_SD3_17	yes	yes	splice_region
+chr14	EP_33465_60_SD3_17	yes	yes	splice_region
+chr14	EP_33481_292_SD3_17	yes	yes	coding_synon
+chr14	EP_33482_189_SD3_17	yes	yes	missense_mutation
+chr14	EP_33483_80_SD3_17	yes	yes	3' UTR
+chr14	EP_33484_346_SD3_17	yes	yes	3' UTR
+chr20	EP_33489_63_SD3_17	yes	yes	missense_mutation
+chr20	EP_33487_62_SD3_17	yes	yes	splice_site
+chr6	EP_33490_159_SD3_17	yes	yes	coding_synon
+chr6	EP_33494_173_SD3_17	yes	yes	coding_synon
+chr6	EP_33494_39_SD3_17	yes	yes	intron
+chr6	EP_33498_265_SD3_17	yes	yes	missense_mutation
+chr6	EP_33503_265_SD3_17	yes	yes	3' UTR
+chr6	EP_33499_188_SD3_17	yes	yes	intron
+chr6	EP_33496_333_SD3_17	yes	yes	promoter
+chr6	EP_33496_391_SD3_17	yes	yes	promoter
+chr11	EP_33528_262_SD3_17	yes	yes	missense_mutation
+chr11	EP_33531_244_SD3_17	yes	yes	promoter
+chr6	EP_33549_181_SD3_17	yes	yes	3' UTR
+chr6	EP_33541_23_SD3_17	yes	yes	intron
+chr19	EP_33554_193_SD3_17	yes	yes	coding_synon
+chr19	EP_33554_316_SD3_17	yes	yes	coding_synon
+chr19	EP_33555_187_SD3_17	yes	yes	coding_synon
+chr19	EP_33554_189_SD3_17	yes	yes	missense_mutation
+chr19	EP_33555_119_SD3_17	yes	yes	missense_mutation
+chr19	EP_33558_311_SD3_17	yes	yes	3' UTR
+chr19	EP_33556_318_SD3_17	yes	yes	3' UTR
+chr19	EP_33558_138_SD3_17	yes	yes	3' UTR
+chr19	EP_33557_367_SD3_17	yes	yes	3' UTR
+chr11	EP_33562_383_SD3_17	yes	yes	coding_synon
+chr11	EP_33561_417_SD3_17	yes	yes	5' UTR
+chr11	EP_33570_21_SD3_17	yes	yes	promoter
+chr8	EP_33575_126_SD3_17	yes	yes	coding_synon
+chr10	EP_10075852_304_SD3_17	yes	yes	coding_synon
+chr10	EP_10075954_105_SD3_17	yes	yes	coding_synon
+chr10	EP_33602_38_SD3_17	yes	yes	intron
+chr10	EP_10075804_367_SD3_17	yes	yes	intron
+chr10	EP_33588_229_SD3_17	yes	yes	intron
+chr10	EP_30364_64_SD3_17	yes	yes	intron
+chr10	EP_33606_44_SD3_17	yes	yes	intron
+chr10	EP_10075903_329_SD3_17	yes	yes	intron
+chr10	EP_30357_365_SD3_17	yes	yes	intron
+chr10	EP_30356_70_SD3_17	yes	yes	intron
+chr10	EP_33610_511_SD3_17	yes	yes	intron
+chr3	EP_33623_125_SD3_17	yes	yes	coding_synon
+chr3	EP_33624_203_SD3_17	yes	yes	coding_synon
+chr3	EP_33627_445_SD3_17	yes	yes	3' UTR
+chr3	EP_33628_503_SD3_17	yes	yes	3' UTR
+chr3	EP_33633_166_SD3_17	yes	yes	missense_mutation
+chr3	EP_33633_192_SD3_17	yes	yes	missense_mutation
+chr3	EP_33639_148_SD3_17	yes	yes	3' UTR
+chr3	EP_33641_399_SD3_17	yes	yes	5' UTR
+chr3	EP_33641_146_SD3_17	yes	yes	5' UTR
+chr3	EP_33630_47_SD3_17	yes	yes	5' UTR
+chr3	EP_33641_436_SD3_17	yes	yes	5' UTR
+chr19	EP_33664_225_SD3_17	yes	yes	3' UTR
+chr19	EP_33663_58_SD3_17	yes	yes	splice_region
+chr5	EP_33667_164_SD3_17	yes	yes	coding_synon
+chr1	EP_33683_419_SD3_17	yes	yes	coding_synon
+chr1	EP_33683_464_SD3_17	yes	yes	coding_synon
+chr1	EP_33691_164_SD3_17	yes	yes	5' UTR
+chr1	EP_33691_196_SD3_17	yes	yes	5' UTR
+chr1	EP_33691_178_SD3_17	yes	yes	5' UTR
+chr19	EP_33703_161_SD3_17	yes	yes	3' UTR
+chr19	EP_33704_197_SD3_17	yes	yes	3' UTR
+chr19	EP_33704_303_SD3_17	yes	yes	3' UTR
+chr19	EP_33695_207_SD3_17	yes	yes	intron
+chr11	EP_10076903_27_SD3_17	yes	yes	coding_synon
+chr11	EP_30230_187_SD3_17	yes	yes	coding_synon
+chr11	EP_10076906_165_SD3_17	yes	yes	3' UTR
+chr11	EP_10076906_108_SD3_17	yes	yes	3' UTR
+chr11	EP_33717_152_SD3_17	yes	yes	intron
+chr11	EP_30230_270_SD3_17	yes	yes	intron
+chr11	EP_33720_166_SD3_17	yes	yes	intron
+chr11	EP_30223_64_SD3_17	yes	yes	intron
+chr11	EP_30228_109_SD3_17	yes	yes	intron
+chr11	EP_30228_314_SD3_17	yes	yes	intron
+chr20	EP_10077002_220_SD3_17	yes	yes	coding_synon
+chr20	EP_10077050_52_SD3_17	yes	yes	coding_synon
+chr20	EP_10077054_78_SD3_17	yes	yes	coding_synon
+chr20	EP_10077002_119_SD3_17	yes	yes	missense_mutation
+chr20	EP_10077451_265_SD3_17	yes	yes	intron
+chr8	EP_33773_138_SD3_17	yes	yes	coding_synon
+chr8	EP_10077252_43_SD3_17	yes	yes	intron
+chr8	EP_10077150_130_SD3_17	yes	yes	intron
+chr8	EP_10077154_30_SD3_17	yes	yes	intron
+chr1	EP_33789_133_SD3_17	yes	yes	coding_synon
+chr1	EP_33790_101_SD3_17	yes	yes	coding_synon
+chr1	EP_33790_107_SD3_17	yes	yes	coding_synon
+chr1	EP_33799_173_SD3_17	yes	yes	3' UTR
+chr1	EP_33788_21_SD3_17	yes	yes	intron
+chr1	EP_33788_308_SD3_17	yes	yes	intron
+chr1	EP_33788_268_SD3_17	yes	yes	intron
+chr1	EP_33789_217_SD3_17	yes	yes	intron
+chr1	EP_33795_29_SD3_17	yes	yes	intron
+chr6	EP_33812_139_SD3_17	yes	yes	coding_synon
+chr6	EP_33814_477_SD3_17	yes	yes	missense_mutation
+chr20	EP_33833_179_SD3_17	yes	yes	missense_mutation
+chr20	EP_33838_429_SD3_17	yes	yes	3' UTR
+chr20	EP_33839_496_SD3_17	yes	yes	3' UTR
+chr20	EP_33838_104_SD3_17	yes	yes	3' UTR
+chr20	EP_33838_423_SD3_17	yes	yes	3' UTR
+chr20	EP_33838_178_SD3_17	yes	yes	3' UTR
+chr20	EP_33837_274_SD3_17	yes	yes	3' UTR
+chr20	EP_33827_139_SD3_17	yes	yes	5' UTR
+chr8	EP_33845_325_SD3_17	yes	yes	3' UTR
+chr2	EP_33850_160_SD3_17	yes	yes	coding_synon
+chr2	EP_33851_260_SD3_17	yes	yes	coding_synon
+chr2	EP_33853_305_SD3_17	yes	yes	coding_synon
+chr2	EP_33853_420_SD3_17	yes	yes	missense_mutation
+chr2	EP_33854_100_SD3_17	yes	yes	3' UTR
+chr9	EP_33871_230_SD3_17	yes	yes	coding_synon
+chr9	EP_33875_140_SD3_17	yes	yes	coding_synon
+chr9	EP_33867_242_SD3_17	yes	yes	intron
+chr9	EP_33858_215_SD3_17	yes	yes	intron
+chr9	EP_33871_266_SD3_17	yes	yes	intron
+chr9	EP_33872_35_SD3_17	yes	yes	intron
+chr9	EP_33872_336_SD3_17	yes	yes	intron
+chr8	EP_33892_371_SD3_17	yes	yes	3' UTR
+chr8	EP_33892_397_SD3_17	yes	yes	3' UTR
+chr8	EP_33888_64_SD3_17	yes	yes	intron
+chr9	EP_33895_245_SD3_17	yes	yes	coding_synon
+chr9	EP_33896_407_SD3_17	yes	yes	coding_synon
+chr9	EP_33896_443_SD3_17	yes	yes	coding_synon
+chr9	EP_33898_92_SD3_17	yes	yes	coding_synon
+chr9	EP_33898_303_SD3_17	yes	yes	missense_mutation
+chr9	EP_33898_350_SD3_17	yes	yes	3' UTR
+chr9	EP_33894_217_SD3_17	yes	yes	5' UTR
+chr9	EP_33895_21_SD3_17	yes	yes	5' UTR
+chr17	EP_31495_288_SD3_17	yes	yes	3' UTR
+chr17	EP_31495_290_SD3_17	yes	yes	3' UTR
+chr17	EP_31495_162_SD3_17	yes	yes	3' UTR
+chr17	EP_31495_193_SD3_17	yes	yes	3' UTR
+chr17	EP_31495_124_SD3_17	yes	yes	3' UTR
+chr17	EP_31492_147_SD3_17	yes	yes	promoter
+chr17	EP_31494_400_SD3_17	yes	yes	promoter
+chr17	EP_31494_483_SD3_17	yes	yes	promoter
+chr17	EP_31492_96_SD3_17	yes	yes	promoter
+chr17	EP_31494_107_SD3_17	yes	yes	promoter
+chr17	EP_31492_84_SD3_17	yes	yes	promoter
+chr17	EP_31490_129_SD3_17	yes	yes	promoter
+chr2	EP_32730_439_SD3_17	yes	yes	intron
+chr8	EP_10100700_166_SD3_17	yes	yes	promoter
+chr19	EP_33907_123_SD3_17	yes	yes	coding_synon
+chr19	EP_33911_198_SD3_17	yes	yes	coding_synon
+chr19	EP_33915_154_SD3_17	yes	yes	coding_synon
+chr19	EP_33919_203_SD3_17	yes	yes	coding_synon
+chr19	EP_33924_135_SD3_17	yes	yes	coding_synon
+chr19	EP_33924_171_SD3_17	yes	yes	coding_synon
+chr19	EP_33926_143_SD3_17	yes	yes	coding_synon
+chr19	EP_33936_137_SD3_17	yes	yes	coding_synon
+chr19	EP_33938_86_SD3_17	yes	yes	coding_synon
+chr19	EP_33945_124_SD3_17	yes	yes	coding_synon
+chr19	EP_33945_133_SD3_17	yes	yes	coding_synon
+chr19	EP_33946_110_SD3_17	yes	yes	coding_synon
+chr19	EP_33948_122_SD3_17	yes	yes	coding_synon
+chr19	EP_33948_149_SD3_17	yes	yes	coding_synon
+chr19	EP_33948_206_SD3_17	yes	yes	coding_synon
+chr19	EP_33950_194_SD3_17	yes	yes	coding_synon
+chr19	EP_33950_203_SD3_17	yes	yes	coding_synon
+chr19	EP_33951_113_SD3_17	yes	yes	coding_synon
+chr19	EP_33952_113_SD3_17	yes	yes	coding_synon
+chr19	EP_33952_185_SD3_17	yes	yes	coding_synon
+chr19	EP_33954_109_SD3_17	yes	yes	coding_synon
+chr19	EP_33956_134_SD3_17	yes	yes	coding_synon
+chr19	EP_33963_76_SD3_17	yes	yes	coding_synon
+chr19	EP_33968_232_SD3_17	yes	yes	coding_synon
+chr19	EP_33968_262_SD3_17	yes	yes	coding_synon
+chr19	EP_34000_146_SD3_17	yes	yes	coding_synon
+chr19	EP_33924_200_SD3_17	yes	yes	missense_mutation
+chr19	EP_33939_113_SD3_17	yes	yes	missense_mutation
+chr19	EP_33972_237_SD3_17	yes	yes	missense_mutation
+chr19	EP_33980_73_SD3_17	yes	yes	missense_mutation
+chr19	EP_33923_25_SD3_17	yes	yes	intron
+chr19	EP_33964_331_SD3_17	yes	yes	intron
+chr19	EP_34007_175_SD3_17	yes	yes	intron
+chr19	EP_33913_332_SD3_17	yes	yes	intron
+chr19	EP_33950_285_SD3_17	yes	yes	intron
+chr19	EP_33936_364_SD3_17	yes	yes	intron
+chr19	EP_33918_335_SD3_17	yes	yes	intron
+chr19	EP_33946_193_SD3_17	yes	yes	intron
+chr19	EP_33915_187_SD3_17	yes	yes	intron
+chr19	EP_33988_38_SD3_17	yes	yes	intron
+chr19	EP_33988_40_SD3_17	yes	yes	intron
+chr19	EP_33988_49_SD3_17	yes	yes	intron
+chr19	EP_33954_200_SD3_17	yes	yes	intron
+chr19	EP_33958_203_SD3_17	yes	yes	intron
+chr19	EP_33963_42_SD3_17	yes	yes	intron
+chr19	EP_33955_237_SD3_17	yes	yes	intron
+chr19	EP_33955_240_SD3_17	yes	yes	intron
+chr19	EP_33957_30_SD3_17	yes	yes	intron
+chr19	EP_33957_168_SD3_17	yes	yes	intron
+chr19	EP_33919_28_SD3_17	yes	yes	intron
+chr19	EP_33980_48_SD3_17	yes	yes	intron
+chr19	EP_33914_39_SD3_17	yes	yes	intron
+chr19	EP_33949_290_SD3_17	yes	yes	splice_region
+chr19	EP_33958_53_SD3_17	yes	yes	splice_region
+chr19	EP_33948_246_SD3_17	yes	yes	splice_region
+chr19	EP_33929_59_SD3_17	yes	yes	splice_region
+chr1	EP_10094953_67_SD3_17	yes	yes	coding_synon
+chr1	EP_10095100_217_SD3_17	yes	yes	coding_synon
+chr1	EP_34062_167_SD3_17	yes	yes	coding_synon
+chr1	EP_10079702_91_SD3_17	yes	yes	missense_mutation
+chr1	EP_34096_162_SD3_17	yes	yes	intron
+chr1	EP_34020_52_SD3_17	yes	yes	intron
+chr1	EP_34054_32_SD3_17	yes	yes	intron
+chr1	EP_34066_52_SD3_17	yes	yes	intron
+chr1	EP_34054_45_SD3_17	yes	yes	intron
+chr1	EP_34075_70_SD3_17	yes	yes	intron
+chr1	EP_10079602_76_SD3_17	yes	yes	intron
+chr1	EP_34054_277_SD3_17	yes	yes	intron
+chr1	EP_34033_193_SD3_17	yes	yes	intron
+chr1	EP_34042_246_SD3_17	yes	yes	intron
+chr1	EP_34042_261_SD3_17	yes	yes	intron
+chr1	EP_10095403_270_SD3_17	yes	yes	intron
+chr1	EP_10095403_296_SD3_17	yes	yes	intron
+chr1	EP_34094_252_SD3_17	yes	yes	intron
+chr1	EP_34055_324_SD3_17	yes	yes	intron
+chr1	EP_34057_32_SD3_17	yes	yes	intron
+chr1	EP_34061_24_SD3_17	yes	yes	intron
+chr1	EP_10079404_265_SD3_17	yes	yes	intron
+chr1	EP_10079553_211_SD3_17	yes	yes	intron
+chr1	EP_10079553_48_SD3_17	yes	yes	intron
+chr1	EP_34045_248_SD3_17	yes	yes	intron
+chr1	EP_10079553_63_SD3_17	yes	yes	splice_region
+chr15	EP_34133_119_SD3_17	yes	yes	coding_synon
+chr15	EP_34134_63_SD3_17	yes	yes	coding_synon
+chr15	EP_34141_136_SD3_17	yes	yes	coding_synon
+chr15	EP_34141_235_SD3_17	yes	yes	coding_synon
+chr15	EP_34166_174_SD3_17	yes	yes	coding_synon
+chr15	EP_34195_91_SD3_17	yes	yes	coding_synon
+chr15	EP_34200_134_SD3_17	yes	yes	coding_synon
+chr15	EP_34140_89_SD3_17	yes	yes	missense_mutation
+chr15	EP_34156_361_SD3_17	yes	yes	missense_mutation
+chr15	EP_34167_71_SD3_17	yes	yes	missense_mutation
+chr15	EP_34178_180_SD3_17	yes	yes	intron
+chr15	EP_34200_30_SD3_17	yes	yes	intron
+chr15	EP_34130_36_SD3_17	yes	yes	intron
+chr15	EP_34160_34_SD3_17	yes	yes	intron
+chr15	EP_34227_36_SD3_17	yes	yes	intron
+chr15	EP_34164_28_SD3_17	yes	yes	intron
+chr15	EP_34143_195_SD3_17	yes	yes	intron
+chr15	EP_34191_210_SD3_17	yes	yes	intron
+chr15	EP_34123_214_SD3_17	yes	yes	intron
+chr15	EP_34154_52_SD3_17	yes	yes	intron
+chr15	EP_34164_205_SD3_17	yes	yes	intron
+chr15	EP_34182_36_SD3_17	yes	yes	intron
+chr15	EP_34198_43_SD3_17	yes	yes	intron
+chr15	EP_34202_161_SD3_17	yes	yes	intron
+chr15	EP_34139_354_SD3_17	yes	yes	intron
+chr15	EP_34225_44_SD3_17	yes	yes	intron
+chr15	EP_34192_129_SD3_17	yes	yes	intron
+chr15	EP_34191_57_SD3_17	yes	yes	intron
+chr15	EP_34148_273_SD3_17	yes	yes	intron
+chr15	EP_34162_35_SD3_17	yes	yes	intron
+chr15	EP_34124_181_SD3_17	yes	yes	intron
+chr15	EP_34138_214_SD3_17	yes	yes	intron
+chr15	EP_34200_178_SD3_17	yes	yes	intron
+chr15	EP_34140_32_SD3_17	yes	yes	intron
+chr15	EP_34194_160_SD3_17	yes	yes	intron
+chr15	EP_34219_148_SD3_17	yes	yes	intron
+chr15	EP_34222_48_SD3_17	yes	yes	intron
+chr15	EP_34169_297_SD3_17	yes	yes	intron
+chr15	EP_34134_29_SD3_17	yes	yes	intron
+chr15	EP_34203_147_SD3_17	yes	yes	splice_region
+chr15	EP_34130_146_SD3_17	yes	yes	splice_region
+chr15	EP_34166_74_SD3_17	yes	yes	splice_region
+chr15	EP_34142_63_SD3_17	yes	yes	splice_region
+chr3	EP_34239_75_SD3_17	yes	yes	coding_synon
+chr3	EP_34241_342_SD3_17	yes	yes	coding_synon
+chr3	EP_34246_213_SD3_17	yes	yes	coding_synon
+chr3	EP_34246_300_SD3_17	yes	yes	coding_synon
+chr3	EP_34247_99_SD3_17	yes	yes	coding_synon
+chr3	EP_34249_179_SD3_17	yes	yes	coding_synon
+chr3	EP_34255_126_SD3_17	yes	yes	coding_synon
+chr3	EP_34258_321_SD3_17	yes	yes	coding_synon
+chr3	EP_34241_293_SD3_17	yes	yes	missense_mutation
+chr3	EP_34246_266_SD3_17	yes	yes	missense_mutation
+chr3	EP_34247_158_SD3_17	yes	yes	missense_mutation
+chr3	EP_34247_73_SD3_17	yes	yes	missense_mutation
+chr3	EP_34248_140_SD3_17	yes	yes	missense_mutation
+chr3	EP_34247_223_SD3_17	yes	yes	intron
+chr3	EP_34252_396_SD3_17	yes	yes	intron
+chr3	EP_34243_341_SD3_17	yes	yes	intron
+chr3	EP_34237_142_SD3_17	yes	yes	intron
+chr3	EP_34244_28_SD3_17	yes	yes	intron
+chr3	EP_34243_314_SD3_17	yes	yes	splice_region
+chr3	EP_34273_301_SD3_17	yes	yes	coding_synon
+chr3	EP_34288_289_SD3_17	yes	yes	coding_synon
+chr3	EP_34271_94_SD3_17	yes	yes	missense_mutation
+chr3	EP_34276_173_SD3_17	yes	yes	missense_mutation
+chr3	EP_34290_357_SD3_17	yes	yes	3' UTR
+chr3	EP_34290_306_SD3_17	yes	yes	3' UTR
+chr3	EP_34261_242_SD3_17	yes	yes	5' UTR
+chr3	EP_34266_301_SD3_17	yes	yes	intron
+chr3	EP_34272_256_SD3_17	yes	yes	intron
+chr3	EP_34278_198_SD3_17	yes	yes	intron
+chr3	EP_34282_89_SD3_17	yes	yes	splice_region
+chr2	EP_148643_233_SD3_17	yes	yes	coding_synon
+chr2	EP_34300_250_SD3_17	yes	yes	coding_synon
+chr2	EP_34318_279_SD3_17	yes	yes	coding_synon
+chr2	EP_148658_228_SD3_17	yes	yes	missense_mutation
+chr2	EP_148640_253_SD3_17	yes	yes	intron
+chr2	EP_10057701_104_SD3_17	yes	yes	intron
+chr2	EP_34299_326_SD3_17	yes	yes	intron
+chr2	EP_34306_29_SD3_17	yes	yes	intron
+chr2	EP_34300_33_SD3_17	yes	yes	intron
+chr2	EP_34302_461_SD3_17	yes	yes	intron
+chr2	EP_34307_600_SD3_17	yes	yes	intron
+chr19	EP_10096506_241_SD3_17	yes	yes	coding_synon
+chr19	EP_34331_183_SD3_17	yes	yes	missense_mutation
+chr19	EP_10096502_174_SD3_17	yes	yes	3' UTR
+chr19	EP_10096502_218_SD3_17	yes	yes	3' UTR
+chr19	EP_10096505_204_SD3_17	yes	yes	intron
+chr19	EP_10096505_28_SD3_17	yes	yes	intron
+chr19	EP_10096505_39_SD3_17	yes	yes	intron
+chr2	EP_10105053_45_SD3_17	yes	yes	coding_synon
+chr2	EP_34361_66_SD3_17	yes	yes	coding_synon
+chr2	EP_34361_78_SD3_17	yes	yes	coding_synon
+chr2	EP_10104955_87_SD3_17	yes	yes	missense_mutation
+chr2	EP_34335_120_SD3_17	yes	yes	missense_mutation
+chr2	EP_34342_56_SD3_17	yes	yes	intron
+chr2	EP_34346_278_SD3_17	yes	yes	intron
+chr2	EP_10105059_366_SD3_17	yes	yes	intron
+chr2	EP_34356_122_SD3_17	yes	yes	intron
+chr11	EP_10096568_228_SD3_17	yes	yes	3' UTR
+chr11	EP_10096564_152_SD3_17	yes	yes	3' UTR
+chr11	EP_10096565_41_SD3_17	yes	yes	3' UTR
+chr11	EP_10096565_117_SD3_17	yes	yes	3' UTR
+chr11	EP_10096566_294_SD3_17	yes	yes	3' UTR
+chr11	EP_10096566_63_SD3_17	yes	yes	3' UTR
+chr11	EP_10096565_35_SD3_17	yes	yes	3' UTR
+chr11	EP_10096568_377_SD3_17	yes	yes	3' UTR
+chr11	EP_10096600_131_SD3_17	yes	yes	intron
+chr11	EP_10096570_300_SD3_17	yes	yes	intron
+chr2	EP_151800_225_SD3_17	yes	yes	coding_synon
+chr2	EP_151872_259_SD3_17	yes	yes	intron
+chr11	EP_34413_70_SD3_17	yes	yes	coding_synon
+chr11	EP_34409_418_SD3_17	yes	yes	5' UTR
+chr11	EP_34409_347_SD3_17	yes	yes	5' UTR
+chr17	EP_34425_93_SD3_17	yes	yes	coding_synon
+chr17	EP_34429_235_SD3_17	yes	yes	coding_synon
+chr17	EP_34431_140_SD3_17	yes	yes	coding_synon
+chr17	EP_34447_217_SD3_17	yes	yes	coding_synon
+chr17	EP_34448_294_SD3_17	yes	yes	coding_synon
+chr17	EP_34449_181_SD3_17	yes	yes	coding_synon
+chr17	EP_34429_131_SD3_17	yes	yes	missense_mutation
+chr17	EP_34433_99_SD3_17	yes	yes	missense_mutation
+chr17	EP_34434_118_SD3_17	yes	yes	missense_mutation
+chr17	EP_34446_225_SD3_17	yes	yes	missense_mutation
+chr17	EP_34451_237_SD3_17	yes	yes	3' UTR
+chr17	EP_34432_329_SD3_17	yes	yes	intron
+chr17	EP_34427_218_SD3_17	yes	yes	intron
+chr11	EP_34457_125_SD3_17	yes	yes	coding_synon
+chr11	EP_34462_186_SD3_17	yes	yes	3' UTR
+chr11	EP_34467_202_SD3_17	yes	yes	3' UTR
+chr11	EP_34465_222_SD3_17	yes	yes	3' UTR
+chr11	EP_34467_377_SD3_17	yes	yes	3' UTR
+chr11	EP_34464_551_SD3_17	yes	yes	3' UTR
+chr11	EP_34466_202_SD3_17	yes	yes	3' UTR
+chr3	EP_10097164_27_SD3_17	yes	yes	coding_synon
+chr3	EP_10097166_235_SD3_17	yes	yes	coding_synon
+chr3	EP_10097350_144_SD3_17	yes	yes	coding_synon
+chr3	EP_30250_267_SD3_17	yes	yes	coding_synon
+chr3	EP_30244_298_SD3_17	yes	yes	missense_mutation
+chr3	EP_10097158_240_SD3_17	yes	yes	3' UTR
+chr3	EP_10097158_241_SD3_17	yes	yes	3' UTR
+chr3	EP_10097161_192_SD3_17	yes	yes	3' UTR
+chr3	EP_30234_65_SD3_17	yes	yes	intron
+chr3	EP_30235_75_SD3_17	yes	yes	intron
+chr3	EP_30259_139_SD3_17	yes	yes	intron
+chr3	EP_30243_388_SD3_17	yes	yes	intron
+chr3	EP_34486_531_SD3_17	yes	yes	splice_region
+chr3	EP_30242_321_SD3_17	yes	yes	splice_region
+chr2	EP_34527_122_SD3_17	yes	yes	coding_synon
+chr2	EP_34508_285_SD3_17	yes	yes	missense_mutation
+chr2	EP_34524_232_SD3_17	yes	yes	missense_mutation
+chr2	EP_34533_144_SD3_17	yes	yes	missense_mutation
+chr2	EP_34533_328_SD3_17	yes	yes	missense_mutation
+chr2	EP_34533_63_SD3_17	yes	yes	3' UTR
+chr2	EP_34534_186_SD3_17	yes	yes	3' UTR
+chr2	EP_34506_37_SD3_17	yes	yes	intron
+chr2	EP_34508_434_SD3_17	yes	yes	intron
+chr2	EP_34526_467_SD3_17	yes	yes	intron
+chr12	EP_34540_171_SD3_17	yes	yes	coding_synon
+chr12	EP_34560_152_SD3_17	yes	yes	coding_synon
+chr12	EP_34563_355_SD3_17	yes	yes	coding_synon
+chr12	EP_34566_447_SD3_17	yes	yes	3' UTR
+chr12	EP_34546_423_SD3_17	yes	yes	intron
+chr12	EP_34560_223_SD3_17	yes	yes	intron
+chr12	EP_34538_308_SD3_17	yes	yes	intron
+chr12	EP_34550_65_SD3_17	yes	yes	intron
+chr12	EP_34553_200_SD3_17	yes	yes	intron
+chr12	EP_34562_47_SD3_17	yes	yes	intron
+chr12	EP_34558_36_SD3_17	yes	yes	intron
+chr12	EP_34558_129_SD3_17	yes	yes	intron
+chr2	EP_34570_90_SD3_17	yes	yes	coding_synon
+chr2	EP_34576_111_SD3_17	yes	yes	coding_synon
+chr2	EP_34576_258_SD3_17	yes	yes	coding_synon
+chr2	EP_34576_90_SD3_17	yes	yes	coding_synon
+chr2	EP_34578_178_SD3_17	yes	yes	missense_mutation
+chr2	EP_34584_175_SD3_17	yes	yes	missense_mutation
+chr2	EP_34585_271_SD3_17	yes	yes	missense_mutation
+chr2	EP_34592_61_SD3_17	yes	yes	intron
+chr2	EP_34571_38_SD3_17	yes	yes	intron
+chr2	EP_34580_348_SD3_17	yes	yes	intron
+chr2	EP_34580_347_SD3_17	yes	yes	intron
+chr2	EP_34587_393_SD3_17	yes	yes	intron
+chr2	EP_34590_102_SD3_17	yes	yes	intron
+chr2	EP_34578_24_SD3_17	yes	yes	intron
+chr2	EP_34570_246_SD3_17	yes	yes	intron
+chr20	EP_151779_365_SD3_17	yes	yes	coding_synon
+chr20	EP_151779_367_SD3_17	yes	yes	coding_synon
+chr20	EP_151794_223_SD3_17	yes	yes	coding_synon
+chr20	EP_151794_304_SD3_17	yes	yes	coding_synon
+chr20	EP_151881_207_SD3_17	yes	yes	coding_synon
+chr20	EP_34603_119_SD3_17	yes	yes	coding_synon
+chr20	EP_34606_151_SD3_17	yes	yes	coding_synon
+chr20	EP_34606_146_SD3_17	yes	yes	missense_mutation
+chr20	EP_34628_113_SD3_17	yes	yes	3' UTR
+chr20	EP_34629_248_SD3_17	yes	yes	3' UTR
+chr20	EP_34628_416_SD3_17	yes	yes	3' UTR
+chr20	EP_34629_369_SD3_17	yes	yes	3' UTR
+chr20	EP_151749_65_SD3_17	yes	yes	intron
+chr20	EP_151881_31_SD3_17	yes	yes	intron
+chr20	EP_151896_328_SD3_17	yes	yes	intron
+chr20	EP_151854_276_SD3_17	yes	yes	intron
+chr20	EP_151779_87_SD3_17	yes	yes	intron
+chr20	EP_151779_245_SD3_17	yes	yes	intron
+chr20	EP_151866_437_SD3_17	yes	yes	intron
+chr20	EP_151779_184_SD3_17	yes	yes	intron
+chr20	EP_151794_392_SD3_17	yes	yes	intron
+chr2	EP_33349_305_SD3_17	yes	yes	intron
+chr2	EP_33351_485_SD3_17	yes	yes	intron
+chr11	EP_33532_41_SD3_17	yes	yes	N/A
+chr11	EP_33533_90_SD3_17	yes	yes	N/A
+chr20	EP_33750_412_SD3_17	yes	yes	N/A
+chr11	EP_33532_51_SD3_17	yes	yes	N/A
+chr20	EP_33755_438_SD3_17	yes	yes	N/A
+chr20	EP_33749_425_SD3_17	yes	yes	N/A
+chr20	EP_33753_243_SD3_17	yes	yes	N/A
+chr20	EP_33755_269_SD3_17	yes	yes	N/A
+chr20	EP_33750_299_SD3_17	yes	yes	N/A
+chr20	EP_33751_46_SD3_17	yes	yes	N/A
+chr20	EP_33752_408_SD3_17	yes	yes	N/A
+chr20	EP_33752_325_SD3_17	yes	yes	N/A
+chr20	EP_33756_112_SD3_17	yes	yes	N/A
+chr20	EP_33755_265_SD3_17	yes	yes	N/A
+chr20	EP_33755_581_SD3_17	yes	yes	N/A
+chr20	EP_33755_317_SD3_17	yes	yes	N/A
+chr20	EP_33755_436_SD3_17	yes	yes	N/A
+chr20	EP_33756_221_SD3_17	yes	yes	N/A
+chr20	EP_33754_297_SD3_17	yes	yes	N/A
