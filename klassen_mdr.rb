@@ -51,14 +51,21 @@ puts "Cases: #{totalCases}, #{totalCases/total*100}"
 snp_list = []
 case_list = Array.new(max)
 ctrl_list = Array.new(max)
+i = 0
 random.each_key do |r|
 #  snp_list.push( allSNPs[r] )
 
-  allSNPs[r]
+  puts r
+  puts allSNPs[r]
 
-  case_list[r][allSNPs[r]] = cases[allSNPs[r]]
+  cases.has_key?allSNPs[r]
+  case_list[r][i]#.push(1)
 
+ #cases.has_key?allSNPs[r] ? case_list[r][i].push(1) : case_list[r][i].push(0)
 
-
+#  case_list[r][allSNPs[r]] = cases[allSNPs[r]]
+  i = i + 1
 end
+
+#puts YAML::dump case_list
 
