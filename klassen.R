@@ -23,20 +23,19 @@ kdata=kdata[ which(kdata$'Chrm'!="chrX"), ]  # ignoring X as Y isn't represented
 kdata=kdata[ which(kdata$'HUGO_Gene'!="unknown"), ]
 
 # Select the set of mutations, currently just missense
-ptsMissense=kdata[ which(kdata$'Type'=="missense_mutation" & kdata$'SNPinPatients'=="yes"), ]
-ctrlsMissense=kdata[ which(kdata$'Type'=="missense_mutation" & kdata$'SNPinControls'=="yes"), ]
-allMissense=kdata[ which(kdata$'Type'=="missense_mutation"), ]
+pts=kdata[ which(kdata$'Type'!="intron" & kdata$'SNPinPatients'=="yes" & kdata$dbSNPID!="novel"), ]
+ctrls=kdata[ which(kdata$'Type'!="intron" & kdata$'SNPinControls'=="yes" & kdata$dbSNPID!="novel"), ]
+all=kdata[ which(kdata$'Type'!="intron" & kdata$dbSNPID!="novel"), ]
 
-nrow(ptsMissense)
-nrow(ctrlsMissense)
-nrow(allMissense)
-
+nrow(pts)
+nrow(ctrls)
+nrow(all)
 
 ## -- 
 # Create a sample set of SNPs that is half patient half controls.
 # There will be some intersection between them
 ## --
-snps=sample(as.vector(allMissense$SNPID), 200, replace=FALSE)
+snps=sample(as.vector(all$SNPID), 200, replace=FALSE)
 #snps=c(sample(as.vector(ptsMissense$'SNPID'), 100, replace=FALSE), sample(as.vector(ctrlsMissense$'SNPID'), 100, replace=FALSE))
 cols=c("Class", snps) # add class variable column for patient/control
 
@@ -53,8 +52,8 @@ mdr=as.data.frame(mdrMatrix)
 # mutations than controls.
 ## --
 mdr$Class[1:200]=1  # Cases
-ctrlsnps=intersect(ctrlsMissense$SNPID, snps)
-ptsnps=intersect(ptsMissense$SNPID, snps)
+ctrlsnps=intersect(ctrls$SNPID, snps)
+ptsnps=intersect(pts$SNPID, snps)
 
 # controls
 for(snp in ctrlsnps)
