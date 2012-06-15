@@ -75,7 +75,7 @@ for(snp in ptsnps)
 	}
 
 
-filename=paste("klassen_sample_", sample, ".mdr", sep="")
+filename=paste("klassen_sample_", sample_num, ".mdr", sep="")
 write.table(mdr, file=paste(dir, filename, sep="/"), sep="\t", row.names=FALSE, quote=FALSE)
 
 
