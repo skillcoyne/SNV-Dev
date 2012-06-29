@@ -29,6 +29,5 @@ example output:
  
 '*' indicates overall best model
 
------> TODO:
 4. Read through MDR summary and extract SNP sets.
 
