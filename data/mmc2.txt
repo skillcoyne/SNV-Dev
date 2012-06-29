@@ -1,4 +1,4 @@
-HUGO_Gene	Chrm	SNPID	dbSNPID	Coor	LflankRflank	RefSeqID	Type	Maj_Allele	Min_Allele	RefAA	VarAA	Prot_Pos	Codon	pam	blosum80	SNPinPatients	SNPinControls	
+#HUGO_Gene	Chrm	SNPID	dbSNPID	Coor	LflankRflank	RefSeqID	Type	Maj_Allele	Min_Allele	RefAA	VarAA	Prot_Pos	Codon	pam	blosum80	SNPinPatients	SNPinControls
 ANK2	chr4	EP_10057571_204_SD3_17	rs33966911	114494692	CAGGGTCTCC.TCCCCTAAAA	NM_001148	coding_synon	C	T	Pro	Pro	1823	CCC	6	12	yes	yes	
 ANK2	chr4	EP_10057580_48_SD3_17	novel	114497125	CAGTAGATGT.GATGAACCAA	NM_001148	coding_synon	G	A	Val	Val	2634	GTG	5	7	yes	no	
 ANK2	chr4	EP_10057586_103_SD3_17	rs10013743	114498871	CTACAAAAGA.GCTGTTAGTG	NM_001148	coding_synon	A	G	Glu	Glu	3216	GAA	5	8	yes	yes	
