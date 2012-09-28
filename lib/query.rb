@@ -13,7 +13,7 @@ class Query
 
     @conn = Faraday.new(:url => @baseURL) do |builder|
       builder.request :url_encoded
-      builder.response :logger
+      #builder.response :logger
       builder.adapter :net_http
     end
   end
@@ -25,7 +25,5 @@ class Query
             req.params = params
     end
   end
-
-
 
 end
