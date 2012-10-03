@@ -60,7 +60,7 @@ File.open(file, 'r') do |infile|
         var.type = line.sub("FXN_CLASS=", "")
         var.type.split(",").each do |t|
           t = "N/A" if t.eql?("")
-          (variant_types.key?t)? (variant_types[t] = variant_types[t] + 1): (variant_types[t] = 1)
+          (variant_types.key? t) ? (variant_types[t] = variant_types[t] + 1) : (variant_types[t] = 1)
         end
       when /^CHR=/
         var.chromosome = line.sub("CHR=", "")
@@ -74,6 +74,8 @@ end
 write_variant_file(File.open("data/dbsnp_validated_cg_variants.txt", 'w'), entries)
 write_variant_file(File.open("data/unvalidated_cg_variants.txt", 'w'), not_valid)
 
-variant_types.each_pair do |type, total|
-  puts "#{type}:#{total}"
-end
+File.open("data/variant_types.txt", 'w') { |f|
+  variant_types.each_pair do |type, total|
+    f.write("#{type}\t#{total}\n")
+  end
+}
