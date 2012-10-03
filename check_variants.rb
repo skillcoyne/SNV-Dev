@@ -22,6 +22,7 @@ file = ARGV[0]
 
 entries = Hash.new
 not_valid = Hash.new
+variant_types = Hash.new
 var = Variant.new
 
 File.open(file, 'r') do |infile|
@@ -57,6 +58,10 @@ File.open(file, 'r') do |infile|
         var.validated = true unless line =~ /no-info/
       when /^FXN_CLASS/
         var.type = line.sub("FXN_CLASS=", "")
+        var.type.split(",").each do |t|
+          t = "N/A" if t.eql?("")
+          (variant_types.key?t)? (variant_types[t] = variant_types[t] + 1): (variant_types[t] = 1)
+        end
       when /^CHR=/
         var.chromosome = line.sub("CHR=", "")
       when /^SNP_CLASS/
@@ -69,3 +74,6 @@ end
 write_variant_file(File.open("data/dbsnp_validated_cg_variants.txt", 'w'), entries)
 write_variant_file(File.open("data/unvalidated_cg_variants.txt", 'w'), not_valid)
 
+variant_types.each_pair do |type, total|
+  puts "#{type}:#{total}"
+end
