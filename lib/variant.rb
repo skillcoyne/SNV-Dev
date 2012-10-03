@@ -1,5 +1,5 @@
 class Variant
-  attr_accessor :id, :type, :frequency, :chromosome, :validated
+  attr_accessor :id, :type, :classification, :frequency, :chromosome, :validated
 
   class << self;
     :validated_by;
@@ -19,12 +19,11 @@ class Variant
   end
 
   def eql?(variant)
-    puts "#{@id}:#{variant.id}"
-    puts "#{@type}:#{variant.type}"
-    puts "#{@frequency}:#{variant.frequency}"
-    puts "#{@validated}:#{variant.validated}"
-    puts "#{@chromosome}:#{variant.chromosome}"
-
+    #puts "#{@id}:#{variant.id}"
+    #puts "#{@type}:#{variant.type}"
+    #puts "#{@frequency}:#{variant.frequency}"
+    #puts "#{@validated}:#{variant.validated}"
+    #puts "#{@chromosome}:#{variant.chromosome}"
     self.class.equal?(variant.class) and
         @id == variant.id and
         @type == variant.type and

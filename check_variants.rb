@@ -3,10 +3,11 @@ require 'yaml'
 require_relative 'lib/variant'
 
 def write_variant_file(file, vars)
-  file.write("dbsnpID\tMAF\tFunction\tChromosome\n")
+  file.write("dbsnpID\tChromosome\tClassification\tFunction\tMAF\n")
   vars.each_pair do |id, variant|
-    file.write("#{variant.id}\t#{variant.frequency}\t#{variant.type}\t#{variant.chromosome}\n")
-    print "#{variant.id}\t#{variant.frequency}\t#{variant.type}\t#{variant.chromosome}\n"
+    str = "#{variant.id}\t#{variant.chromosome}\t#{variant.classification}\t#{variant.type}\t#{variant.frequency}\n"
+    file.write(str)
+    print str
   end
 end
 
@@ -26,6 +27,7 @@ var = Variant.new
 File.open(file, 'r') do |infile|
   while (line = infile.gets)
     line = line.chomp
+
     # special case first id
     if line.match(/rs\d+/) and infile.lineno <= 1
       id = line.match(/rs\d+/)
@@ -57,8 +59,9 @@ File.open(file, 'r') do |infile|
         var.type = line.sub("FXN_CLASS=", "")
       when /^CHR=/
         var.chromosome = line.sub("CHR=", "")
+      when /^SNP_CLASS/
+        var.classification = line.sub("SNP_CLASS=", "")
     end
-
   end
 end
 
