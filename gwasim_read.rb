@@ -11,6 +11,8 @@ cfg = Utils.check_config($config)
 
 gwasim_results_dir = cfg['chr.output']
 file_type = cfg['mdr.type']
+puts "*#{file_type}*"
+
 # Case and snp numbers from control file
 control = GWAControl.new(cfg['gwa.control'])
 
@@ -44,7 +46,7 @@ Dir.foreach(gwasim_results_dir) do |entry|
   end
   puts "#{snp_cols.length} vs #{columns}"
 
-  snp_cols.push("Class") if file_type.eql?"moore"
+  snp_cols.push("Class") if file_type.eql?"java"
   mdr_file.write(snp_cols.join("\s") + "\n")
 
   # output the file for mdr
@@ -53,7 +55,7 @@ Dir.foreach(gwasim_results_dir) do |entry|
   File.open("#{gwasim_results_dir}/#{dat_file}", 'r').each_line do |line|
     # this is slow, but it ensures that no unecessary columns are added
     lines = line.chomp.split("\s")
-    if file_type.eql?"moore"
+    if file_type.eql?"java"
       lines.push(case_ctrl)
       mdr_file.write lines.join("\s") + "\n"
     else
@@ -63,8 +65,6 @@ Dir.foreach(gwasim_results_dir) do |entry|
     (case_ctrl == 0)? (case_ctrl = 1): (case_ctrl = 0)
   end
   mdr_file.close
-
-
 
 end
 

@@ -34,7 +34,7 @@ class Utils
       'chr.output' => '/<path to chr files>/',
 
       # MDR
-      'mdr.type' => 'R or moore',
+      'mdr.type' => 'R or java',
       'mdr.K' => 2,
       'mdr.max' => 50,
       'mdr.analysis.dir' => '/<ouptut path for R files>/',
