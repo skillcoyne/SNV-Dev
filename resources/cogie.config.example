@@ -1,0 +1,22 @@
+## Ranked filter list
+ranked.list: /<path to ranked list file>
+
+## Gene locations
+# Expected columns: GeneID  GeneStart  GeneEnd  Chromosome
+gene.loc: /<path to gene location file
+
+# Control
+ctrl.loc: /<path to control variation file dir>
+
+# Patients
+patient.var.loc: /<path to patient variation file dir>
+
+# MDR
+mdr.K: 2
+mdr.max: 50
+mdr.analysis.dir: /<ouptut path>/
+
+# OAR Cluster
+oar.core: 1
+oar.walltime: 1
+oar.notify: mail:skillcoyne\@gmail.com

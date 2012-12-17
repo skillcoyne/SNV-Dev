@@ -1,7 +1,0 @@
-C:\Users\LCSB_Student\workspace\SNV-Dev\data\masterVarBeta-examples.tsv
-C:\Users\LCSB_Student\workspace\SNV-Dev\data\masterVarBeta-examples2.tsv
-C:\Users\LCSB_Student\workspace\SNV-Dev\data\masterVarBeta-examples3.tsv
-C:\Users\LCSB_Student\workspace\SNV-Dev\data\masterVarBeta-examples4.tsv
-C:\Users\LCSB_Student\workspace\SNV-Dev\data\masterVarBeta-examples5.tsv
-C:\Users\LCSB_Student\workspace\SNV-Dev\data\masterVarBeta-examples6.tsv
-C:\Users\LCSB_Student\workspace\SNV-Dev\data\masterVarBeta-examples7.tsv
