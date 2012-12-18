@@ -1,23 +1,28 @@
+
+
 Current steps in SNP epistasis identification/annotation:
 
-1. Create simulated genotype SNP chip data for case-control data.
-    a. Currently using provided phase data from Illumina.
-        Run GWASimulator with epilepsy control file and random number.  Example control file found in /resources directory
-        example: "GWASimulator epilepsy_control.dat 48927848"
-    b. Run klassen.R over the mmc2.txt file in the data directory.
+1. Create a cogie.config file with fields as described in resources/cogie.config.example
+
+2. Run mdr_filter.rb with the config file from above.
+
+3. TODO - rewrite run_analysis.rb script for Java MDR.
+    a. This step will output the require OAR scripts and run them on the cluster.
+    b. MDR parameters are set by the cogie.config script.  Changing the max.max requires rerunning the mdr_filter script which
+       creates the matrices. Currently the max settings are recommended as:  mdr.max = 2000, mdr.K = 3.  With a lower mdr.max
+       the K value can be increased.  If max is increased about 2000 K should not more than 2.
+    b. Parameters for the OAR scripts are also set up in the cogie.config file.
+
+4. Read through MDR summary and extract SNP sets.
 
 
-2. a. For GWAsimulator: Set up files for MDR run using gwasim script. Currently using the R MDR package, the gwa.config.example file
-in /resources provides necessary information. This script just adds column data missing from the simulated phase data
-and reorganizes based on the MDR used (java vs R).
-example: "ruby gwasim_read.rb gwa.config"
+NOTE:  The following are assumptions made by the parsers.
+ 1. Control variation data is provided in VCF format (4.0 is preferred).
+ 2. Patient variation data is provided in the format shown in resources/cogie-patient-sample.txt.  This is particularly true of the column headers.
+    If these headers vary the parser will fail intentionally.  Should this format change the COGIEPatient class must be altered.
 
-3. Run MDR over the simulated files.  Using the R version currently this step is to set up the OAR cluster scripts required
-to run MDR over each chromosome.  Without this step the MDR step is limited to K=2 and a max of about 50 SNPs per
-case. The parameters for this script are also set up in the gwa.config file.  Example in the /resources directory.
-When this works the R and OAR scripts will written then kicked off on the cluster. The result will be one (or several
-depending on the configuration) summary files
-example: "ruby run_analysis.rb gwa.config"
+
+## EXAMPLE OUTPUT FROM R SCRIPT, JAVA IS SIMILAR BUT SHOULD BE UPDATED ##
 
 example output:
   Level    Best Models                 Classification Accuracy
@@ -29,5 +34,4 @@ example output:
  
 '*' indicates overall best model
 
-4. Read through MDR summary and extract SNP sets.
 

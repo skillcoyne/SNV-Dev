@@ -2,7 +2,7 @@ require 'vcf'
 
 module COGIE
 
-  ## TODO: this should be a VCF file presumably
+  ## The assumption is that these are VCF files
   class ControlSample
 
     attr_reader :sample
@@ -23,7 +23,6 @@ module COGIE
 
     :private
 
-    ## TODO
     def parse_variations
       sample = File.basename(@ct_file)
       sample.sub!(/\..*/, "")

@@ -1,5 +1,6 @@
 require 'yaml'
 
+## TODO rewrite for Java MDR if necessary
 class MDRScript
 
   @@script = "mdrAnalysis.R"
