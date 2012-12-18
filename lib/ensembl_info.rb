@@ -15,7 +15,7 @@ class EnsemblInfo
       raise ArgumentError, "#{file} is incorrectly formatted: #{@@format}" unless cols.length >= 4
 
       (gene, g_start, g_end, chr) = cols[0..4]
-      @info_by_gene[gene] = {:start => g_start, :end => g_end, :chr => chr}
+      @info_by_gene[gene] = {:start => Integer(g_start), :end => Integer(g_end), :chr => chr}
     end
   end
 
