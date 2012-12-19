@@ -11,6 +11,9 @@ ctrl.loc: /<path to control variation file dir>
 # Patients
 patient.var.loc: /<path to patient variation file dir>
 
+# File output directory
+output.dir: /< for various temp files>
+
 # MDR
 mdr.K: 2
 mdr.max: 50

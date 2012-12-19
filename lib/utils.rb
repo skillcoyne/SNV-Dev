@@ -17,7 +17,7 @@ class Utils
 
     cfg = YAML.load_file(cfg_file)
 
-    if cfg.keys.eql?cfg_def.keys
+    if cfg.keys.sort!.eql?cfg_def.keys.sort!
       return cfg
     else
       puts "Incorrect config file, expected keys:\n"
