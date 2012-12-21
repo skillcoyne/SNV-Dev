@@ -1,35 +1,11 @@
 require 'fileutils'
+require 'yaml'
 
 require_relative 'lib/utils'
 require_relative 'lib/ensembl_info'
 require_relative 'lib/cogie_patient'
 require_relative 'lib/control_sample'
-
-$cfg_defaults = {
-    ## Ranked filter list
-    'ranked.list' => '/<path to ranked gene|location list file>',
-
-    # Gene locations
-    'gene.loc' => '/<path to gene location file>',
-
-    # Control
-    'control.var.loc' => '/<path to control variation files>',
-
-    # Patients
-    'patient.var.loc' => '/<path to patient variation files>',
-
-    # File output
-    'output.dir' => '/tmp files',
-
-    # MDR
-    'mdr.K' => '<1-4>',
-    'mdr.max' => '<25-4000>',
-    'mdr.analysis.dir' => '/<ouptut path for R files>/',
-
-    # OAR Cluster
-    'oar.core' => 1,
-    'oar.walltime' => 1,
-}
+require_relative 'lib/func'
 
 
 def load_filter_locations(filterfile, gi)
@@ -58,6 +34,15 @@ def load_filter_locations(filterfile, gi)
   return locations
 end
 
+def pos_to_sample(ctrl)
+  gt = {}
+  ctrl.pos.each_pair do |pos, vcf|
+
+  end
+
+
+end
+
 
 ## TODO: Need to create the control MDR matrix only once per filter
 if ARGV.length < 1
@@ -65,12 +50,13 @@ if ARGV.length < 1
   exit
 end
 
+
 ## Inputs
 # Configuration file, see resources/cogie.config.example
 cfgfile = ARGV[0]
 
-
-cfg = Utils.check_config(cfgfile, $cfg_defaults)
+config_defaults = YAML.load_file("resources/cogie.config.example")
+cfg = Utils.check_config(cfgfile, config_defaults)
 filter_file = cfg['ranked.list']
 info = EnsemblInfo.new(cfg['gene.loc'])
 
@@ -90,51 +76,37 @@ ranked_locations = load_filter_locations(filter_file, info)
 #  puts loc.join(",")
 #end
 
+## -- PATIENTS -- ##
+
+
+## -- CONTROLS -- ##
 # Get variations for controls in each location
 puts "Getting control variations."
 
+Dir.foreach(cfg['control.var.loc']) do |entry|
+  file = "#{cfg['control.var.loc']}/#{entry}"
+  File.open(file, 'r')
+end
+
+
 ctrl_temp = "#{cfg['output.dir']}/vcf-tmp"
-FileUtils.mkpath( ctrl_temp ) unless File.exists?(ctrl_temp)
+FileUtils.mkpath(ctrl_temp) unless File.exists?(ctrl_temp)
 
 ranked_locations.each_pair do |chr, list|
   next unless chr.eql? '12'
   file = "#{cfg['control.var.loc']}/#{control_vcf[chr]}"
+
   list.each do |loc|
+    mdr_file = "temp.mdr"
     ctrl = COGIE::ControlSample.new(file, {:tabix => "#{chr}:#{loc[0]}-#{loc[1]}", :out => ctrl_temp})
-  end
-end
 
-exit
-
-# Get patient variations in each location
-## One thing to note here, the first patient file read is going to determine the variations that get looked at
-puts "Getting patient variations."
-
-Dir.foreach(cfg['patient.var.loc']) do |entry|
-  next if entry.match(/^\./)
-  file = "#{cfg['patient.var.loc']}/#{entry}"
-  #puts "Reading patient file #{file}..."
-
-  begin
-    cp = COGIE::COGIEPatient.new(file)
-    mdr_vars = []
-    ranked_locations.each do |loc|
-      vars = cp.variations_by_location(loc[0], loc[1])
-      puts "Variations for #{loc[0]} - #{loc[1]}: #{vars.length}"
-      mdr_vars |= vars
-      break if mdr_vars.length >= cfg['mdr.max']
+    ##positions = ctrl.pos.keys
+    #puts "Sample\t" + positions.join("\t")
+    #ctr.pos.each_pair do |pos, vcf|
+    #  print "#{pos}\t"
+    #  ctrl.samples.each do |s|
+    #
+    #  end
     end
-
-    puts "Variations for #{cp.patient}: #{cp.sum(:variations => true)}"
-    puts "Genes with variations for #{cp.patient}: #{cp.sum(:genes => true)}"
-
-    puts YAML::dump mdr_vars
-    mdr_vars = mdr_vars[0..cfg['mdr.max']]
-
-  rescue COGIE::FileFormatError => e
-    warn "Error reading #{file}: #{e.message}"
-    puts e.backtrace
   end
-
 end
-

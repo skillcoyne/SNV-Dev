@@ -17,6 +17,7 @@ class Utils
 
     cfg = YAML.load_file(cfg_file)
 
+
     if cfg.keys.sort!.eql?cfg_def.keys.sort!
       return cfg
     else

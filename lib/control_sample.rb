@@ -6,7 +6,7 @@ module COGIE
   ## The assumption is that these are VCF files
   class ControlSample
 
-    attr_reader :sample, :chr, :from, :to
+    attr_reader :name, :samples, :from, :to, :pos
 
     # Uses samtools:tabix to read a VCF file given chromosome, from, to locations and returns the sample information for the given file
     # Params:
@@ -19,9 +19,9 @@ module COGIE
         @chr = $1; @from = $2; @to = $3
         (opts[:out]) ? (@tmp_output_dir = opts[:out]) : (@tmp_output_dir = Dir.tmpdir)
         run_tabix(opts)
-        parse_variations
+        #parse_variations
       else
-        parse_variations
+        #parse_variations
       end
     end
 
@@ -29,7 +29,7 @@ module COGIE
     #tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804 ALL.2of4intersection.20100804.genotypes.vcf.gz 2:39967768-39967768
     def run_tabix(opts = {})
       # presume you have to change directory to make it write int he correct place...still waiting to test
-      cmd = "tabix #{@ct_file} #{opts[:loc]} > #{@tmp_output_dir}/chr#{@chr}.#{@from}-#{@to}.vcf"
+      cmd = "tabix #{@ct_file} #{opts[:tabix]} > #{@tmp_output_dir}/chr#{@chr}.#{@from}-#{@to}.vcf"
       puts cmd
       system("#{cmd}")
       @ct_file = "#{@tmp_output_dir}/chr#{@chr}.#{@from}-#{@to}.vcf"
@@ -38,26 +38,34 @@ module COGIE
     def parse_variations
       sample = File.basename(@ct_file)
       sample.sub!(/\..*/, "")
-      @sample = sample
-      @chr = {}
+      @name = sample
+      @sample = {}
+      @pos = {}
 
       File.open(@ct_file, 'r').each_with_index do |line, index|
         line.chomp!
+        last_samp = nil
         next if line.start_with? "#"
-        vcf = VCF.new(line)
-        #vcf.chrom
-        #vcf.pos  # start location
-        #vcf.qual # quality
-        vcf.samples.each_key do |s|
-          puts "#{s} #{vcf.samples[s]['GT']}" # genotype
-          puts "#{s} #{vcf.samples[s]['GL']}" # GT liklihood
-          puts "#{s} #{vcf.samples[s]['DS']}" # GT dosage
-          puts vcf.samples[s]
-        end
+        vcf = Vcf.new(line)
+        last_samp = vcf.samples.length if last_samp.nil?
+        @samples = vcf.samples.keys if @samples.empty?
+        #@sample = Hash[ vcf.samples.keys.map {|s| [s,{}] } ] if @sample.empty?
+        #
+        #vcf.samples.each_key do |s|
+        #  @sample[s][vcf.pos] = vcf.samples[s]['GT']
+        #  #puts "#{s} #{vcf.samples[s]['GT']}" # genotype
+        #  #puts "#{s} #{vcf.samples[s]['GL']}" # GT liklihood
+        #  #puts "#{s} #{vcf.samples[s]['DS']}" # GT dosage
+        #  #puts vcf.samples[s]
+        #end
+        puts "SAMPLE LENGTHS DON'T MATCH" unless last_samp.eql?vcf.samples.length
 
-        @chr[vcf.chrom] = [] unless @chr.has_key? vcf.chrom
-        @chr[vcf.chrom] << vcf
+        @pos[vcf.pos] = [] unless @pos.has_key? vcf.pos
+        @pos[vcf.pos] << vcf
+
       end
+      @samples.uniq!
+      @samples.sort!
     end
 
   end

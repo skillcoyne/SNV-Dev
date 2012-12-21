@@ -1,3 +1,9 @@
+## -- DO NOT DELETE THIS FILE --##
+## The example file is used by the scripts to ensure that all
+## configuration is correctly done.  Copy this to another file
+## then alter it for your own configuration
+
+
 ## Ranked filter list
 ranked.list: /<path to ranked list file>
 
@@ -6,7 +12,7 @@ ranked.list: /<path to ranked list file>
 gene.loc: /<path to gene location file
 
 # Control
-ctrl.loc: /<path to control variation file dir>
+control.var.loc: /<path to control variation file dir>
 
 # Patients
 patient.var.loc: /<path to patient variation file dir>
@@ -22,4 +28,6 @@ mdr.analysis.dir: /<ouptut path>/
 # OAR Cluster
 oar.core: 1
 oar.walltime: 1
-oar.notify: mail:skillcoyne\@gmail.com
+
+
+
