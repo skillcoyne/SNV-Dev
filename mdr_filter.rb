@@ -1,5 +1,6 @@
 require 'fileutils'
 require 'yaml'
+require 'vcf'
 
 require_relative 'lib/utils'
 require_relative 'lib/ensembl_info'
@@ -34,15 +35,6 @@ def load_filter_locations(filterfile, gi)
   return locations
 end
 
-def pos_to_sample(ctrl)
-  gt = {}
-  ctrl.pos.each_pair do |pos, vcf|
-
-  end
-
-
-end
-
 
 ## TODO: Need to create the control MDR matrix only once per filter
 if ARGV.length < 1
@@ -53,13 +45,13 @@ end
 
 ## Inputs
 # Configuration file, see resources/cogie.config.example
-cfgfile = ARGV[0]
-
 config_defaults = YAML.load_file("resources/cogie.config.example")
-cfg = Utils.check_config(cfgfile, config_defaults)
-filter_file = cfg['ranked.list']
-info = EnsemblInfo.new(cfg['gene.loc'])
+cfg = Utils.check_config(ARGV[0], config_defaults)
 
+ranked_locations = load_filter_locations(cfg['ranked.list'], EnsemblInfo.new(cfg['gene.loc']))
+
+
+# List control VCF files
 ## This assumes that the control files are organized per chromosome, but since I'm using 1000genomes
 ## data that's a safe assumption
 control_files = Dir.entries(cfg['control.var.loc'])
@@ -71,42 +63,70 @@ control_files.each do |f|
   end
 end
 
-ranked_locations = load_filter_locations(filter_file, info)
-#ranked_locations.each do |loc|
-#  puts loc.join(",")
-#end
+## All patient variation locations by chromosome
+loc_file = "#{cfg['patient.var.loc']}/chr_locations.txt"
+patient_locations = {}
+File.open(loc_file, 'r').each_line do |line|
+  line.chomp!
+  next if line.start_with? "#"
+  line = line.split("\t")
+  chr = line.slice!(0)
+  patient_locations[chr] = line[1..-1].map!{|e| Integer(e) }
+end
 
-## -- PATIENTS -- ##
+
+# Filter out patient locations that don't fit the ranked list
+ranged_locations = {}
+ranked_locations.each_pair do |chr, list|
+  ranged_locations[chr] = list.map { |e| Range.new(e[0], e[1]) }
+end
+
+filtered_patients = Hash[ranged_locations.keys.map{|l| [l, []]}]
+ranged_locations.each_pair do |chr, ranges|
+  next unless chr == '12'
+  patient_locations[chr].each do |ploc|
+    ranges.each do |range|
+      if range.include?ploc
+        filtered_patients[chr] << ploc
+        break
+      end
+    end
+  end
+end
+filtered_patients.each_pair{ |k,list| list.sort! }
+
+## Get control variations for the list of patient variations?
 
 
 ## -- CONTROLS -- ##
 # Get variations for controls in each location
 puts "Getting control variations."
 
-Dir.foreach(cfg['control.var.loc']) do |entry|
-  file = "#{cfg['control.var.loc']}/#{entry}"
-  File.open(file, 'r')
-end
-
 
 ctrl_temp = "#{cfg['output.dir']}/vcf-tmp"
 FileUtils.mkpath(ctrl_temp) unless File.exists?(ctrl_temp)
 
-ranked_locations.each_pair do |chr, list|
+## pull out subsets of the VCF files first ## TODO THIS IS NOT FINISHED / WORKING IN ANY SENSE, was just moving code around
+ranked_locations.each_pair do |chr, location_pairs|
   next unless chr.eql? '12'
   file = "#{cfg['control.var.loc']}/#{control_vcf[chr]}"
 
-  list.each do |loc|
-    mdr_file = "temp.mdr"
-    ctrl = COGIE::ControlSample.new(file, {:tabix => "#{chr}:#{loc[0]}-#{loc[1]}", :out => ctrl_temp})
+  location_pairs.each do |lp|
+    ctrl = COGIE::ControlSample.new(file, {:tabix => "#{chr}:#{lp.join("-")}}", :out => ctrl_temp})
 
-    ##positions = ctrl.pos.keys
-    #puts "Sample\t" + positions.join("\t")
-    #ctr.pos.each_pair do |pos, vcf|
-    #  print "#{pos}\t"
-    #  ctrl.samples.each do |s|
-    #
-    #  end
+    all_locs = []
+    File.open(ctrl.ct_file, 'r').each_line do |line|
+      next if line.start_with? "#"
+      v = Vcf.new(line)
+      all_locs << v.pos
+#      COGIE::Func.mdr_genotype(v.samples['1']['GT'])
     end
+
   end
+end
+
+
+filtered_patients.each do |chr, list|
+  next unless chr == '12'
+
 end

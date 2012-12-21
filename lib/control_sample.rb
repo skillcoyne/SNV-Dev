@@ -6,7 +6,7 @@ module COGIE
   ## The assumption is that these are VCF files
   class ControlSample
 
-    attr_reader :name, :samples, :from, :to, :pos
+    attr_reader :name, :samples, :from, :to, :pos, :ct_file
 
     # Uses samtools:tabix to read a VCF file given chromosome, from, to locations and returns the sample information for the given file
     # Params:
@@ -19,7 +19,7 @@ module COGIE
         @chr = $1; @from = $2; @to = $3
         (opts[:out]) ? (@tmp_output_dir = opts[:out]) : (@tmp_output_dir = Dir.tmpdir)
         run_tabix(opts)
-        #parse_variations
+        parse_variations
       else
         #parse_variations
       end
@@ -39,7 +39,7 @@ module COGIE
       sample = File.basename(@ct_file)
       sample.sub!(/\..*/, "")
       @name = sample
-      @sample = {}
+      @samples = {}
       @pos = {}
 
       File.open(@ct_file, 'r').each_with_index do |line, index|

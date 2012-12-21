@@ -69,12 +69,12 @@ module COGIE
       gt.match(/(\d)[:|\/|\|](\d)/)
       h1 = Integer($1); h2 = Integer($2)
 
-      case  # this is actuall problemmatic...not sure how I should interpret 0|1 as 0|0 is not reported
-        when h1+h2 <= 1
+      case  # I think it's appropriate to report 0/1 as 1
+        when h1+h2 == 0
           return 0
-        when h1+h2 <= 2
+        when h1+h2 <= 1
           return 1
-        when h1+h2 == 3
+        when h1+h2 <= 3
           return 2
       end
     end
