@@ -71,7 +71,7 @@ File.open(loc_file, 'r').each_line do |line|
   next if line.start_with? "#"
   line = line.split("\t")
   chr = line.slice!(0)
-  patient_locations[chr] = line[1..-1].map!{|e| Integer(e) }
+  patient_locations[chr] = line[1..-1].map! { |e| Integer(e) }
 end
 
 
@@ -81,52 +81,119 @@ ranked_locations.each_pair do |chr, list|
   ranged_locations[chr] = list.map { |e| Range.new(e[0], e[1]) }
 end
 
-filtered_patients = Hash[ranged_locations.keys.map{|l| [l, []]}]
+filtered_patients = Hash[ranged_locations.keys.map { |l| [l, []] }]
+#filtered_patients.each_pair do |k, v|
+#  filtered_patients[k] = Hash[ranged_locations[k].map {|r| [r, []]} ]
+#end
+
 ranged_locations.each_pair do |chr, ranges|
-  next unless chr == '12'
+  #next unless chr == '12'
+  next unless patient_locations.has_key? chr
   patient_locations[chr].each do |ploc|
     ranges.each do |range|
-      if range.include?ploc
+      if range.include? ploc
         filtered_patients[chr] << ploc
         break
       end
     end
   end
 end
-filtered_patients.each_pair{ |k,list| list.sort! }
+filtered_patients.delete_if { |chr, list| list.length <= 0 }
+temp_filt_pts = {}
+filtered_patients.each_pair { |k, list|
+  list.sort!
+  list.push(list[-1]+100) if list.length%2 > 0
+  temp_filt_pts[k] = list.each_slice(2).to_a
+}
+filtered_patients = temp_filt_pts
+
+#puts YAML::dump filtered_patients['12']
+#
+#exit
 
 ## Get control variations for the list of patient variations?
 
-
 ## -- CONTROLS -- ##
-# Get variations for controls in each location
+# Get variations for controls in each location that patients also have variations
+# Am not including all possible locations in the control file as that will greatly increase
+# the MDR files and decrease possible hits
 puts "Getting control variations."
-
 
 ctrl_temp = "#{cfg['output.dir']}/vcf-tmp"
 FileUtils.mkpath(ctrl_temp) unless File.exists?(ctrl_temp)
 
 ## pull out subsets of the VCF files first ## TODO THIS IS NOT FINISHED / WORKING IN ANY SENSE, was just moving code around
-ranked_locations.each_pair do |chr, location_pairs|
+controls = {}
+filtered_patients.each_pair do |chr, locations|
   next unless chr.eql? '12'
   file = "#{cfg['control.var.loc']}/#{control_vcf[chr]}"
-
-  location_pairs.each do |lp|
+  #location_pairs.map! { |lp| controls[chr] << COGIE::ControlSample.new(file, {:tabix => "#{chr}:#{lp.join("-")}}", :out => ctrl_temp}) }
+  locations.each do |lp|
     ctrl = COGIE::ControlSample.new(file, {:tabix => "#{chr}:#{lp.join("-")}}", :out => ctrl_temp})
+    ctrl.parse_variations
+    #puts YAML::dump ctrl.pos
+    v = ctrl.pos
+    ctrl.pos.each_pair do |pos, v|
+      puts YAML::dump v.keys
 
-    all_locs = []
-    File.open(ctrl.ct_file, 'r').each_line do |line|
-      next if line.start_with? "#"
-      v = Vcf.new(line)
-      all_locs << v.pos
-#      COGIE::Func.mdr_genotype(v.samples['1']['GT'])
+      v.samples.each_key do |s|
+        puts v.samples[s]['GT']
+      end
     end
-
+    break
   end
-end
-
-
-filtered_patients.each do |chr, list|
-  next unless chr == '12'
 
 end
+exit
+
+#ranked_locations.each_pair do |chr, location_pairs|
+#  next unless chr.eql? '12'
+#  controls[chr] = []
+#  file = "#{cfg['control.var.loc']}/#{control_vcf[chr]}"
+#  location_pairs.map! { |lp| controls[chr] << COGIE::ControlSample.new(file, {:tabix => "#{chr}:#{lp.join("-")}}", :out => ctrl_temp}) }
+#end
+#
+#
+#filtered_patients.each_pair do |chr, locations|
+#  puts "#{chr} #{locations.length}"
+#end
+#
+#exit
+#
+#filtered_patients.each_pair do |chr, locations|
+#  next unless chr.eql? '12'
+#  locations.each do |loc|
+#    ranked_locations[chr]
+#  end
+#  location_pairs.each do |lp|
+#    ctrl = COGIE::ControlSample.new(file, {:tabix => "#{chr}:#{lp.join("-")}}", :out => ctrl_temp})
+#    current_range = Range.new(lp[0], lp[1])
+#
+#    filtered_patients[chr].each do |loc|
+#      puts loc
+#      if current_range.include? loc
+#        puts "*** #{loc}"
+#      end
+#    end
+#  end
+#end
+
+#puts YAML::dump ranked_locations['12']
+
+
+#all_locs = []
+#puts "Getting locations from #{ctrl.ct_file}"
+#File.open(ctrl.ct_file, 'r').each_with_index do |line, index|
+#  next if line.start_with? "#"
+#  printf "." if index%50 == 0
+#  v = Vcf.new(line)
+#  all_locs << v.pos
+#  puts YAML::dump v
+##      COGIE::Func.mdr_genotype(v.samples['1']['GT'])
+#  break if index > 20
+#end
+#puts ""
+#end
+#end
+#
+
