@@ -7,7 +7,10 @@ require_relative 'lib/ensembl_info'
 require_relative 'lib/cogie_patient'
 require_relative 'lib/control_sample'
 require_relative 'lib/func'
+require_relative 'lib/simple_matrix'
 
+
+## TODO: Need to go back to this...the ranked locations cannot be sorted!
 
 def load_filter_locations(filterfile, gi)
   locations = {}
@@ -31,7 +34,7 @@ def load_filter_locations(filterfile, gi)
       locations[info[:chr]] << [info[:start], info[:end]] unless info.nil?
     end
   end
-  locations.each_pair { |k, v| locations[k] = v.sort! }
+  #locations.each_pair { |k, v| locations[k] = v.sort! }
   return locations
 end
 
@@ -48,8 +51,8 @@ end
 config_defaults = YAML.load_file("resources/cogie.config.example")
 cfg = Utils.check_config(ARGV[0], config_defaults)
 
+# Get the locations in rank order
 ranked_locations = load_filter_locations(cfg['ranked.list'], EnsemblInfo.new(cfg['gene.loc']))
-
 
 # List control VCF files
 ## This assumes that the control files are organized per chromosome, but since I'm using 1000genomes
@@ -82,9 +85,6 @@ ranked_locations.each_pair do |chr, list|
 end
 
 filtered_patients = Hash[ranged_locations.keys.map { |l| [l, []] }]
-#filtered_patients.each_pair do |k, v|
-#  filtered_patients[k] = Hash[ranged_locations[k].map {|r| [r, []]} ]
-#end
 
 ranged_locations.each_pair do |chr, ranges|
   #next unless chr == '12'
@@ -119,31 +119,45 @@ filtered_patients = temp_filt_pts
 # the MDR files and decrease possible hits
 puts "Getting control variations."
 
-ctrl_temp = "#{cfg['output.dir']}/vcf-tmp"
+ctrl_temp = "#{cfg['output.dir']}/vcf"
 FileUtils.mkpath(ctrl_temp) unless File.exists?(ctrl_temp)
 
+mdr_temp = "#{cfg['output.dir']}/mdr"
+FileUtils.rm_rf(mdr_temp) if File.exists?mdr_temp
+FileUtils.mkpath(mdr_temp)
+
 ## pull out subsets of the VCF files first ## TODO THIS IS NOT FINISHED / WORKING IN ANY SENSE, was just moving code around
-controls = {}
+
 filtered_patients.each_pair do |chr, locations|
   next unless chr.eql? '12'
   file = "#{cfg['control.var.loc']}/#{control_vcf[chr]}"
-  #location_pairs.map! { |lp| controls[chr] << COGIE::ControlSample.new(file, {:tabix => "#{chr}:#{lp.join("-")}}", :out => ctrl_temp}) }
-  locations.each do |lp|
+  mdr = SimpleMatrix.new()
+
+  files = []
+  locations.each_with_index do |lp, i|
     ctrl = COGIE::ControlSample.new(file, {:tabix => "#{chr}:#{lp.join("-")}}", :out => ctrl_temp})
     ctrl.parse_variations
-    #puts YAML::dump ctrl.pos
-    v = ctrl.pos
-    ctrl.pos.each_pair do |pos, v|
-      puts YAML::dump v.keys
+    puts "Variations parsed...for #{lp}"
 
-      v.samples.each_key do |s|
-        puts v.samples[s]['GT']
-      end
+    ctrl.pos.sort.map do |position, samples|
+      mdr.rownames = samples.map{|s,v| s }
+      mdr.add_column(position,  samples.map {|s, v| v['GT'] })
+      puts "Current size: " +  mdr.size.join(", ")
+
     end
-    break
   end
+  filename = "#{mdr_temp}/#{chr}.txt"
+  mdr.write(filename)
 
+  #puts "Contatenating #{files.length} files to #{cfg['output.dir']}/#{chr}.txt"
+  #system("cat #{files.join(" ")} > #{cfg['output.dir']}/#{chr}.txt")
+  #FileUtils.remove(files)
 end
+
+
+
+
+
 exit
 
 #ranked_locations.each_pair do |chr, location_pairs|
