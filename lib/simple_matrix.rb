@@ -89,6 +89,7 @@ class SimpleMatrix
     matrix_string = self.to_s(opts[:rownames], opts[:colnames])
     if file
       File.open(file, 'w') { |fout| fout.write(matrix_string) }
+      puts "#{file} written."
     else
       puts matrix_string
     end

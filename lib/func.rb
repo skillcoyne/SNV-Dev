@@ -25,7 +25,7 @@ module COGIE
         'MUT_CDNA', 'MUT_PROT', 'PREDICTION']
 
 
-    attr_reader :chr, :from, :to, :type, :reads, :genotype, :gene
+    attr_reader :chr, :from, :to, :type, :reads, :genotype, :gene, :line
 
     def self.check_format(file)
       patient = File.basename(file).sub!(/\..*$/, "")
@@ -59,7 +59,7 @@ module COGIE
       elsif obj.is_a?self
         gt = obj.genotype
       else
-        raise ArgumentError, "#{__method__} requires a genotype phased string (0/1) or a #{self.name} object"
+        raise ArgumentError, "#{__method__} requires a genotype phased string (0/1) or a #{self.name} object. (#{obj} provided)"
       end
 
       if gt.nil? or gt.eql?""
@@ -81,7 +81,7 @@ module COGIE
 
 
     def initialize(line)
-      raise FileFormatError, "Columns do not match" unless line.split("\t").length.eql? @@colnames.length
+      raise FileFormatError, "Columns do not match (#{@@colnames.length})" unless line.split("\t").length.eql? @@colnames.length
       parse(line)
     end
 
@@ -89,6 +89,7 @@ module COGIE
 
     def parse(line)
       line.chomp!
+      @line = line
       cols = line.split("\t")
 
       (@chr, from, to) = cols[0..2]

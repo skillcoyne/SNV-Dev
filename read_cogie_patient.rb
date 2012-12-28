@@ -6,6 +6,7 @@ require_relative 'lib/ensembl_info'
 require_relative 'lib/cogie_patient'
 require_relative 'lib/control_sample'
 require_relative 'lib/func'
+require_relative 'lib/simple_matrix'
 
 
 if ARGV.length < 1
@@ -19,51 +20,57 @@ cfg = Utils.check_config(ARGV[0], config_defaults)
 
 ## Two pass read
 # 1. Read all patient files and get all locations by chromosome?
-# 2. Output MDR matrix per chromsome?
-
+# 2. Break up the patient file by chromosome for simplicity.
 
 ## 1st PASS
 # Get patient variations in each location
 loc_file = "#{cfg['patient.var.loc']}/chr_locations.txt"
-if File.exist? loc_file # No reason to create it twice
-  puts "Using previously generated location file #{loc_file}. To regenerate this file delete it then rerun this script."
-else
-  locations = {}
-  Dir.foreach(cfg['patient.var.loc']) do |entry|
-    next if entry.match(/^\./)
-    file = "#{cfg['patient.var.loc']}/#{entry}"
-    puts "Reading patient file #{file}..."
+puts "Output text file of all patient variation locations by chromosome. Break up each patient file by chromosome."
+locations = {}
+Dir.foreach(cfg['patient.var.loc']) do |entry|
+  next unless entry.match(/\.func$/)
+  file = "#{cfg['patient.var.loc']}/#{entry}"
 
-    begin
+  puts "Reading patient file #{file}..."
 
-      File.open(file, 'r').each_with_index do |line, index|
-        next unless index > 2
-        next if line.start_with? "#" # the header lines are repeated throughout the file
-        printf "." if index%500 == 0; printf "\n" if index%(500*200) == 0
+  patient_dir = "#{cfg['patient.var.loc']}/" + File.basename(file).sub!(/\..*$/, "")
+  FileUtils.rm_rf(patient_dir) if (File.exists?patient_dir and File.directory?patient_dir)
+  FileUtils.mkpath(patient_dir)
 
-        func = COGIE::Func.parse_line(line)
-        locations[func.chr] = [] unless locations.has_key? func.chr
+  begin
+    File.open(file, 'r').each_with_index do |line, index|
+      next unless index > 2
+      next if line.start_with? "#" # the header lines are repeated throughout the file
+      printf "." if index%500 == 0; printf "\n" if index%(500*200) == 0
 
-        locations[func.chr] << func.from
-      end
+      func = COGIE::Func.parse_line(line)
 
-    rescue COGIE::FileFormatError => e
-      warn "Error reading #{file}: #{e.message}"
-      puts e.backtrace
+      # Write to corresponding chromosome file
+      chr_file = "#{patient_dir}/Chr#{func.chr}.func"
+      (File.exists? chr_file) ? (wa = 'a') : (wa = 'w')
+      File.open(chr_file, wa) { |fout| fout.write("#{line}\n") }
+
+      locations[func.chr] = [] unless locations.has_key? func.chr
+      locations[func.chr] << func.from
     end
 
-    locations.each_pair { |k, v| v.uniq!; v.sort! }
+  rescue COGIE::FileFormatError => e
+    warn "Error reading #{file}: #{e.message}"
+    puts e.backtrace
   end
-
-  # This file will be used later
-  locations = Hash[locations.sort]
-  File.open(loc_file, 'w') do |fout|
-    fout.write "# Each line is formatted as: <chr> <list of locations from patient files>\n"
-    locations.each_pair do |chr, locs|
-      fout.write "#{chr}\t" + locs.join("\t") + "\n"
-    end
+  locations.each_pair { |k, v| v.uniq!; v.sort! }
+end
+# This file will be used later
+locations = Hash[locations.sort]
+File.open(loc_file, 'w') do |fout|
+  fout.write "# Each line is formatted as: <chr> <list of locations from patient files>\n"
+  locations.each_pair do |chr, locs|
+    fout.write "#{chr}\t" + locs.join("\t") + "\n"
   end
 end
+
+
+exit
 
 
 ## 2nd PASS, create MDR files per chromosome
@@ -84,6 +91,7 @@ File.open(loc_file, 'r').each_line do |line|
   locs.map! { |l| Integer(l) }
 
   puts "Writing MDR file for chromosome #{chr}."
+  #mdr = SimpleMatrix.new()
 
   mdr_file = "#{mdrdir}/Chr#{chr}.txt"
   mdrout = File.open(mdr_file, 'w')

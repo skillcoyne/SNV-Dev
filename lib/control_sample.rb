@@ -2,20 +2,14 @@ require 'vcf'
 require 'tmpdir'
 
 module COGIE
+  class Locations < Struct.new(:locations, :chr)
+  end
 
   ## The assumption is that these are VCF files
   class ControlSample
 
     attr_reader :name, :samples, :from, :to, :pos, :ct_file
 
-
-    def self.as_matrix(*args)
-      matrix =
-      args.each do |cs|
-        samples = cs.samples
-
-      end
-    end
 
     # Uses samtools:tabix to read a VCF file given chromosome, from, to locations and returns the sample information for the given file
     # Params:
@@ -38,18 +32,20 @@ module COGIE
       @samples = []
       @pos = {}
 
+      lines = []
       File.open(@ct_file, 'r').each_with_index do |line, index|
         line.chomp!
-        last_samp = nil
         next if line.start_with? "#"
-        printf "." if index%50 == 0
+        printf "." if (index > 0 and index%50 == 0)
         vcf = Vcf.new(line)
-        last_samp = vcf.samples.length if last_samp.nil?
         @samples = vcf.samples.keys if @samples.empty?
         @pos[vcf.pos] = vcf.samples
+        lines << vcf
       end
+      @samples.map!{|e| e.to_i }
       @samples.uniq!
       @samples.sort!
+      return lines
     end
 
 
@@ -60,7 +56,7 @@ module COGIE
       tlocfile = "#{@tmp_output_dir}/chr#{@chr}.#{@from}-#{@to}.vcf"
       unless File.exists? tlocfile
         cmd = "tabix #{@ct_file} #{opts[:tabix]} > #{tlocfile}"
-        puts cmd
+        #puts cmd
         sys = system("#{cmd}")
         raise StandardError, "tabix failed to run, please check that it is installed an available in your system path." unless sys
       else
@@ -68,9 +64,6 @@ module COGIE
       end
       @ct_file = tlocfile
     end
-
-
-
 
   end
 end
