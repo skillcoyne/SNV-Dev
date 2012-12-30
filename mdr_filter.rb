@@ -9,17 +9,20 @@ require_relative 'lib/cogie_patient'
 require_relative 'lib/control_sample'
 require_relative 'lib/func'
 require_relative 'lib/simple_matrix'
+require_relative 'lib/mdr_script'
 
-
+# Read filter file.  Two possible formats for each line (the file can be a mix of these):
+# 1)  chr   from-location   to-location
+# 2)  ensembl-gene-id     <anything else is ignored>
+# An UNSORTED list of locations (ranges) and chromosomes is returned.
+# This list must stay unsorted as the filter file is presumed to be provided in RANKED order and the list
+# preserves the ranking.
 def load_filter_locations(filterfile, gi)
   locations = []
-
   File.open(filterfile, 'r').each_with_index do |line, index|
     line.chomp!
     cols = line.split("\t")
-
-    # location
-    if cols[0].match(/^\d+|X|Y|MT/)
+    if cols[0].match(/^\d+|X|Y|MT/) # location
       chr = cols[0]
       from = Integer(cols[1])
       to = Integer(cols[2])
@@ -36,7 +39,6 @@ def load_filter_locations(filterfile, gi)
   end
   return locations
 end
-
 
 # Reads through the .func file provided and returns the variation at the given location
 def find_patient_variation(file, location)
@@ -55,20 +57,38 @@ def find_patient_variation(file, location)
   end
 end
 
-## TODO: Need to create the control MDR matrix only once per filter
-if ARGV.length < 1
-  puts "Usage: #{$0} <configuration file>"
-  exit
+
+##TODO  alter this to use the java MDR tool
+def run_scripts(opts = {})
+  script_path = opts[:output_path]
+  puts script_path
+  Dir.foreach(script_path) do |entry|
+    puts entry
+    next unless File.extname(entry).eql? ".R"
+    chr = entry.sub("_mdrAnalysis.R", '')
+    cmd = "oarsub -l core=#{opts[:cores]},walltime=#{opts[:walltime]}"
+    cmd = "#{cmd} -n MDR_#{chr} --stdout=#{script_path}/output/summary_#{chr}.out --stderr=#{script_path}/error/#{chr}.err  #{script_path}/#{entry}"
+    puts "Starting #{cmd}"
+    system("#{cmd}")
+  end
 end
 
 
-## Inputs
-# Configuration file, see resources/cogie.config.example
+
+
+### ---- START MAIN ---- ###
+if ARGV.length < 1
+  puts "Usage: #{$0} <configuration file>\nSee the cogie.config.example file."
+  exit 2
+end
+
+
+## Configuration file is expected as input.  Read.
+# see resources/cogie.config.example
 config_defaults = YAML.load_file("resources/cogie.config.example")
 cfg = Utils.check_config(ARGV[0], config_defaults)
 
 # Get the locations in rank order
-# DO NOT SORT!
 ranked_locations = load_filter_locations(cfg['ranked.list'], EnsemblInfo.new(cfg['gene.loc']))
 
 # List control VCF files
@@ -90,7 +110,10 @@ patient_files = Dir.entries(cfg['patient.var.loc'])
 patient_files.each do |f|
   if f.match(/\.func$/)
     pdir = "#{cfg['patient.var.loc']}/" + File.basename(f).sub!(/\..*$/, "")
-    raise StandardError, "Patient directories missing. Please rerun patient file indexing script." unless (File.exists? pdir and File.directory? pdir)
+    unless (File.exists? pdir and File.directory? pdir)
+      puts "ERROR: Patient directories missing. Please rerun patient file indexing script."
+      exit 2
+    end
     patient_dirs << pdir
   end
 end
@@ -146,7 +169,7 @@ ctrl_temp_dir = "#{cfg['output.dir']}/vcf"
 FileUtils.rm_rf(ctrl_temp_dir) if File.exists? ctrl_temp_dir
 FileUtils.mkpath(ctrl_temp_dir)
 
-mdr_temp_dir = "#{cfg['output.dir']}/mdr"
+mdr_temp_dir = "#{cfg['output.dir']}/mdr/#{Utils.date}"
 FileUtils.rm_rf(mdr_temp_dir) if File.exists? mdr_temp_dir
 FileUtils.mkpath(mdr_temp_dir)
 
@@ -181,7 +204,6 @@ end
 # Patient directories where each chromosome file is kept
 puts "Getting patient variations."
 ranked_patient_locations.sort.map do |rank, locations|
-
   row = []
   locations.each do |cvp|
     cvp.locations.each do |loc|
@@ -198,10 +220,14 @@ ranked_patient_locations.sort.map do |rank, locations|
   # Add the class variable to the row
   row << "1"
   mdrfile = "#{cfg['output.dir']}/Rank#{rank}-ctrl.txt"
-  FileUtils.copy(mdrfile, "#{cfg['output.dir']}/mdr/Rank#{rank}.txt")
-  mdrfile = "#{cfg['output.dir']}/mdr/Rank#{rank}.txt"
+  FileUtils.copy(mdrfile, "#{mdr_temp_dir}/Rank#{rank}.txt")
+  mdrfile = "#{mdr_temp_dir}/Rank#{rank}.txt"
   puts "Writing #{mdrfile}"
   File.open(mdrfile, 'a') { |f| f.write(row.join("\t") + "\n") }
+
+  ## Todo this call is not yet working.  Need to go to Gaia and look again at how the Java tool is set up
+  ms = MDRScript.write_script(mdr_temp_dir, cfg['mdr.analysis.dir'], 'Java', cfg['mdr.max'], cfg['mdr.K'])
+
 end
 
 

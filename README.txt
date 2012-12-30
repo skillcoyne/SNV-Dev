@@ -12,9 +12,10 @@ Current steps in SNP epistasis identification/annotation:
 
 2. Extract all locations that have identified alterations from the patient files.  This step can take some time depending
  on the number of patients.  The resulting locations file is used in subsequent scripts.
- > ruby read_cogie_patient.rb <cogie.config file location>
+> ruby index_cogie_patient.rb <cogie.config file location>
 
 3. Run mdr_filter.rb with the config file from above.
+> ruby mdr_filter.rb  <cogie.config file location>
 
 4. TODO - rewrite run_analysis.rb script for Java MDR.
     a. This step will output the require OAR scripts and run them on the cluster.

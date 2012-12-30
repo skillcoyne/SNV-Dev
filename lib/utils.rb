@@ -14,10 +14,7 @@ class Utils
 
   def self.check_config(cfg_file, cfg_def)
     puts "Using #{cfg_file} config file"
-
     cfg = YAML.load_file(cfg_file)
-
-
     if cfg.keys.sort!.eql?cfg_def.keys.sort!
       return cfg
     else
@@ -26,27 +23,6 @@ class Utils
       exit(1)
     end
   end
-
-
-
-
-  #$cfg_defaults = {
-  #    #GWA
-  #    'gwa.control' => '/<path to>/ control.dat',
-  #    'gwa.seed' => 'some number',
-  #    'chr.output' => '/<path to chr files>/',
-  #
-  #    # MDR
-  #    'mdr.type' => 'R or java',
-  #    'mdr.K' => 2,
-  #    'mdr.max' => 50,
-  #    'mdr.analysis.dir' => '/<ouptut path for R files>/',
-  #
-  #    # OAR Cluster
-  #    'oar.core' => 1,
-  #    'oar.walltime' => 1,
-  #    'oar.notify' => 'mail:skillcoyne\@gmail.com'
-  #}
 
 
 end
