@@ -1,38 +1,63 @@
 require 'yaml'
 
-## TODO rewrite for Java MDR
 class MDRScript
+
+  attr_reader :files
 
   def initialize(input_path, output_path)
     @in_path = input_path
     @out_path = output_path
   end
 
-  def self.write_script(input_path, output_path, type = "Java", max = 50, k = 2)
-    self.new(input_path, output_path)
 
+  def write_script(opts = {})
+    @files = []
+    raise ArgumentError, "Required options: :type (Java/R), :jar (if :type=Java) :max (if :type=R) and k" unless (opts[:type] and opts[:type].eql? 'Java' or opts[:type].eql 'R')
     Dir.foreach(@in_path) do |entry|
       file = "#{@in_path}/#{entry}"
       next unless File.extname(file).eql? ".mdr"
-
-      if type.eql? 'R'
-        R(file, max, k)
-      elsif type.eql? 'Java'
-        Java_script(file, max, k)
+      if opts[:type].eql? 'R'
+        @files << R(file, opts[:max], opts[:k])
+      elsif opts[:type].eql? 'Java'
+        @jar_path = opts[:jar]
+        @files << Java_script(file, opts[:k])
       else
-        puts "No MDR tool for type '#{type}'"
+        puts "No MDR tool for type '#{opts[:type]}'"
       end
     end
+    @files
   end
 
-  def Java_script(mdrfile, max, k)
+
+  def run_script(filename, cores = 2, walltime = 84)
+    base = File.basename(filename).sub(/\.*$/, "")
+    cmd = "oarsub -l core=#{opts[:cores]},walltime=#{opts[:walltime]}"
+    cmd = "#{cmd} -n MDR_#{base} --stdout=#{@out_path}/output/summary_#{base}.out --stderr=#{@out_path}/error/#{base}.err  #{@out_path}/#{filename}"
+    puts "Starting #{cmd}"
+    system("#{cmd}")
+  end
+
+
+  :private
+
+  def write(file, script) ## todo this is just copied from run_analysis.rb, it's not workable
+    File.open("#{@out_path}/#{file}", 'w') { |f| f.write(script) }
+    FileUtils.chmod(0776, "#{@out_path}/#{file}")
+    return "#{@out_path}/#{file}"
+  end
+
+  def Java_script(mdrfile, k)
+    output = File.basename(mdrfile).sub(/\..*$/, "")
+    jar = @jar_path || "MDR.jar"
     java =<<-Java
-
+java -jar #{jar} -parallel -nolandscape -top_models_landscape_size=5 -cv=10 -max=#{k} #{mdrfile} > #{@out_path}/#{output}.txt
     Java
+    return write("#{output}.sh", java)
   end
 
-
+  ## Not tested for R as this was adapted from the SNV-Dev run_analysis script
   def R(mdrfile, max, k)
+    output = File.basename(mdrfile).sub(/\..*$/, "")
     r_script =<<-R
 #!/usr/bin/env Rscript
 library(MDR)
@@ -73,19 +98,7 @@ fit$'final model'<-finalm
 
 print(summary(fit))
     R
-    return r_script
-  end
-
-  :private
-
-  def write_script(script) ## todo this is just copied from run_analysis.rb, it's not workable
-    filename = File.basename(opts[:input_file], ".mdr")
-
-    File.open("#{@out_path}/#{filename}_#{$script}", 'w') { |f| f.write(r_script) }
-    FileUtils.chmod(0776, "#{@out_path}/#{filename}_#{$script}")
-
-    opts[:r_script] = "#{opts[:output_path]}/#{filename}_#{$script}"
-
+    return write("#{output}.R", r_script)
   end
 
 

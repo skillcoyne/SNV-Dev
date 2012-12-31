@@ -2,7 +2,27 @@ require 'vcf'
 require 'tmpdir'
 
 module COGIE
-  class Locations < Struct.new(:locations, :chr)
+
+  class Locations
+    attr_reader :locations, :chr
+
+    def initialize(list, chr)
+      @locations = list; @chr = chr
+      @locations = [] if (list.empty? or list.nil?)
+    end
+
+    def merge!(obj)
+      raise ArgumentError, "Chromosomes don't match, cannot merge locations." unless @chr.eql? obj.chr
+      @locations = @locations | obj.locations
+      @locations.flatten
+      @locations.uniq!
+      @locations.sort!
+      self
+    end
+
+    def to_s
+      "<#{self.class.name} Chr#{@chr}: locations:#{@locations.length}>"
+    end
   end
 
   ## The assumption is that these are VCF files
@@ -42,7 +62,7 @@ module COGIE
         @pos[vcf.pos] = vcf.samples
         lines << vcf
       end
-      @samples.map!{|e| e.to_i }
+      @samples.map! { |e| e.to_i }
       @samples.uniq!
       @samples.sort!
       return lines

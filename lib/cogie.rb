@@ -3,6 +3,34 @@ module COGIE
   class FileFormatError < StandardError
   end
 
+  class PVUtil
+    @files = {}
+    class << self  # thought I was being clever and keeping the open filehandles around but doesn't seem to work, meh
+      def open_file(filename)
+        @files[filename] ||= File.open(filename, 'r')
+      end
+    end
+
+    def self.find_patient_variation(file, location)
+      fh = self.open_file(file)
+      fh.each_with_index do |line, i|
+        line.chomp!; next if line.start_with? "#"
+        begin
+          cf = COGIE::Func.parse_line(line)
+          ## NOTE: in this case we are dealing only with SNPs
+          if cf.from.eql? location
+            return cf.genotype
+          end
+        rescue COGIE::FileFormatError => e
+          warn "Error reading #{file} at line #{i}: #{e.message}"
+        end
+      end
+      return nil
+    end
+
+  end
+
+
   ## This class is specific to the .func file format that was provided by Cologne.  If a different format
   ## like VCF is used then this just has to be switched out in the COGIEPatient class.
   class Func
@@ -47,29 +75,33 @@ module COGIE
 
     # If you really want in instantiate this way
     def self.parse_line(line)
-      self.new(line)
+      return self.new(line)
     end
 
     # / unphased  |  phased in VCF files. Since MDR isn't dealing in haplotypes we just need
     # a 0,1,2 for the diploid sequence
     # Func files add :  as well with no explanation so treat them identically for now
     def self.mdr_genotype(obj)
-      if obj.is_a?String and obj.match(/\d[:|\/|\|]\d/)
+      if obj.is_a? String
         gt = obj
-      elsif obj.is_a?self
+      elsif obj.is_a? self
         gt = obj.genotype
       else
         raise ArgumentError, "#{__method__} requires a genotype phased string (0/1) or a #{self.name} object. (#{obj} provided)"
       end
 
-      if gt.nil? or gt.eql?""
+      if gt.nil? or gt.eql? ""
         return "NA"
       end
 
-      gt.match(/(\d)[:|\/|\|](\d)/)
-      h1 = Integer($1); h2 = Integer($2)
+      (h1, h2) = gt.split(/:|\/|\|/)
+      #gt.match(/(\d)[:|\/|\|](\d)/)
+      #h1 = Integer($1); h2 = Integer($2)
+      h2 = 0 if h2.nil?
+      h1 = h1.to_i
+      h2 = h2.to_i
 
-      case  # I think it's appropriate to report 0/1 as 1
+      case # I think it's appropriate to report 0/1 as 1
         when h1+h2 == 0
           return 0
         when h1+h2 <= 1
@@ -84,6 +116,7 @@ module COGIE
       raise FileFormatError, "Columns do not match (#{@@colnames.length})" unless line.split("\t").length.eql? @@colnames.length
       parse(line)
     end
+
 
     :private
 

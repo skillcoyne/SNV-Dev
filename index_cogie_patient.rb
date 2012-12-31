@@ -2,7 +2,7 @@ require 'fileutils'
 require 'yaml'
 
 require_relative 'lib/utils'
-require_relative 'lib/func'
+require_relative 'lib/cogie'
 
 ## This script essentially indexes (cheaply, no true index is created) the patient files.
 ## All patients the directory indicated by the configuration file will be read and two actions performed.
@@ -22,7 +22,7 @@ cfg = Utils.check_config(ARGV[0], config_defaults)
 
 # Get patient variations in each location
 loc_file = "#{cfg['patient.var.loc']}/chr_locations.txt"
-puts "Output text file of all patient variation locations by chromosome. Break up each patient file by chromosome."
+
 locations = {}
 Dir.foreach(cfg['patient.var.loc']) do |entry|
   next unless entry.match(/\.func$/)
@@ -40,7 +40,7 @@ Dir.foreach(cfg['patient.var.loc']) do |entry|
     File.open(file, 'r').each_with_index do |line, index|
       next unless index > 2
       next if line.start_with? "#" # the header lines are repeated throughout the file
-      printf "." if index%500 == 0; printf "\n" if index%(500*200) == 0
+      printf "." if index%500 == 0; #printf "\n" if index%(500*200) == 0
 
       func = COGIE::Func.parse_line(line)
 
@@ -48,13 +48,11 @@ Dir.foreach(cfg['patient.var.loc']) do |entry|
       chr_file = "#{patient_dir}/Chr#{func.chr}.func"
       (File.exists? chr_file) ? (wa = 'a') : (wa = 'w')
       File.open(chr_file, wa) { |fout| fout.write("#{line}\n") }
-
       locations[func.chr] = [] unless locations.has_key? func.chr
       locations[func.chr] << func.from
     end
   rescue COGIE::FileFormatError => e  # Note that the file format expected is specific to the COGIE project.
     warn "Error reading #{file}: #{e.message}"
-    #puts e.backtrace
   end
   locations.each_pair { |k, v| v.uniq!; v.sort! }
 end
@@ -68,3 +66,4 @@ File.open(loc_file, 'w') do |fout|
   end
 end
 
+puts "\n#{loc_file} written."

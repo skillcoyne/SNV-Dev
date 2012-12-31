@@ -21,13 +21,14 @@ patient.var.loc: /<path to patient variation file dir>
 output.dir: /< for various temp files>
 
 # MDR
+mdr.jar: /<name of MDR.jar file, path necessary if it isn't pathed on the system>
 mdr.K: 2
 mdr.max: 50
 mdr.analysis.dir: /<ouptut path>/
 
 # OAR Cluster
-oar.core: 1
-oar.walltime: 1
+oar.core: 5
+oar.walltime: 168
 
 
 
