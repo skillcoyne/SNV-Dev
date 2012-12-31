@@ -1,9 +1,10 @@
 REQUIRED TOOLS:
+  - Ruby v 1.9.3
   - samtools  http://samtools.sourceforge.net/
   - tabix  http://samtools.sourceforge.net/tabix.shtml
 
 RUBY LIBRARIES:
-  - vcf
+  - vcf:  gem install vcf
 
 
 Current steps in SNP epistasis identification/annotation:
