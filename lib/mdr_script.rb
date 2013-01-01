@@ -31,7 +31,7 @@ class MDRScript
 
   def run_script(filename, cores = 2, walltime = 84)
     base = File.basename(filename).sub(/\.*$/, "")
-    cmd = "oarsub -l core=#{opts[:cores]},walltime=#{opts[:walltime]}"
+    cmd = "oarsub -l core=#{cores},walltime=#{walltime}"
     cmd = "#{cmd} -n MDR_#{base} --stdout=#{@out_path}/output/summary_#{base}.out --stderr=#{@out_path}/error/#{base}.err  #{@out_path}/#{filename}"
     puts "Starting #{cmd}"
     system("#{cmd}")

@@ -133,7 +133,7 @@ cat_ranks.each_pair.map { |rank, clhash| ranked_patient_locations[rank] = clhash
 # the MDR files and decrease possible hits
 puts "Getting control variations."
 
-ctrl_temp_dir = "#{cfg['output.dir']}/vcf"
+ctrl_temp_dir = "#{cfg['output.dir']}/vcf/#{Utils.date}"
 FileUtils.rm_rf(ctrl_temp_dir) if File.exists? ctrl_temp_dir
 FileUtils.mkpath(ctrl_temp_dir)
 
