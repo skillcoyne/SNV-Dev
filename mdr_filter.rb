@@ -39,7 +39,6 @@ def load_filter_locations(filterfile, gi)
 end
 
 
-
 ### ---- START MAIN ---- ###
 if ARGV.length < 1
   puts "Usage: #{$0} <configuration file>\nSee the cogie.config.example file."
@@ -175,7 +174,7 @@ ranked_patient_locations.sort.map do |rank, locations|
   end
   class_col = Array.new(mdr.size[0])
   mdr.add_column('Class', class_col.map { |e| e = 0 })
-  mdr.write("#{cfg['output.dir']}/Rank#{rank}-ctrl.txt")
+  mdr.write("#{rank_file_locs}/Rank#{rank}-ctrl.txt")
 end
 
 ## -- PATIENTS -- ##
@@ -201,7 +200,7 @@ ranked_patient_locations.sort.map do |rank, locations|
   end
   # Add the class variable to the row
   row << "1"
-  mdrfile = "#{cfg['output.dir']}/Rank#{rank}-ctrl.txt"
+  mdrfile = "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
   FileUtils.copy(mdrfile, "#{mdr_temp_dir}/Rank#{rank}.mdr")
   mdrfile = "#{mdr_temp_dir}/Rank#{rank}.mdr"
   puts "Writing #{mdrfile}"
@@ -209,11 +208,11 @@ ranked_patient_locations.sort.map do |rank, locations|
 end
 
 
-jar = cfg['mdr.jar'] || "MDR.jar"
-
-ms = MDRScript.new(mdr_temp_dir, analysis_dir)
-output_files = ms.write_script(:type => 'Java', :jar => jar, :k => cfg['mdr.K'])
-output_files.each {|f| ms.run_script(f, cfg['oar.core'], cfg['oar.walltime'])}
+#jar = cfg['mdr.jar'] || "MDR.jar"
+#
+#ms = MDRScript.new(mdr_temp_dir, analysis_dir)
+#output_files = ms.write_script(:type => 'Java', :jar => jar, :k => cfg['mdr.K'])
+#output_files.each {|f| ms.run_script(f, cfg['oar.core'], cfg['oar.walltime'])}
 
 
 
