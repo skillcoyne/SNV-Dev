@@ -18,7 +18,7 @@ end
 
 # Read in the configuration information.
 config_defaults = YAML.load_file("resources/cogie.config.example")
-cfg = Utils.check_config(ARGV[0], config_defaults)
+cfg = Utils.check_config(ARGV[0], config_defaults, ['mdr.jar', 'tabix.path'])
 
 # Get patient variations in each location
 loc_file = "#{cfg['patient.var.loc']}/chr_locations.txt"
