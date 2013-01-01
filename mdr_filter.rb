@@ -145,15 +145,21 @@ analysis_dir = "#{cfg['mdr.analysis.dir']}/#{Utils.date}"
 FileUtils.rm_rf(analysis_dir) if File.exists?analysis_dir
 FileUtils.mkpath(analysis_dir)
 
+rank_file_locs = "#{cfg['output.dir']}/rank/#{Utils.date}"
+FileUtils.rm_rf(rank_file_locs) if File.exists?rank_file_locs
+FileUtils.mkpath(rank_file_locs)
+
+puts YAML::dump control_vcf
 
 ## pull out subsets of the VCF files first ##
 ranked_patient_locations.sort.map do |rank, locations|
-  next if File.exists? "#{cfg['output.dir']}/Rank#{rank}-ctrl.txt" ##TODO DO NOT LEAVE THIS HERE
+  next if File.exists? "#{rank_file_locs}/Rank#{rank}-ctrl.txt" ##TODO DO NOT LEAVE THIS HERE
   mdr = SimpleMatrix.new()
   locations.each do |cvp|
-    file = "#{cfg['control.var.loc']}/#{control_vcf[cvp.chr]}"
+    chr_vcf_file = "#{cfg['control.var.loc']}/#{control_vcf[cvp.chr]}"
+
     cvp.locations.each do |loc|
-      ctrl = COGIE::ControlSample.new(file, {:tabix => "#{cvp.chr}:#{loc}-#{loc}", :out => ctrl_temp_dir, :tabix_path => cfg['tabix.path']})
+      ctrl = COGIE::ControlSample.new(chr_vcf_file, {:tabix => "#{cvp.chr}:#{loc}-#{loc}", :out => ctrl_temp_dir, :tabix_path => cfg['tabix.path']})
       vars = ctrl.parse_variations
       mdr.rownames = ctrl.samples.map { |s, v| "Sample-#{s}" } if mdr.rownames.empty?
       vars.each do |var|
