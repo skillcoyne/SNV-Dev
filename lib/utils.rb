@@ -15,9 +15,10 @@ class Utils
   def self.check_config(cfg_file, cfg_def, optional_keys = [])
     puts "Using #{cfg_file} config file"
     cfg = YAML.load_file(cfg_file)
+
     optional_keys.each {|k| cfg_def.delete(k); cfg.delete(k) }
     if cfg.keys.sort!.eql?cfg_def.keys.sort!
-      return cfg
+      return YAML.load_file(cfg_file)
     else
       puts "Incorrect config file, expected keys:\n"
       puts YAML::dump cfg_def
