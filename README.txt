@@ -15,17 +15,13 @@ Current steps in SNP epistasis identification/annotation:
  on the number of patients.  The resulting locations file is used in subsequent scripts.
 > ruby index_cogie_patient.rb <cogie.config file location>
 
-3. Run mdr_filter.rb with the config file from above.
+3. Run mdr_filter.rb with the config file from above.  This script will apply the filter to the control and patient files
+and output mdr matrix files.  It will then set up and run MDR on the cluster. MDR parameters are set by the cogie.config file.
+Currently the max settings are recommended as:  mdr.max = 2000, mdr.K = 3.  With a lower mdr.max
+the K value can be increased.  If max is increased about 2000 K should not more than 2.
+Parameters for the OAR scripts are also set up in the cogie.config file.
 > ruby mdr_filter.rb  <cogie.config file location>
 
-4. TODO - rewrite run_analysis.rb script for Java MDR.
-    a. This step will output the require OAR scripts and run them on the cluster.
-    b. MDR parameters are set by the cogie.config script.  Changing the max.max requires rerunning the mdr_filter script which
-       creates the matrices. Currently the max settings are recommended as:  mdr.max = 2000, mdr.K = 3.  With a lower mdr.max
-       the K value can be increased.  If max is increased about 2000 K should not more than 2.
-    b. Parameters for the OAR scripts are also set up in the cogie.config file.
-
-5. Read through MDR summary and extract SNP sets.
 
 
 NOTE:  The following are assumptions made by the parsers.
