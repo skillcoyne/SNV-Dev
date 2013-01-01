@@ -72,11 +72,12 @@ module COGIE
     :private
     #tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804 ALL.2of4intersection.20100804.genotypes.vcf.gz 2:39967768-39967768
     def run_tabix(opts = {})
+      (opts[:tabix_path].nil?)? (tabix = "tabix"): (tabix = "#{opts[:tabix_path]}/tabix")
       # presume you have to change directory to make it write int he correct place...still waiting to test
       tlocfile = "#{@tmp_output_dir}/chr#{@chr}.#{@from}-#{@to}.vcf"
       unless File.exists? tlocfile
-        cmd = "tabix #{@ct_file} #{opts[:tabix]} > #{tlocfile}"
-        #puts cmd
+        cmd = "#{tabix} #{@ct_file} #{opts[:tabix]} > #{tlocfile}"
+        puts cmd
         sys = system("#{cmd}")
         raise StandardError, "tabix failed to run, please check that it is installed an available in your system path." unless sys
       else

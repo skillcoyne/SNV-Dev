@@ -12,9 +12,10 @@ class Utils
     return "#{time.year}#{month}#{day}"
   end
 
-  def self.check_config(cfg_file, cfg_def)
+  def self.check_config(cfg_file, cfg_def, optional_keys = [])
     puts "Using #{cfg_file} config file"
     cfg = YAML.load_file(cfg_file)
+    optional_keys.each {|k| cfg_def.delete(k) }
     if cfg.keys.sort!.eql?cfg_def.keys.sort!
       return cfg
     else

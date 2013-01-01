@@ -50,7 +50,7 @@ end
 ## Configuration file is expected as input.  Read.
 # see resources/cogie.config.example
 config_defaults = YAML.load_file("resources/cogie.config.example")
-cfg = Utils.check_config(ARGV[0], config_defaults)
+cfg = Utils.check_config(ARGV[0], config_defaults, ['mdr.jar', 'tabix.path'])
 
 # Get the locations in rank order
 ranked_locations = load_filter_locations(cfg['ranked.list'], EnsemblInfo.new(cfg['gene.loc']))
@@ -203,9 +203,11 @@ ranked_patient_locations.sort.map do |rank, locations|
   File.open(mdrfile, 'a') { |f| f.write(row.join("\t") + "\n") }
 end
 
-ms = MDRScript.new(mdr_temp_dir, analysis_dir)
-output_files = ms.write_script(:type => 'Java', :jar => cfg['mdr.jar'], :k => cfg['mdr.K'])
 
+jar = cfg['mdr.jar'] || "MDR.jar"
+
+ms = MDRScript.new(mdr_temp_dir, analysis_dir)
+output_files = ms.write_script(:type => 'Java', :jar => jar, :k => cfg['mdr.K'])
 output_files.each {|f| ms.run_script(f, cfg['oar.core'], cfg['oar.walltime'])}
 
 

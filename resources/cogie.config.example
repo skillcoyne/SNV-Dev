@@ -21,10 +21,14 @@ patient.var.loc: /<path to patient variation file dir>
 output.dir: /< for various temp files>
 
 # MDR
-mdr.jar: /<name of MDR.jar file, path necessary if it isn't pathed on the system>
 mdr.K: 2
 mdr.max: 50
 mdr.analysis.dir: /<ouptut path>/
+
+# Tool paths - These are optional. If the tool is pathed on the system these should be
+# removed from the configuration file.
+mdr.jar: /<name of MDR.jar file
+tabix.path: /path to tabix script
 
 # OAR Cluster
 oar.core: 5
