@@ -153,7 +153,7 @@ ranked_patient_locations.sort.map do |rank, locations|
   locations.each do |cvp|
     file = "#{cfg['control.var.loc']}/#{control_vcf[cvp.chr]}"
     cvp.locations.each do |loc|
-      ctrl = COGIE::ControlSample.new(file, {:tabix => "#{cvp.chr}:#{loc}-#{loc}}", :out => ctrl_temp_dir, :tabix_path => cfg['tabix.path']})
+      ctrl = COGIE::ControlSample.new(file, {:tabix => "#{cvp.chr}:#{loc}-#{loc}", :out => ctrl_temp_dir, :tabix_path => cfg['tabix.path']})
       vars = ctrl.parse_variations
       mdr.rownames = ctrl.samples.map { |s, v| "Sample-#{s}" } if mdr.rownames.empty?
       vars.each do |var|
