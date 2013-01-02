@@ -23,6 +23,17 @@ module COGIE
     def to_s
       "<#{self.class.name} Chr#{@chr}: locations:#{@locations.length}>"
     end
+
+    def <=>(loc)
+      if self.chr < loc.chr
+        -1
+      elsif self.chr > loc.chr
+        1
+      else
+        0
+      end
+    end
+
   end
 
   ## The assumption is that these are VCF files
@@ -45,7 +56,8 @@ module COGIE
       end
     end
 
-    def parse_variations
+    def parse_variations(types = [])
+      types.map!{|e| e.upcase }
       sample = File.basename(@ct_file)
       sample.sub!(/\..*/, "")
       @name = sample
@@ -58,6 +70,8 @@ module COGIE
         next if line.start_with? "#"
         printf "." if (index > 0 and index%50 == 0)
         vcf = Vcf.new(line)
+        next if (types.length > 0 and types.index(vcf.info['VT']).nil?)
+
         @samples = vcf.samples.keys if @samples.empty?
         @pos[vcf.pos] = vcf.samples
         lines << vcf

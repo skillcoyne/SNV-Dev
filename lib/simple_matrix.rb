@@ -53,25 +53,63 @@ class SimpleMatrix
   #  - row: Array of values of the same length as the current rows.
   def add_row(name, row)
     raise ArgumentError, "Row was #{row.length}, expected #{@colnames.length} elements." unless row.length.eql? @colnames.length
+    raise ArgumentError, "Duplicate row names not allowed: #{name}" if @rownames.index(name)
+
     @rows << row.to_a
     row.each_with_index do |r, i|
       @cols[i] << r
     end
-    @rownames << name
+    @rownames << name.to_s
   end
 
   # Add column to the matrix.
   # Parameter:
-  #  - name:  Column name, does not need to be unique.  However if it is not then retrieving elements by named column
-  #           will not be predictable.
+  #  - name:  Column name, must be unique.
   #  - col: Array of values of the same length as the current columns.
   def add_column(name, col)
     raise ArgumentError, "Column was #{col.length}, expected #{@rownames.length} elements." unless col.length.eql? @rownames.length
+    raise ArgumentError, "Duplicate column names not allowed: #{name}" if @colnames.index(name)
+
     @cols << col.to_a
     col.each_with_index do |c, i|
       @rows[i] << c
     end
-    @colnames << name
+    @colnames << name.to_s
+  end
+
+  # Add element to the matrix.
+  # Parameters:
+  #   - row: Row name or index.
+  #   - col: Column name or index.
+  #   - e: Element to be added at the coordinates specified.
+  def add_element(row, col, e)
+    if (row.is_a? String or col.is_a? String)
+      i = @rownames.index(row.to_s)
+      raise ArgumentError, "Row '#{row}' does not exist." if i.nil?
+      j = @colnames.index(col.to_s)
+      raise ArgumentError, "Column '#{col}' does not exist." if j.nil?
+    else
+      i = row; j = col
+      raise ArgumentError, "Row(#{i}) or Col(#{j}) is out of bounds" unless (@rows[i] and @cols[j])
+    end
+    @rows[i][j] = e
+    @cols[j][i] = e
+  end
+
+  # WARNING THIS CHANGES ALL VALUES FOR A GIVEN COLUMN
+  def update_column(col, values)
+    raise ArgumentError, "Expect #{@rownames.length} values for the #{col} column." unless values.length.eql?@rownames.length
+
+    i = col
+    if col.is_a?String
+      i = @colnames.index(col)
+    end
+    raise ArgumentError, "No column found for #{col}" if i.nil? or @cols[i].nil?
+
+    @cols[i] = values
+    values.each_with_index do |e, j|
+      @rows[j][i] = e
+    end
   end
 
   # Returns element at given location.  Row/column names can be provided,

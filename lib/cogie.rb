@@ -102,11 +102,11 @@ module COGIE
       h2 = h2.to_i
 
       case # I think it's appropriate to report 0/1 as 1
-        when h1+h2 == 0
+        when h1+h2 == 0  # 0/0
           return 0
-        when h1+h2 <= 1
+        when h1+h2 <= 2  # 0/1  or  1/1
           return 1
-        when h1+h2 <= 3
+        when h1+h2 >= 3  # 1/2  or 2/2
           return 2
       end
     end

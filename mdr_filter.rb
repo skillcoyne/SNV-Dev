@@ -116,14 +116,14 @@ ranked_patient_locations.each_pair do |rank, cl|
     n +=1; count = 0
   else
     # merge the locations with matching chromosomes
-    cat_ranks[n][cl.chr] = cl unless cat_ranks[n].has_key?cl.chr
-    cat_ranks[n][cl.chr] = cat_ranks[n][cl.chr].merge!cl
+    cat_ranks[n][cl.chr] = cl unless cat_ranks[n].has_key? cl.chr
+    cat_ranks[n][cl.chr] = cat_ranks[n][cl.chr].merge! cl
   end
 end
 
 # just for simplicity reorder so it's an array of location objects within the rank hash
 ranked_patient_locations = {}
-cat_ranks.each_pair.map { |rank, clhash| ranked_patient_locations[rank] = clhash.values }
+cat_ranks.each_pair.map { |rank, clhash| ranked_patient_locations[rank] = clhash.values if rank.eql? 0 }
 
 
 ## -- CONTROLS -- ##
@@ -133,87 +133,105 @@ cat_ranks.each_pair.map { |rank, clhash| ranked_patient_locations[rank] = clhash
 puts "Getting control variations."
 
 ctrl_temp_dir = "#{cfg['output.dir']}/vcf/#{Utils.date}"
-FileUtils.rm_rf(ctrl_temp_dir) if File.exists? ctrl_temp_dir
-FileUtils.mkpath(ctrl_temp_dir)
+#FileUtils.rm_rf(ctrl_temp_dir) if File.exists? ctrl_temp_dir
+FileUtils.mkpath(ctrl_temp_dir) unless File.exists? ctrl_temp_dir
 
 mdr_temp_dir = "#{cfg['output.dir']}/mdr/#{Utils.date}"
-FileUtils.rm_rf(mdr_temp_dir) if File.exists? mdr_temp_dir
-FileUtils.mkpath(mdr_temp_dir)
+#FileUtils.rm_rf(mdr_temp_dir) if File.exists? mdr_temp_dir
+FileUtils.mkpath(mdr_temp_dir) unless File.exists? mdr_temp_dir
 
 analysis_dir = "#{cfg['mdr.analysis.dir']}/#{Utils.date}"
-FileUtils.rm_rf(analysis_dir) if File.exists?analysis_dir
+FileUtils.rm_rf(analysis_dir) if File.exists? analysis_dir
 FileUtils.mkpath(analysis_dir)
 
 rank_file_locs = "#{cfg['output.dir']}/rank/#{Utils.date}"
-FileUtils.rm_rf(rank_file_locs) if File.exists?rank_file_locs
+FileUtils.rm_rf(rank_file_locs) if File.exists? rank_file_locs
 FileUtils.mkpath(rank_file_locs)
 
-puts YAML::dump control_vcf
 
+order = []
+colnames = []
 ## pull out subsets of the VCF files first ##
 ranked_patient_locations.sort.map do |rank, locations|
-  next if File.exists? "#{rank_file_locs}/Rank#{rank}-ctrl.txt" ##TODO DO NOT LEAVE THIS HERE
+  next if File.exists? "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
   mdr = SimpleMatrix.new()
-  locations.each do |cvp|
+  locations.sort.map do |cvp|
+    order << cvp.chr
     chr_vcf_file = "#{cfg['control.var.loc']}/#{control_vcf[cvp.chr]}"
 
     cvp.locations.each do |loc|
+      column_name = "#{cvp.chr}:#{loc}"
+
       ctrl = COGIE::ControlSample.new(chr_vcf_file, {:tabix => "#{cvp.chr}:#{loc}-#{loc}", :out => ctrl_temp_dir, :tabix_path => cfg['tabix.path']})
-      vars = ctrl.parse_variations
+      vars = ctrl.parse_variations(['SNP']) # NOTE: only dealing in SNPs.  Changing this means the columns should be more descriptive
       mdr.rownames = ctrl.samples.map { |s, v| "Sample-#{s}" } if mdr.rownames.empty?
+
+      # Sometimes there's no such position in the control sample, have to then assume that the control is GT=0/0 (Major allele for the given position)
       vars.each do |var|
-        mdr.add_column(var.pos, var.samples.map { |s, v| COGIE::Func.mdr_genotype(v['GT']) })
+        if (var.pos.eql? loc)
+          mdr.add_column(column_name, var.samples.map { |s, v| COGIE::Func.mdr_genotype(v['GT']) })
+        else
+          mdr.add_column(column_name, Array.new(var.samples.length).map { |e| e = '0' })
+        end
       end
       ## Sometimes the control files do not list that variation.
       ## In this case presume GT = 0
       if vars.empty?
         col = Array.new(mdr.size[0])
-        mdr.add_column(loc, col.map { |e| e = 0 })
+        mdr.add_column(column_name, col.map { |e| e = 0 })
       end
     end
   end
   class_col = Array.new(mdr.size[0])
   mdr.add_column('Class', class_col.map { |e| e = 0 })
+  colnames = mdr.colnames
   mdr.write("#{rank_file_locs}/Rank#{rank}-ctrl.txt")
 end
+
 
 ## -- PATIENTS -- ##
 
 # Patient directories where each chromosome file is kept
 puts "Getting patient variations."
+pt_matrix = SimpleMatrix.new
+pt_matrix.colnames = colnames
 
 ranked_patient_locations.sort.map do |rank, locations|
-  puts "Rank #{rank}."
-  row = []
-  locations.each do |cvp|
-    cvp.locations.each do |loc|
-      patient_dirs.each do |dir|
-        row << File.basename(dir) unless row.index(File.basename(dir)) # patient name
+  # per patient
+  patient_dirs.each do |dir|
+    puts "READING #{dir}"
+    rowname = File.basename(dir)
+    pt_matrix.add_row(rowname, Array.new(colnames.length).map { |e| e = 'NA' })
+
+    locations.sort.map do |cvp| # this is important to maintain the sort order that was output in the Rank files above
+      cvp.locations.each do |loc|
+        colname = "#{cvp.chr}:#{loc}"
+
+
         fcfile = "#{dir}/Chr#{cvp.chr}.func"
         gt = COGIE::PVUtil.find_patient_variation(fcfile, loc)
 
         # Genotype will be nil or an empty string if the variation was not a SNP
         # NOTE: Currently we're only dealing with SNPs
-        (gt.nil? or gt.eql? "") ? (row << "0") : (row << COGIE::Func.mdr_genotype(gt))
+        if gt.nil? or gt.eql? ""
+          pt_matrix.add_element(rowname, colname, "0")
+        else
+          pt_matrix.add_element(rowname, colname, COGIE::Func.mdr_genotype(gt))
+        end
       end
     end
   end
-  # Add the class variable to the row
-  row << "1"
-  mdrfile = "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
-  FileUtils.copy(mdrfile, "#{mdr_temp_dir}/Rank#{rank}.mdr")
+
+  ## Output the matrix of patients to the appropriate RANK file
+  pt_matrix.update_column('Class', Array.new(pt_matrix.size[0]).map { |e| e = '1' }) # Class column, 1 = patient so update for all patients
+  rankfile = "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
   mdrfile = "#{mdr_temp_dir}/Rank#{rank}.mdr"
+  FileUtils.copy(rankfile, "#{mdrfile}")
   puts "Writing #{mdrfile}"
-  File.open(mdrfile, 'a') { |f| f.write(row.join("\t") + "\n") }
+  File.open(mdrfile, 'a') { |f|
+    pt_matrix.rows.each_with_index do |row, i|
+      f.write( "#{pt_matrix.rownames[i]}\t" + row.join("\t") + "\n")
+    end
+  }
 end
-
-
-#jar = cfg['mdr.jar'] || "MDR.jar"
-#
-#ms = MDRScript.new(mdr_temp_dir, analysis_dir)
-#output_files = ms.write_script(:type => 'Java', :jar => jar, :k => cfg['mdr.K'])
-#output_files.each {|f| ms.run_script(f, cfg['oar.core'], cfg['oar.walltime'])}
-
-
-
 
