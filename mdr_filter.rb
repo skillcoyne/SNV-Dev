@@ -123,7 +123,7 @@ end
 
 # just for simplicity reorder so it's an array of location objects within the rank hash
 ranked_patient_locations = {}
-cat_ranks.each_pair.map { |rank, clhash| ranked_patient_locations[rank] = clhash.values if rank.eql? 0 }
+cat_ranks.each_pair.map { |rank, clhash| ranked_patient_locations[rank] = clhash.values }
 
 
 ## -- CONTROLS -- ##
