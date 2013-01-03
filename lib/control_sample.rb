@@ -4,6 +4,7 @@ require 'tmpdir'
 module COGIE
 
   class Locations
+
     attr_reader :locations, :chr
 
     def initialize(list, chr)
@@ -19,6 +20,14 @@ module COGIE
       @locations.sort!
       self
     end
+
+    def random_location
+      @sampled ||= []
+      s = @locations.sample
+      s = nil if @sampled.index(s) # don't return the same sample
+      return COGIE::Locations.new([s], @chr)
+    end
+
 
     def to_s
       "<#{self.class.name} Chr#{@chr}: locations:#{@locations.length}>"

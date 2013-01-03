@@ -38,10 +38,107 @@ def load_filter_locations(filterfile, gi)
   return locations
 end
 
+def setup_output_dirs(cfg)
+  # Don't want to regen the vcf/mdr directory more often than necessary as these files can take the longest to generate
+  ctrl_temp_dir = "#{cfg['output.dir']}/vcf/#{Utils.date}"
+  FileUtils.mkpath(ctrl_temp_dir) unless File.exists? ctrl_temp_dir
+
+  mdr_temp_dir = "#{cfg['output.dir']}/mdr/#{Utils.date}"
+  FileUtils.mkpath(mdr_temp_dir) unless File.exists? mdr_temp_dir
+
+  analysis_dir = "#{cfg['mdr.analysis.dir']}/#{Utils.date}"
+  FileUtils.rm_rf(analysis_dir) if File.exists? analysis_dir
+  FileUtils.mkpath(analysis_dir)
+
+  rank_file_locs = "#{cfg['output.dir']}/rank/#{Utils.date}"
+  FileUtils.rm_rf(rank_file_locs) if File.exists? rank_file_locs
+  FileUtils.mkpath(rank_file_locs)
+
+  return [ctrl_temp_dir, mdr_temp_dir, analysis_dir, rank_file_locs]
+end
+
+
+## Rank the patient locations based on the locations pulled from the filter file
+def rank_locations(cfg, patient_locations, ranges)
+  puts "Creating ordered ranks"
+  ranked_patient_locations = Hash[ranges.each_with_index.map { |e, i| [i, nil] }]
+  ranges.each_with_index do |rl, i|
+    range = rl[0]; chr = rl[1]
+    next unless patient_locations.has_key? chr
+    pt_list = patient_locations[chr]
+    pt_list = pt_list.select { |e| range.include? e }
+    ranked_patient_locations[i] = COGIE::Locations.new(pt_list, chr) unless pt_list.empty?
+  end
+  ranked_patient_locations.delete_if { |k, v| v.nil? }
+
+  # Join the ranks until you hit the mdr max value
+  # Right now not worrying too much about getting it just right, a few above the max mdr value won't make a huge
+  # different computationally.  It's the k value that will cause the issues.
+  max = cfg['mdr.max']
+  cat_ranks = {}
+  n = 0; count = 0
+  ranked_patient_locations.each_pair do |rank, cl|
+    cat_ranks[n] = {} unless cat_ranks.has_key? n
+    count += cl.locations.length
+    if count > max
+      n +=1; count = 0
+    else
+      # merge the locations with matching chromosomes
+      cat_ranks[n][cl.chr] = cl unless cat_ranks[n].has_key? cl.chr
+      cat_ranks[n][cl.chr] = cat_ranks[n][cl.chr].merge! cl
+    end
+  end
+
+  # just for simplicity, reorder so it's an array of location objects within the rank hash
+  ranked_patient_locations = {}
+  cat_ranks.each_pair.map { |rank, clhash| ranked_patient_locations[rank] = clhash.values }
+
+  return ranked_patient_locations
+end
+
+# Instead create a random sampling
+def sample_locations(cfg, patient_locations, ranges)
+  puts "Creating randomly sampled ranks"
+  max = Float(cfg['mdr.max'])
+
+  locations_by_chr = {}
+  ranges.each do |rl|
+    range = rl[0]; chr = rl[1]
+    next unless patient_locations.has_key? chr
+    pt_list = patient_locations[chr]
+    pt_list = pt_list.select { |e| range.include? e }
+    cl = COGIE::Locations.new(pt_list, chr)
+
+    locations_by_chr[chr] = cl unless locations_by_chr.has_key? chr
+    locations_by_chr[chr] = locations_by_chr[chr].merge! cl
+  end
+  locations_by_chr = locations_by_chr.values
+  total_locations = 0
+  locations_by_chr.each { |e| total_locations += e.locations.length }
+
+  ranked_locations = {}
+  (0..(total_locations/max).floor).each { |r| ranked_locations[r] = [] }
+  ranked_locations.each_key do |rank|
+    samples = {}
+    (0..max).each do |count|
+      s = locations_by_chr.sample.random_location
+      samples[s.chr] = s unless samples.has_key? s.chr
+      samples[s.chr] = samples[s.chr].merge! s
+    end
+    ranked_locations[rank] = samples.values
+  end
+  return ranked_locations
+end
+
 
 ### ---- START MAIN ---- ###
 if ARGV.length < 1
-  puts "Usage: #{$0} <configuration file>\nSee the cogie.config.example file."
+  usage =<<-USAGE
+Usage: #{$0} <configuration file> <random OPTIONAL>
+  - Configuration file is REQUIRED. See the cogie.config.example file.
+  - random parameter is OPTIONAL. Default is to create mdr file in ordered ranking based on the provided ranked list.
+USAGE
+  puts usage
   exit 2
 end
 
@@ -50,6 +147,8 @@ end
 # see resources/cogie.config.example
 config_defaults = YAML.load_file("resources/cogie.config.example")
 cfg = Utils.check_config(ARGV[0], config_defaults, ['mdr.jar', 'tabix.path'])
+
+(ctrl_temp_dir, mdr_temp_dir, analysis_dir, rank_file_locs) = setup_output_dirs(cfg)
 
 # Get the locations in rank order
 ranked_locations = load_filter_locations(cfg['ranked.list'], EnsemblInfo.new(cfg['gene.loc']))
@@ -82,6 +181,7 @@ patient_files.each do |f|
   end
 end
 
+## Load the locations that were identified as being in the patient files
 loc_file = "#{cfg['patient.var.loc']}/chr_locations.txt"
 patient_locations = {}
 File.open(loc_file, 'r').each_line do |line|
@@ -92,38 +192,13 @@ File.open(loc_file, 'r').each_line do |line|
   patient_locations[chr] = line[1..-1].map! { |e| Integer(e) }
 end
 
-ranked_patient_locations = Hash[ranked_locations.each_with_index.map { |e, i| [i, nil] }]
-ranked_locations.each_with_index do |rl, i|
-  range = rl[0]
-  chr = rl[1]
-  next unless patient_locations.has_key? chr
-  pt_list = patient_locations[chr]
-  pt_list = pt_list.select { |e| range.include? e }
-  ranked_patient_locations[i] = COGIE::Locations.new(pt_list, chr) unless pt_list.empty?
-end
-ranked_patient_locations.delete_if { |k, v| v.nil? }
-
-# Join the ranks until you hit the mdr max value
-# Right now not worrying too much about getting it just right, a few above the max mdr value won't make a huge
-# different computationally.  It's the k value that will cause the issues.
-max = cfg['mdr.max']
-cat_ranks = {}
-n = 0; count = 0
-ranked_patient_locations.each_pair do |rank, cl|
-  cat_ranks[n] = {} unless cat_ranks.has_key? n
-  count += cl.locations.length
-  if count > max
-    n +=1; count = 0
-  else
-    # merge the locations with matching chromosomes
-    cat_ranks[n][cl.chr] = cl unless cat_ranks[n].has_key? cl.chr
-    cat_ranks[n][cl.chr] = cat_ranks[n][cl.chr].merge! cl
-  end
+## Rank the patient locations based on the locations pulled from the filter file
+if ARGV[1] and ARGV[1].eql? 'random'
+  sample_locations(cfg, patient_locations, ranked_locations)
+else
+  ranked_patient_locations = rank_locations(cfg, patient_locations, ranked_locations)
 end
 
-# just for simplicity reorder so it's an array of location objects within the rank hash
-ranked_patient_locations = {}
-cat_ranks.each_pair.map { |rank, clhash| ranked_patient_locations[rank] = clhash.values }
 
 
 ## -- CONTROLS -- ##
@@ -132,31 +207,12 @@ cat_ranks.each_pair.map { |rank, clhash| ranked_patient_locations[rank] = clhash
 # the MDR files and decrease possible hits
 puts "Getting control variations."
 
-ctrl_temp_dir = "#{cfg['output.dir']}/vcf/#{Utils.date}"
-#FileUtils.rm_rf(ctrl_temp_dir) if File.exists? ctrl_temp_dir
-FileUtils.mkpath(ctrl_temp_dir) unless File.exists? ctrl_temp_dir
-
-mdr_temp_dir = "#{cfg['output.dir']}/mdr/#{Utils.date}"
-#FileUtils.rm_rf(mdr_temp_dir) if File.exists? mdr_temp_dir
-FileUtils.mkpath(mdr_temp_dir) unless File.exists? mdr_temp_dir
-
-analysis_dir = "#{cfg['mdr.analysis.dir']}/#{Utils.date}"
-FileUtils.rm_rf(analysis_dir) if File.exists? analysis_dir
-FileUtils.mkpath(analysis_dir)
-
-rank_file_locs = "#{cfg['output.dir']}/rank/#{Utils.date}"
-FileUtils.rm_rf(rank_file_locs) if File.exists? rank_file_locs
-FileUtils.mkpath(rank_file_locs)
-
-
-order = []
-colnames = []
+columns_per_rank = Hash[ranked_patient_locations.each.map { |r, l| [r, []] }]
 ## pull out subsets of the VCF files first ##
 ranked_patient_locations.sort.map do |rank, locations|
   next if File.exists? "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
   mdr = SimpleMatrix.new()
   locations.sort.map do |cvp|
-    order << cvp.chr
     chr_vcf_file = "#{cfg['control.var.loc']}/#{control_vcf[cvp.chr]}"
 
     cvp.locations.each do |loc|
@@ -166,14 +222,14 @@ ranked_patient_locations.sort.map do |rank, locations|
       vars = ctrl.parse_variations(['SNP']) # NOTE: only dealing in SNPs.  Changing this means the columns should be more descriptive
       mdr.rownames = ctrl.samples.map { |s, v| "Sample-#{s}" } if mdr.rownames.empty?
 
-      # Sometimes there's no such position in the control sample, have to then assume that the control is GT=0/0 (Major allele for the given position)
       vars.each do |var|
-        if (var.pos.eql? loc)
+        if (var.pos.eql? loc) # sometimes when there's no position at that exact location the next nearest one is returned.
           mdr.add_column(column_name, var.samples.map { |s, v| COGIE::Func.mdr_genotype(v['GT']) })
         else
           mdr.add_column(column_name, Array.new(var.samples.length).map { |e| e = '0' })
         end
       end
+
       ## Sometimes the control files do not list that variation.
       ## In this case presume GT = 0
       if vars.empty?
@@ -184,29 +240,29 @@ ranked_patient_locations.sort.map do |rank, locations|
   end
   class_col = Array.new(mdr.size[0])
   mdr.add_column('Class', class_col.map { |e| e = 0 })
-  colnames = mdr.colnames
+  columns_per_rank[rank] = mdr.colnames
   mdr.write("#{rank_file_locs}/Rank#{rank}-ctrl.txt")
 end
 
 
 ## -- PATIENTS -- ##
-
 # Patient directories where each chromosome file is kept
 puts "Getting patient variations."
-pt_matrix = SimpleMatrix.new
-pt_matrix.colnames = colnames
 
 ranked_patient_locations.sort.map do |rank, locations|
+  pt_matrix = SimpleMatrix.new
+  pt_matrix.colnames = columns_per_rank[rank]
+
+  puts "Rank #{rank}"
   # per patient
   patient_dirs.each do |dir|
     puts "READING #{dir}"
     rowname = File.basename(dir)
-    pt_matrix.add_row(rowname, Array.new(colnames.length).map { |e| e = 'NA' })
+    pt_matrix.add_row(rowname, Array.new(pt_matrix.colnames.length).map { |e| e = 'NA' })
 
     locations.sort.map do |cvp| # this is important to maintain the sort order that was output in the Rank files above
       cvp.locations.each do |loc|
         colname = "#{cvp.chr}:#{loc}"
-
 
         fcfile = "#{dir}/Chr#{cvp.chr}.func"
         gt = COGIE::PVUtil.find_patient_variation(fcfile, loc)
@@ -230,7 +286,7 @@ ranked_patient_locations.sort.map do |rank, locations|
   puts "Writing #{mdrfile}"
   File.open(mdrfile, 'a') { |f|
     pt_matrix.rows.each_with_index do |row, i|
-      f.write( "#{pt_matrix.rownames[i]}\t" + row.join("\t") + "\n")
+      f.write("#{pt_matrix.rownames[i]}\t" + row.join("\t") + "\n")
     end
   }
 end
