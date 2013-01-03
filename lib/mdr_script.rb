@@ -31,18 +31,18 @@ class MDRScript
 
 
   def run_script(filename, cores = 2, walltime = 84)
-    base = File.basename(filename).sub!(/\.*$/, "")
+    base =   File.basename(filename).sub!(/\..*$/, "")
     cmd=<<-CMD
-oarsub -l core=#{cores},walltime=#{walltime} -n MDR_#{base} -O #{@out_path}/output/summary_#{base}.out -E #{@out_path}/error/#{base}.err  #{@out_path}/#{filename}
+oarsub -l core=#{cores},walltime=#{walltime} -n MDR_#{base} -O #{@out_path}/output/summary_#{base}.out -E #{@out_path}/error/#{base}.err  #{filename}
 CMD
     puts "Starting #{cmd}"
-    system("#{cmd}")
+    #system("#{cmd}")
   end
 
 
   :private
 
-  def write(file, script) ## todo this is just copied from run_analysis.rb, it's not workable
+  def write(file, script)
     File.open("#{@out_path}/#{file}", 'w') { |f| f.write(script) }
     FileUtils.chmod(0776, "#{@out_path}/#{file}")
     return "#{@out_path}/#{file}"
