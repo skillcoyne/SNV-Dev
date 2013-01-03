@@ -282,7 +282,8 @@ ranked_patient_locations.sort.map do |rank, locations|
   pt_matrix.update_column('Class', Array.new(pt_matrix.size[0]).map { |e| e = '1' }) # Class column, 1 = patient so update for all patients
   rankfile = "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
   mdrfile = "#{mdr_temp_dir}/Rank#{rank}.mdr"
-  FileUtils.copy(rankfile, "#{mdrfile}")
+  FileUtils.copy(rankfile, mdrfile)
+  FileUtils.chmod(0776, mdrfile)
   puts "Writing #{mdrfile}"
   File.open(mdrfile, 'a') { |f|
     pt_matrix.rows.each_with_index do |row, i|
