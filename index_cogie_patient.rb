@@ -23,39 +23,54 @@ cfg = Utils.check_config(ARGV[0], config_defaults, ['mdr.jar', 'tabix.path'])
 # Get patient variations in each location
 loc_file = "#{cfg['patient.var.loc']}/chr_locations.txt"
 
-locations = {}
+
+threads = []
 Dir.foreach(cfg['patient.var.loc']) do |entry|
   next unless entry.match(/\.func$/)
-  file = "#{cfg['patient.var.loc']}/#{entry}"
 
-  puts "Reading patient file #{file}..."
+  threads << Thread.new(file, cfg) {
+    locations = {}
+    file = "#{cfg['patient.var.loc']}/#{entry}"
+    Thread.current['filename'] = file
+    #puts "Reading patient file #{file}..."
 
-  # Make a directory for each patient. The chromsome .func files will be output here.
-  patient_dir = "#{cfg['patient.var.loc']}/" + File.basename(file).sub!(/\..*$/, "")
-  FileUtils.rm_rf(patient_dir) if (File.exists?patient_dir and File.directory?patient_dir)
-  FileUtils.mkpath(patient_dir)
+    # Make a directory for each patient. The chromsome .func files will be output here.
+    patient_dir = "#{cfg['patient.var.loc']}/" + File.basename(file).sub!(/\..*$/, "")
+    FileUtils.rm_rf(patient_dir) if (File.exists? patient_dir and File.directory? patient_dir)
+    FileUtils.mkpath(patient_dir)
 
-  begin
-    # Read the .func file
-    File.open(file, 'r').each_with_index do |line, index|
-      next unless index > 2
-      next if line.start_with? "#" # the header lines are repeated throughout the file
-      printf "." if index%500 == 0; #printf "\n" if index%(500*200) == 0
+    begin
+      # Read the .func file
+      File.open(file, 'r').each_with_index do |line, index|
+        next unless index > 2
+        next if line.start_with? "#" # the header lines are repeated throughout the file
+        #printf "." if index%500 == 0; #printf "\n" if index%(500*200) == 0
 
-      func = COGIE::Func.parse_line(line)
+        func = COGIE::Func.parse_line(line)
 
-      # Write to corresponding chromosome file
-      chr_file = "#{patient_dir}/Chr#{func.chr}.func"
-      (File.exists? chr_file) ? (wa = 'a') : (wa = 'w')
-      File.open(chr_file, wa) { |fout| fout.write("#{line}\n") }
-      locations[func.chr] = [] unless locations.has_key? func.chr
-      locations[func.chr] << func.from
+        # Write to corresponding chromosome file
+        chr_file = "#{patient_dir}/Chr#{func.chr}.func"
+        (File.exists? chr_file) ? (wa = 'a') : (wa = 'w')
+        File.open(chr_file, wa) { |fout| fout.write("#{line}\n") }
+        locations[func.chr] = [] unless locations.has_key? func.chr
+        locations[func.chr] << func.from
+      end
+    rescue COGIE::FileFormatError => e # Note that the file format expected is specific to the COGIE project.
+      warn "Error reading #{file}: #{e.message}"
     end
-  rescue COGIE::FileFormatError => e  # Note that the file format expected is specific to the COGIE project.
-    warn "Error reading #{file}: #{e.message}"
-  end
-  locations.each_pair { |k, v| v.uniq!; v.sort! }
+    locations.each_pair { |k, v| v.uniq!; v.sort! }
+   Thread.current['locations'] = locations
+  }
+
 end
+
+locations = {}
+threads.each { |t|
+  t.join
+  puts t['filename'] + " : " +t['locations'].length
+  locations.merge!{t['locations']}
+}
+locations.each_pair { |k, v| v.uniq!; v.sort! }
 
 # Chromosome locations file
 locations = Hash[locations.sort]
