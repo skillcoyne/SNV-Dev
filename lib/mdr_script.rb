@@ -33,10 +33,10 @@ class MDRScript
   def run_script(filename, cores = 2, walltime = 84)
     base =   File.basename(filename).sub!(/\..*$/, "")
     cmd=<<-CMD
-oarsub -l core=#{cores},walltime=#{walltime} -n MDR_#{base} -O #{@out_path}/output/summary_#{base}.out -E #{@out_path}/error/#{base}.err  #{filename}
+oarsub -l core=#{cores},walltime=#{walltime} -n MDR_#{base} -O #{@out_path}/output/#{base}.out -E #{@out_path}/#{base}.err  #{filename}
 CMD
     puts "Starting #{cmd}"
-    #system("#{cmd}")
+    system("#{cmd}")
   end
 
 
