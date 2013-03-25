@@ -1,4 +1,5 @@
 require 'yaml'
+require 'fileutils'
 
 class MDRScript
 
@@ -30,9 +31,10 @@ class MDRScript
 
 
   def run_script(filename, cores = 2, walltime = 84)
-    base = File.basename(filename).sub(/\.*$/, "")
-    cmd = "oarsub -l core=#{cores},walltime=#{walltime}"
-    cmd = "#{cmd} -n MDR_#{base} --stdout=#{@out_path}/output/summary_#{base}.out --stderr=#{@out_path}/error/#{base}.err  #{@out_path}/#{filename}"
+    base =   File.basename(filename).sub!(/\..*$/, "")
+    cmd=<<-CMD
+oarsub -l core=#{cores},walltime=#{walltime} -n MDR_#{base} -O #{@out_path}/output/#{base}.out -E #{@out_path}/#{base}.err  #{filename}
+CMD
     puts "Starting #{cmd}"
     system("#{cmd}")
   end
@@ -40,7 +42,7 @@ class MDRScript
 
   :private
 
-  def write(file, script) ## todo this is just copied from run_analysis.rb, it's not workable
+  def write(file, script)
     File.open("#{@out_path}/#{file}", 'w') { |f| f.write(script) }
     FileUtils.chmod(0776, "#{@out_path}/#{file}")
     return "#{@out_path}/#{file}"
