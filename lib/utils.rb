@@ -4,12 +4,7 @@ class Utils
 
   def self.date
     time = Time.new
-    month = time.month
-    month < 10? (month = "0#{month}"): month
-    day = time.day
-    day < 10? (day = "0#{day}"): day
-
-    return "#{time.year}#{month}#{day}"
+    return time.strftime("%d%m%Y")
   end
 
   def self.check_config(cfg_file, cfg_def, optional_keys = [])
