@@ -17,8 +17,8 @@ if ARGV.length < 1
 end
 
 
-file = ARGV[1]
-dir = File.dirname(patient_file)
+file = ARGV[0]
+dir = File.dirname(file)
 
 locations = {}
 

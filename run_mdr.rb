@@ -9,8 +9,10 @@ if ARGV.length < 2
 end
 
 
-config_defaults = YAML.load_file("resources/cogie.config.example")
-cfg = Utils.check_config(ARGV[0], config_defaults, ['mdr.jar', 'tabix.path'])
+#config_defaults = YAML.load_file("resources/cogie.config.example")
+#cfg = Utils.check_config(ARGV[0], config_defaults, ['mdr.jar', 'tabix.path'])
+
+cfg = YAML.load_file(ARGV[0])
 
 date = ARGV[1]
 
