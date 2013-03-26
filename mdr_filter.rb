@@ -57,7 +57,6 @@ def setup_output_dirs(cfg)
   return [ctrl_temp_dir, mdr_temp_dir, analysis_dir, rank_file_locs]
 end
 
-
 ## Rank the patient locations based on the locations pulled from the filter file
 def rank_locations(cfg, patient_locations, ranges)
   puts "Creating ordered ranks"
@@ -130,8 +129,9 @@ def sample_locations(cfg, patient_locations, ranges)
   return ranked_locations
 end
 
-
+############################
 ### ---- START MAIN ---- ###
+############################
 if ARGV.length < 1
   usage =<<-USAGE
 Usage: #{$0} <configuration file> <random OPTIONAL>
@@ -142,12 +142,7 @@ USAGE
   exit 2
 end
 
-
-## Configuration file is expected as input.  Read.
-# see resources/cogie.config.example
-#config_defaults = YAML.load_file("resources/cogie.config.example")
-#cfg = Utils.check_config(ARGV[0], config_defaults, ['mdr.jar', 'tabix.path'])
-
+## Configuration file is expected as input.  Read see resources/cogie.config.example
 cfg = YAML.load_file(ARGV[0])
 
 (ctrl_temp_dir, mdr_temp_dir, analysis_dir, rank_file_locs) = setup_output_dirs(cfg)
@@ -155,6 +150,7 @@ cfg = YAML.load_file(ARGV[0])
 # Get the locations in rank order
 ranked_locations = load_filter_locations(cfg['ranked.list'], EnsemblInfo.new(cfg['gene.loc']))
 puts "Reading in filtered locations #{cfg['ranked.list']}"
+
 
 # List control VCF files
 ## This assumes that the control files are organized per chromosome, but since I'm using 1000genomes
@@ -183,6 +179,7 @@ patient_files.each do |f|
   end
 end
 
+
 ## Load the locations that were identified as being in the patient files
 loc_file = "#{cfg['patient.var.loc']}/chr_locations.txt"
 patient_locations = {}
@@ -191,8 +188,12 @@ File.open(loc_file, 'r').each_line do |line|
   next if line.start_with? "#"
   line = line.split("\t")
   chr = line.slice!(0)
+  #next if chr.eql?'X' or chr.eql?'Y' or chr.eql?'MT'
   patient_locations[chr] = line[1..-1].map! { |e| Integer(e) }
 end
+
+## Forget X/Y for now it's complicating things
+patient_locations.delete_if {|k,v| k.match(/X|Y|MT/) }
 
 ## Rank the patient locations based on the locations pulled from the filter file
 if ARGV[1] and ARGV[1].eql? 'random'
@@ -203,17 +204,21 @@ end
 
 
 
+
 ## -- CONTROLS -- ##
 # Get variations for controls in each location that patients also have variations
 # Am not including all possible locations in the control file as that will greatly increase
 # the MDR files and decrease possible hits
 puts "Getting control variations."
-
+matrix_sizes = []
 columns_per_rank = Hash[ranked_patient_locations.each.map { |r, l| [r, []] }]
+
+
 ## pull out subsets of the VCF files first ##
+columns = 0
 ranked_patient_locations.sort.map do |rank, locations|
   next if File.exists? "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
-  mdr = SimpleMatrix.new()
+  mdr_matrix = SimpleMatrix.new()
   locations.sort.map do |cvp|
     chr_vcf_file = "#{cfg['control.var.loc']}/#{control_vcf[cvp.chr]}"
 
@@ -222,35 +227,53 @@ ranked_patient_locations.sort.map do |rank, locations|
 
       ctrl = COGIE::ControlSample.new(chr_vcf_file, {:tabix => "#{cvp.chr}:#{loc}-#{loc}", :out => ctrl_temp_dir, :tabix_path => cfg['tabix.path']})
       vars = ctrl.parse_variations(['SNP']) # NOTE: only dealing in SNPs.  Changing this means the columns should be more descriptive
-      mdr.rownames = ctrl.samples.map { |s, v| "Sample-#{s}" } if mdr.rownames.empty?
+      mdr_matrix.rownames = ctrl.samples.map { |s, v| "Sample-#{s}" } if mdr_matrix.rownames.empty?
 
       vars.each do |var|
         if (var.pos.eql? loc) # sometimes when there's no position at that exact location the next nearest one is returned.
-          mdr.add_column(column_name, var.samples.map { |s, v| COGIE::Func.mdr_genotype(v['GT']) })
+          mdr_matrix.add_column(column_name, var.samples.map { |s, v| COGIE::Func.mdr_genotype(v['GT']) })
         else
-          mdr.add_column(column_name, Array.new(var.samples.length).map { |e| e = '0' })
+          mdr_matrix.add_column(column_name, Array.new(var.samples.length).map { |e| e = '0' })
         end
       end
-
       ## Sometimes the control files do not list that variation.
       ## In this case presume GT = 0
       if vars.empty?
-        col = Array.new(mdr.size[0])
-        mdr.add_column(column_name, col.map { |e| e = 0 })
+        col = Array.new(mdr_matrix.size[0])
+        mdr_matrix.add_column(column_name, col.map { |e| e = 0 })
       end
     end
   end
-  class_col = Array.new(mdr.size[0])
-  mdr.add_column('Class', class_col.map { |e| e = 0 })
-  columns_per_rank[rank] = mdr.colnames
-  mdr.write("#{rank_file_locs}/Rank#{rank}-ctrl.txt", :rownames => false)
+
+  matrix_sizes << mdr_matrix.size
+
+  class_col = Array.new(mdr_matrix.size[0])
+  mdr_matrix.add_column('Class', class_col.map { |e| e = 0 })
+
+  last_col = mdr_matrix.cols[0]
+  mdr_matrix.cols.each_with_index do |col, i|
+    next if i.eql?0
+    if last_col.length != col.length
+      raise Exception "Matrix columns for control variations in #{rank} are not all the same length. Exiting."
+    end
+  end
+
+  columns_per_rank[rank] = mdr_matrix.colnames
+  mdr_matrix.write("#{rank_file_locs}/Rank#{rank}-ctrl.txt", :rownames => false)
 end
 
+puts YAML::dump columns_per_rank
+exit
+
+
+puts "Control matrix:"
+puts YAML::dump matrix_sizes
 
 ## -- PATIENTS -- ##
 # Patient directories where each chromosome file is kept
 puts "Getting patient variations."
 
+matrix_sizes = []
 ranked_patient_locations.sort.map do |rank, locations|
   pt_matrix = SimpleMatrix.new
   pt_matrix.colnames = columns_per_rank[rank]
@@ -280,8 +303,23 @@ ranked_patient_locations.sort.map do |rank, locations|
     end
   end
 
+
+  matrix_sizes << pt_matrix.size
+
   ## Output the matrix of patients to the appropriate RANK file
   pt_matrix.update_column('Class', Array.new(pt_matrix.size[0]).map { |e| e = '1' }) # Class column, 1 = patient so update for all patients
+
+
+  last_col = pt_matrix.cols[0]
+  pt_matrix.cols.each_with_index do |col, i|
+    next if i.eql?0
+    if last_col.length != col.length
+      raise Exception "Matrix columns for patient variations in #{rank} are not all the same length. Exiting."
+    end
+  end
+
+
+
   rankfile = "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
   mdrfile = "#{mdr_temp_dir}/Rank#{rank}.mdr"
   FileUtils.copy(rankfile, mdrfile)
@@ -294,3 +332,5 @@ ranked_patient_locations.sort.map do |rank, locations|
   }
 end
 
+puts "Patient matrix:"
+puts YAML::dump matrix_sizes
