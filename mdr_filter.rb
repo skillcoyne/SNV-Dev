@@ -137,7 +137,7 @@ if ARGV.length < 1
 Usage: #{$0} <configuration file> <random OPTIONAL>
   - Configuration file is REQUIRED. See the cogie.config.example file.
   - random parameter is OPTIONAL. Default is to create mdr file in ordered ranking based on the provided ranked list.
-USAGE
+  USAGE
   puts usage
   exit 2
 end
@@ -191,18 +191,17 @@ File.open(loc_file, 'r').each_line do |line|
   #next if chr.eql?'X' or chr.eql?'Y' or chr.eql?'MT'
   patient_locations[chr] = line[1..-1].map! { |e| Integer(e) }
 end
-
 ## Forget X/Y for now it's complicating things
-patient_locations.delete_if {|k,v| k.match(/X|Y|MT/) }
+patient_locations.delete_if { |k, v| k.match(/X|Y|MT/) }
+
 
 ## Rank the patient locations based on the locations pulled from the filter file
+# Either in order (ranked) or random (sampled)
 if ARGV[1] and ARGV[1].eql? 'random'
   sample_locations(cfg, patient_locations, ranked_locations)
 else
   ranked_patient_locations = rank_locations(cfg, patient_locations, ranked_locations)
 end
-
-
 
 
 ## -- CONTROLS -- ##
@@ -217,9 +216,13 @@ columns_per_rank = Hash[ranked_patient_locations.each.map { |r, l| [r, []] }]
 ## pull out subsets of the VCF files first ##
 columns = 0
 ranked_patient_locations.sort.map do |rank, locations|
+  puts "Rank #{rank}: #{locations.length} locations"
+
   next if File.exists? "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
   mdr_matrix = SimpleMatrix.new()
+
   locations.sort.map do |cvp|
+
     chr_vcf_file = "#{cfg['control.var.loc']}/#{control_vcf[cvp.chr]}"
 
     cvp.locations.each do |loc|
@@ -236,8 +239,8 @@ ranked_patient_locations.sort.map do |rank, locations|
           mdr_matrix.add_column(column_name, Array.new(var.samples.length).map { |e| e = '0' })
         end
       end
-      ## Sometimes the control files do not list that variation.
-      ## In this case presume GT = 0
+                                            ## Sometimes the control files do not list that variation.
+                                            ## In this case presume GT = 0
       if vars.empty?
         col = Array.new(mdr_matrix.size[0])
         mdr_matrix.add_column(column_name, col.map { |e| e = 0 })
@@ -245,16 +248,13 @@ ranked_patient_locations.sort.map do |rank, locations|
     end
   end
 
-  matrix_sizes << mdr_matrix.size
-
   class_col = Array.new(mdr_matrix.size[0])
   mdr_matrix.add_column('Class', class_col.map { |e| e = 0 })
 
-  last_col = mdr_matrix.cols[0]
-  mdr_matrix.cols.each_with_index do |col, i|
-    next if i.eql?0
-    if last_col.length != col.length
-      raise Exception "Matrix columns for control variations in #{rank} are not all the same length. Exiting."
+  col_count = mdr_matrix.rows[0].length
+  mdr_matrix.rows.each do |row|
+    if row.length != col_count
+      raise "Matrix columns for control variations in #{rank} are not all the same length. Exiting."
     end
   end
 
@@ -262,18 +262,11 @@ ranked_patient_locations.sort.map do |rank, locations|
   mdr_matrix.write("#{rank_file_locs}/Rank#{rank}-ctrl.txt", :rownames => false)
 end
 
-puts YAML::dump columns_per_rank
-exit
 
-
-puts "Control matrix:"
-puts YAML::dump matrix_sizes
 
 ## -- PATIENTS -- ##
 # Patient directories where each chromosome file is kept
 puts "Getting patient variations."
-
-matrix_sizes = []
 ranked_patient_locations.sort.map do |rank, locations|
   pt_matrix = SimpleMatrix.new
   pt_matrix.colnames = columns_per_rank[rank]
@@ -304,21 +297,14 @@ ranked_patient_locations.sort.map do |rank, locations|
   end
 
 
-  matrix_sizes << pt_matrix.size
-
   ## Output the matrix of patients to the appropriate RANK file
   pt_matrix.update_column('Class', Array.new(pt_matrix.size[0]).map { |e| e = '1' }) # Class column, 1 = patient so update for all patients
 
-
-  last_col = pt_matrix.cols[0]
-  pt_matrix.cols.each_with_index do |col, i|
-    next if i.eql?0
-    if last_col.length != col.length
-      raise Exception "Matrix columns for patient variations in #{rank} are not all the same length. Exiting."
+  pt_matrix.rows.each do |row|
+    if row.length != columns_per_rank[rank]
+      raise "Matrix columns for control variations in #{rank} are not all the same length. Exiting."
     end
   end
-
-
 
   rankfile = "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
   mdrfile = "#{mdr_temp_dir}/Rank#{rank}.mdr"
@@ -330,7 +316,6 @@ ranked_patient_locations.sort.map do |rank, locations|
       f.write(row.join("\t") + "\n")
     end
   }
+
 end
 
-puts "Patient matrix:"
-puts YAML::dump matrix_sizes
