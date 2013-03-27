@@ -239,8 +239,8 @@ ranked_patient_locations.sort.map do |rank, locations|
           mdr_matrix.add_column(column_name, Array.new(var.samples.length).map { |e| e = '0' })
         end
       end
-                                            ## Sometimes the control files do not list that variation.
-                                            ## In this case presume GT = 0
+      ## Sometimes the control files do not list that variation.
+      ## In this case presume GT = 0
       if vars.empty?
         col = Array.new(mdr_matrix.size[0])
         mdr_matrix.add_column(column_name, col.map { |e| e = 0 })
@@ -252,9 +252,9 @@ ranked_patient_locations.sort.map do |rank, locations|
   mdr_matrix.add_column('Class', class_col.map { |e| e = 0 })
 
   col_count = mdr_matrix.rows[0].length
-  mdr_matrix.rows.each do |row|
+  mdr_matrix.rows.each_with_index do |row, i|
     if row.length != col_count
-      raise "Matrix columns for control variations in #{rank} are not all the same length. Exiting."
+      raise "Matrix columns for control variations in #{rank} are not all the same length. Failed at row #{i} Exiting."
     end
   end
 
