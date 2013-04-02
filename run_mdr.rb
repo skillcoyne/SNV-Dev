@@ -30,5 +30,5 @@ end
 jar = cfg['mdr.jar'] || "MDR.jar"
 
 ms = MDRScript.new(mdr_temp_dir, analysis_dir)
-output_files = ms.write_script(:type => 'Java', :jar => jar, :k => cfg['mdr.K'])
+output_files = ms.write_script(:type => 'Java', :jar => jar, :k => cfg['mdr.K'], :models => cfg['mdr.models'])
 output_files.each {|f| ms.run_script(f, cfg['oar.core'], cfg['oar.walltime'])}
