@@ -172,11 +172,14 @@ patient_files.each do |f|
   if f.match(/\.func$/)
     pdir = "#{cfg['patient.var.loc']}/" + File.basename(f).sub!(/\..*$/, "")
     unless (File.exists? pdir and File.directory? pdir)
-      puts "ERROR: Patient directories missing. Please rerun patient file indexing script."
-      exit 2
+      raise "ERROR: Patient directories missing. Please rerun patient file indexing script."
     end
     patient_dirs << pdir
   end
+end
+
+if patient_dirs.empty?
+  raise "ERROR: Patient directories missing. Please check that directories and .func files are available."
 end
 
 
@@ -218,13 +221,17 @@ columns = 0
 ranked_patient_locations.sort.map do |rank, locations|
   puts "Rank #{rank}: #{locations.length} locations"
 
+  "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
+
   next if File.exists? "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
   mdr_matrix = SimpleMatrix.new()
+
 
   locations.sort.map do |cvp|
 
     chr_vcf_file = "#{cfg['control.var.loc']}/#{control_vcf[cvp.chr]}"
 
+    column_lengths = 0
     cvp.locations.each do |loc|
       column_name = "#{cvp.chr}:#{loc}"
 
@@ -236,24 +243,31 @@ ranked_patient_locations.sort.map do |rank, locations|
         if (var.pos.eql? loc) # sometimes when there's no position at that exact location the next nearest one is returned.
           mdr_matrix.add_column(column_name, var.samples.map { |s, v| COGIE::Func.mdr_genotype(v['GT']) })
         else
-          mdr_matrix.add_column(column_name, Array.new(var.samples.length).map { |e| e = '0' })
+          mdr_matrix.add_column(column_name, Array.new(var.samples.length).map{ |e| e = '0' })
         end
       end
       ## Sometimes the control files do not list that variation.
       ## In this case presume GT = 0
       if vars.empty?
         col = Array.new(mdr_matrix.size[0])
-        mdr_matrix.add_column(column_name, col.map { |e| e = 0 })
+        mdr_matrix.add_column(column_name, col.map! { |e| e = 0 })
       end
+
+      unless mdr_matrix.columns.length >= column_lengths+1
+        raise "Columns added incorrectly at #{loc}"
+      end
+      column_lengths = mdr_matrix.columns.length
     end
   end
 
   class_col = Array.new(mdr_matrix.size[0])
   mdr_matrix.add_column('Class', class_col.map { |e| e = 0 })
 
-  col_count = mdr_matrix.rows[0].length
+  puts mdr_matrix.size.join(", ")
+  col_count = mdr_matrix.size[1]-1
   mdr_matrix.rows.each_with_index do |row, i|
     if row.length != col_count
+      puts "#{i} #{mdr_matrix.rownames[i]}: #{row.length}"
       raise "Matrix columns for control variations in #{rank} are not all the same length. Failed at row #{i} Exiting."
     end
   end
@@ -261,7 +275,6 @@ ranked_patient_locations.sort.map do |rank, locations|
   columns_per_rank[rank] = mdr_matrix.colnames
   mdr_matrix.write("#{rank_file_locs}/Rank#{rank}-ctrl.txt", :rownames => false)
 end
-
 
 
 ## -- PATIENTS -- ##
@@ -292,6 +305,7 @@ ranked_patient_locations.sort.map do |rank, locations|
         else
           pt_matrix.add_element(rowname, colname, COGIE::Func.mdr_genotype(gt))
         end
+
       end
     end
   end
@@ -300,9 +314,9 @@ ranked_patient_locations.sort.map do |rank, locations|
   ## Output the matrix of patients to the appropriate RANK file
   pt_matrix.update_column('Class', Array.new(pt_matrix.size[0]).map { |e| e = '1' }) # Class column, 1 = patient so update for all patients
 
-  pt_matrix.rows.each do |row|
-    if row.length != columns_per_rank[rank]
-      raise "Matrix columns for control variations in #{rank} are not all the same length. Exiting."
+  pt_matrix.rows.each_with_index do |row, i|
+    if row.length != columns_per_rank[rank].length
+      raise "Matrix columns for control variations in #{rank} at row #{i} are not all the same length. Exiting."
     end
   end
 
