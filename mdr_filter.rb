@@ -268,7 +268,7 @@ ranked_patient_locations.sort.map do |rank, locations|
   mdr_matrix.rows.each_with_index do |row, i|
     if row.length != col_count
       puts "#{i} #{mdr_matrix.rownames[i]}: #{row.length}"
-      raise "Matrix columns for control variations in #{rank} are not all the same length. Failed at row #{i} Exiting."
+      #raise "Matrix columns for control variations in #{rank} are not all the same length. Failed at row #{i} Exiting."
     end
   end
 
@@ -316,7 +316,8 @@ ranked_patient_locations.sort.map do |rank, locations|
 
   pt_matrix.rows.each_with_index do |row, i|
     if row.length != columns_per_rank[rank].length
-      raise "Matrix columns for control variations in #{rank} at row #{i} are not all the same length. Exiting."
+      puts "#{i} #{pt_matrix.rownames[i]}: #{row.length}"
+#      raise "Matrix columns for control variations in #{rank} at row #{i} are not all the same length. Exiting."
     end
   end
 
