@@ -40,7 +40,7 @@ end
 
 def setup_output_dirs(cfg)
   # Don't want to regen the vcf/mdr directory more often than necessary as these files can take the longest to generate
-  ctrl_temp_dir = "#{cfg['output.dir']}/vcf/#{Utils.date}"
+  ctrl_temp_dir = "#{cfg['output.dir']}/vcf"
   FileUtils.mkpath(ctrl_temp_dir) unless File.exists? ctrl_temp_dir
 
   mdr_temp_dir = "#{cfg['output.dir']}/mdr/#{Utils.date}"
@@ -215,7 +215,7 @@ puts "Getting control variations."
 matrix_sizes = []
 columns_per_rank = Hash[ranked_patient_locations.each.map { |r, l| [r, []] }]
 
-
+tabix_path = cfg['tabix.path']
 ## pull out subsets of the VCF files first ##
 columns = 0
 ranked_patient_locations.sort.map do |rank, locations|
@@ -228,54 +228,64 @@ ranked_patient_locations.sort.map do |rank, locations|
 
 
   locations.sort.map do |cvp|
-
     chr_vcf_file = "#{cfg['control.var.loc']}/#{control_vcf[cvp.chr]}"
 
-    column_lengths = 0
+    sample_names = COGIE::ControlSample.samples(chr_vcf_file)
+    mdr_matrix.rownames = sample_names if mdr_matrix.rownames.empty?
+
     cvp.locations.each do |loc|
-      column_name = "#{cvp.chr}:#{loc}"
+        column_name = "#{cvp.chr}:#{loc}"
 
-      ctrl = COGIE::ControlSample.new(chr_vcf_file, {:tabix => "#{cvp.chr}:#{loc}-#{loc}", :out => ctrl_temp_dir, :tabix_path => cfg['tabix.path']})
-      vars = ctrl.parse_variations(['SNP']) # NOTE: only dealing in SNPs.  Changing this means the columns should be more descriptive
-      mdr_matrix.rownames = ctrl.samples.map { |s, v| "Sample-#{s}" } if mdr_matrix.rownames.empty?
+        ctrl = COGIE::ControlSample.new(chr_vcf_file, {:tabix => "#{cvp.chr}:#{loc}-#{loc}", :out => ctrl_temp_dir, :tabix_path => tabix_path})
+        vars = ctrl.parse_variations(['SNP']) # NOTE: only dealing in SNPs.  Changing this means the columns should be more descriptive
 
-      vars.each do |var|
-        if (var.pos.eql? loc) # sometimes when there's no position at that exact location the next nearest one is returned.
-          mdr_matrix.add_column(column_name, var.samples.map { |s, v| COGIE::Func.mdr_genotype(v['GT']) })
-        else
-          mdr_matrix.add_column(column_name, Array.new(var.samples.length).map{ |e| e = '0' })
+        ## Just checking, this should never fail
+        unless ctrl.samples.empty?
+          raise "Sample length incorrect" unless ctrl.samples.length.eql?sample_names.length
         end
-      end
-      ## Sometimes the control files do not list that variation.
-      ## In this case presume GT = 0
-      if vars.empty?
-        col = Array.new(mdr_matrix.size[0])
-        mdr_matrix.add_column(column_name, col.map! { |e| e = 0 })
-      end
 
-      unless mdr_matrix.columns.length >= column_lengths+1
-        raise "Columns added incorrectly at #{loc}"
-      end
-      column_lengths = mdr_matrix.columns.length
+        vars.each do |var|
+          if (var.pos.eql? loc) # sometimes when there's no position at that exact location the next nearest one is returned.
+            mdr_matrix.add_column(column_name, var.samples.map { |s, v| COGIE::Func.mdr_genotype(v['GT']) })
+          else
+            mdr_matrix.add_column(column_name, Array.new(var.samples.length).map { |e| e = '0' })
+          end
+        end
+
+        ## Sometimes the control files do not list that variation.
+        ## In this case presume GT = 0
+        if vars.empty?
+          col = Array.new(mdr_matrix.size[0])
+          mdr_matrix.add_column(column_name, col.map! { |e| e = 0 })
+        end
+
+      puts mdr_matrix.size.join(",")
     end
+
   end
 
   class_col = Array.new(mdr_matrix.size[0])
   mdr_matrix.add_column('Class', class_col.map { |e| e = 0 })
 
   puts mdr_matrix.size.join(", ")
-  col_count = mdr_matrix.size[1]-1
+  col_count = mdr_matrix.size[1]
   mdr_matrix.rows.each_with_index do |row, i|
     if row.length != col_count
-      puts "#{i} #{mdr_matrix.rownames[i]}: #{row.length}"
-      #raise "Matrix columns for control variations in #{rank} are not all the same length. Failed at row #{i} Exiting."
+      raise "Matrix columns for control variations in #{rank} are not all the same length. Failed at row #{i} Exiting."
     end
   end
 
+  puts "Rank #{rank}"
+  puts mdr_matrix.size.join(",")
+
   columns_per_rank[rank] = mdr_matrix.colnames
   mdr_matrix.write("#{rank_file_locs}/Rank#{rank}-ctrl.txt", :rownames => false)
+
+break
 end
 
+
+exit
 
 ## -- PATIENTS -- ##
 # Patient directories where each chromosome file is kept
