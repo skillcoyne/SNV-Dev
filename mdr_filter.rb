@@ -280,8 +280,6 @@ ranked_patient_locations.sort.map do |rank, locations|
 
   columns_per_rank[rank] = mdr_matrix.colnames
   mdr_matrix.write("#{rank_file_locs}/Rank#{rank}-ctrl.txt", :rownames => false)
-
-break
 end
 
 ## -- PATIENTS -- ##
@@ -338,8 +336,5 @@ ranked_patient_locations.sort.map do |rank, locations|
       f.write(row.join("\t") + "\n")
     end
   }
-
-
-  break
 end
 
