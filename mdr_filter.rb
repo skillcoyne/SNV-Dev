@@ -284,9 +284,6 @@ ranked_patient_locations.sort.map do |rank, locations|
 break
 end
 
-
-exit
-
 ## -- PATIENTS -- ##
 # Patient directories where each chromosome file is kept
 puts "Getting patient variations."
@@ -342,5 +339,7 @@ ranked_patient_locations.sort.map do |rank, locations|
     end
   }
 
+
+  break
 end
 
