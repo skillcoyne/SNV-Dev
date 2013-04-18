@@ -21,10 +21,14 @@ and output mdr matrix files.
 
 4. Run the run_mdr.rb file with the config file and date of the filter run to be analyzed in the following format: YearMonthDay
 This script will then set up and run the MDR scripts on the cluster. MDR parameters are set by the cogie.config file.
-Currently the max settings are recommended as:  mdr.max = 2000, mdr.K = 3.  With a lower mdr.max
-the K value can be increased.  If max is increased about 2000 K should not more than 2.
+Max settings depends on the cluster.  Higher K values increase the computational time with large mdr.max values.
+
 Parameters for the OAR scripts are also set up in the cogie.config file.
 > ruby run_mdr.rb <cogie.confg file location> 20130101
+
+5. Run the read_mdr_results.rb script to translate the mdr output from chromosome locations to ensembl genes. Currently it only queries
+for protein coding genes so some locations will not have results.
+> ruby read_mdr_results.rb <mdr.txt file>
 
 
 NOTE:  The following are assumptions made by the parsers.
@@ -35,16 +39,5 @@ NOTE:  The following are assumptions made by the parsers.
     by using the samtools and Vcf file parsing library.
 
 
-## EXAMPLE OUTPUT FROM R SCRIPT, JAVA IS SIMILAR BUT SHOULD BE UPDATED ##
-
-example output:
-  Level    Best Models                 Classification Accuracy
-* "1"   "chr1_SNP4"                 "55.73"                   
-  "2"   "chr1_SNP19"   "chr1_SNP31" "61.8"                    
-     Prediction Accuracy    Cross-Validation Consistency
-* "49.91"                "2"                            
-  "38.51"                "1"                            
- 
-'*' indicates overall best model
 
 
