@@ -9,8 +9,10 @@ if ARGV.length < 2
 end
 
 
-config_defaults = YAML.load_file("resources/cogie.config.example")
-cfg = Utils.check_config(ARGV[0], config_defaults, ['mdr.jar', 'tabix.path'])
+#config_defaults = YAML.load_file("resources/cogie.config.example")
+#cfg = Utils.check_config(ARGV[0], config_defaults, ['mdr.jar', 'tabix.path'])
+
+cfg = YAML.load_file(ARGV[0])
 
 date = ARGV[1]
 
@@ -28,5 +30,5 @@ end
 jar = cfg['mdr.jar'] || "MDR.jar"
 
 ms = MDRScript.new(mdr_temp_dir, analysis_dir)
-output_files = ms.write_script(:type => 'Java', :jar => jar, :k => cfg['mdr.K'])
+output_files = ms.write_script(:type => 'Java', :jar => jar, :k => cfg['mdr.K'], :models => cfg['mdr.models'])
 output_files.each {|f| ms.run_script(f, cfg['oar.core'], cfg['oar.walltime'])}

@@ -21,7 +21,7 @@ class MDRScript
         @files << R(file, opts[:max], opts[:k])
       elsif opts[:type].eql? 'Java'
         @jar_path = opts[:jar]
-        @files << Java_script(file, opts[:k])
+        @files << Java_script(file, opts[:k], opts[:models])
       else
         puts "No MDR tool for type '#{opts[:type]}'"
       end
@@ -33,7 +33,7 @@ class MDRScript
   def run_script(filename, cores = 2, walltime = 84)
     base =   File.basename(filename).sub!(/\..*$/, "")
     cmd=<<-CMD
-oarsub -l core=#{cores},walltime=#{walltime} -n MDR_#{base} -O #{@out_path}/output/#{base}.out -E #{@out_path}/#{base}.err  #{filename}
+oarsub -l core=#{cores},walltime=#{walltime} -n MDR_#{base} -O #{@out_path}/#{base}.out -E #{@out_path}/#{base}.err  #{filename}
 CMD
     puts "Starting #{cmd}"
     system("#{cmd}")
@@ -48,11 +48,11 @@ CMD
     return "#{@out_path}/#{file}"
   end
 
-  def Java_script(mdrfile, k)
+  def Java_script(mdrfile, k, models)
     output = File.basename(mdrfile).sub(/\..*$/, "")
     jar = @jar_path || "MDR.jar"
     java =<<-Java
-java -jar #{jar} -parallel -nolandscape -top_models_landscape_size=5 -cv=10 -max=#{k} #{mdrfile} > #{@out_path}/#{output}.txt
+java -jar #{jar} -parallel -nolandscape -top_models_landscape_size=#{models} -cv=10 -max=#{k} -all_models_outfile=#{@out_path}/#{output}-models.txt #{mdrfile} > #{@out_path}/#{output}.txt
     Java
     return write("#{output}.sh", java)
   end

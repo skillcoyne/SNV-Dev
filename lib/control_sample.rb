@@ -1,5 +1,7 @@
 require 'vcf'
 require 'tmpdir'
+require 'zlib'
+
 
 module COGIE
 
@@ -50,6 +52,18 @@ module COGIE
 
     attr_reader :name, :samples, :from, :to, :pos, :ct_file
 
+    def self.samples(file)
+      expected = ["#CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO", "FORMAT"]
+      Zlib::GzipReader.open(file).each_line do |line|
+        if line.match(/#CHROM/)
+          cols = line.split("\t")
+          raise "Unexpected columns" unless cols[0..8].eql?expected
+          return cols[9..cols.length]
+        end
+        break unless line.start_with?'#'
+      end
+      return []
+    end
 
     # Uses samtools:tabix to read a VCF file given chromosome, from, to locations and returns the sample information for the given file
     # Params:

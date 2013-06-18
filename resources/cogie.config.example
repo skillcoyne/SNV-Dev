@@ -24,6 +24,7 @@ output.dir: /< for various temp files>
 mdr.K: 2
 mdr.max: 50
 mdr.analysis.dir: /<ouptut path>/
+mdr.models: 5
 
 # Tool paths - These are optional. If the tool is pathed on the system these should be
 # removed from the configuration file.
