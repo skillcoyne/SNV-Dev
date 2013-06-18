@@ -46,8 +46,6 @@ File.open(patient_file, 'r').each_with_index do |line, i|
     v = COGIE::VCF.new(line, patient_ids)
 
     (locations[v.chr] ||= []) << v.pos
-
-  break if i > 500
 end
 
 
