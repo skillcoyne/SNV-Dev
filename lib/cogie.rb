@@ -5,7 +5,7 @@ module COGIE
 
   class PVUtil
     @files = {}
-    class << self  # thought I was being clever and keeping the open filehandles around but doesn't seem to work, meh
+    class << self # thought I was being clever and keeping the open filehandles around but doesn't seem to work, meh
       def open_file(filename)
         @files[filename] ||= File.open(filename, 'r')
       end
@@ -29,7 +29,6 @@ module COGIE
     end
 
   end
-
 
   ## This class is specific to the .func file format that was provided by Cologne.  If a different format
   ## like VCF is used then this just has to be switched out in the COGIEPatient class.
@@ -102,11 +101,11 @@ module COGIE
       h2 = h2.to_i
 
       case # I think it's appropriate to report 0/1 as 1
-        when h1+h2 == 0  # 0/0
+        when h1+h2 == 0 # 0/0
           return 0
-        when h1+h2 <= 2  # 0/1  or  1/1
+        when h1+h2 <= 2 # 0/1  or  1/1
           return 1
-        when h1+h2 >= 3  # 1/2  or 2/2
+        when h1+h2 >= 3 # 1/2  or 2/2
           return 2
       end
     end
@@ -138,4 +137,70 @@ module COGIE
     end
 
   end
+
+  # Specific to Wiktor's VCF format
+  class VCF
+
+    attr_accessor :chr, :pos, :id, :ref, :alt, :qual, :filter, :info, :format, :samples
+
+    def initialize(line=nil, sample_names=nil)
+      @info = {}
+      @samples = {}
+      parse_line(line, sample_names) if line != nil
+    end
+
+    def parse_line(line, sample_names=nil)
+      return nil if line.start_with? "#"
+
+      cols = line.chomp.split("\t")
+      raise "Line has no samples" if cols.size < 9
+
+      (@chr, @pos, @id, @ref, @alt, @qual, @filter) = cols[0..6]
+      @pos = @pos.to_i
+
+      @info = {}
+      cols[7].split(";").each do |x|
+        keyval = x.split("=", -1)
+        if keyval.size == 2 # If it's key=value
+          @info[keyval[0]] = keyval[1]
+        else # Otherwise, it's just a flag
+          @info[x] = ""
+        end
+      end
+
+      @format = cols[8].split(":")
+
+      samples = cols[9..cols.size-1]
+
+      if sample_names == nil # Make the sample names just ["1", "2", ... , "num_samples}"
+        sample_names = (1..samples.size).to_a.map { |i| i.to_s }
+      elsif sample_names.size != samples.size
+        raise "Unexpected number of samples (#{samples.size}) based on the provided sample names (#{sample_names.inspect})"
+      end
+
+      @samples = {}
+      sample_names.each_with_index do |sample_name, si|
+        i = si + 9 # index into columns
+        sample_values = cols[i].split(":")
+        warn "Expected number of sample values to be <= number of sample keys in FORMAT column Format=#{@format} but sample=#{cols[i]}" if sample_values.size > @format.size
+        @samples[sample_name] = {}
+
+        sample_values.each_with_index do |val, i|
+          if i < @format.size
+            key = @format[i]
+          else
+            key = i
+          end
+          @samples[sample_name][key] = val
+        end
+      end
+
+      return true
+
+    end
+
+
+  end
+
+
 end
