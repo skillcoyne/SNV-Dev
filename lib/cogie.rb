@@ -143,13 +143,13 @@ module COGIE
 
     attr_accessor :chr, :pos, :id, :ref, :alt, :qual, :filter, :info, :format, :samples
 
-    def initialize(line=nil, sample_names=nil)
+    def initialize(line=nil, sample_names=nil, format_filter=nil)
       @info = {}
       @samples = {}
-      parse_line(line, sample_names) if line != nil
+      parse_line(line, sample_names, format_filter) if line != nil
     end
 
-    def parse_line(line, sample_names=nil)
+    def parse_line(line, sample_names=nil, format_filter=nil)
       return nil if line.start_with? "#"
 
       cols = line.chomp.split("\t")
@@ -157,6 +157,7 @@ module COGIE
 
       (@chr, @pos, @id, @ref, @alt, @qual, @filter) = cols[0..6]
       @pos = @pos.to_i
+      @qual = @qual.to_f
 
       @info = {}
       cols[7].split(";").each do |x|
@@ -188,17 +189,19 @@ module COGIE
         sample_values.each_with_index do |val, i|
           if i < @format.size
             key = @format[i]
+            @no_qual = true unless @format[i].eql?'GT'
           else
             key = i
           end
           @samples[sample_name][key] = val
         end
+        if format_filter
+          @samples.delete(sample_name) unless @samples[sample_name].has_key?format_filter
+        end
       end
 
       return true
-
     end
-
 
   end
 
