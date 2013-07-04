@@ -14,11 +14,17 @@ gene.loc: /<path to gene location file
 # Control
 control.var.loc: /<path to control variation file dir>
 
-# Patients
-patient.var.loc: /<path to patient variation file dir>
+# Patient vcf
+patient.vcf: /Users/sarah.killcoyne/Data/COGIE/patients/ige03052013.ls.vcf-GTcorr.vcf
 
-# File output directory
-output.dir: /< for various temp files>
+qual.range: 72-220
+
+## Output
+# File output dir
+output.dir: /Users/sarah.killcoyne/cogie-tmp/temp/IGE
+
+
+
 
 # MDR
 mdr.K: 2

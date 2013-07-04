@@ -14,18 +14,24 @@ require_relative 'lib/cogie'
 #    script simpler and faster.
 
 
-if ARGV.length < 3
-  puts "Usage: #{$0} <patient VCF file> <qual range e.g. 72:220> <output dir>"
+if ARGV.length < 2
+  puts "Usage: #{$0} <cogie.config> <output dir>"
   exit 1
 end
 
-# Get patient variations in each location
-patient_file = ARGV[0]
+cfg = YAML.load_file(ARGV[0])
 
-qual = ARGV[1].split(":")
+# Get patient variations in each location
+#patient_file = ARGV[0]
+patient_file = cfg['patient.vcf']
+
+# Quality range
+qual = cfg['qual.range'].split("-")
+#qual = ARGV[1].split(":")
 qual_range = Range.new(qual[0].to_f, qual[1].to_f)
 
-outdir = ARGV[2]
+#outdir = ARGV[2]
+outdir = cfg['output.dir']
 outdir = "#{outdir}/#{File.basename(patient_file, '.vcf')}"
 
 FileUtils.mkpath(outdir) unless File.exists?outdir and File.directory?outdir
