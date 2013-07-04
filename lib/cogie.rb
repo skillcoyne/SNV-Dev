@@ -144,13 +144,14 @@ module COGIE
     attr_accessor :chr, :pos, :id, :ref, :alt, :qual, :filter, :info, :format, :samples
 
     def initialize(line=nil, sample_names=nil, format_filter=nil)
-      @info = {}
-      @samples = {}
       parse_line(line, sample_names, format_filter) if line != nil
     end
 
     def parse_line(line, sample_names=nil, format_filter=nil)
       return nil if line.start_with? "#"
+
+      @info = {}
+      @samples = {}
 
       cols = line.chomp.split("\t")
       raise "Line has no samples" if cols.size < 9
@@ -183,7 +184,7 @@ module COGIE
       sample_names.each_with_index do |sample_name, si|
         i = si + 9 # index into columns
         sample_values = cols[i].split(":")
-        warn "Expected number of sample values to be <= number of sample keys in FORMAT column Format=#{@format} but sample=#{cols[i]}" if sample_values.size > @format.size
+        #warn "Expected number of sample values to be <= number of sample keys in FORMAT column Format=#{@format} but sample=#{cols[i]}" if sample_values.size > @format.size
         @samples[sample_name] = {}
 
         sample_values.each_with_index do |val, i|

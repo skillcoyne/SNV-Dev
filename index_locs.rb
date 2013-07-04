@@ -1,32 +1,42 @@
 require 'fileutils'
+require 'yaml'
+require_relative 'lib/cogie'
 
-dir = "/work/projects/cogie/patients"
-i = 0
-locations = {}
 
-files = Dir["#{dir}/**/*.txt"]
 
-files.each do |file|
-  puts file
-  File.open(file, 'r').each_line do |line|
-    line.chomp!
-    cols = line.split("\t")
-    chr = cols[0]
-    locs = cols[1..cols.length]
-	
-    (locations[chr] ||=[]) << locs
-   end
-    i+=1
-end
-locations.each_pair{|k,v| v.flatten!; v.uniq!; v.sort! }
+cfg = YAML.load_file(ARGV[0])
 
-loc_file = "#{dir}/chr_locations.txt"
-# Chromosome locations file
-locations = Hash[locations.sort]
-File.open(loc_file, 'w') do |fout|
-  fout.write "# Each line is formatted as: <chr> <list of locations from patient files>\n"
-  locations.each_pair do |chr, locs|
-    fout.write "#{chr}\t" + locs.join("\t") + "\n"
+patients_file = cfg['patient.vcf']
+vcf_name = File.basename(patients_file, '.vcf')
+
+outdir = "#{cfg['output.dir']}/#{vcf_name}"
+
+puts outdir
+
+FileUtils.mkpath(outdir)
+
+patient_ids = []
+colnames = []
+puts "Reading #{patients_file}"
+File.open(patients_file, 'r').each_line do |line|
+  if line.match(/#CHROM/)
+    colnames = line.split("/t")
+    patient_ids = colnames[9..colnames.size-1]
   end
+
+  vcf = COGIE::VCF.new(line, patient_ids)
+  next if vcf.chr.nil?
+
+  out_file = "#{outdir}/chr#{vcf.chr}.vcf"
+
+  unless File.exists?out_file
+    puts "Starting #{out_file}"
+    File.open(out_file, 'w'){ |f| f.write(colnames.join("\t") + "\n") }
+  end
+
+  File.open(out_file, 'a') { |f| f.write(line) }
+
+
 end
+
 
