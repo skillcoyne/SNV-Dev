@@ -56,6 +56,7 @@ module COGIE
       expected = ["#CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO", "FORMAT"]
       Zlib::GzipReader.open(file).each_line do |line|
         if line.match(/#CHROM/)
+          line.chomp!
           cols = line.split("\t")
           raise "Unexpected columns" unless cols[0..8].eql?expected
           return cols[9..cols.length]

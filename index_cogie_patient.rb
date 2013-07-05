@@ -14,33 +14,33 @@ require_relative 'lib/cogie'
 #    script simpler and faster.
 
 
-if ARGV.length < 2
-  puts "Usage: #{$0} <cogie.config> <output dir>"
+if ARGV.length < 1
+  puts "Usage: #{$0} <cogie.config>"
   exit 1
 end
 
 cfg = YAML.load_file(ARGV[0])
 
-# Get patient variations in each location
-#patient_file = ARGV[0]
-patient_file = cfg['patient.vcf']
+unless cfg.has_key?'patient.vcf' and cfg.has_key?'qual.range' and cfg.has_key?'output.dir'
+  warn "Config file missing one or more required properties:  patient.vcf, qual.range, output.dir. Exiting."
+  exit -1
+end
+
+# Get patient variations in each location and create separate chromosome vcf files
+patients_file = cfg['patient.vcf']
+outdir = "#{cfg['output.dir']}/#{File.basename(patients_file, '.vcf')}"
+
+FileUtils.mkpath(outdir) unless File.exists?outdir
 
 # Quality range
 qual = cfg['qual.range'].split("-")
-#qual = ARGV[1].split(":")
 qual_range = Range.new(qual[0].to_f, qual[1].to_f)
 
-#outdir = ARGV[2]
-outdir = cfg['output.dir']
-outdir = "#{outdir}/#{File.basename(patient_file, '.vcf')}"
-
-FileUtils.mkpath(outdir) unless File.exists?outdir and File.directory?outdir
-
-File.open("#{outdir}/run-info.txt", 'w') {|f|
-    f.write( "Patient file: #{patient_file}\n" );
-    f.write( "Qual range: #{qual_range}\n" );
+File.open("#{outdir}/run-info.txt", 'a') { |f|
+  f.write(DateTime.now.to_s + "\n")
+  f.write("Patient file: #{patients_file}\n")
+  f.write("Qual range: #{qual_range}\n")
 }
-
 
 count = 0
 loc_file = "#{outdir}/chr_locations.#{qual[0]}-#{qual[1]}.txt"
@@ -48,33 +48,34 @@ puts "Writing to #{loc_file}"
 
 locations = {}
 patient_ids = []
-File.open(patient_file, 'r').each_with_index do |line, i|
+File.open(patients_file, 'r').each_with_index do |line, i|
   next if line.start_with? "##"
-  if line.start_with?"#CHROM"
+  if line.start_with? "#CHROM"
     cols = line.chomp.split("\t")
     patient_ids = cols[9..cols.size-1]
     next
   end
-    #puts i
-    v = COGIE::VCF.new(line, patient_ids)
-    next unless v.info['TYPE'].eql?'SNP' and qual_range.include?(v.qual)
-    count += 1
-    (locations[v.chr] ||= []) << v.pos
+  #puts i
+  v = COGIE::VCF.new(line, patient_ids)
+  next unless v.info['TYPE'].eql? 'SNP' and qual_range.include?(v.qual)
+  count += 1
+  (locations[v.chr] ||= []) << v.pos
+  break if count > 500
 end
 
 if locations.length > 0
-    locations.each_pair { |k, v| v.uniq!; v.sort! }
+  locations.each_pair { |k, v| v.uniq!; v.sort! }
 
-    # Chromosome locations file
-    locations = Hash[locations.sort]
-    File.open(loc_file, 'w') do |fout|
+  # Chromosome locations file
+  locations = Hash[locations.sort]
+  File.open(loc_file, 'w') do |fout|
     fout.write "# Each line is formatted as: <chr> <list of locations from patient files>\n"
     locations.each_pair do |chr, locs|
-	fout.write "#{chr}\t" + locs.join("\t") + "\n"
+      fout.write "#{chr}\t" + locs.join("\t") + "\n"
     end
-    end
+  end
 
-    puts "\n#{loc_file} written."
+  puts "\n#{loc_file} written."
 else
   warn "No locations for range: #{qual_range}"
 end

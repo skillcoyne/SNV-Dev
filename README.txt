@@ -13,11 +13,11 @@ Current steps in SNP epistasis identification/annotation:
 
 2. Extract all locations that have identified alterations from the patient files.  This step can take some time depending
  on the number of patients.  The resulting locations file is used in subsequent scripts.
-> ruby index_cogie_patient.rb <patient VCF file> <qual range e.g. 72:220> <output dir>
+> ruby index_cogie_patient.rb <config file>
 
 3. Run mdr_filter.rb with the config file from above.  This script will apply the filter to the control and patient files
 and output mdr matrix files.
-> ruby mdr_filter.rb <location of output file from step 2>  <cogie.config file location>
+> ruby mdr_filter.rb <cogie file>
 
 4. Run the run_mdr.rb file with the config file and date of the filter run to be analyzed in the following format: YearMonthDay
 This script will then set up and run the MDR scripts on the cluster. MDR parameters are set by the cogie.config file.

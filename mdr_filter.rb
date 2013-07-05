@@ -38,25 +38,6 @@ def load_filter_locations(filterfile, gi)
   return locations
 end
 
-def setup_output_dirs(cfg)
-  # Don't want to regen the vcf/mdr directory more often than necessary as these files can take the longest to generate
-  ctrl_temp_dir = "#{cfg['output.dir']}/vcf"
-  FileUtils.mkpath(ctrl_temp_dir) unless File.exists? ctrl_temp_dir
-
-  mdr_temp_dir = "#{cfg['output.dir']}/mdr/#{Utils.date}"
-  FileUtils.mkpath(mdr_temp_dir) unless File.exists? mdr_temp_dir
-
-  analysis_dir = "#{cfg['mdr.analysis.dir']}/#{Utils.date}"
-  FileUtils.rm_rf(analysis_dir) if File.exists? analysis_dir
-  FileUtils.mkpath(analysis_dir)
-
-  rank_file_locs = "#{cfg['output.dir']}/rank/#{Utils.date}"
-  FileUtils.rm_rf(rank_file_locs) if File.exists? rank_file_locs
-  FileUtils.mkpath(rank_file_locs)
-
-  return [ctrl_temp_dir, mdr_temp_dir, analysis_dir, rank_file_locs]
-end
-
 ## Rank the patient locations based on the locations pulled from the filter file
 def rank_locations(cfg, patient_locations, ranges)
   puts "Creating ordered ranks"
@@ -142,16 +123,35 @@ Usage: #{$0} <configuration file> <random OPTIONAL>
   exit 2
 end
 
-
 ## Configuration file is expected as input.  Read see resources/cogie.config.example
 cfg = YAML.load_file(ARGV[0])
 
+unless cfg.has_key? 'patient.vcf' and cfg.has_key? 'qual.range' and cfg.has_key? 'output.dir'
+  warn "Config file missing one or more required properties:  patient.vcf, qual.range, output.dir. Exiting."
+  exit -1
+end
+
+
 # Get patient locations, output from index_cogie_patient
-#loc_file = ARGV[0]
-loc_file = "#{cfg['output.dir']}/chr_locations.#{cfg['qual.range']}.txt"
+loc_file = "#{cfg['output.dir']}/#{File.basename(cfg['patient.vcf'], '.vcf')}/chr_locations.#{cfg['qual.range']}.txt"
+patient_vcf_dir = "#{cfg['output.dir']}/#{File.basename(cfg['patient.vcf'], '.vcf')}"
+
+unless File.exists? patient_vcf_dir and File.directory? patient_vcf_dir
+  warn "Please run index_cogie_patient.rb first. Missing vcf files by chromosome for #{cfg['patient.vcf']}"
+  exit -1
+end
 
 
-(ctrl_temp_dir, mdr_temp_dir, analysis_dir, rank_file_locs) = setup_output_dirs(cfg)
+
+mdr_file_dir = "#{cfg['output.dir']}/#{File.basename(cfg['patient.vcf'], '.vcf')}"
+
+unless File.exists?mdr_file_dir and File.directory?mdr_file_dir
+  warn "#{mdr_file_dir} does not exist, run index_cogie_patient.rb first."
+  exit -1
+end
+
+mdr_file_dir = "#{mdr_file_dir}/#{cfg['qual.range']}"
+FileUtils.mkpath(mdr_file_dir) unless File.exists?mdr_file_dir
 
 # Get the locations in rank order
 ranked_locations = load_filter_locations(cfg['ranked.list'], EnsemblInfo.new(cfg['gene.loc']))
@@ -169,24 +169,6 @@ control_files.each do |f|
     control_vcf[chr] = f
   end
 end
-
-# Patient files
-## All patient variation locations by chromosome
-#patient_dirs = []
-#patient_files = Dir.entries(cfg['patient.var.loc'])
-#patient_files.each do |f|
-#  if f.match(/\.func$/)
-#    pdir = "#{cfg['patient.var.loc']}/" + File.basename(f).sub!(/\..*$/, "")
-#    unless (File.exists? pdir and File.directory? pdir)
-#      raise "ERROR: Patient directories missing. Please rerun patient file indexing script."
-#    end
-#    patient_dirs << pdir
-#  end
-#end
-#
-#if patient_dirs.empty?
-#  raise "ERROR: Patient directories missing. Please check that directories and .func files are available."
-#end
 
 
 ## Load the locations that were identified as being in the patient files
@@ -211,166 +193,91 @@ else
   ranked_patient_locations = rank_locations(cfg, patient_locations, ranked_locations)
 end
 
-
-## -- CONTROLS -- ##
-# Get variations for controls in each location that patients also have variations
-# Am not including all possible locations in the control file as that will greatly increase
-# the MDR files and decrease possible hits
-puts "Getting control variations."
-matrix_sizes = []
-columns_per_rank = Hash[ranked_patient_locations.each.map { |r, l| [r, []] }]
-
-tabix_path = cfg['tabix.path']
-## pull out subsets of the VCF files first ##
-columns = 0
-#ranked_patient_locations.sort.map do |rank, locations|
-#  puts "Rank #{rank}: #{locations.length} locations"
-#
-#  "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
-#
-#  next if File.exists? "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
-#  mdr_matrix = SimpleMatrix.new()
-#
-#
-#  locations.sort.map do |cvp|
-#    chr_vcf_file = "#{cfg['control.var.loc']}/#{control_vcf[cvp.chr]}"
-#
-#    sample_names = COGIE::ControlSample.samples(chr_vcf_file)
-#    mdr_matrix.rownames = sample_names if mdr_matrix.rownames.empty?
-#
-#    cvp.locations.each do |loc|
-#        column_name = "#{cvp.chr}:#{loc}"
-#
-#        ctrl = COGIE::ControlSample.new(chr_vcf_file, {:tabix => "#{cvp.chr}:#{loc}-#{loc}", :out => ctrl_temp_dir, :tabix_path => tabix_path})
-#        vars = ctrl.parse_variations(['SNP']) # NOTE: only dealing in SNPs.  Changing this means the columns should be more descriptive
-#
-#        ## Just checking, this should never fail
-#        unless ctrl.samples.empty?
-#          raise "Sample length incorrect" unless ctrl.samples.length.eql?sample_names.length
-#        end
-#
-#        vars.each do |var|
-#          if (var.pos.eql? loc) # sometimes when there's no position at that exact location the next nearest one is returned.
-#            mdr_matrix.add_column(column_name, var.samples.map { |s, v| COGIE::Func.mdr_genotype(v['GT']) })
-#          else
-#            mdr_matrix.add_column(column_name, Array.new(var.samples.length).map { |e| e = '0' })
-#          end
-#        end
-#
-#        ## Sometimes the control files do not list that variation.
-#        ## In this case presume GT = 0
-#        if vars.empty?
-#          col = Array.new(mdr_matrix.size[0])
-#          mdr_matrix.add_column(column_name, col.map! { |e| e = 0 })
-#        end
-#
-#      puts mdr_matrix.size.join(",")
-#    end
-#
-#  end
-#
-#  class_col = Array.new(mdr_matrix.size[0])
-#  mdr_matrix.add_column('Class', class_col.map { |e| e = 0 })
-#
-#  puts mdr_matrix.size.join(", ")
-#  col_count = mdr_matrix.size[1]
-#  mdr_matrix.rows.each_with_index do |row, i|
-#    if row.length != col_count
-#      raise "Matrix columns for control variations in #{rank} are not all the same length. Failed at row #{i} Exiting."
-#    end
-#  end
-#
-#  puts "Rank #{rank}"
-#  puts mdr_matrix.size.join(",")
-#
-#  columns_per_rank[rank] = mdr_matrix.colnames
-#  mdr_matrix.write("#{rank_file_locs}/Rank#{rank}-ctrl.txt", :rownames => false)
-#end
-
-## -- PATIENTS -- ##
-# Patient directories where each chromosome file is kept
-puts "Getting patient variations."
-
+# Get the patient ids for the matrix
 patient_file = cfg['patient.vcf']
 patient_ids = []
-fin = File.open(patient_file, 'r')
-while (line = fin.readline)
+File.open(patient_file, 'r').each_line do |line|
   if line.match(/#CHROM/)
+    line.chomp!
     cols = line.split("\t")
     patient_ids = cols[9..cols.size-1]
     break
   end
 end
 
+patient_dir = File.dirname(cfg['patient.vcf'])
+patient_gz = Dir["#{patient_dir}/*.gz"].first
 
+
+## -- VARIATION DATA -- ##
+# Get variations for both controls and patients in each location that patients have variations
+puts "Getting variations."
+
+columns_per_rank = Hash[ranked_patient_locations.each.map { |r, l| [r, []] }]
+
+tabix_path = cfg['tabix.path']
+## pull out subsets of the VCF files first ##
+columns = 0
 ranked_patient_locations.sort.map do |rank, locations|
-  pt_matrix = SimpleMatrix.new
-  pt_matrix.colnames = columns_per_rank[rank]
+  puts "Rank #{rank}: #{locations.length} locations"
 
-  puts "Rank #{rank}"
+  mdr_matrix = SimpleMatrix.new
 
-  locations.sort.each do |cvp|
+  ctrl_sample_names = []
+  locations.sort.map do |cvp|
 
-    puts cvp
+    chr_vcf_file = "#{cfg['control.var.loc']}/#{control_vcf[cvp.chr]}"
+
+    ctrl_sample_names = COGIE::ControlSample.samples(chr_vcf_file) if ctrl_sample_names.empty?
+
+    mdr_matrix.rownames = [ctrl_sample_names, patient_ids].flatten if mdr_matrix.rownames.empty?
+
     cvp.locations.each do |loc|
+      puts "#{cvp.chr} #{loc}"
+      ## Control Variations
+      ctrl_vcf = Utils.run_tabix(:tabix => "#{chr_vcf_file} #{cvp.chr}:#{loc}-#{loc}")
+      ctrl_genotypes = []
+      unless ctrl_vcf.empty?
+        ctrl_vcf.split("\n").each do |cline|
+          vcf = COGIE::VCF.new(cline, ctrl_sample_names)
 
-      while !fin.eof
-        line = fin.readline
-        vcf = COGIE::VCF.new(line, patient_ids)
-        if vcf.chr.eql? cvp.chr and vcf.pos.eql? loc
-          puts YAML::dump vcf
-exit
+          if vcf.info['VT'].eql? 'SNP' and vcf.pos.eql? loc # Sometimes the nearest location is returned if there's no location in the VCF files that matches
+            ctrl_genotypes = vcf.samples.map { |pt, vals| COGIE::Func.mdr_genotype(vals['GT']) }
+          end
         end
       end
+
+      ctrl_genotypes = ctrl_sample_names.map { |e| 0 } if ctrl_genotypes.empty?
+
+      ## Patient Variations
+      vcf = COGIE::VCF.new(Utils.run_tabix(:tabix => "#{patient_gz} #{cvp.chr}:#{loc}-#{loc}"), patient_ids)
+
+      unless vcf.samples.nil?
+        pt_genotypes = vcf.samples.map { |pt, vals| COGIE::Func.mdr_genotype(vals['GT']) }
+        mdr_matrix.add_column("#{cvp.chr}:#{loc}", [ctrl_genotypes, pt_genotypes].flatten)
+      end
     end
-
   end
+
+
+  ## Add class column
+  # 0 control, 1 patient
+  sample_class = [ctrl_sample_names.map{|e| 0 }, patient_ids.map{|e| 1 }].flatten
+
+  mdr_matrix.add_column('Class', sample_class)
+
+  puts mdr_matrix.size.join(", ")
+  col_count = mdr_matrix.size[1]
+  mdr_matrix.rows.each_with_index do |row, i|
+    if row.length != col_count
+      raise "Matrix columns for control variations in #{rank} are not all the same length. Failed at row #{i} Exiting."
+    end
+  end
+
+  puts "Rank #{rank}"
+  puts mdr_matrix.size.join(",")
+
+  columns_per_rank[rank] = mdr_matrix.colnames
+  mdr_matrix.write("#{mdr_file_dir}/Rank#{rank}.mdr", :rownames => false)
 end
-
-# per patient
-#patient_dirs.each do |dir|
-#  puts "READING #{dir}"
-#  rowname = File.basename(dir)
-#  pt_matrix.add_row(rowname, Array.new(pt_matrix.colnames.length).map { |e| e = 'NA' })
-#
-#  locations.sort.map do |cvp| # this is important to maintain the sort order that was output in the Rank files above
-#    cvp.locations.each do |loc|
-#      colname = "#{cvp.chr}:#{loc}"
-#
-#      fcfile = "#{dir}/Chr#{cvp.chr}.func"
-#      gt = COGIE::PVUtil.find_patient_variation(fcfile, loc)
-#
-#      # Genotype will be nil or an empty string if the variation was not a SNP
-#      # NOTE: Currently we're only dealing with SNPs
-#      if gt.nil? or gt.eql? ""
-#        pt_matrix.add_element(rowname, colname, "0")
-#      else
-#        pt_matrix.add_element(rowname, colname, COGIE::Func.mdr_genotype(gt))
-#      end
-#
-#    end
-#  end
-#end
-
-## Output the matrix of patients to the appropriate RANK file
-pt_matrix.update_column('Class', Array.new(pt_matrix.size[0]).map { |e| e = '1' }) # Class column, 1 = patient so update for all patients
-
-pt_matrix.rows.each_with_index do |row, i|
-  if row.length != columns_per_rank[rank].length
-    puts "#{i} #{pt_matrix.rownames[i]}: #{row.length}"
-#      raise "Matrix columns for control variations in #{rank} at row #{i} are not all the same length. Exiting."
-  end
-end
-
-rankfile = "#{rank_file_locs}/Rank#{rank}-ctrl.txt"
-mdrfile = "#{mdr_temp_dir}/Rank#{rank}.mdr"
-FileUtils.copy(rankfile, mdrfile)
-FileUtils.chmod(0776, mdrfile)
-puts "Writing #{mdrfile}"
-File.open(mdrfile, 'a') { |f|
-  pt_matrix.rows.each_with_index do |row, i|
-    f.write(row.join("\t") + "\n")
-  end
-}
-
 
