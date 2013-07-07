@@ -194,28 +194,26 @@ else
 end
 
 # Get the patient ids for the matrix
-patient_file = cfg['patient.vcf']
-patient_ids = []
-File.open(patient_file, 'r').each_line do |line|
-  if line.match(/#CHROM/)
-    line.chomp!
-    cols = line.split("\t")
-    patient_ids = cols[9..cols.size-1]
-    break
-  end
-end
-
 patient_dir = File.dirname(cfg['patient.vcf'])
-patient_gz = Dir["#{patient_dir}/*.gz"].first
+patient_gz = Dir["#{patient_dir}/#{File.basename(cfg['patient.vcf'], '.vcf')}.*.gz"].first
 
+patient_ids = []
+header_lines = Utils.run_tabix(:tabix_path => cfg['tabix.path'], :tabix => "-H #{patient_gz}")
+header_lines.split("\n").each do |line|
+    if line.match(/#CHROM/)
+	line.chomp!
+	cols = line.split("\t")
+	patient_ids = cols[9..cols.size-1]
+    end
+end
 
 ## -- VARIATION DATA -- ##
 # Get variations for both controls and patients in each location that patients have variations
 puts "Getting variations."
 
+tabix_path = cfg['tabix.path']
 columns_per_rank = Hash[ranked_patient_locations.each.map { |r, l| [r, []] }]
 
-tabix_path = cfg['tabix.path']
 ## pull out subsets of the VCF files first ##
 columns = 0
 ranked_patient_locations.sort.map do |rank, locations|
@@ -227,13 +225,11 @@ ranked_patient_locations.sort.map do |rank, locations|
   locations.sort.map do |cvp|
 
     chr_vcf_file = "#{cfg['control.var.loc']}/#{control_vcf[cvp.chr]}"
-
     ctrl_sample_names = COGIE::ControlSample.samples(chr_vcf_file) if ctrl_sample_names.empty?
-
     mdr_matrix.rownames = [ctrl_sample_names, patient_ids].flatten if mdr_matrix.rownames.empty?
 
     cvp.locations.each do |loc|
-      puts "#{cvp.chr} #{loc}"
+      #puts "Location: #{cvp.chr} #{loc}"
       ## Control Variations
       ctrl_vcf = Utils.run_tabix(:tabix_path => tabix_path, :tabix => "#{chr_vcf_file} #{cvp.chr}:#{loc}-#{loc}")
       ctrl_genotypes = []
@@ -250,11 +246,17 @@ ranked_patient_locations.sort.map do |rank, locations|
       ctrl_genotypes = ctrl_sample_names.map { |e| 0 } if ctrl_genotypes.empty?
 
       ## Patient Variations
-      vcf = COGIE::VCF.new(Utils.run_tabix(:tabix_path => tabix_path, :tabix => "#{patient_gz} #{cvp.chr}:#{loc}-#{loc}"), patient_ids)
-
-      unless vcf.samples.nil?
-        pt_genotypes = vcf.samples.map { |pt, vals| COGIE::Func.mdr_genotype(vals['GT']) }
-        mdr_matrix.add_column("#{cvp.chr}:#{loc}", [ctrl_genotypes, pt_genotypes].flatten)
+      # Note...problem here. Sometimes there are two entries and both are SNPs (non-synon and synon for instance). I can't add two columns with the same name so for the moment I'm only taking the first one. THIS SHOULD BE FIXED.  Just need more unique names than the location.
+      patient_lines = Utils.run_tabix(:tabix_path => tabix_path, :tabix => "#{patient_gz} #{cvp.chr}:#{loc}-#{loc}")
+      patient_lines.split("\n").each do |pline|
+	vcf = COGIE::VCF.new(pline, patient_ids)
+	unless vcf.samples.nil?
+	    if vcf.info['TYPE'].eql? 'SNP' and vcf.pos.eql? loc 
+		pt_genotypes = vcf.samples.map { |pt, vals| COGIE::Func.mdr_genotype(vals['GT']) }
+		mdr_matrix.add_column("#{cvp.chr}:#{loc}", [ctrl_genotypes, pt_genotypes].flatten)
+		break
+	    end
+	end
       end
     end
   end

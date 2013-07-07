@@ -173,11 +173,10 @@ module COGIE
       @format = cols[8].split(":")
 
       samples = cols[9..cols.size-1]
-
       if sample_names == nil # Make the sample names just ["1", "2", ... , "num_samples}"
         sample_names = (1..samples.size).to_a.map { |i| i.to_s }
       elsif sample_names.size != samples.size
-        raise "Unexpected number of samples (#{samples.size}) based on the provided sample names (#{sample_names.inspect})"
+        raise "Unexpected number of samples (#{samples.size}) based on the provided sample names (#{sample_names.size})"
       end
 
       @samples = {}
