@@ -60,7 +60,7 @@ File.open(patients_file, 'r').each_with_index do |line, i|
   next unless v.info['TYPE'].eql? 'SNP' and qual_range.include?(v.qual)
   count += 1
   (locations[v.chr] ||= []) << v.pos
-  break if count > 500
+  #break if count > 500
 end
 
 if locations.length > 0

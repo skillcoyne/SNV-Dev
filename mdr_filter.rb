@@ -137,7 +137,7 @@ loc_file = "#{cfg['output.dir']}/#{File.basename(cfg['patient.vcf'], '.vcf')}/ch
 patient_vcf_dir = "#{cfg['output.dir']}/#{File.basename(cfg['patient.vcf'], '.vcf')}"
 
 unless File.exists? patient_vcf_dir and File.directory? patient_vcf_dir
-  warn "Please run index_cogie_patient.rb first. Missing vcf files by chromosome for #{cfg['patient.vcf']}"
+  warn "Please run index_cogie_patient.rb first. Missing chromosome locations for #{cfg['patient.vcf']}"
   exit -1
 end
 
