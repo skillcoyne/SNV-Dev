@@ -235,7 +235,7 @@ ranked_patient_locations.sort.map do |rank, locations|
     cvp.locations.each do |loc|
       puts "#{cvp.chr} #{loc}"
       ## Control Variations
-      ctrl_vcf = Utils.run_tabix(:tabix => "#{chr_vcf_file} #{cvp.chr}:#{loc}-#{loc}")
+      ctrl_vcf = Utils.run_tabix(:tabix_path => tabix_path, :tabix => "#{chr_vcf_file} #{cvp.chr}:#{loc}-#{loc}")
       ctrl_genotypes = []
       unless ctrl_vcf.empty?
         ctrl_vcf.split("\n").each do |cline|
@@ -250,7 +250,7 @@ ranked_patient_locations.sort.map do |rank, locations|
       ctrl_genotypes = ctrl_sample_names.map { |e| 0 } if ctrl_genotypes.empty?
 
       ## Patient Variations
-      vcf = COGIE::VCF.new(Utils.run_tabix(:tabix => "#{patient_gz} #{cvp.chr}:#{loc}-#{loc}"), patient_ids)
+      vcf = COGIE::VCF.new(Utils.run_tabix(:tabix_path => tabix_path, :tabix => "#{patient_gz} #{cvp.chr}:#{loc}-#{loc}"), patient_ids)
 
       unless vcf.samples.nil?
         pt_genotypes = vcf.samples.map { |pt, vals| COGIE::Func.mdr_genotype(vals['GT']) }

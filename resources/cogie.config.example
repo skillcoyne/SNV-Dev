@@ -15,13 +15,13 @@ gene.loc: /<path to gene location file
 control.var.loc: /<path to control variation file dir>
 
 # Patient vcf
-patient.vcf: /Users/sarah.killcoyne/Data/COGIE/patients/ige03052013.ls.vcf-GTcorr.vcf
+patient.vcf: /<path to patient vcf file>
 
-qual.range: 72-220
+qual.range: <vcf quality score range: ex. 72-220>
 
 ## Output
 # File output dir
-output.dir: /Users/sarah.killcoyne/cogie-tmp/temp/IGE
+output.dir: /<path to output directory>
 
 
 
