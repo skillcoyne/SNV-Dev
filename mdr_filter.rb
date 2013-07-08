@@ -141,17 +141,9 @@ unless File.exists? patient_vcf_dir and File.directory? patient_vcf_dir
   exit -1
 end
 
+dirs = Utils.data_dir(cfg)
+mdr_file_dir = dirs[:qual_dir]
 
-
-mdr_file_dir = "#{cfg['output.dir']}/#{File.basename(cfg['patient.vcf'], '.vcf')}"
-
-unless File.exists?mdr_file_dir and File.directory?mdr_file_dir
-  warn "#{mdr_file_dir} does not exist, run index_cogie_patient.rb first."
-  exit -1
-end
-
-mdr_file_dir = "#{mdr_file_dir}/#{cfg['qual.range']}"
-FileUtils.mkpath(mdr_file_dir) unless File.exists?mdr_file_dir
 
 # Get the locations in rank order
 ranked_locations = load_filter_locations(cfg['ranked.list'], EnsemblInfo.new(cfg['gene.loc']))
@@ -200,11 +192,11 @@ patient_gz = Dir["#{patient_dir}/#{File.basename(cfg['patient.vcf'], '.vcf')}.*.
 patient_ids = []
 header_lines = Utils.run_tabix(:tabix_path => cfg['tabix.path'], :tabix => "-H #{patient_gz}")
 header_lines.split("\n").each do |line|
-    if line.match(/#CHROM/)
-	line.chomp!
-	cols = line.split("\t")
-	patient_ids = cols[9..cols.size-1]
-    end
+  if line.match(/#CHROM/)
+    line.chomp!
+    cols = line.split("\t")
+    patient_ids = cols[9..cols.size-1]
+  end
 end
 
 ## -- VARIATION DATA -- ##
@@ -249,14 +241,14 @@ ranked_patient_locations.sort.map do |rank, locations|
       # Note...problem here. Sometimes there are two entries and both are SNPs (non-synon and synon for instance). I can't add two columns with the same name so for the moment I'm only taking the first one. THIS SHOULD BE FIXED.  Just need more unique names than the location.
       patient_lines = Utils.run_tabix(:tabix_path => tabix_path, :tabix => "#{patient_gz} #{cvp.chr}:#{loc}-#{loc}")
       patient_lines.split("\n").each do |pline|
-	vcf = COGIE::VCF.new(pline, patient_ids)
-	unless vcf.samples.nil?
-	    if vcf.info['TYPE'].eql? 'SNP' and vcf.pos.eql? loc 
-		pt_genotypes = vcf.samples.map { |pt, vals| COGIE::Func.mdr_genotype(vals['GT']) }
-		mdr_matrix.add_column("#{cvp.chr}:#{loc}", [ctrl_genotypes, pt_genotypes].flatten)
-		break
-	    end
-	end
+        vcf = COGIE::VCF.new(pline, patient_ids)
+        unless vcf.samples.nil?
+          if vcf.info['TYPE'].eql? 'SNP' and vcf.pos.eql? loc
+            pt_genotypes = vcf.samples.map { |pt, vals| COGIE::Func.mdr_genotype(vals['GT']) }
+            mdr_matrix.add_column("#{cvp.chr}:#{loc}", [ctrl_genotypes, pt_genotypes].flatten)
+            break
+          end
+        end
       end
     end
   end
@@ -264,7 +256,7 @@ ranked_patient_locations.sort.map do |rank, locations|
 
   ## Add class column
   # 0 control, 1 patient
-  sample_class = [ctrl_sample_names.map{|e| 0 }, patient_ids.map{|e| 1 }].flatten
+  sample_class = [ctrl_sample_names.map { |e| 0 }, patient_ids.map { |e| 1 }].flatten
 
   mdr_matrix.add_column('Class', sample_class)
 
@@ -282,4 +274,10 @@ ranked_patient_locations.sort.map do |rank, locations|
   columns_per_rank[rank] = mdr_matrix.colnames
   mdr_matrix.write("#{mdr_file_dir}/Rank#{rank}.mdr", :rownames => false)
 end
+
+
+#jar = cfg['mdr.jar'] || "MDR.jar"
+#ms = MDRScript.new(mdr_file_dir, dirs[:analysis_dir])
+#output_files = ms.write_script(:type => 'Java', :jar => jar, :k => cfg['mdr.K'], :models => cfg['mdr.models'])
+#output_files.each {|f| ms.run_script(f, cfg['oar.core'], cfg['oar.walltime'])}
 

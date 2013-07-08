@@ -28,9 +28,9 @@ end
 
 # Get patient variations in each location and create separate chromosome vcf files
 patients_file = cfg['patient.vcf']
-outdir = "#{cfg['output.dir']}/#{File.basename(patients_file, '.vcf')}"
 
-FileUtils.mkpath(outdir) unless File.exists?outdir
+dirs = Utils.data_dir(cfg, false)
+outdir = dirs[:data_dir]
 
 # Quality range
 qual = cfg['qual.range'].split("-")
