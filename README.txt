@@ -17,14 +17,14 @@ Current steps in SNP epistasis identification/annotation:
 
 3. Run mdr_filter.rb with the config file from above.  This script will apply the filter to the control and patient files
 and output mdr matrix files.
-> ruby mdr_filter.rb <cogie file>
+> ruby mdr_filter.rb <config file>
 
 4. Run the run_mdr.rb file with the config file and date of the filter run to be analyzed in the following format: YearMonthDay
 This script will then set up and run the MDR scripts on the cluster. MDR parameters are set by the cogie.config file.
 Max settings depends on the cluster.  Higher K values increase the computational time with large mdr.max values.
 
 Parameters for the OAR scripts are also set up in the cogie.config file.
-> ruby run_mdr.rb <cogie.confg file location> 20130101
+> ruby run_mdr.rb <config file>
 
 5. Run the read_mdr_results.rb script to translate the mdr output from chromosome locations to ensembl genes. Currently it only queries
 for protein coding genes so some locations will not have results.
