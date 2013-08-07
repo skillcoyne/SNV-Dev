@@ -113,6 +113,7 @@ end
 ############################
 ### ---- START MAIN ---- ###
 ############################
+
 if ARGV.length < 1
   usage =<<-USAGE
 Usage: #{$0} <configuration file> <random OPTIONAL>

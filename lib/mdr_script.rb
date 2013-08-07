@@ -52,7 +52,8 @@ CMD
     output = File.basename(mdrfile).sub(/\..*$/, "")
     jar = @jar_path || "MDR.jar"
     java =<<-Java
-java -jar #{jar} -parallel -nolandscape -top_models_landscape_size=#{models} -cv=10 -max=#{k} -all_models_outfile=#{@out_path}/#{output}-models.txt #{mdrfile} > #{@out_path}/#{output}.txt
+java -jar #{jar} -parallel -nolandscape -top_models_landscape_size=#{models} -cv=10 -max=#{k} -all_models_outfile=#{@out_path}/#{output}-models.txt #{mdrfile} >
+#{@out_path}/#{output}.txt
     Java
     return write("#{output}.sh", java)
   end
