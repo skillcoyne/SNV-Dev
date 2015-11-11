@@ -4,72 +4,83 @@ require 'yaml'
 
 def query_ensembl(regions = [])
   raise "Chromosome region(s) array required" if regions.empty?
+puts regions
   sr = $hsgene.search(
       :filters => {'chromosomal_region' => regions, 'status' => ['KNOWN']},
-      :attributes => ['ensembl_gene_id', 'external_gene_id', 'ensembl_peptide_id', 'gene_biotype'],
+      :attributes => ['ensembl_gene_id', 'external_gene_id', 'entrezgene'], #, 'ensembl_peptide_id' 'go_id', 'name_1006', 'namespace_1003'],
       :process_results => true
-  ).reject! { |e| e['ensembl_peptide_id'].nil? }
-
-  results = {:genes => [""], :proteins => [""]}
-  unless sr.nil?
-    sr.select!{|e| e['gene_biotype'].eql?'protein_coding'}
-    results[:genes] = sr.map{|e| e['ensembl_gene_id']}.uniq
-    results[:proteins] = sr.map{|e| e['ensembl_peptide_id']}.uniq
-  end
-
-  return results
+  )
+  return sr
 end
 
-file = ARGV[0]
-
-path = File.absolute_path(file.sub(File.basename(file), ""))
-output_file = "#{path}/#{File.basename(file, '.txt')}-genes.txt"
-
+#file = ARGV[0]
 biomart = Biomart::Server.new("http://www.ensembl.org/biomart")
 $hsgene = biomart.datasets['hsapiens_gene_ensembl']
 
+dir = "/Users/sarah.killcoyne/Data/COGIE/analysis/JME/0-50000/high-rank"
+files = Dir["#{dir}/*.txt"]
 
-fout = File.open(output_file, 'w')
-fout.write( ["k", "Model", "Score", "Genes", "Proteins"].join("\t") + "\n")
+puts files
+puts "-------"
 
-in_models = false
-File.open(file, 'r').each_line do |line|
-  line.chomp!
-  if line.match(/Attributes	bal\. acc\. Model training/)
-    in_models = true
-    next
-  end
-  if line.match(/MDR finished/)
-    break
-  end
+processed = files.select{|e| e.match(/-genes/) }
+files.delete_if{|e| e.match(/-genes/) }
+processed.map!{|e| e.sub("-genes", "") }
 
-  if in_models
-    next if line.empty?
+files.select!{|e| processed.index(e).nil?  }
+
+files.each do |file|
+  puts file
+
+  path = File.absolute_path(file.sub(File.basename(file), ""))
+  output_file = "#{path}/#{File.basename(file, '.txt')}-genes.txt"
+
+  fout = File.open(output_file, 'w')
+
+  File.open(file, 'r').each_with_index do |line, index|
+    sleep 3 if index % 10 == 0   ## so that biomart doesn't get angry
+
+    line.chomp!
+
+    if index == 0 and !line.match(/modelAttributes/)
+      warn "This is not an 'all models' file from MDR. Exiting"
+      exit
+    end
+    next if line.empty? or line.match(/modelAttributes/)
     model_info = line.split("\t")
 
     ids = model_info[0]
     score = model_info[1]
     k = ""
 
+    regions = []
     if ids.include? ","
-      regions = []
       ids.split(",").each do |s|
         (chr, location) = s.split(":")
-        regions.push("#{chr}:#{location}:#{location}")
+        regions << "#{chr}:#{location}:#{location}"
       end
-
-      results = query_ensembl(regions)
       k = regions.length
-    else # singles
+    else # singles -- IGNORE FOR NOW
       (chr, location) = ids.split(":")
-      results = query_ensembl(["#{chr}:#{location}:#{location}"])
+      regions << "#{chr}:#{location}:#{location}"
       k = 1
     end
+    next if regions.empty?
 
-    print( [k, ids, score, results[:genes].join(","), results[:proteins].join(",")].join("\t") + "\n" )
-    fout.write( [k, ids, score, results[:genes].join(","), results[:proteins].join(",")].join("\t") + "\n" )
+    sr = $hsgene.search(
+        :filters => {'chromosomal_region' => regions, 'status' => ['KNOWN']},
+        :attributes => ['ensembl_gene_id', 'external_gene_id', 'entrezgene'],
+        :process_results => true );
+
+    next if sr.nil?
+
+    fout.write ["#{k}", ids, score].join("\t") + "\n"
+    sr.each do |r|
+      fout.write "\t" + [ r['external_gene_id'], r['ensembl_gene_id'], r['entrezgene'] ].join("\t") + "\n"
+    end
+
   end
+  fout.close
+  puts "#{output_file} written."
 end
 
-fout.close
-puts "#{output_file} written."
